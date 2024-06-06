@@ -22,7 +22,7 @@ local CONFIG = {
 
 for key, enabled in pairs(CONFIG) do
     if enabled then
-        local path = key:gsub("_", "/")
+        local path = key:gsub("_", "/", 1)
         require(SMODS.current_mod.path .. "/" .. path) -- name files "joker_<name>" so they get loaded automatically
         sendDebugMessage("Paperback :: Loaded joker: " .. key)
     end
