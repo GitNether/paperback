@@ -13,17 +13,17 @@
 
 _RELEASE_MODE = false -- REMOVE IN RELEASE
 
-PB_UTIL = require(SMODS.current_mod.path .. "paperback-utils")
+PB_UTIL = require(SMODS.current_mod.path .. "/paperback-utils")
 
 -- Config: Enable or disable additional jokers here
 local CONFIG = {
-    joker_example
+    joker_example = true,
 }
 
 for key, enabled in pairs(CONFIG) do
     if enabled then
         local path = key:gsub("_", "/")
-        require(SMODS.current_mod.path .. path) -- name files "joker_<name>" so they get loaded automatically
+        require(SMODS.current_mod.path .. "/" .. path) -- name files "joker_<name>" so they get loaded automatically
         sendDebugMessage("Paperback :: Loaded joker: " .. key)
     end
 end
