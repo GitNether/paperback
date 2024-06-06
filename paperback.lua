@@ -6,7 +6,7 @@
 --- MOD_AUTHOR: [PaperMoon, Nether]
 --- MOD_DESCRIPTION: Add new Jokers to the game
 --- LOADER_VERSION_GEQ: 1.0.0
---- VERSION: 0.2.0
+--- VERSION: 0.1.0
 
 ----------------------------------------------
 ------------MOD CODE -------------------------
@@ -15,7 +15,7 @@
 
 _RELEASE_MODE = false -- REMOVE IN RELEASE
 
-PB_UTIL = require(SMODS.current_mod.path.."/paperback-utils")
+PB_UTIL = require(SMODS.current_mod.path .. "paperback-utils")
 
 -- Config: Enable or disable additional jokers here
 local CONFIG = {
