@@ -1,12 +1,10 @@
-
-
 --- STEAMODDED HEADER
 --- MOD_NAME: Paperback
 --- MOD_ID: paperback
 --- MOD_AUTHOR: [PaperMoon, Nether]
---- MOD_DESCRIPTION: Add new Jokers to the game
+--- MOD_DESCRIPTION: A vanilla centered mod built upon expanding the base game with jokers
 --- LOADER_VERSION_GEQ: 1.0.0
---- VERSION: 0.1.0
+--- VERSION: 0.0.0
 
 ----------------------------------------------
 ------------MOD CODE -------------------------
