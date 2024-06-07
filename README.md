@@ -2,7 +2,7 @@
 
 A vanilla centered mod built upon expanding the base game with jokers (original idea and art by PaperMoon)
 
-[Discord Server]() (coming soon) 
+[Discord Server](https://discord.gg/uhqx4Yr33j) 
 
 ## Implemented
 
