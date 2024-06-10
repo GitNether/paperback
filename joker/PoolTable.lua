@@ -1,5 +1,5 @@
 SMODS.Joker {
-    key = 'pooltable',
+    key = 'pool_table',
     loc_txt = {
         name = "Pool Table",                                --name used by the joker
         text = {
