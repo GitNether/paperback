@@ -6,7 +6,7 @@ A vanilla centered mod built upon expanding the base game with jokers (original 
 
 ## Implemented
 
-- coming soon
+- Pool Table :: If first hand of round scored all non-face cards, create a planet of the played hand.
 
 ## In Progress & Planned
 
