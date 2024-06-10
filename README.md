@@ -1,4 +1,4 @@
-# Paperback - Jokers & Consumables - Steamodded v1.0.0+
+# Paperback :: Jokers & Consumables :: Steamodded v1.0.0+
 
 A vanilla centered mod built upon expanding the base game with jokers (original idea and art by PaperMoon)
 
@@ -10,4 +10,4 @@ A vanilla centered mod built upon expanding the base game with jokers (original 
 
 ## In Progress & Planned
 
-See [Spreadsheet with progress]() (coming soon)
+See [spreadsheet with progress]() (coming soon)
