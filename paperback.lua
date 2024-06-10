@@ -1,17 +1,16 @@
 --- STEAMODDED HEADER
 --- MOD_NAME: Paperback
 --- MOD_ID: paperback
---- MOD_AUTHOR: [PaperMoon, Nether]
+--- MOD_AUTHOR: [PaperMoon, Nether, OppositeWolf770]
 --- MOD_DESCRIPTION: A vanilla centered mod built upon expanding the base game with jokers
 --- LOADER_VERSION_GEQ: 1.0.0
---- VERSION: 0.0.0
+--- VERSION: 1.0.0
 
 ----------------------------------------------
 ------------MOD CODE -------------------------
+----------------------------------------------
 
--- feel free to add your names to the Mod Author list if you're working on this mod
-
-_RELEASE_MODE = false -- REMOVE IN RELEASE
+_RELEASE_MODE = false -- DEBUG MODE :: REMOVE IN RELEASE
 
 PB_UTIL = require(SMODS.current_mod.path .. "/paperback-utils")
 
@@ -25,7 +24,6 @@ SMODS.Atlas {
 
 -- Config: Enable or disable additional jokers here
 local CONFIG = {
-    joker_example = true,
     joker_PoolTable = true,
 }
 
