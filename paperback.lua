@@ -24,7 +24,7 @@ SMODS.Atlas {
 
 -- Config: Enable or disable additional jokers here
 local CONFIG = {
-    joker_PoolTable = true,
+    joker_pool_table = true,
 }
 
 for key, enabled in pairs(CONFIG) do
