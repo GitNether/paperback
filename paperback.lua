@@ -15,6 +15,14 @@ _RELEASE_MODE = false -- REMOVE IN RELEASE
 
 PB_UTIL = require(SMODS.current_mod.path .. "/paperback-utils")
 
+-- Registers the atlas for Jokers
+SMODS.Atlas {  
+    key = 'jokers_atlas',
+    px = 71,
+    py = 95,
+    path = 'Jokers.png'
+}
+
 -- Config: Enable or disable additional jokers here
 local CONFIG = {
     joker_example = true,
