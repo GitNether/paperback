@@ -1,9 +1,9 @@
-SMODS.Atlas {  
-    key = 'pooltableimg',
-    px = 71,
-    py = 95,
-    path = 'PoolTable.png'
-}
+-- SMODS.Atlas {  
+--     key = 'jokers_atlas',
+--     px = 71,
+--     py = 95,
+--     path = 'Jokers.png'
+-- }
 
 SMODS.Joker {
     key = 'pooltable',
@@ -17,8 +17,8 @@ SMODS.Joker {
     },
     config = {}, --variables used for abilities and effects.
     rarity = 2,                                         --rarity 1=common, 2=uncommen, 3=rare, 4=legendary
-    pos = { x = 0, y = 0 },                             --pos in spirtesheet 0,0 for single sprites or the first sprite in the spritesheet
-    atlas = 'pooltableimg',                                        --defines the atlas that you want to use for the sprite sheet. atlas=nil if you want to use single sprites
+    pos = { x = 9, y = 0 },                             --pos in spirtesheet 0,0 for single sprites or the first sprite in the spritesheet
+    atlas = 'jokers_atlas',                                        --defines the atlas that you want to use for the sprite sheet. atlas=nil if you want to use single sprites
     cost = 6,                                           --cost to buy the joker in shops
     unlocked = true,                                    --joker is unlocked by default
     discovered = true,                                  --joker is discovered by default
