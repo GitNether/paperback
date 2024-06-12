@@ -12,7 +12,7 @@ SMODS.Joker {
     config = { extra = { Xmult_mod = 0.25, x_mult = 1 } },
     rarity = 2,
     pos = { x = 0, y = 0 },
-    atlas = 'joker_atlas',
+    atlas = 'jokers_atlas',
     cost = 6,
     unlocked = true,
     discovered = true,
