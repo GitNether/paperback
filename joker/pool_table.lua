@@ -1,23 +1,23 @@
 SMODS.Joker {
     key = 'pool_table',
     loc_txt = {
-        name = "Pool Table",                                --name used by the joker
+        name = "Pool Table",
         text = {
             "If first hand of round scores all {C:attention}non-face cards{},",
             "creates the {C:planet}Planet{} card of the played {C:attention}poker hand{}",
             "{C:inactive}(Must have room)"
         }
     },
-    config = {}, --variables used for abilities and effects.
-    rarity = 2,                                         --rarity 1=common, 2=uncommen, 3=rare, 4=legendary
-    pos = { x = 9, y = 0 },                             --pos in spirtesheet 0,0 for single sprites or the first sprite in the spritesheet
-    atlas = 'jokers_atlas',                                        --defines the atlas that you want to use for the sprite sheet. atlas=nil if you want to use single sprites
-    cost = 6,                                           --cost to buy the joker in shops
-    unlocked = true,                                    --joker is unlocked by default
-    discovered = true,                                  --joker is discovered by default
-    blueprint_compat = true,                            --does joker work with blueprint
-    eternal_compat = true,                              --can joker be eternal
-    soul_pos = nil,                            --pos of a soul sprite.
+    config = {},
+    rarity = 2,
+    pos = { x = 9, y = 0 },
+    atlas = 'jokers_atlas',
+    cost = 6,
+    unlocked = true,
+    discovered = true,
+    blueprint_compat = true,
+    eternal_compat = true,
+    soul_pos = nil,
 
     -- Calculate function for the Joker
     calculate = function(self, card, context)
