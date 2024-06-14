@@ -3,8 +3,8 @@ SMODS.Joker {
     loc_txt = {
         name = "Sacrificial Lamb",
         text = {
-            "Gains {C:mult}+5 Mult{} when",
-            "for each card {C:attention}sold{}",
+            "Gains {C:mult}+#1# Mult{}",
+            "for each card {C:attention}destroyed{}",
             "{C:inactive}(Currently gives {}{C:mult}+#1#{} {C:inactive}Mult){}"
         }
     },
