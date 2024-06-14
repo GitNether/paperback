@@ -10,7 +10,7 @@ For the alpha-pre-release-testing-proceed-at-your-own-risk version, simply [down
 
 ## Implemented
 
-- **Calling Card** :: Gains 0.25x Mult whenever you defeat a Boss Blind or trigger its ability.
+- **Calling Card** :: Gains X0.25 Mult whenever you defeat a Boss Blind or trigger its ability.
 - **Pool Table** :: If first hand of round scored all non-face cards, create a planet of the played hand.
 
 ## In Progress & Planned
