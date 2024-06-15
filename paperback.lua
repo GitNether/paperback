@@ -27,6 +27,7 @@ SMODS.Atlas {
 local CONFIG = {
     joker_pool_table = true,
     joker_calling_card = true,
+    joker_skydiver = true,
 }
 
 for key, enabled in pairs(CONFIG) do
