@@ -4,7 +4,7 @@ SMODS.Joker {
         name = "Sacrificial Lamb",
         text = {
             "Gains {C:mult}+#1# Mult{}",
-            "for each card {C:attention}destroyed{}",
+            "for each card and joker {C:attention}destroyed{}",
             "{C:inactive}(Currently gives {}{C:mult}+#1#{} {C:inactive}Mult){}"
         }
     },
