@@ -3,7 +3,7 @@ SMODS.Joker {
     loc_txt = {
         name = "Ghost Cola",
         text = {
-            "On {C:attention}Sell{}, create a {C:dark_edition}Negative{} Tag",
+            "Sell this card to create a {C:attention}#1#{}",
             "and a random {C:dark_edition}Negative{} {C:spectral}Spectral{} card.",
         }
     },
@@ -17,6 +17,16 @@ SMODS.Joker {
     blueprint_compat = false,
     eternal_compat = false,
     soul_pos = nil,
+
+    yes_pool_flag = "diet_cola_sold",
+
+    loc_vars = function(self, info_queue, center) 
+            return {
+                vars = {
+                    localize{type = 'name_text', set = 'Tag', key = 'tag_negative', nodes = {}},
+                }
+            }
+    end,
     
     calculate = function(self, card, context)
         if context.selling_self then
@@ -44,5 +54,34 @@ SMODS.Joker {
         end
     end,
 }
+
+-- Code to allow Ghost Cola to show up
+-- in the shop When Diet Cola is sold
+--------------------------------------------------
+
+-- Creates the flag
+local BackApply_to_run_ref = Back.apply_to_run
+function Back.apply_to_run(arg_56_0)
+    BackApply_to_run_ref(arg_56_0)
+    G.GAME.pool_flags.diet_cola_sold = false
+    G.P_CENTERS['j_diet_cola']['no_pool_flag'] = 'diet_cola_sold'
+end
+
+-- Modifies the `diet_cola_sold` flag
+local calculate_joker_ref = Card.calculate_joker
+function Card:calculate_joker(context)
+    local ret = calculate_joker_ref(self, context)
+
+    if self.ability.set == "Joker" and not self.debuff then
+        if context.selling_self then
+            if self.ability.name == 'Diet Cola' then
+                G.GAME.pool_flags.diet_cola_sold = true
+            end
+        end
+    end
+
+    return ret
+end
+--------------------------------------------------
 
 
