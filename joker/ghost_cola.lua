@@ -19,6 +19,7 @@ SMODS.Joker {
     soul_pos = nil,
 
     yes_pool_flag = "diet_cola_sold",
+    no_pool_flag = "ghost_cola_can_spawn",
 
     loc_vars = function(self, info_queue, center) 
             return {
@@ -51,6 +52,9 @@ SMODS.Joker {
                     return true
                 end
             )}))
+
+            -- Make Ghost Cola extinct
+            G.GAME.pool_flags.ghost_cola_can_spawn = false
         end
     end,
 }
@@ -64,7 +68,7 @@ local BackApply_to_run_ref = Back.apply_to_run
 function Back.apply_to_run(arg_56_0)
     BackApply_to_run_ref(arg_56_0)
     G.GAME.pool_flags.diet_cola_sold = false
-    G.P_CENTERS['j_diet_cola']['no_pool_flag'] = 'diet_cola_sold'
+    G.GAME.pool_flags.ghost_cola_can_spawn = true
 end
 
 -- Modifies the `diet_cola_sold` flag
@@ -83,5 +87,3 @@ function Card:calculate_joker(context)
     return ret
 end
 --------------------------------------------------
-
-
