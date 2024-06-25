@@ -69,7 +69,7 @@ function Back.apply_to_run(arg_56_0)
     G.GAME.pool_flags.ghost_cola_can_spawn = false
 end
 
--- Modifies the `diet_cola_sold` flag
+-- Allows Ghost Cola to spawn on Diet Cola sold
 local calculate_joker_ref = Card.calculate_joker
 function Card:calculate_joker(context)
     local ret = calculate_joker_ref(self, context)
