@@ -3,7 +3,7 @@ SMODS.Joker {
     loc_txt = {
         name = "Skydiver",
         text = {
-            "{C:white,X:mult}x#1#{} Mult if all {C:attention}scored cards{} are equal",
+            "{C:white,X:mult}X#1#{} Mult if all {C:attention}scored cards{} are equal",
             "to or lower than the {C:attention}lowest ranked{} card scored this round.",
             "Lowest card updated at end of played hand.",
             "(Currently: #2#)"
