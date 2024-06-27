@@ -13,7 +13,7 @@
 
 _RELEASE_MODE = false -- DEBUG MODE :: REMOVE IN RELEASE
 
-PB_UTIL = require(SMODS.current_mod.path .. "/paperback-utils")
+PB_UTIL = NFS.load(SMODS.current_mod.path .. "/paperback-utils.lua")()
 
 -- Registers the atlas for Jokers
 SMODS.Atlas {  
@@ -32,7 +32,7 @@ local CONFIG = {
 for key, enabled in pairs(CONFIG) do
     if enabled then
         local path = key:gsub("_", "/", 1)
-        require(SMODS.current_mod.path .. "/" .. path) -- name files "joker_<name>" so they get loaded automatically
+        NFS.load(SMODS.current_mod.path .. "/" .. path .. ".lua")() -- name files "joker_<name>" so they get loaded automatically
         sendDebugMessage("Paperback :: Loaded joker: " .. key)
     end
 end
