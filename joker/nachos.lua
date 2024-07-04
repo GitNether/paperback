@@ -40,7 +40,7 @@ SMODS.Joker {
 
     calculate = function(self, card, context)
         if context.joker_main then
-            xChips(2, card) -- does x2 Chips
+            xChips(card.ability.extra.X_chips, card)
 
         elseif context.discard then
             if not context.blueprint then
@@ -77,6 +77,29 @@ SMODS.Joker {
         end
     end
 }
+
+-- JokerDisplay mod integration
+if SMODS.Mods["JokerDisplay"] then
+    jd_def = JokerDisplay.Definitions
+
+    jd_def["j_pape_nachos"] = {
+        line_1 = {
+            {
+                border_nodes = {
+                    {
+                        text = "X"
+                    },
+                    {
+                        ref_table = "card.ability.extra",
+                        ref_value = "X_chips"
+                    },
+                    colour = G.C.CHIPS
+                },
+                border_colour = G.C.CHIPS
+            }
+        }
+    }
+end
 
 
 -- xChips functions from @PT_Cerlo on Discord
