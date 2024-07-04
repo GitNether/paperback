@@ -13,6 +13,7 @@ For the alpha-pre-release-testing-proceed-at-your-own-risk version, simply [down
 - **Calling Card** :: Gains X0.25 Mult whenever you defeat a Boss Blind or trigger its ability.
 - **Pool Table** :: If first hand of round scored all non-face cards, create a planet of the played hand.
 - **Ghost Cola** :: Sell this card to create a Negative Tag and a random Negative Spectral card.
+- **Nachos** :: X2 Chips, loses X0.05 Chips per card discarded.
 
 ## In Progress & Planned
 
