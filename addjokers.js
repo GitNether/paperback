@@ -64,7 +64,7 @@ let inProgressJokers = [
   {
     name: "Nachos",
     text: [
-      "x2 Chips. Reduced by 0.05 for every discard."
+      "{X:chips}X2{} Chips, loses {X:chips}X0.05{} Chips per {C:attention}card{} discarded"
     ],
     image_url: "img/j_nachos.png",
     rarity: "Common"
