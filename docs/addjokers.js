@@ -167,6 +167,152 @@ let conceptJokers = [
       ],
     image_url: "img/j_union_card.png",
     rarity: "Rare"
+  },
+
+  // No art below this line
+  {
+    name: "Jester of Nihil",
+    text: [
+      "All cards are considered every suit. Debuffed cards give x2 Mult"
+    ],
+    image_url: "img/j_joker.png",
+    rarity: "Rare"
+  },
+  {
+    name: "Complete Breakfast",
+    text: [
+      "Gives +20 Mult and +100 Chips. 1 in 10 chance to break after played hand. Chance increases by 1 after every played hand."
+    ],
+    image_url: "img/j_joker.png",
+    rarity: "Common"
+  },
+  {
+    name: "Reference Card",
+    text: [
+      "Gains 1x Mult for all times the base Hands have been played"
+    ],
+    image_url: "img/j_joker.png",
+    rarity: "Common"
+  },
+  {
+    name: "Crispy Taco",
+    text: [
+      "3x Chips. 1 in 10 chance to break at the end of the round."
+    ],
+    image_url: "img/j_joker.png",
+    rarity: "Uncommon"
+  },
+  {
+    name: "Soft Taco",
+    text: [
+      "3x Mult. 1 in 10 chance to break at the end of the round."
+    ],
+    image_url: "img/j_joker.png",
+    rarity: "Uncommon"
+  },
+  {
+    name: "Prince of Darkness",
+    text: [
+      "If scored hand contains three different Suits, this card gains +3 Mult, +5 Chips, and +1 Sell Value."
+    ],
+    image_url: "img/j_joker.png",
+    rarity: "Common"
+  },
+  {
+    name: "Passport",
+    text: [
+      "Gains 0.25x Mult if played hand is not the previously played hand."
+    ],
+    image_url: "img/j_joker.png",
+    rarity: "Uncommon"
+  },
+  {
+    name: "Black Rainbows",
+    text: [
+      "Scored Spades and Clubs have a 1 in 11 chance to be made Polychrome"
+    ],
+    image_url: "img/j_joker.png",
+    rarity: "Rare"
+  },
+  {
+    name: "Emergency Broadcast",
+    text: [
+      "Scored 5s and 8s provide +5 Mult and +8 Chips"
+    ],
+    image_url: "img/j_joker.png",
+    rarity: "Common"
+  },
+  {
+    name: "Triple Moon Goddess",
+    text: [
+      "If played hand contains Three of a Kind, create a Tarot and Planet Card"
+    ],
+    image_url: "img/j_joker.png",
+    rarity: "Uncommon"
+  },
+  {
+    name: "Plague Doctor",
+    text: [
+      "If hand is High Card, covert the card into an Apostle. (Apostle - Face Card, Scores 12 Chips)"
+    ],
+    image_url: "img/j_joker.png",
+    rarity: "Uncommon"
+  },
+  {
+    name: "WhiteNight",
+    text: [
+      "Destroy all Non-Apostle Cards played after hand is scored. Apostle Cards gain +5 Mult for every card destroyed this way. Scored Apostle Cards provide 2x Mult"
+    ],
+    image_url: "img/j_joker.png",
+    rarity: "Legendary"
+  },
+  {
+    name: "One Sin and Hundreds of Good Deeds",
+    text: [
+      "Gains +3 Mult when a 3 or Rankless Card is scored"
+    ],
+    image_url: "img/j_joker.png",
+    rarity: "Common"
+  },
+  {
+    name: "Marksman",
+    text: [
+      "Last scored card in hand gains a 'Coin Seal'"
+    ],
+    image_url: "img/j_joker.png",
+    rarity: "Rare"
+  },
+  {
+    name: "Built to Last",
+    text: [
+      "Gives 0.1x Mult if played hand is the same as previous played hand. Resets when a new hand is played"
+    ],
+    image_url: "img/j_joker.png",
+    rarity: "Uncommon"
+  },
+  {
+    name: "Everything Must Go!",
+    text: [
+      "Shops have an additional Voucher for sale"
+    ],
+    image_url: "img/j_joker.png",
+    rarity: "Uncommon"
+  },
+  {
+    name: "[[WILD PRIZE!1!]]",
+    text: [
+      "Retrigger all Aces, Nines, and Sevens. Each of these ears $1 when scored"
+    ],
+    image_url: "img/j_joker.png",
+    rarity: "Uncommon"
+  },
+  {
+    name: "Down to Size",
+    text: [
+      "If scored hand had greater than 3x Chips than Mult, this Joker gains 0.5x Mult"
+    ],
+    image_url: "img/j_joker.png",
+    rarity: "Uncommon"
   }
 ]
 
@@ -196,6 +342,7 @@ let consumables = [
   //   image_url: "img/j_joker.png",
   //   rarity: "Spectral"
   // },
+
 ]
 
 let card_modifications = [
@@ -223,6 +370,14 @@ let card_modifications = [
   //   image_url: "img/sticker_example.png",
   //   rarity: "Seal"
   // },
+  {
+    name: "Coin Seal",
+    text: [
+      "Provides 1x Mult for each previously consecutively scored Coin Seal"
+    ],
+    image_url: "img/s_seal.png",
+    rarity: "Seal"
+  }
 ]
 
 let decks = [
