@@ -301,7 +301,7 @@ let conceptJokers = [
   {
     name: "[[WILD PRIZE!1!]]",
     text: [
-      "Retrigger all Aces, Nines, and Sevens. Each of these ears $1 when scored"
+      "Retrigger all Aces, Nines, and Sevens. Each of these earn $1 when scored"
     ],
     image_url: "img/j_joker.png",
     rarity: "Uncommon"
