@@ -25,6 +25,14 @@ let implementedJokers = [
     ],
     image_url: "img/j_ghost_cola.png",
     rarity: "Rare"
+  },
+  {
+    name: "Nachos",
+    text: [
+      "{X:chips}X2{} Chips, loses {X:chips}X0.05{} Chips per {C:attention}card{} discarded"
+    ],
+    image_url: "img/j_nachos.png",
+    rarity: "Common"
   }
 ]
 
@@ -61,14 +69,6 @@ let inProgressJokers = [
     image_url: "img/j_mismatched_sock.png",
     rarity: "Uncommon"
   },
-  {
-    name: "Nachos",
-    text: [
-      "{X:chips}X2{} Chips, loses {X:chips}X0.05{} Chips per {C:attention}card{} discarded"
-    ],
-    image_url: "img/j_nachos.png",
-    rarity: "Common"
-  }
 ]
 
 let conceptJokers = [
