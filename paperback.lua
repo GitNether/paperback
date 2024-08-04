@@ -28,6 +28,7 @@ local CONFIG = {
     joker_pool_table = true,
     joker_calling_card = true,
     joker_ghost_cola = true,
+    joker_nachos = true,
 }
 
 for key, enabled in pairs(CONFIG) do
