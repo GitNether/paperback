@@ -16,7 +16,9 @@ For the alpha-pre-release-testing-proceed-at-your-own-risk version, simply [down
 - **Pool Table** :: If first hand of round scored all non-face cards, create a planet of the played hand.
 - **Ghost Cola** :: Sell this card to create a Negative Tag and a random Negative Spectral card.
 - **Nachos** :: X2 Chips, loses X0.05 Chips per card discarded.
-- **Quick Fix** :: +2 Hand Size. 1 in 4 chance to break at the end of round.
+- **Quick Fix** :: +2 Hand Size. 1 in 4 chance this card is destroyed at end of round.
+- **Soft Taco** :: X3 Mult. 1 in 10 chance this card is destroyed at end of round.
+- **Crispy Taco** :: X3 Chips. 1 in 10 chance this card is destroyed at end of round.
 
 ## In Progress & Planned
 
