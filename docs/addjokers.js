@@ -11,7 +11,7 @@ let implementedJokers = [
   {
     name: "Quick Fix",
     text: [
-      "+2 Hand Size. 1 in 4 chance to break at the end of the round.",
+      "{C:attention}+2{} Hand Size. {C:green}1 in 4{} chance this card is destroyed at end of round.",
     ],
     image_url: "img/j_quick_fix.png",
     rarity: "Common"
