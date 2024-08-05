@@ -23,6 +23,8 @@ SMODS.Joker {
     eternal_compat = false,
     soul_pos = nil,
 
+    yes_pool_flag = "soft_taco_can_spawn",
+
     loc_vars = function(self, info_queue, center)
         return {
             vars = {
@@ -57,6 +59,10 @@ SMODS.Joker {
                                                         G.jokers:remove_card(card)
                                                         card:remove()
                                                         card = nil
+
+                                                        -- Allows Crispy Taco to spawn, prevents Soft Taco from spawning
+                                                        G.GAME.pool_flags.soft_taco_can_spawn = false
+
                                                         return true; end }))
                         return true
                     end

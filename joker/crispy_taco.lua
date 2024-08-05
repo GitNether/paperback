@@ -23,6 +23,8 @@ SMODS.Joker {
     eternal_compat = false,
     soul_pos = nil,
 
+    no_pool_flag = "soft_taco_can_spawn",
+    
     loc_vars = function(self, info_queue, center)
         return {
             vars = {
@@ -54,6 +56,10 @@ SMODS.Joker {
                                                         G.jokers:remove_card(card)
                                                         card:remove()
                                                         card = nil
+
+                                                        -- Allows Soft Taco to spawn, prevents Crispy Taco from spawning
+                                                        G.GAME.pool_flags.soft_taco_can_spawn = true
+
                                                         return true; end }))
                         return true
                     end
@@ -74,6 +80,13 @@ SMODS.Joker {
         end
     end
 }
+
+-- -- Creates the flag
+-- local BackApply_to_run_ref = Back.apply_to_run
+-- function Back.apply_to_run(arg_56_0)
+--     BackApply_to_run_ref(arg_56_0)
+--     G.GAME.pool_flags.soft_taco_can_spawn = false
+-- end
 
 
 -- JokerDisplay mod integration

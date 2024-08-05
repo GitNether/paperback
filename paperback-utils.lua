@@ -1,5 +1,17 @@
 PB_UTIL = {}
 
+-- Creates the flags
+local BackApply_to_run_ref = Back.apply_to_run
+function Back.apply_to_run(arg_56_0)
+    BackApply_to_run_ref(arg_56_0)
+    G.GAME.pool_flags.quick_fix_can_spawn = true
+    G.GAME.pool_flags.soft_taco_can_spawn = false
+    G.GAME.pool_flags.ghost_cola_can_spawn = false
+end
+
+
+
+
 function PB_UTIL.is_in_your_collection(card)
     if not G.your_collection then return false end
     for i = 1, 3 do
