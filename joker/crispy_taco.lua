@@ -10,7 +10,7 @@ SMODS.Joker {
     config = {
         extra = {
             x_chips = 3,
-            odds = 10
+            odds = 6
         }
     },
     rarity = 2,
