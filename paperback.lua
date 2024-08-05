@@ -30,6 +30,8 @@ local CONFIG = {
     joker_pool_table = true,
     joker_ghost_cola = true,
     joker_nachos = true,
+    joker_soft_taco = true,
+    joker_crispy_taco = true,
 }
 
 for key, enabled in pairs(CONFIG) do
