@@ -8,7 +8,14 @@ let implementedJokers = [
     image_url: "img/j_calling_card.png",
     rarity: "Uncommon"
   },
-  
+  {
+    name: "Quick Fix",
+    text: [
+      "+2 Hand Size. 1 in 4 chance to break at the end of the round.",
+    ],
+    image_url: "img/j_quick_fix.png",
+    rarity: "Common"
+  },
   {
     name: "Pool Table",
     text: [
@@ -37,14 +44,6 @@ let implementedJokers = [
 ]
 
 let inProgressJokers = [
-  {
-    name: "Quick Fix",
-    text: [
-      "+2 Hand Size. 1 in 4 chance to break at the end of the round.",
-    ],
-    image_url: "img/j_quick_fix.png",
-    rarity: "Common"
-  },
   {
     name: "Sacrificial Lamb",
     text: [
