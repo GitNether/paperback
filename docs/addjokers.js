@@ -11,7 +11,7 @@ let implementedJokers = [
   {
     name: "Quick Fix",
     text: [
-      "{C:attention}+2{} Hand Size. {C:green}1 in 4{} chance this card is destroyed at end of round.",
+      "{C:attention}+2{} Hand Size. {C:green}1 in 4{} chance this card is {C:attention}destroyed{} at end of round.",
     ],
     image_url: "img/j_quick_fix.png",
     rarity: "Common"
@@ -40,7 +40,24 @@ let implementedJokers = [
     ],
     image_url: "img/j_nachos.png",
     rarity: "Common"
-  }
+  },
+  {
+    name: "Crispy Taco",
+    text: [
+      "{X:chips,C:white}X3{} Chips. {C:green}1 in 10{} chance this card is {C:attention}destroyed{} at end of round."
+
+    ],
+    image_url: "img/j_crispy_taco.png",
+    rarity: "Uncommon"
+  },
+  {
+    name: "Soft Taco",
+    text: [
+      "{X:mult,C:white}X3{} Mult. {C:green}1 in 10{} chance this card is {C:attention}destroyed{} at end of round."
+    ],
+    image_url: "img/j_soft_taco.png",
+    rarity: "Uncommon"
+  },
 ]
 
 let inProgressJokers = [
@@ -193,22 +210,7 @@ let conceptJokers = [
     image_url: "img/j_joker.png",
     rarity: "Common"
   },
-  {
-    name: "Crispy Taco",
-    text: [
-      "3x Chips. 1 in 10 chance to break at the end of the round."
-    ],
-    image_url: "img/j_joker.png",
-    rarity: "Uncommon"
-  },
-  {
-    name: "Soft Taco",
-    text: [
-      "3x Mult. 1 in 10 chance to break at the end of the round."
-    ],
-    image_url: "img/j_joker.png",
-    rarity: "Uncommon"
-  },
+  
   {
     name: "Prince of Darkness",
     text: [

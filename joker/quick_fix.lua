@@ -12,7 +12,7 @@ SMODS.Joker {
     config = {
         extra = {
             h_size = 2,
-            odds = 1
+            odds = 10
         }
     },
     rarity = 2,
@@ -104,12 +104,12 @@ SMODS.Joker {
 }
 
 
--- Creates the flag
-local BackApply_to_run_ref = Back.apply_to_run
-function Back.apply_to_run(arg_56_0)
-    BackApply_to_run_ref(arg_56_0)
-    G.GAME.pool_flags.quick_fix_can_spawn = true
-end
+-- -- Creates the flag
+-- local BackApply_to_run_ref = Back.apply_to_run
+-- function Back.apply_to_run(arg_56_0)
+--     BackApply_to_run_ref(arg_56_0)
+--     G.GAME.pool_flags.quick_fix_can_spawn = true
+-- end
 
 
 -- JokerDisplay integration
