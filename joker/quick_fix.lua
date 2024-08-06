@@ -22,7 +22,7 @@ SMODS.Joker {
     unlocked = true,
     discovered = true,
     blueprint_compat = true,
-    eternal_compat = true,
+    eternal_compat = false,
     soul_pos = nil,
     yes_pool_flag = "quick_fix_can_spawn",
 
