@@ -26,6 +26,7 @@ SMODS.Atlas {
 -- Config: Enable or disable additional jokers here
 local CONFIG = {
     joker_calling_card = true,
+    joker_sacrificial_lamb = true,
     joker_quick_fix = true,
     joker_pool_table = true,
     joker_ghost_cola = true,
