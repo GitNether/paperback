@@ -20,6 +20,19 @@ function Card.set_cost(self)
 end
 
 
+-- Add new context for destroying cards of any type (Used for Sacrificial Lamb)
+local start_dissolve_ref = Card.start_dissolve
+function Card:start_dissolve(dissolve_colours, silent, dissolve_time_fac, no_juice)
+    if self.getting_sliced then
+        for i=1, #G.jokers.cards do
+            G.jokers.cards[i]:calculate_joker({destroying_cards = true, destroyed_card = self})
+        end
+    end
+
+    start_dissolve_ref(self, dissolve_colours, silent, dissolve_time_fac, no_juice)
+end
+
+
 function PB_UTIL.is_in_your_collection(card)
     if not G.your_collection then return false end
     for i = 1, 3 do
