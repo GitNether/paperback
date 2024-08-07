@@ -12,7 +12,6 @@ SMODS.Joker {
     config = {
         extra = {
             sv_gain = 1,
-            -- Figure out how to get this to calculate the sell_value on spawn
             mult_mod = 3
         }
     },
@@ -61,8 +60,6 @@ SMODS.Joker {
                 }
             end
         end
-
-
     end
 }
 
