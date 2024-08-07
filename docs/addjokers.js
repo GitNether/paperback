@@ -17,6 +17,15 @@ let implementedJokers = [
     rarity: "Common"
   },
   {
+    name: "Sacrificial Lamb",
+    text: [
+      "Gains {C:mult}+5{} Mult for each card or Joker {C:attention}destroyed{}.",
+      "{C:inactive}(Currently {C:mult}+0{} {C:inactive}Mult)"
+    ],
+    image_url: "img/j_sacrificial_lamb.png",
+    rarity: "Uncommon"
+  },
+  {
     name: "Wish You Were Here",
     text: [
       "Gives {C:mult}Mult{} equal to {C:mult}3X{} this Joker's {C:attention}Sell Value{}.",
@@ -73,20 +82,20 @@ let implementedJokers = [
 
 let inProgressJokers = [
   {
-    name: "Sacrificial Lamb",
-    text: [
-      "Gains +5 Mult when any card or Joker is destroyed."
-    ],
-    image_url: "img/j_sacrificial_lamb.png",
-    rarity: "Uncommon"
-  },
-  {
     name: "Skydiver",
     text: [
       "3x Mult if all scored cards are equal to or lower than the lowest ranked card scored this round. Lowest card is updated at the end of played hand."
     ],
     image_url: "img/j_skydiver.png",
     rarity: "Uncommon"
+  },
+  {
+    name: "Stamp",
+    text: [
+      "Gains 25 chips when any card with a seal is scored"
+    ],
+    image_url: "img/j_stamp.png",
+    rarity: "Rare"
   },
   {
     name: "Mismatched Sock",
@@ -99,14 +108,6 @@ let inProgressJokers = [
 ]
 
 let conceptJokers = [
-  {
-    name: "Stamp",
-    text: [
-      "Gains 25 chips when any card with a seal is scored"
-    ],
-    image_url: "img/j_stamp.png",
-    rarity: "Rare"
-  },
   {
     name: "Solar System",
     text: [
