@@ -39,11 +39,15 @@ SMODS.Joker {
     end,
 
     calculate = function(self, card, context)
+        -- Gives the xChips during play
         if context.joker_main then
             PB_UTIL.xChips(card.ability.extra.X_chips, card)
+        end
 
-        elseif context.discard then
+        -- Penalize when discarding cards
+        if context.discard then
             if not context.blueprint then
+                -- Destroy Nachos if value is <= 1
                 if card.ability.extra.X_chips - card.ability.extra.reduction_amount <= 1 then
                     G.E_MANAGER:add_event(Event({
                         func = function()
@@ -65,6 +69,7 @@ SMODS.Joker {
                         message = localize('k_eaten_ex'),
                         colour = G.C.FILTER
                     }
+                -- Reduce the xChips value
                 else
                     card.ability.extra.X_chips = card.ability.extra.X_chips - card.ability.extra.reduction_amount
                     return {
@@ -83,7 +88,7 @@ if SMODS.Mods["JokerDisplay"] then
     jd_def = JokerDisplay.Definitions
 
     jd_def["j_pape_nachos"] = {
-        line_1 = {
+        text = {
             {
                 border_nodes = {
                     {

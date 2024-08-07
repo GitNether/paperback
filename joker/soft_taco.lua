@@ -90,7 +90,7 @@ if SMODS.Mods["JokerDisplay"] and _G["JokerDisplay"] then
     jd_def = JokerDisplay.Definitions
 
     jd_def["j_pape_soft_taco"] = {
-        line_1 = {
+        text = {
             {
                 border_nodes = {
                     { text = "X" },

@@ -17,6 +17,16 @@ let implementedJokers = [
     rarity: "Common"
   },
   {
+    name: "Wish You Were Here",
+    text: [
+      "Gives {C:mult}Mult{} equal to {C:mult}3X{} this Joker's {C:attention}Sell Value{}.",
+      "Gains {C:money}+1 {C:attention}Sell Value{} at end of round",
+      "{C:inactive}(Currently {C:mult}+3 {C:inactive}Mult)"
+    ],
+    image_url: "img/j_wish_you_were_here.png",
+    rarity: "Uncommon"
+  },
+  {
     name: "Pool Table",
     text: [
       "If first hand of round scores all {C:attention}non-face cards{}, creates the {C:planet}Planet{} card of the played {C:attention}poker hand{}",
@@ -36,7 +46,8 @@ let implementedJokers = [
   {
     name: "Nachos",
     text: [
-      "{X:chips}X2{} Chips, loses {X:chips}X0.05{} Chips per {C:attention}card{} discarded"
+      "{X:chips}X2{} Chips, loses {X:chips}X0.05{} Chips per {C:attention}card{} discarded",
+      "{C:inactive}(Currently {X:chips,C:white}X3{C:inactive} Chips)"
     ],
     image_url: "img/j_nachos.png",
     rarity: "Common"
@@ -88,14 +99,6 @@ let inProgressJokers = [
 ]
 
 let conceptJokers = [
-  {
-    name: "Wish You Were Here",
-    text: [
-      "Gives Mult equal to triple this joker's Sell Value. After clearing a blind, this joker gains +1 Sell Value."
-    ],
-    image_url: "img/j_wish_you_were_here.png",
-    rarity: "Uncommon"
-  },
   {
     name: "Stamp",
     text: [
