@@ -12,6 +12,12 @@ function Back.apply_to_run(arg_56_0)
 end
 
 
+-- set_cost hook for "Wish You Were Here"
+local set_cost_ref = Card.set_cost
+function Card.set_cost(self)
+    set_cost_ref(self)
+    if self.config.center.key == 'j_pape_wish_you_were_here' then self.sell_cost = 1 + (self.ability.extra_value or 0) end
+end
 
 
 function PB_UTIL.is_in_your_collection(card)
