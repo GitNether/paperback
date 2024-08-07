@@ -3,18 +3,17 @@ SMODS.Joker {
     loc_txt = {
         name = "Wish You Were Here",
         text = {
-            "Gives {C:mult}Mult{} equal to {C:attention}triple{}",
-            "this Joker's {C:money}Sell Value{}.",
-            "Gains {C:attention}+#1#{} {C:money}Sell Value{} after",
-            "clearing a {C:attention}blind{}.",
-            "{C:inactive}(Currently {C:mult}+#2# {C:inactive}Mult){}"
+            "Gives {C:mult}Mult{} equal to",
+            "{C:mult}#1#X{} this Joker's {C:attention}Sell Value{}.",
+            "Gains {C:money}+#2# {C:attention}Sell Value{} at end of round",
+            "{C:inactive}(Currently {C:mult}+#3# {C:inactive}Mult){}"
         }
     },
     config = {
         extra = {
             sv_gain = 1,
             -- Figure out how to get this to calculate the sell_value on spawn
-            mult = 0
+            mult_mod = 3
         }
     },
     rarity = 2,
@@ -27,34 +26,34 @@ SMODS.Joker {
     eternal_compat = true,
     soul_pos = nil,
 
-    -- set_ability = function(self, card, initial, delay_sprites)
-    --     card.ability.extra.mult = 3 * card.sell_cost
-    -- end,
-
     loc_vars = function(self, info_queue, center)
         return {
             vars = {
+                center.ability.extra.mult_mod,
                 center.ability.extra.sv_gain,
-                center.ability.extra.mult
+                center.ability.extra.mult_mod * center.sell_cost
             }
         }
     end,
 
     calculate = function (self, card, context)
-        -- card.ability.extra.mult = 3 * card.sell_cost
+        local mult = card.ability.extra.mult_mod * card.sell_cost
 
         if not (context.individual or context.repetition) then
             -- Give the mult during play
             if context.joker_main then
                 return {
-                    mult_mod = card.ability.extra.mult,
-                    message = localize{type='variable',key='a_mult',vars={card.ability.extra.mult}},
+                    mult_mod = mult,
+                    message = localize{ type = 'variable', key = 'a_mult', vars = { mult } },
                 }
             end
 
             -- Increase the sell value at end of round
             if context.end_of_round and not context.blueprint then
-                card.sell_cost = card.sell_cost + card.ability.extra.sv_gain
+                if card.set_cost then
+                    card.ability.extra_value = (card.ability.extra_value or 0) + 1
+                    card:set_cost()
+                end
 
                 return {
                     message = localize('k_val_up'),
@@ -75,10 +74,14 @@ if SMODS.Mods["JokerDisplay"] and _G["JokerDisplay"] then
     jd_def["j_pape_wish_you_were_here"] = {
         text = {
             { text = '+', },
-            { ref_table = 'card.ability.extra', ref_value = 'mult' },
+            { ref_table = 'card.joker_display_values', ref_value = 'mult' },
         },
         text_config = {
             colour = G.C.MULT
-        }
+        },
+
+        calc_function = function(card)
+            card.joker_display_values.mult = card.ability.extra.mult_mod * card.sell_cost
+        end
     }
 end
