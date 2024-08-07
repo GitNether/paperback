@@ -21,7 +21,7 @@ let implementedJokers = [
     text: [
       "Gives {C:mult}Mult{} equal to {C:mult}3X{} this Joker's {C:attention}Sell Value{}.",
       "Gains {C:money}+1 {C:attention}Sell Value{} at end of round",
-      "{C:inactive}(Currently {C:mult}+3 {C:inactive}Mult)"
+      "{C:inactive}(Currently {C:mult}+1 {C:inactive}Mult)"
     ],
     image_url: "img/j_wish_you_were_here.png",
     rarity: "Uncommon"
