@@ -12,7 +12,7 @@ SMODS.Joker {
     config = {
         extra = {
             h_size = 2,
-            odds = 10
+            odds = 4
         }
     },
     rarity = 1,
