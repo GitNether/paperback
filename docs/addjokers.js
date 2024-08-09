@@ -78,6 +78,14 @@ let implementedJokers = [
     image_url: "img/j_soft_taco.png",
     rarity: "Uncommon"
   },
+  {
+    name: "Bicycle",
+    text: [
+      "{C:important}Wild Face Cards{} give {X:mult,C:white}X1.5{} Mult when scored."
+    ],
+    image_url: "img/j_bicycle.png",
+    rarity: "Common"
+  }
 ]
 
 let inProgressJokers = [
