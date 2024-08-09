@@ -35,6 +35,7 @@ local CONFIG = {
     joker_crispy_taco = true,
     joker_wish_you_were_here = true,
     joker_bicycle = true,
+    joker_stamp = true,
 }
 
 for key, enabled in pairs(CONFIG) do
