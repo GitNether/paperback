@@ -31,6 +31,7 @@ local CONFIG = {
     joker_wish_you_were_here = true,
     joker_stamp = true,
     joker_solar_system = true,
+    joker_furioso = true,
     joker_pool_table = true,
     joker_ghost_cola = true,
     joker_nachos = true,

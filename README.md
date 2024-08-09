@@ -18,6 +18,7 @@ For the alpha-pre-release-testing-proceed-at-your-own-risk version, simply [down
 - **Wish You Were Here** :: Gives Mult equal to 3X this Joker's Sell Value. Gains +1 Sell Value at end of round.
 - **Stamp** :: +25 Chips when any card with a seal is scored.
 - **Solar System** :: Gives X2 Mult for every level all 9 base planets share.
+- **Furioso** :: Each uniquely scored rank adds X0.2 Mult to this Joker. Resets after defeating a boss blind.
 - **Pool Table** :: If first hand of round scored all non-face cards, create a planet of the played hand.
 - **Ghost Cola** :: Sell this card to create a Negative Tag and a random Negative Spectral card.
 - **Nachos** :: X2 Chips, loses X0.05 Chips per card discarded.
