@@ -20,12 +20,14 @@ SMODS.Joker {
 
     yes_pool_flag = "ghost_cola_can_spawn",
 
-    loc_vars = function(self, info_queue, center) 
-            return {
-                vars = {
-                    localize{type = 'name_text', set = 'Tag', key = 'tag_negative', nodes = {}},
-                }
+    loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue+1] = G.P_TAGS.tag_negative
+
+        return {
+            vars = {
+                localize{type = 'name_text', set = 'Tag', key = 'tag_negative', nodes = {}},
             }
+        }
     end,
     
     calculate = function(self, card, context)
@@ -58,16 +60,6 @@ SMODS.Joker {
     end,
 }
 
--- Code to allow Ghost Cola to show up
--- in the shop When Diet Cola is sold
---------------------------------------------------
-
--- -- Creates the flag
--- local BackApply_to_run_ref = Back.apply_to_run
--- function Back.apply_to_run(arg_56_0)
---     BackApply_to_run_ref(arg_56_0)
---     G.GAME.pool_flags.ghost_cola_can_spawn = false
--- end
 
 -- Allows Ghost Cola to spawn on Diet Cola sold
 local calculate_joker_ref = Card.calculate_joker
