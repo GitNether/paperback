@@ -22,6 +22,14 @@ SMODS.Joker {
     eternal_compat = true,
     soul_pos = nil,
 
+    set_ability = function(self, card, initial, delay_sprites)
+        local X, Y, W, H = card.T.x, card.T.y, card.T.w, card.T.h
+
+        W = W - 0.1
+
+        card.T.w = W
+    end,
+
     loc_vars = function(self, info_queue, center)
         return {
             vars = {
@@ -43,6 +51,19 @@ SMODS.Joker {
         end
     end
 }
+
+
+-- local set_sprites_ref = Card.set_sprites
+-- function Card:set_sprites(_center, _front)
+--     set_sprites_ref(self, _center, _front)
+
+--     if _center and _center.set then
+--         if _center.name == "j_pape_stamp" then
+--             -- self.children.center.scale.y = self.children.center.scale.y/1.7
+--             -- self.children.center.scale.x = self.children.center.scale.x - 18
+--         end
+--     end
+-- end
 
 
 -- JokerDisplay mod integration
