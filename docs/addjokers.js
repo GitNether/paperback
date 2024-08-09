@@ -52,6 +52,16 @@ let implementedJokers = [
     rarity: "Rare"
   },
   {
+    name: "Furioso",
+    text: [
+      "Each uniquely scored {C:attention}rank{} adds {X:mult,C:white}0.2X{} Mult to this Joker. Resets after defeating a {C:attention}boss blind.",
+      "{C:inactive}(Currently {X:mult,C:white}X1{} {C:inactive}Mult)",
+      "{C:inactive}(Ranks played:{C:attention} None {C:inactive})"
+    ],
+    image_url: "img/j_furioso.png",
+    rarity: "Uncommon"
+  },
+  {
     name: "Pool Table",
     text: [
       "If first hand of round scores all {C:attention}non-face cards{}, creates the {C:planet}Planet{} card of the played {C:attention}poker hand{}",
@@ -124,14 +134,6 @@ let inProgressJokers = [
 ]
 
 let conceptJokers = [
-  {
-    name: "Furioso",
-    text: [
-      "Each uniquely scored rank adds 0.2X mult to this joker. Resets after defeating a boss blind."
-    ],
-    image_url: "img/j_furioso.png",
-    rarity: "Uncommon"
-  },
   {
     name: "Pride Flag",
     text: [
