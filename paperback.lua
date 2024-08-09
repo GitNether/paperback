@@ -34,6 +34,7 @@ local CONFIG = {
     joker_soft_taco = true,
     joker_crispy_taco = true,
     joker_wish_you_were_here = true,
+    joker_bicycle = true,
     joker_stamp = true,
 }
 
