@@ -79,6 +79,14 @@ let implementedJokers = [
     rarity: "Rare"
   },
   {
+    name: "Shopping Center",
+    text: [
+      "{C:money}Shops{} have an additional {C:attention}card slot{}."
+      ],
+    image_url: "img/j_shopping_center.png",
+    rarity: "Common"
+  },
+  {
     name: "Nachos",
     text: [
       "{X:chips}X2{} Chips, loses {X:chips}X0.05{} Chips per {C:attention}card{} discarded",
@@ -181,14 +189,6 @@ let conceptJokers = [
       ],
     image_url: "img/j_solemn_lament.png",
     rarity: "Uncommon"
-  },
-  {
-    name: "Shopping Center",
-    text: [
-      "Shops have an additional card slot."
-      ],
-    image_url: "img/j_shopping_center.png",
-    rarity: "Common"
   },
   {
     name: "Union Card",
