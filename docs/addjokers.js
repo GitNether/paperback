@@ -44,6 +44,14 @@ let implementedJokers = [
     rarity: "Rare"
   },
   {
+    name: "Solar System",
+    text: [
+      "Gives {X:mult,C:white}X2{} Mult for every {C:attention}level{} all 9 base {C:planet}planets{} share."
+    ],
+    image_url: "img/j_solar_system.png",
+    rarity: "Rare"
+  },
+  {
     name: "Pool Table",
     text: [
       "If first hand of round scores all {C:attention}non-face cards{}, creates the {C:planet}Planet{} card of the played {C:attention}poker hand{}",
@@ -116,14 +124,6 @@ let inProgressJokers = [
 ]
 
 let conceptJokers = [
-  {
-    name: "Solar System",
-    text: [
-      "Gains 2x mult for every level all 9 base planets share."
-    ],
-    image_url: "img/j_solar_system.png",
-    rarity: "Rare"
-  },
   {
     name: "Furioso",
     text: [
