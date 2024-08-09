@@ -24,6 +24,7 @@ For the alpha-pre-release-testing-proceed-at-your-own-risk version, simply [down
 - **Nachos** :: X2 Chips, loses X0.05 Chips per card discarded.
 - **Crispy Taco** :: X3 Chips. 1 in 10 chance this card is destroyed at end of round.
 - **Soft Taco** :: X3 Mult. 1 in 10 chance this card is destroyed at end of round.
+- **Shopping Center** :: Shops have an additional card slot.
 - **Bicycle** :: Wild Face Cards give X1.5 Mult when scored.
 
 ## In Progress & Planned
