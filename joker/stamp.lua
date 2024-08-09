@@ -4,7 +4,7 @@ SMODS.Joker {
         name = "Stamp",
         text = {
             "{C:chips}+#1#{} Chips when any card with",
-            "a {C:important}seal{} is scored"
+            "a {C:attention}seal{} is scored"
         }
     },
     config = {
@@ -22,13 +22,28 @@ SMODS.Joker {
     eternal_compat = true,
     soul_pos = nil,
 
+    -- Sets the sprite and hitbox
     set_ability = function(self, card, initial, delay_sprites)
-        local X, Y, W, H = card.T.x, card.T.y, card.T.w, card.T.h
+        local w_scale, h_scale = 35/71, 45/95
 
-        W = W - 0.1
-
-        card.T.w = W
+        card.T.h = card.T.h * h_scale
+        card.T.w = card.T.w * w_scale
     end,
+
+    set_sprites = function(self, card, front)
+        local w_scale, h_scale = 35/71, 45/95
+
+        card.children.center.scale.y = card.children.center.scale.y * h_scale
+        card.children.center.scale.x = card.children.center.scale.x * w_scale
+    end,
+
+    load = function(self, card, card_table, other_card)
+        local w_scale, h_scale = 35/71, 45/95
+        
+        card.T.h = card.T.h * h_scale
+        card.T.w = card.T.w * w_scale
+    end,
+    -----------------------------
 
     loc_vars = function(self, info_queue, center)
         return {
@@ -51,19 +66,6 @@ SMODS.Joker {
         end
     end
 }
-
-
--- local set_sprites_ref = Card.set_sprites
--- function Card:set_sprites(_center, _front)
---     set_sprites_ref(self, _center, _front)
-
---     if _center and _center.set then
---         if _center.name == "j_pape_stamp" then
---             -- self.children.center.scale.y = self.children.center.scale.y/1.7
---             -- self.children.center.scale.x = self.children.center.scale.x - 18
---         end
---     end
--- end
 
 
 -- JokerDisplay mod integration
