@@ -36,6 +36,14 @@ let implementedJokers = [
     rarity: "Uncommon"
   },
   {
+    name: "Stamp",
+    text: [
+      "{C:chips}+25{} Chips when any card with a {C:attention}seal{} is scored"
+    ],
+    image_url: "img/j_stamp.png",
+    rarity: "Rare"
+  },
+  {
     name: "Pool Table",
     text: [
       "If first hand of round scores all {C:attention}non-face cards{}, creates the {C:planet}Planet{} card of the played {C:attention}poker hand{}",
@@ -96,14 +104,6 @@ let inProgressJokers = [
     ],
     image_url: "img/j_skydiver.png",
     rarity: "Uncommon"
-  },
-  {
-    name: "Stamp",
-    text: [
-      "Gains 25 chips when any card with a seal is scored"
-    ],
-    image_url: "img/j_stamp.png",
-    rarity: "Rare"
   },
   {
     name: "Mismatched Sock",

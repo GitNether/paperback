@@ -16,6 +16,7 @@ For the alpha-pre-release-testing-proceed-at-your-own-risk version, simply [down
 - **Quick Fix** :: +2 Hand Size. 1 in 4 chance this card is destroyed at end of round.
 - **Sacrificial Lamb** :: Gains +5 Mult for each card or Joker destroyed.
 - **Wish You Were Here** :: Gives Mult equal to 3X this Joker's Sell Value. Gains +1 Sell Value at end of round.
+- **Stamp** :: +25 Chips when any card with a seal is scored.
 - **Pool Table** :: If first hand of round scored all non-face cards, create a planet of the played hand.
 - **Ghost Cola** :: Sell this card to create a Negative Tag and a random Negative Spectral card.
 - **Nachos** :: X2 Chips, loses X0.05 Chips per card discarded.
