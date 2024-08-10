@@ -26,6 +26,10 @@ SMODS.Joker {
 
     -- On Joker despawn, remove the additional slot in shop
     remove_from_deck = function(self, card, from_debuff)
+        if G.STATE == G.STATES.SHOP then
+            slots_to_remove = slots_to_remove + 1
+        end
+
         G.E_MANAGER:add_event(Event({func = function()
             change_shop_size(-1)
             return true end }))
