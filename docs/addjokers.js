@@ -71,6 +71,15 @@ let implementedJokers = [
     rarity: "Rare"
   },
   {
+    name: "Derecho",
+    text: [
+      "Gains {X:mult,C:white}X0.1{} Mult if {C:attention}first hand{} of round contains only {C:spades}dark suits",
+      "{C:inactive}(Currently {X:mult,C:white}X1{C:inactive} Mult)"
+    ],
+    image_url: "img/j_derecho.png",
+    rarity: "Uncommon"
+  },
+  {
     name: "Ghost Cola",
     text: [
       "Sell this card to create a {C:attention}Negative Tag{} and a random {C:dark_edition}Negative{} {C:spectral}Spectral{} card."
@@ -98,7 +107,7 @@ let implementedJokers = [
   {
     name: "Crispy Taco",
     text: [
-      "{X:chips,C:white}X3{} Chips. {C:green}1 in 10{} chance this card is {C:attention}destroyed{} at end of round."
+      "{X:chips,C:white}X3{} Chips. {C:green}1 in 6{} chance this card is {C:attention}destroyed{} at end of round."
 
     ],
     image_url: "img/j_crispy_taco.png",
@@ -107,7 +116,7 @@ let implementedJokers = [
   {
     name: "Soft Taco",
     text: [
-      "{X:mult,C:white}X3{} Mult. {C:green}1 in 10{} chance this card is {C:attention}destroyed{} at end of round."
+      "{X:mult,C:white}X3{} Mult. {C:green}1 in 6{} chance this card is {C:attention}destroyed{} at end of round."
     ],
     image_url: "img/j_soft_taco.png",
     rarity: "Uncommon"
@@ -115,7 +124,7 @@ let implementedJokers = [
   {
     name: "Bicycle",
     text: [
-      "{C:important}Wild Face Cards{} give {X:mult,C:white}X1.5{} Mult when scored."
+      "{C:attention}Wild Cards{} give {C:mult}Mult{} equal to their {C:chips}Chip Bonus{}, then {X:mult,C:white}X1.5{} Mult"
     ],
     image_url: "img/j_bicycle.png",
     rarity: "Common"
@@ -165,14 +174,6 @@ let conceptJokers = [
     ],
     image_url: "img/j_hole_in_one.png",
     rarity: "Rare"
-  },
-  {
-    name: "Derecho",
-    text: [
-      "If scored hand contained only dark suits (Spade, Club) this card gains +0.1 X-Mult"
-    ],
-    image_url: "img/j_derecho.png",
-    rarity: "Uncommon"
   },
   {
     name: "Forgery",
