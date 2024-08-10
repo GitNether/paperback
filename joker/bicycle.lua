@@ -5,7 +5,7 @@ SMODS.Joker {
         text = {
             "{C:attention}Wild Cards{} give",
             "{C:mult}Mult{} equal to their",
-            "{C:chips}Chip Bonus{} and {X:mult,C:white}X#1#{} Mult",
+            "{C:chips}Chip Bonus{}, then {X:mult,C:white}X#1#{} Mult",
         }
     },
     config = {
