@@ -3,8 +3,9 @@ SMODS.Joker {
     loc_txt = {
         name = "Bicycle",
         text = {
-            "{C:attention}Wild Face Cards{} give",
-            "{X:mult,C:white}X#1#{} Mult when scored"
+            "{C:attention}Wild Cards{} give",
+            "{C:mult}Mult{} equal to their",
+            "{C:chips}Chip Bonus{} and {X:mult,C:white}X#1#{} Mult",
         }
     },
     config = {
@@ -12,7 +13,7 @@ SMODS.Joker {
             x_mult = 1.5
         }
     },
-    rarity = 1,
+    rarity = 2,
     pos = { x = 2, y = 2 },
     atlas = "jokers_atlas",
     cost = 6,
@@ -37,14 +38,9 @@ SMODS.Joker {
     calculate = function (self, card, context)
         if context.individual then
             if context.cardarea == G.play then
-                if context.other_card.debuff then
+                if context.other_card.ability.name == 'Wild Card' then
                     return {
-                        message = localize('k_debuffed'),
-                        colour = G.C.RED,
-                        card = card,
-                    }
-                elseif context.other_card:is_face() and context.other_card.ability.name == 'Wild Card' then
-                    return {
+                        mult = context.other_card:get_chip_bonus(),
                         x_mult = card.ability.extra.x_mult,
                         card = card
                     }
