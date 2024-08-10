@@ -3,13 +3,17 @@ SMODS.Joker {
     loc_txt = {
         name = "Stamp",
         text = {
-            "{C:chips}+#1#{} Chips when any card with",
-            "a {C:attention}seal{} is scored"
+            "{C:green}#1# in #2#{} chance this",
+            "Joker gains {C:chips}+#3#{} Chips when",
+            "any card with a {C:attention}seal{} is scored",
+            "{C:inactive}(Currently {C:chips}+#4#{C:inactive} Chips)"
         }
     },
     config = {
         extra = {
-            chips = 25
+            chips = 0,
+            chip_mod = 25,
+            odds = 3
         }
     },
     rarity = 3,
@@ -48,21 +52,36 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, center)
         return {
             vars = {
+                G.GAME.probabilities.normal,
+                center.ability.extra.odds,
+                center.ability.extra.chip_mod,
                 center.ability.extra.chips
             }
         }
     end,
 
     calculate = function (self, card, context)
-        if context.individual then
+        -- Upgrades Joker if seal is played
+        if context.individual and not context.blueprint then
             if context.cardarea == G.play then
                 if context.other_card:get_seal() then
-                    return {
-                        chips = card.ability.extra.chips,
-                        card = card
-                    }
+                    -- Gives chips if roll succeeds
+                    if pseudorandom("Stamp") < G.GAME.probabilities.normal/card.ability.extra.odds then
+                        card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chip_mod
+
+                        card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('k_upgrade_ex'), colour = G.C.CHIPS})
+                    end
                 end
             end
+        end
+
+        -- Gives the chips during play
+        if context.joker_main then
+            return {
+                chips_mod = card.ability.extra.chips,
+                message = localize{ type = 'variable', key = 'a_chips', vars = { card.ability.extra.chips } },
+                card = card
+            }
         end
     end
 }
