@@ -30,7 +30,7 @@ let implementedJokers = [
     text: [
       "Gives {C:mult}Mult{} equal to {C:mult}3X{} this Joker's {C:attention}Sell Value{}.",
       "Gains {C:money}+1 {C:attention}Sell Value{} at end of round",
-      "{C:inactive}(Currently {C:mult}+1 {C:inactive}Mult)"
+      "{C:inactive}(Currently {C:mult}+3 {C:inactive}Mult)"
     ],
     image_url: "img/j_wish_you_were_here.png",
     rarity: "Uncommon"
@@ -38,7 +38,8 @@ let implementedJokers = [
   {
     name: "Stamp",
     text: [
-      "{C:chips}+25{} Chips when any card with a {C:attention}seal{} is scored"
+      "{C:green}1 in 3{} chance this Joker gains {C:chips}+25{} Chips when any card with a {C:attention}seal{} is scored",
+      "{C:inactive}(Currently {C:chips}+0{C:inactive} Chips)"
     ],
     image_url: "img/j_stamp.png",
     rarity: "Rare"
@@ -46,7 +47,8 @@ let implementedJokers = [
   {
     name: "Solar System",
     text: [
-      "Gives {X:mult,C:white}X2{} Mult for every {C:attention}level{} all 9 base {C:planet}planets{} share."
+      "Gives {X:mult,C:white}X2{} Mult for every {C:attention}level{} all 9 base {C:planet}planets{} share.",
+      "{C:inactive}(Currently {X:mult,C:white}X2{C:inactive} Mult)"
     ],
     image_url: "img/j_solar_system.png",
     rarity: "Rare"
@@ -99,7 +101,7 @@ let implementedJokers = [
     name: "Nachos",
     text: [
       "{X:chips}X2{} Chips, loses {X:chips}X0.05{} Chips per {C:attention}card{} discarded",
-      "{C:inactive}(Currently {X:chips,C:white}X3{C:inactive} Chips)"
+      "{C:inactive}(Currently {X:chips,C:white}X2{C:inactive} Chips)"
     ],
     image_url: "img/j_nachos.png",
     rarity: "Common"
