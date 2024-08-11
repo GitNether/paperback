@@ -21,6 +21,7 @@ For the alpha-pre-release-testing-proceed-at-your-own-risk version, simply [down
 - **Furioso** :: Each uniquely scored rank adds X0.2 Mult to this Joker. Resets after defeating a boss blind.
 - **Pool Table** :: If first hand of round scored all non-face cards, create a planet of the played hand.
 - **Derecho** :: Gains X0.1 Mult if first hand of round contains only dark suits.
+- **Skydiver** :: X3 Mult if all scored cards are less than or equal to the lowest ranked card scored this round. Lowest rank updated at end of played hand.
 - **Ghost Cola** :: Sell this card to create a Negative Tag and a random Negative Spectral card.
 - **Nachos** :: X2 Chips, loses X0.05 Chips per card discarded.
 - **Crispy Taco** :: X3 Chips. 1 in 10 chance this card is destroyed at end of round.

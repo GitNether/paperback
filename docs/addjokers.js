@@ -82,6 +82,16 @@ let implementedJokers = [
     rarity: "Uncommon"
   },
   {
+    name: "Skydiver",
+    text: [
+      "{X:mult,C:white}X3{} Mult if all {C:attention}scored cards{} are less than or equal to the {C:attention}lowest ranked{} card scored this round.",
+      "Lowest rank updated at end of played {C:chips}hand.",
+      "{C:inactive}(Currently: {C:attention}Ace{C:inactive})"
+    ],
+    image_url: "img/j_skydiver.png",
+    rarity: "Uncommon"
+  },
+  {
     name: "Ghost Cola",
     text: [
       "Sell this card to create a {C:attention}Negative Tag{} and a random {C:dark_edition}Negative{} {C:spectral}Spectral{} card."
@@ -134,14 +144,6 @@ let implementedJokers = [
 ]
 
 let inProgressJokers = [
-  {
-    name: "Skydiver",
-    text: [
-      "3x Mult if all scored cards are equal to or lower than the lowest ranked card scored this round. Lowest card is updated at the end of played hand."
-    ],
-    image_url: "img/j_skydiver.png",
-    rarity: "Uncommon"
-  },
   {
     name: "Mismatched Sock",
     text: [

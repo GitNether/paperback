@@ -33,13 +33,14 @@ local CONFIG = {
     joker_solar_system = true,
     joker_furioso = true,
     joker_pool_table = true,
+    joker_derecho = true,
+    joker_skydiver = true,
     joker_ghost_cola = true,
     joker_shopping_center = true,
     joker_nachos = true,
     joker_soft_taco = true,
     joker_crispy_taco = true,
     joker_bicycle = true,
-    joker_derecho = true,
 }
 
 for key, enabled in pairs(CONFIG) do
