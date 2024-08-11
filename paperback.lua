@@ -25,15 +25,28 @@ SMODS.Atlas {
 
 -- Config: Enable or disable additional jokers here
 local CONFIG = {
-    joker_pool_table = true,
     joker_calling_card = true,
     joker_skydiver = true,
+    joker_quick_fix = true,
+    joker_sacrificial_lamb = true,
+    joker_wish_you_were_here = true,
+    joker_stamp = true,
+    joker_solar_system = true,
+    joker_furioso = true,
+    joker_pool_table = true,
+    joker_ghost_cola = true,
+    joker_shopping_center = true,
+    joker_nachos = true,
+    joker_soft_taco = true,
+    joker_crispy_taco = true,
+    joker_bicycle = true,
+    joker_derecho = true,
 }
 
 for key, enabled in pairs(CONFIG) do
     if enabled then
         local path = key:gsub("_", "/", 1)
         NFS.load(SMODS.current_mod.path .. "/" .. path .. ".lua")() -- name files "joker_<name>" so they get loaded automatically
-        sendDebugMessage("Paperback :: Loaded joker: " .. key)
+        sendDebugMessage("Loaded joker: " .. key, "Paperback")
     end
 end
