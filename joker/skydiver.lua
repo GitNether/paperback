@@ -4,10 +4,10 @@ SMODS.Joker {
         name = "Skydiver",
         text = {
             "{C:white,X:mult}X#1#{} Mult if all {C:attention}scored cards{}",
-            "are equal to or less than the {C:attention}lowest ranked{}",
+            "are less than or equal to the {C:attention}lowest ranked{}",
             "card scored this round. Lowest rank updated at",
             "end of played {C:chips}hand.",
-            "{C:inactive}(Currently: #2#)"
+            "{C:inactive}(Currently: {C:attention}#2#{C:inactive})"
         }
     },
     config = {
