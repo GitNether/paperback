@@ -48,10 +48,10 @@ function PB_UTIL.xChips(amt,card)
         {delay = 0},
         {chips = hand_chips}
     )
-    card_eval_status_text(card, 'x_chips', amt, percent)
+    PB_UTIL.card_eval_status_text(card, 'x_chips', amt, percent)
 end
 
-function card_eval_status_text(card, eval_type, amt, percent, dir, extra)
+function PB_UTIL.card_eval_status_text(card, eval_type, amt, percent, dir, extra)
     percent = percent or (0.9 + 0.2*math.random())
     if dir == 'down' then 
         percent = 1-percent
