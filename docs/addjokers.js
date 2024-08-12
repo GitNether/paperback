@@ -64,6 +64,14 @@ let implementedJokers = [
     rarity: "Uncommon"
   },
   {
+    name: "Pride Flag",
+    text: [
+      "Gains {C:mult}+3{} Mult if scored hand contains {C:attention}four{} unique suits"
+    ],
+    image_url: "img/j_pride_flag.png",
+    rarity: "Common"
+  },
+  {
     name: "Pool Table",
     text: [
       "If first hand of round scores all {C:attention}non-face cards{}, creates the {C:planet}Planet{} card of the played {C:attention}poker hand{}",
@@ -165,14 +173,6 @@ let inProgressJokers = [
 ]
 
 let conceptJokers = [
-  {
-    name: "Pride Flag",
-    text: [
-      "Gains +3 Mult if scored hand contains four unique suits"
-    ],
-    image_url: "img/j_pride_flag.png",
-    rarity: "Common"
-  },
   {
     name: "Summoning Circle",
     text: [
