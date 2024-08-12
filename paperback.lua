@@ -4,7 +4,7 @@
 --- MOD_AUTHOR: [PaperMoon, Nether, OppositeWolf770, B]
 --- MOD_DESCRIPTION: A vanilla centered mod built upon expanding the base game with jokers
 --- LOADER_VERSION_GEQ: 1.0.0
---- VERSION: 0.18.0
+--- VERSION: 0.19.0
 --- BADGE_COLOR: 8b61ad
 
 ----------------------------------------------
@@ -34,6 +34,7 @@ local CONFIG = {
     joker_furioso = true,
     joker_pride_flag = true,
     joker_pool_table = true,
+    joker_summoning_circle = true,
     joker_derecho = true,
     joker_skydiver = true,
     joker_solemn_lament = true,
