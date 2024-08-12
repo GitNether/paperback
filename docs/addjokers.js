@@ -81,6 +81,15 @@ let implementedJokers = [
     rarity: "Rare"
   },
   {
+    name: "Summoning Circle",
+    text: [
+      "Playing a {C:attention}5 of a Kind{} creates a copy of a {C:attention}random consumeable{}",
+      "{C:inactive}(Must have room)"
+    ],
+    image_url: "img/j_summoning_circle.png",
+    rarity: "Rare"
+  },
+  {
     name: "Derecho",
     text: [
       "Gains {X:mult,C:white}X0.1{} Mult if {C:attention}first hand{} of round contains only {C:spades}dark suits",
@@ -173,14 +182,6 @@ let inProgressJokers = [
 ]
 
 let conceptJokers = [
-  {
-    name: "Summoning Circle",
-    text: [
-      "Playing 5 of a Kind creates a non negative copy of a consumable if a spot is available."
-    ],
-    image_url: "img/j_summoning_circle.png",
-    rarity: "Rare"
-  },
   {
     name: "Hole in One",
     text: [

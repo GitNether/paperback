@@ -21,6 +21,7 @@ For the alpha-pre-release-testing-proceed-at-your-own-risk version, simply [down
 - **Furioso** :: Each uniquely scored rank adds X0.2 Mult to this Joker. Resets after defeating a boss blind.
 - **Pride Flag** :: Gains +3 Mult if scored hand contains four unique suits.
 - **Pool Table** :: If first hand of round scored all non-face cards, create a planet of the played hand.
+- **Summoning Circle** :: Playing a Five of a Kind creates a copy of a random consumeable (Must have room).
 - **Derecho** :: Gains X0.1 Mult if first hand of round contains only dark suits.
 - **Skydiver** :: X3 Mult if all scored cards are less than or equal to the lowest ranked card scored this round. Lowest rank updated at end of played hand.
 - **Solemn Lament** :: Retrigger first played card used in scoring for every remaining hand or discard (The lowest of the two). Aces, 6s, and 8s give +3 Mult when scored.
