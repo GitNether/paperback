@@ -19,6 +19,7 @@ For the alpha-pre-release-testing-proceed-at-your-own-risk version, simply [down
 - **Stamp** :: 1 in 3 chance this Joker gains +25 Chips when any card with a seal is scored.
 - **Solar System** :: Gives X2 Mult for every level all 9 base planets share.
 - **Furioso** :: Each uniquely scored rank adds X0.2 Mult to this Joker. Resets after defeating a boss blind.
+- **Pride Flag** :: Gains +3 Mult if scored hand contains four unique suits.
 - **Pool Table** :: If first hand of round scored all non-face cards, create a planet of the played hand.
 - **Derecho** :: Gains X0.1 Mult if first hand of round contains only dark suits.
 - **Skydiver** :: X3 Mult if all scored cards are less than or equal to the lowest ranked card scored this round. Lowest rank updated at end of played hand.
