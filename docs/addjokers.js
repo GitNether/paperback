@@ -92,6 +92,16 @@ let implementedJokers = [
     rarity: "Uncommon"
   },
   {
+    name: "Solemn Lament",
+    text: [
+      "Retrigger {C:attention}first{} played card used in scoring {C:attention}once{} for every remaining {C:chips}hand{} or {C:mult}discard{}",
+      "{C:inactive}(The lowest of the two)",
+      "{C:attention}Aces{}, {C:attention}6s{}, and {C:attention}8s{} give {C:mult}+3{} Mult when scored"
+      ],
+    image_url: "img/j_solemn_lament.png",
+    rarity: "Uncommon"
+  },
+  {
     name: "Ghost Cola",
     text: [
       "Sell this card to create a {C:attention}Negative Tag{} and a random {C:dark_edition}Negative{} {C:spectral}Spectral{} card."
@@ -185,14 +195,6 @@ let conceptJokers = [
       "Copies the effect of a random joker every hand. If a joker provides Mult, X-Mult, or Chips, the provided amount is between 0.5x and 1.5x times the original copied amount"
       ],
     image_url: "img/j_forgery.png",
-    rarity: "Uncommon"
-  },
-  {
-    name: "Solemn Lament",
-    text: [
-      "Retriggers first scored card of hand once for every remaining hand or discard, uses the lowest of these two numbers. Aces, 6s, and 8s give +3 Mult when scored."
-      ],
-    image_url: "img/j_solemn_lament.png",
     rarity: "Uncommon"
   },
   {
