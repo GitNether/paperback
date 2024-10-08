@@ -62,23 +62,3 @@ SMODS.Joker {
         end
     end
 }
-
-
--- JokerDisplay mod integration
-if SMODS.Mods["JokerDisplay"] and _G["JokerDisplay"] then
-    jd_def = JokerDisplay.Definitions
-
-    jd_def["j_pape_wish_you_were_here"] = {
-        text = {
-            { text = '+', },
-            { ref_table = 'card.joker_display_values', ref_value = 'mult' },
-        },
-        text_config = {
-            colour = G.C.MULT
-        },
-
-        calc_function = function(card)
-            card.joker_display_values.mult = card.ability.extra.mult_mod * card.sell_cost
-        end
-    }
-end

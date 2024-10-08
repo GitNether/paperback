@@ -1,3 +1,6 @@
 {
-  "liveServer.settings.port": 42070
+  "liveServer.settings.port": 42070,
+  "Lua.diagnostics.globals": [
+    "get_rank"
+  ]
 }

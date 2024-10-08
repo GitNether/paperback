@@ -15,6 +15,11 @@ _RELEASE_MODE = false -- DEBUG MODE :: REMOVE IN RELEASE
 
 PB_UTIL = NFS.load(SMODS.current_mod.path .. "/paperback-utils.lua")()
 
+-- -- Loads the JokerDisplay
+-- if JokerDisplay then
+--     SMODS.load_path("JokerDisplay.lua")()
+-- end
+
 -- Registers the atlas for Jokers
 SMODS.Atlas {  
     key = 'jokers_atlas',

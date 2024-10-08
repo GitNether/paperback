@@ -86,15 +86,15 @@ function calculate_highest_shared_level(card)
     }
 
     -- set the minimum level to the first planet in the subset
-    min_level = hands[subset_keys[1]].level
+    local min_level = hands[subset_keys[1]].level
 
     -- go through each hand, comparing them to the first hand in subset
-    for _, key in ipairs(subset_keys) do
-        local hand = hands[key]
+    for _, hand in ipairs(subset_keys) do
+        local current_hand = hands[hand]
 
         -- if the hand level is lower, set the minimum level to that value
-        if hand.level < min_level then
-            min_level = hand.level
+        if current_hand.level < min_level then
+            min_level = current_hand.level
         end
     end
 
