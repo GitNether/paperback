@@ -80,28 +80,3 @@ SMODS.Joker {
         end
     end
 }
-
--- -- Creates the flag
--- local BackApply_to_run_ref = Back.apply_to_run
--- function Back.apply_to_run(arg_56_0)
---     BackApply_to_run_ref(arg_56_0)
---     G.GAME.pool_flags.soft_taco_can_spawn = false
--- end
-
-
--- JokerDisplay mod integration
-if SMODS.Mods["JokerDisplay"] and _G["JokerDisplay"] then
-    jd_def = JokerDisplay.Definitions
-
-    jd_def["j_pape_crispy_taco"] = {
-        text = {
-            {
-                border_nodes = {
-                    { text = "X" },
-                    { ref_table = 'card.ability.extra', ref_value = 'x_chips' },
-                },
-                border_colour = G.C.CHIPS
-            }
-        }
-    }
-end

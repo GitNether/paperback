@@ -83,20 +83,3 @@ SMODS.Joker {
         end
     end
 }
-
-
--- JokerDisplay mod integration
-if SMODS.Mods["JokerDisplay"] and _G["JokerDisplay"] then
-    jd_def = JokerDisplay.Definitions
-
-    jd_def["j_pape_soft_taco"] = {
-        text = {
-            {
-                border_nodes = {
-                    { text = "X" },
-                    { ref_table = 'card.ability.extra', ref_value = 'x_mult' },
-                },
-            }
-        }
-    }
-end

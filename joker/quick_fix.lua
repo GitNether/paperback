@@ -42,8 +42,6 @@ SMODS.Joker {
     end,
     
     calculate = function(self, card, context)
-        local card_destroyed = false
-        
         if context.end_of_round and not context.blueprint and not (context.individual or context.repetition) then
             if pseudorandom("Quick Fix") < G.GAME.probabilities.normal/card.ability.extra.odds then
                 
@@ -102,38 +100,3 @@ SMODS.Joker {
         end
     end
 }
-
-
--- -- Creates the flag
--- local BackApply_to_run_ref = Back.apply_to_run
--- function Back.apply_to_run(arg_56_0)
---     BackApply_to_run_ref(arg_56_0)
---     G.GAME.pool_flags.quick_fix_can_spawn = true
--- end
-
-
--- JokerDisplay integration
-if SMODS.Mods["JokerDisplay"] and _G["JokerDisplay"] then
-    JokerDisplay.Definitions["j_pape_quick_fix"] = {
-        reminder_text = {
-            { text = "(+" },
-            { ref_table = 'card.ability.extra', ref_value = 'h_size' },
-            { text = ")" },
-        },
-
-        reminder_text_config = {
-            scale = 0.35
-        },
-
-        extra = {
-            {
-                { text = "(" },
-                { ref_table = 'G.GAME.probabilities', ref_value = 'normal' },
-                { text = " in " },
-                { ref_table = 'card.ability.extra', ref_value = 'odds' },
-                { text = ')' },
-            }
-        },
-        extra_config = { colour = G.C.GREEN, scale = 0.3 }
-    }
-end

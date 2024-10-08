@@ -82,28 +82,3 @@ SMODS.Joker {
         end
     end
 }
-
--- JokerDisplay mod integration
-if SMODS.Mods["JokerDisplay"] then
-    jd_def = JokerDisplay.Definitions
-
-    jd_def["j_pape_nachos"] = {
-        text = {
-            {
-                border_nodes = {
-                    {
-                        text = "X"
-                    },
-                    {
-                        ref_table = "card.ability.extra",
-                        ref_value = "X_chips"
-                    },
-                    colour = G.C.CHIPS
-                },
-                border_colour = G.C.CHIPS
-            }
-        }
-    }
-end
-
-
