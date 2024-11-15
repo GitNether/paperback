@@ -37,7 +37,7 @@ SMODS.Joker {
     calculate = function (self, card, context)
         if not card.debuff then
             if context.individual and context.cardarea == G.play then
-                if context.other_card:get_id() == 14 or context.other_card:get_id() == 8 or context.other_card:get_id() == 6 then
+                if sl_is_valid_card(context.other_card) then
                     return {
                         mult = card.ability.extra.a_mult,
                         card = card
@@ -47,13 +47,9 @@ SMODS.Joker {
 
             if context.repetition and context.cardarea == G.play then
                 if context.other_card == context.scoring_hand[1] then
-                    local repetitions = (G.GAME.current_round.hands_left < G.GAME.current_round.discards_left)
-                                and G.GAME.current_round.hands_left
-                            or G.GAME.current_round.discards_left
-
                     return {
                         message = localize('k_again_ex'),
-                        repetitions = repetitions,
+                        repetitions = sl_get_repetitions(),
                         card = card
                     }
                 end
@@ -61,3 +57,19 @@ SMODS.Joker {
         end
     end
 }
+
+
+-- Returns if the card is a valid card for the joker to trigger on
+function sl_is_valid_card(card)
+    if card:get_id() == 14 or card:get_id() == 8 or card:get_id() == 6 then
+        return true
+    end
+end
+
+
+-- Returns the number of repetitions for the joker
+function sl_get_repetitions()
+    return (G.GAME.current_round.hands_left < G.GAME.current_round.discards_left)
+                and G.GAME.current_round.hands_left
+            or G.GAME.current_round.discards_left
+end
