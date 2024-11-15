@@ -176,6 +176,14 @@ let implementedJokers = [
     ],
     image_url: "img/j_reference_card.png",
     rarity: "Common"
+  },
+  {
+    name: "Great Wave",
+    text: [
+      "Retrigger {C:attention}rightmost{} played card used in scoring {C:attention}once{} for every {C:chips}hand{} remaining",
+    ],
+    image_url: "img/j_great_wave.png",
+    rarity: "Rare"
   }
 ]
 
