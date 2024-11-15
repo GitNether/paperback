@@ -114,7 +114,7 @@ let implementedJokers = [
       "Retrigger {C:attention}first{} played card used in scoring {C:attention}once{} for every remaining {C:chips}hand{} or {C:mult}discard{}",
       "{C:inactive}(The lowest of the two)",
       "{C:attention}Aces{}, {C:attention}6s{}, and {C:attention}8s{} give {C:mult}+3{} Mult when scored"
-      ],
+    ],
     image_url: "img/j_solemn_lament.png",
     rarity: "Uncommon"
   },
@@ -130,7 +130,7 @@ let implementedJokers = [
     name: "Shopping Center",
     text: [
       "{C:money}Shops{} have an additional {C:attention}card slot{}."
-      ],
+    ],
     image_url: "img/j_shopping_center.png",
     rarity: "Common"
   },
@@ -167,6 +167,15 @@ let implementedJokers = [
     ],
     image_url: "img/j_bicycle.png",
     rarity: "Common"
+  },
+  {
+    name: "Reference Card",
+    text: [
+      "Gains {X:mult,C:white}X1{} Mult for all times the base {C:attention}Hands{} have been played",
+      "{C:inactive}(Currently {X:mult,C:white}X1{C:inactive} Mult)"
+    ],
+    image_url: "img/j_reference_card.png",
+    rarity: "Common"
   }
 ]
 
@@ -194,7 +203,7 @@ let conceptJokers = [
     name: "Forgery",
     text: [
       "Copies the effect of a random joker every hand. If a joker provides Mult, X-Mult, or Chips, the provided amount is between 0.5x and 1.5x times the original copied amount"
-      ],
+    ],
     image_url: "img/j_forgery.png",
     rarity: "Uncommon"
   },
@@ -202,7 +211,7 @@ let conceptJokers = [
     name: "Union Card",
     text: [
       "Sell Value of all Cards is Locked at 0 until this joker is sold. Gives xMult and xChips equal to the number of scored Red cards in played hand (Diamonds, Hearts)"
-      ],
+    ],
     image_url: "img/j_union_card.png",
     rarity: "Rare"
   },
@@ -224,15 +233,6 @@ let conceptJokers = [
     image_url: "img/j_joker.png",
     rarity: "Common"
   },
-  {
-    name: "Reference Card",
-    text: [
-      "Gains 1x Mult for all times the base Hands have been played"
-    ],
-    image_url: "img/j_joker.png",
-    rarity: "Common"
-  },
-  
   {
     name: "Prince of Darkness",
     text: [
@@ -468,7 +468,7 @@ let shop_items = [
 ]
 
 let cols = {
-  
+
   MULT: "#FE5F55",
   CHIPS: "#009dff",
   MONEY: "#f3b958",
@@ -483,7 +483,7 @@ let cols = {
   IMPORTANT: "#ff9a00",
   GOLD: "#eac058",
   YELLOW: "#ffff00",
-  CLEAR: "#00000000", 
+  CLEAR: "#00000000",
   WHITE: "#ffffff",
   PURPLE: "#8867a5",
   BLACK: "#374244",
@@ -511,7 +511,7 @@ let cols = {
 }
 
 let rarities = {
-  "Common": "#009dff", 
+  "Common": "#009dff",
   "Uncommon": "#4BC292",
   "Rare": "#fe5f55",
   "Legendary": "#b26cbb",
@@ -535,16 +535,16 @@ regex = /{([^}]+)}/g;
 let add_cards_to_div = (jokers, jokers_div) => {
   for (let joker of jokers) {
     console.log("adding joker", joker.name);
-  
-    joker.text = joker.text.map((line) => { return line + "{}"});
-  
+
+    joker.text = joker.text.map((line) => { return line + "{}" });
+
     joker.text = joker.text.join("<br/>");
     joker.text = joker.text.replaceAll("{}", "</span>");
     joker.text = joker.text.replace(regex, function replacer(match, p1, offset, string, groups) {
       let classes = p1.split(",");
-  
+
       let css_styling = "";
-  
+
       for (let i = 0; i < classes.length; i++) {
         let parts = classes[i].split(":");
         if (parts[0] === "C") {
@@ -553,10 +553,10 @@ let add_cards_to_div = (jokers, jokers_div) => {
           css_styling += `background-color: ${cols[parts[1].toUpperCase()]}; border-radius: 5px; padding: 0 5px;`;
         }
       }
-  
+
       return `</span><span style='${css_styling}'>`;
     });
-  
+
     let joker_div = document.createElement("div");
     joker_div.classList.add("joker");
     if (joker.rarity === "Sticker" || joker.rarity == "Seal") {
@@ -584,7 +584,7 @@ let add_cards_to_div = (jokers, jokers_div) => {
         <div class="text">${joker.text}</div>
       `;
     }
-  
+
     jokers_div.appendChild(joker_div);
   }
 }
