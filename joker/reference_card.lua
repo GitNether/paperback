@@ -4,7 +4,7 @@ SMODS.Joker {
         name = "Reference Card",
         text = {
             "Gains {X:mult,C:white}X#1#{} Mult each time the least",
-            "played {C:attention}base poker hand{} has been played.)",
+            "played {C:attention}base poker hand{} has been played.",
             "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)",
         }
     },
