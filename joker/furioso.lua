@@ -15,6 +15,7 @@ SMODS.Joker {
             x_mult_mod = 0.2,
             x_mult = 1,
             ranks = {
+                [0] = false,
                 [1] = false,
                 [2] = false,
                 [3] = false,
@@ -77,10 +78,17 @@ SMODS.Joker {
         if context.individual and not context.blueprint and not context.repetition then
             if context.cardarea == G.play then
                 if not context.other_card.debuff then
-                    if not card.ability.extra.ranks[context.other_card:get_id()] then
+                    local rank
+                    if context.other_card.ability.effect == 'Stone Card' then
+                        rank = 0
+                    else
+                        rank = context.other_card:get_id()
+                        sendDebugMessage(context.other_card:get_id(), "Test")
+                    end
+                    if not card.ability.extra.ranks[rank] then
                         card.ability.extra.x_mult = card.ability.extra.x_mult + card.ability.extra.x_mult_mod
     
-                        card.ability.extra.ranks[context.other_card:get_id()] = true
+                        card.ability.extra.ranks[rank] = true
 
                         return {
                             extra = {focus = card, message = localize('k_upgrade_ex'), colour = G.C.MULT},
