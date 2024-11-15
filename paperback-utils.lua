@@ -24,14 +24,26 @@ end
 local start_dissolve_ref = Card.start_dissolve
 function Card:start_dissolve(dissolve_colours, silent, dissolve_time_fac, no_juice)
     if self.getting_sliced then
-        for i=1, #G.jokers.cards do
-            G.jokers.cards[i]:calculate_joker({destroying_cards = true, destroyed_card = self})
+        for i = 1, #G.jokers.cards do
+            G.jokers.cards[i]:calculate_joker({ destroying_cards = true, destroyed_card = self })
         end
     end
 
     start_dissolve_ref(self, dissolve_colours, silent, dissolve_time_fac, no_juice)
 end
 
+
+PB_UTIL.base_poker_hands = {
+    "Straight Flush",
+    "Four of a Kind",
+    "Full House",
+    "Flush",
+    "Straight",
+    "Three of a Kind",
+    "Two Pair",
+    "Pair",
+    "High Card"
+}
 
 function PB_UTIL.is_in_your_collection(card)
     if not G.your_collection then return false end

@@ -31,6 +31,7 @@ For the alpha-pre-release-testing-proceed-at-your-own-risk version, simply [down
 - **Soft Taco** :: X3 Mult. 1 in 10 chance this card is destroyed at end of round.
 - **Shopping Center** :: Shops have an additional card slot.
 - **Bicycle** :: Wild Cards give Mult equal to their Chip Bonus, then X1.5 Mult.
+- **Reference Card** :: Gains X1 Mult for each time the least played base poker hand has been played.
 
 ## In Progress & Planned
 
