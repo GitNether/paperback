@@ -50,6 +50,7 @@ local CONFIG = {
     joker_crispy_taco = true,
     joker_bicycle = true,
     joker_reference_card = true,
+    joker_great_wave = true,
 }
 
 for key, enabled in pairs(CONFIG) do
