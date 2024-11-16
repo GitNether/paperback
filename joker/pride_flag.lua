@@ -14,7 +14,7 @@ SMODS.Joker {
             mult = 0
         }
     },
-    rarity = 2,
+    rarity = 1,
     pos = { x = 3, y = 0 },
     atlas = 'jokers_atlas',
     cost = 6,
@@ -22,6 +22,7 @@ SMODS.Joker {
     discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
+    perishable_compat = false,
     soul_pos = nil,
 
     loc_vars = function(self, info_queue, center)
@@ -35,31 +36,24 @@ SMODS.Joker {
 
     -- Calculate function for the Joker
     calculate = function(self, card, context)
+        -- Check if the card is not debuffed
         if not card.debuff then
+            -- Check if the card is being calculated before the scoring hand is scored and not blueprinted
             if context.before and not context.blueprint then
-                local suits = {
-                    ['Hearts'] = 0,
-                    ['Diamonds'] = 0,
-                    ['Spades'] = 0,
-                    ['Clubs'] = 0
-                }
-                for i = 1, #context.scoring_hand do
-                    if context.scoring_hand[i].ability.name ~= 'Wild Card' then
-                        if context.scoring_hand[i]:is_suit('Hearts', true) and suits["Hearts"] == 0 then suits["Hearts"] = suits["Hearts"] + 1
-                        elseif context.scoring_hand[i]:is_suit('Diamonds', true) and suits["Diamonds"] == 0  then suits["Diamonds"] = suits["Diamonds"] + 1
-                        elseif context.scoring_hand[i]:is_suit('Spades', true) and suits["Spades"] == 0  then suits["Spades"] = suits["Spades"] + 1
-                        elseif context.scoring_hand[i]:is_suit('Clubs', true) and suits["Clubs"] == 0  then suits["Clubs"] = suits["Clubs"] + 1 end
+                -- Get the unique suits in the scoring hand
+                local suits = PB_UTIL.get_unique_suits(context.scoring_hand)
+
+                -- Check if all suits are unique
+                local all_suits_unique = true
+                for _, v in pairs(suits) do
+                    if v == 0 then
+                        all_suits_unique = false
+                        break
                     end
                 end
-                for i = 1, #context.scoring_hand do
-                    if context.scoring_hand[i].ability.name == 'Wild Card' then
-                        if context.scoring_hand[i]:is_suit('Hearts') and suits["Hearts"] == 0 then suits["Hearts"] = suits["Hearts"] + 1
-                        elseif context.scoring_hand[i]:is_suit('Diamonds') and suits["Diamonds"] == 0  then suits["Diamonds"] = suits["Diamonds"] + 1
-                        elseif context.scoring_hand[i]:is_suit('Spades') and suits["Spades"] == 0  then suits["Spades"] = suits["Spades"] + 1
-                        elseif context.scoring_hand[i]:is_suit('Clubs') and suits["Clubs"] == 0  then suits["Clubs"] = suits["Clubs"] + 1 end
-                    end
-                end
-                if suits["Hearts"] > 0 and suits["Diamonds"] > 0 and suits["Spades"] > 0 and suits["Clubs"] > 0 then
+
+                -- If all unique suits, upgrade joker
+                if all_suits_unique then
                     card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.a_mult
 
                     return {
@@ -70,6 +64,7 @@ SMODS.Joker {
                 end
             end
 
+            -- Gives the mult during scoring
             if context.joker_main then
                 return {
                     message = localize{ type = 'variable', key = 'a_mult', vars = { card.ability.extra.mult } },

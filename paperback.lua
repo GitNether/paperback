@@ -7,10 +7,6 @@
 --- VERSION: 0.19.0
 --- BADGE_COLOR: 8b61ad
 
-----------------------------------------------
-------------MOD CODE -------------------------
-----------------------------------------------
-
 _RELEASE_MODE = false -- DEBUG MODE :: REMOVE IN RELEASE
 
 PB_UTIL = NFS.load(SMODS.current_mod.path .. "/paperback-utils.lua")()
@@ -52,6 +48,7 @@ local CONFIG = {
     joker_reference_card = true,
     joker_great_wave = true,
     joker_wild_prize = true,
+    joker_prince_of_darkness = true,
 }
 
 for key, enabled in pairs(CONFIG) do
