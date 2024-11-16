@@ -45,8 +45,13 @@ SMODS.Joker {
                 local active = true
 
                 -- Loop through the scoring_hand 
-                for i=1, #context.scoring_hand do
-                    if context.scoring_hand[i]:get_id() > card.ability.extra.lowest_rank then
+                for i = 1, #context.scoring_hand do
+                    if context.scoring_hand[i].ability.name == "Stone Card" then
+                        if 0 > card.ability.extra.lowest_rank then
+                            active = false
+                            break
+                        end
+                    elseif context.scoring_hand[i]:get_id() > card.ability.extra.lowest_rank then
                         active = false
                         break
                     end
@@ -65,7 +70,11 @@ SMODS.Joker {
 
                 if context.scoring_hand then
                     for _, v in pairs(context.scoring_hand) do
-                        if v:get_id() < card.ability.extra.lowest_rank then
+                        if v.ability.name == "Stone Card" then
+                            if 0 < card.ability.extra.lowest_rank then
+                                card.ability.extra.lowest_rank = 0
+                            end
+                        elseif v:get_id() < card.ability.extra.lowest_rank then
                             card.ability.extra.lowest_rank = v:get_id()
                         end
                     end
