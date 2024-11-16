@@ -33,6 +33,7 @@ For the alpha-pre-release-testing-proceed-at-your-own-risk version, simply [down
 - **Bicycle** :: Wild Cards give Mult equal to their Chip Bonus, then X1.5 Mult.
 - **Reference Card** :: Gains X1 Mult for each time the least played base poker hand has been played.
 - **Great Wave** :: Retrigger rightmost played card used in scoring once for every hand remaining.
+- **[[WILD PRIZE!1!]]** :: Retrigger all Aces, 9s, and 7s. Each of these earn $1 when scored.
 
 ## In Progress & Planned
 
