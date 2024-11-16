@@ -1,5 +1,8 @@
 PB_UTIL = {}
 
+-- message for the scoring of "Prince of Darkness"
+G.localization.misc.v_dictionary.prince_of_darkness = {"+#1# Mult, +#2# Chips"}
+
 -- Creates the flags
 local BackApply_to_run_ref = Back.apply_to_run
 function Back.apply_to_run(arg_56_0)
@@ -44,6 +47,35 @@ PB_UTIL.base_poker_hands = {
     "Pair",
     "High Card"
 }
+
+-- Gets the number of unique suits in a scoring hand
+function PB_UTIL.get_unique_suits(scoring_hand)
+    -- Initialize the suits table
+    local suits = {
+        ['Hearts'] = 0,
+        ['Diamonds'] = 0,
+        ['Spades'] = 0,
+        ['Clubs'] = 0
+    }
+
+    -- Check for unique suits in scoring_hand
+    for i = 1, #scoring_hand do
+        local scoring_card = scoring_hand[i]
+        for scoring_suit, _ in pairs(suits) do
+            -- Check if the suit hasn't been matched yet
+            if suits[scoring_suit] == 0 and scoring_card:is_suit(scoring_suit, true) then
+                suits[scoring_suit] = 1
+
+                -- Stop checking other suits if it's a Wild Card
+                if scoring_card.ability.name == 'Wild Card' then
+                    break
+                end
+            end
+        end
+    end
+
+    return suits
+end
 
 function PB_UTIL.is_in_your_collection(card)
     if not G.your_collection then return false end
