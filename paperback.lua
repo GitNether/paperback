@@ -51,6 +51,7 @@ local CONFIG = {
     joker_bicycle = true,
     joker_reference_card = true,
     joker_great_wave = true,
+    joker_wild_prize = true,
 }
 
 for key, enabled in pairs(CONFIG) do

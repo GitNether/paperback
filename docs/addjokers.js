@@ -184,7 +184,15 @@ let implementedJokers = [
     ],
     image_url: "img/j_great_wave.png",
     rarity: "Rare"
-  }
+  },
+  {
+    name: "[[WILD PRIZE!1!]]",
+    text: [
+      "Retrigger all {C:attention}Aces{}, {C:attention}9s{}, and {C:attention}7s{}. Each of these earn {C:money}$1{} when scored"
+    ],
+    image_url: "img/j_wild_prize.png",
+    rarity: "Uncommon"
+  },
 ]
 
 let inProgressJokers = [
@@ -325,14 +333,6 @@ let conceptJokers = [
     name: "Everything Must Go!",
     text: [
       "Shops have an additional Voucher for sale"
-    ],
-    image_url: "img/j_joker.png",
-    rarity: "Uncommon"
-  },
-  {
-    name: "[[WILD PRIZE!1!]]",
-    text: [
-      "Retrigger all Aces, Nines, and Sevens. Each of these earn $1 when scored"
     ],
     image_url: "img/j_joker.png",
     rarity: "Uncommon"
