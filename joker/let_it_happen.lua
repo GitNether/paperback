@@ -28,7 +28,13 @@ SMODS.Joker {
         local hands_played_string = ""
 
         for i = 1, #center.ability.extra.hands_played_this_ante do
-            hands_played_string = hands_played_string .. " " .. center.ability.extra.hands_played_this_ante[i]
+            if i == 1 then
+                hands_played_string = hands_played_string .. " "
+            else
+                hands_played_string = hands_played_string .. ", "
+            end
+            
+            hands_played_string = hands_played_string .. center.ability.extra.hands_played_this_ante[i]
         end
 
         if hands_played_string == "" then
