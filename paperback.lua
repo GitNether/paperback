@@ -49,6 +49,7 @@ local CONFIG = {
     joker_great_wave = true,
     joker_wild_prize = true,
     joker_prince_of_darkness = true,
+    joker_let_it_happen = true,
 }
 
 for key, enabled in pairs(CONFIG) do
