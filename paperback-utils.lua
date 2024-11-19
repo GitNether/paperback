@@ -10,6 +10,7 @@ function Back.apply_to_run(arg_56_0)
     G.GAME.pool_flags.quick_fix_can_spawn = true
     G.GAME.pool_flags.soft_taco_can_spawn = false
     G.GAME.pool_flags.ghost_cola_can_spawn = false
+    G.GAME.pool_flags.dreamsicle_can_spawn = true
 
     G.P_CENTERS['j_diet_cola']['no_pool_flag'] = 'ghost_cola_can_spawn'
 end

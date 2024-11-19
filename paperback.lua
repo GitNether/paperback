@@ -4,7 +4,7 @@
 --- MOD_AUTHOR: [PaperMoon, Nether, OppositeWolf770, B]
 --- MOD_DESCRIPTION: A vanilla centered mod built upon expanding the base game with jokers
 --- LOADER_VERSION_GEQ: 1.0.0
---- VERSION: 0.19.0
+--- VERSION: alpha-0.0.0
 --- BADGE_COLOR: 8b61ad
 
 _RELEASE_MODE = false -- DEBUG MODE :: REMOVE IN RELEASE
@@ -22,6 +22,14 @@ SMODS.Atlas {
     px = 71,
     py = 95,
     path = 'Jokers.png'
+}
+
+-- Registers the mod icon
+SMODS.Atlas { -- modicon
+	key = 'modicon',
+	px = 32,
+	py = 32,
+	path = 'modicon.png'
 }
 
 -- Config: Enable or disable additional jokers here
@@ -50,6 +58,8 @@ local CONFIG = {
     joker_wild_prize = true,
     joker_prince_of_darkness = true,
     joker_let_it_happen = true,
+    joker_dreamsicle = true,
+    joker_popsicle_stick = true,
 }
 
 for key, enabled in pairs(CONFIG) do

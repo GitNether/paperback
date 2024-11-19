@@ -12,7 +12,7 @@ SMODS.Joker {
     config = {
         extra = {
             hands_played_this_ante = {},
-        }
+        }               
     },
     rarity = 3,
     pos = { x = 7, y = 2 },
