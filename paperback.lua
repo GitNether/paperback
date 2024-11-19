@@ -4,7 +4,7 @@
 --- MOD_AUTHOR: [PaperMoon, Nether, OppositeWolf770, B]
 --- MOD_DESCRIPTION: A vanilla centered mod built upon expanding the base game with jokers
 --- LOADER_VERSION_GEQ: 1.0.0
---- VERSION: 0.19.0
+--- VERSION: alpha-0.0.0
 --- BADGE_COLOR: 8b61ad
 
 _RELEASE_MODE = false -- DEBUG MODE :: REMOVE IN RELEASE
@@ -24,38 +24,72 @@ SMODS.Atlas {
     path = 'Jokers.png'
 }
 
--- Config: Enable or disable additional jokers here
-local CONFIG = {
-    joker_calling_card = true,
-    joker_quick_fix = true,
-    joker_sacrificial_lamb = true,
-    joker_wish_you_were_here = true,
-    joker_stamp = true,
-    joker_solar_system = true,
-    joker_furioso = true,
-    joker_pride_flag = true,
-    joker_pool_table = true,
-    joker_summoning_circle = true,
-    joker_derecho = true,
-    joker_skydiver = true,
-    joker_solemn_lament = true,
-    joker_ghost_cola = true,
-    joker_shopping_center = true,
-    joker_nachos = true,
-    joker_soft_taco = true,
-    joker_crispy_taco = true,
-    joker_bicycle = true,
-    joker_reference_card = true,
-    joker_great_wave = true,
-    joker_wild_prize = true,
-    joker_prince_of_darkness = true,
-    joker_let_it_happen = true,
+-- Registers the mod icon
+SMODS.Atlas { -- modicon
+	key = 'modicon',
+	px = 32,
+	py = 32,
+	path = 'modicon.png'
 }
 
-for key, enabled in pairs(CONFIG) do
-    if enabled then
-        local path = key:gsub("_", "/", 1)
-        NFS.load(SMODS.current_mod.path .. "/" .. path .. ".lua")() -- name files "joker_<name>" so they get loaded automatically
-        sendDebugMessage("Loaded joker: " .. key, "Paperback")
-    end
+-- Disable specific jokers by commenting them out
+local JOKER_ORDER = {
+    "calling_card",
+    "quick_fix",
+    "sacrificial_lamb",
+    "wish_you_were_here",
+    "stamp",
+    "solar_system",
+    "furioso",
+    "pride_flag",
+    "pool_table",
+    "summoning_circle",
+    -- "hole_in_one",
+    "derecho",
+    -- "forgery",
+    "skydiver",
+    "solemn_lament",
+    "ghost_cola",
+    -- "mismatched_sock",
+    "shopping_center",
+    -- "union_card",
+    "nachos",
+    -- "jester_of_nihil",
+    -- "complete_breakfast",
+    "reference_card",
+    "crispy_taco",
+    "soft_taco",
+    "prince_of_darkness",
+    -- "passport",
+    -- "black_rainbows",
+    -- "emergency_broadcast",
+    -- "triple_moon_goddess",
+    -- "plague_doctor",
+    -- "white_night",
+    -- "one_sin_and_hundreds_of_good_deeds",
+    -- "marksman",
+    -- "built_to_last",
+    -- "everything_must_go",
+    "wild_prize",
+    -- "down_to_size",
+    "bicycle",
+    -- "grand_strategy",
+    -- "marketable_plushie",
+    "great_wave",
+    "let_it_happen",
+    "dreamsicle",
+    "popsicle_stick",
+    "cakepop",
+    "pop_stick",
+    "caramel_apple",
+    "pointy_stick",
+    "charred_marshmallow",
+    "sticky_stick",
+    -- "paranoia",
+}
+
+-- Register the jokers in custom order
+for i=1, #JOKER_ORDER do
+    NFS.load(SMODS.current_mod.path .. "/joker/" .. JOKER_ORDER[i] .. ".lua")() -- name files "joker_<name>" so they get loaded automatically
+    sendDebugMessage("Loaded joker: " .. JOKER_ORDER[i], "Paperback")
 end
