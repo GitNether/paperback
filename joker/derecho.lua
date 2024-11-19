@@ -4,8 +4,7 @@ SMODS.Joker {
         name = "Derecho",
         text = {
             "Gains {X:mult,C:white}X#1#{} Mult if",
-            "{C:attention}first hand{} of round",
-            "contains only {C:spades}dark suits",
+            "{C:attention}scored hand{} contains only {C:spades}dark suits",
             "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)"
         }
     },
@@ -36,16 +35,8 @@ SMODS.Joker {
 
     calculate = function(self, card, context)
         if not card.debuff then
-            -- Gives it a little jiggle
-            if context.first_hand_drawn and not context.blueprint then
-                local eval = function() return G.GAME.current_round.hands_played == 0 end
-                juice_card_until(card, eval, true)
-            end
-
             -- Upgrade the Joker when hand is played
-            if context.before and not (context.individual or context.repetition) and not context.blueprint and G.GAME.current_round.hands_played == 0 then
-                local active = true
-
+            if context.before and not (context.individual or context.repetition) and not context.blueprint then
                 for i = 1, #context.scoring_hand do
                     if context.scoring_hand[i].ability.name ~= "Wild Card" then
                         if context.scoring_hand[i]:is_suit("Hearts") or context.scoring_hand[i]:is_suit("Diamonds") then
