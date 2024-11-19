@@ -83,7 +83,6 @@ SMODS.Joker {
                         rank = 0
                     else
                         rank = context.other_card:get_id()
-                        sendDebugMessage(context.other_card:get_id(), "Test")
                     end
                     if not card.ability.extra.ranks[rank] then
                         card.ability.extra.x_mult = card.ability.extra.x_mult + card.ability.extra.x_mult_mod

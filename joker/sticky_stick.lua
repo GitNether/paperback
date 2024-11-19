@@ -1,7 +1,7 @@
 SMODS.Joker {
-    key = 'popsicle_stick',
+    key = 'sticky_stick',
     loc_txt = {
-        name = "Popsicle Stick",
+        name = "Sticky Stick",
         text = {
             "Gives {X:mult,C:white}X#1#{} Mult for every",
             "other {C:attention}\"Stick\" Joker you have..."
@@ -13,7 +13,7 @@ SMODS.Joker {
         }
     },
     rarity = 2,
-    pos = { x = 9, y = 2 },
+    pos = { x = 5, y = 3 },
     atlas = 'jokers_atlas',
     cost = 7,
     unlocked = true,
