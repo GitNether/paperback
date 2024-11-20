@@ -88,6 +88,8 @@ local JOKER_ORDER = {
     -- "paranoia",
 }
 
+NFS.load(SMODS.current_mod.path .. "/rank/Apostle.lua")()
+
 -- Register the jokers in custom order
 for i=1, #JOKER_ORDER do
     NFS.load(SMODS.current_mod.path .. "/joker/" .. JOKER_ORDER[i] .. ".lua")() -- name files "joker_<name>" so they get loaded automatically
