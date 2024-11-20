@@ -4,7 +4,7 @@ SMODS.Joker {
         name = "Popsicle Stick",
         text = {
             "Gives {X:mult,C:white}X#1#{} Mult for every",
-            "other {C:attention}\"Stick\" Joker you have..."
+            "other {C:attention}\"Stick\"{} Joker you have..."
         }
     },
     config = {
@@ -21,7 +21,7 @@ SMODS.Joker {
     blueprint_compat = true,
     eternal_compat = true,
     soul_pos = nil,
-    no_pool_flag = true,
+    yes_pool_flag = "sticks_can_spawn",
 
     loc_vars = function(self, info_queue, card)
         return {
