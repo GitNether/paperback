@@ -33,7 +33,7 @@ SMODS.Atlas { -- modicon
 }
 
 -- Disable specific jokers by commenting them out
-local JOKER_ORDER = {
+local ENABLED_JOKERS = {
     "calling_card",
     "quick_fix",
     "sacrificial_lamb",
@@ -63,7 +63,7 @@ local JOKER_ORDER = {
     -- "passport",
     -- "black_rainbows",
     -- "emergency_broadcast",
-    -- "triple_moon_goddess",
+    "triple_moon_goddess",
     -- "plague_doctor",
     -- "white_night",
     -- "one_sin_and_hundreds_of_good_deeds",
@@ -89,7 +89,7 @@ local JOKER_ORDER = {
 }
 
 -- Register the jokers in custom order
-for i=1, #JOKER_ORDER do
-    NFS.load(SMODS.current_mod.path .. "/joker/" .. JOKER_ORDER[i] .. ".lua")()
-    sendDebugMessage("Loaded joker: " .. JOKER_ORDER[i], "Paperback")
+for i=1, #ENABLED_JOKERS do
+    NFS.load(SMODS.current_mod.path .. "/joker/" .. ENABLED_JOKERS[i] .. ".lua")()
+    sendDebugMessage("Loaded joker: " .. ENABLED_JOKERS[i], "Paperback")
 end
