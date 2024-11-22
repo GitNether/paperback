@@ -50,7 +50,7 @@ local JOKER_ORDER = {
     "skydiver",
     "solemn_lament",
     "ghost_cola",
-    -- "mismatched_sock",
+    "mismatched_sock",
     "shopping_center",
     -- "union_card",
     "nachos",
@@ -90,6 +90,6 @@ local JOKER_ORDER = {
 
 -- Register the jokers in custom order
 for i=1, #JOKER_ORDER do
-    NFS.load(SMODS.current_mod.path .. "/joker/" .. JOKER_ORDER[i] .. ".lua")() -- name files "joker_<name>" so they get loaded automatically
+    NFS.load(SMODS.current_mod.path .. "/joker/" .. JOKER_ORDER[i] .. ".lua")()
     sendDebugMessage("Loaded joker: " .. JOKER_ORDER[i], "Paperback")
 end
