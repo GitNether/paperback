@@ -3,7 +3,7 @@ SMODS.Joker {
     loc_txt = {
         name = "Summoning Circle",
         text = {
-            "If played hand contains a {C:attention}Five of a Kind{},
+            "If played hand contains a {C:attention}Five of a Kind{},",
             "create a copy of a {C:attention}random consumeable{}",
             "{C:inactive}(Must have room)"
         }
