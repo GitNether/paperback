@@ -42,11 +42,13 @@ SMODS.Joker {
         if context.joker_main then
             calculate_highest_shared_played(card)
 
-            return {
-                Xmult_mod = card.ability.extra.x_mult,
-                message = localize{ type = 'variable', key = 'a_xmult', vars = { card.ability.extra.x_mult } },
-                card = card
-            }
+            if card.ability.extra.x_mult ~= 1 then
+                return {
+                    Xmult_mod = card.ability.extra.x_mult,
+                    message = localize{ type = 'variable', key = 'a_xmult', vars = { card.ability.extra.x_mult } },
+                    card = card
+                }
+            end
         end
     end
 }

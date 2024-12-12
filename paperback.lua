@@ -4,7 +4,7 @@
 --- MOD_AUTHOR: [PaperMoon, Nether, OppositeWolf770, B]
 --- MOD_DESCRIPTION: A vanilla centered mod built upon expanding the base game with jokers
 --- LOADER_VERSION_GEQ: 1.0.0
---- VERSION: 0.0.0-alpha
+--- VERSION: 0.0.1-alpha
 --- BADGE_COLOR: 8b61ad
 
 _RELEASE_MODE = false -- DEBUG MODE :: REMOVE IN RELEASE
