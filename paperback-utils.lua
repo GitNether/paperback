@@ -79,7 +79,13 @@ function PB_UTIL.get_unique_suits(scoring_hand)
         end
     end
 
-    return suits
+    local unique_suits = 0
+
+    for _, v in pairs(suits) do
+        unique_suits = unique_suits + v
+    end
+
+    return unique_suits
 end
 
 function PB_UTIL.is_in_your_collection(card)
