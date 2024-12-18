@@ -4,13 +4,13 @@ SMODS.Joker {
         name = "Pride Flag",
         text = {
             "Gains {C:mult}+#1#{} Mult if scored hand",
-            "contains {C:attention}four{} unique suits",
+            "contains {C:attention}three{} unique suits",
             "{C:inactive}(Currently {C:mult}+#2#{} {C:inactive}Mult)"
         }
     },
     config = {
         extra = {
-            a_mult = 3,
+            a_mult = 5,
             mult = 0
         }
     },
@@ -40,20 +40,11 @@ SMODS.Joker {
         if not card.debuff then
             -- Check if the card is being calculated before the scoring hand is scored and not blueprinted
             if context.before and not context.blueprint then
-                -- Get the unique suits in the scoring hand
-                local suits = PB_UTIL.get_unique_suits(context.scoring_hand)
+                -- Get the number of unique suits in the scoring hand
+                local unique_suits = PB_UTIL.get_unique_suits(context.scoring_hand)
 
-                -- Check if all suits are unique
-                local all_suits_unique = true
-                for _, v in pairs(suits) do
-                    if v == 0 then
-                        all_suits_unique = false
-                        break
-                    end
-                end
-
-                -- If all unique suits, upgrade joker
-                if all_suits_unique then
+                -- If there are 3 unique suits, upgrade the joker
+                if unique_suits >= 3 then
                     card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.a_mult
 
                     return {

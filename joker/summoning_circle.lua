@@ -3,8 +3,8 @@ SMODS.Joker {
     loc_txt = {
         name = "Summoning Circle",
         text = {
-            "Playing a {C:attention}Five of a Kind{} creates a copy",
-            "of a {C:attention}random consumeable{}",
+            "If played hand contains a {C:attention}Five of a Kind{},",
+            "create a copy of a {C:attention}random consumeable{}",
             "{C:inactive}(Must have room)"
         }
     },
@@ -21,7 +21,7 @@ SMODS.Joker {
     calculate = function (self, card, context)
         if not card.debuff then
             if context.before then
-                if context.scoring_name == "Five of a Kind" then
+                if context.scoring_name == "Five of a Kind" or context.scoring_name == "Flush Five" then
                     -- Check if there is room to copy a card
                     if G.consumeables.cards[1] and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
                         -- Add the card to G.consumeables

@@ -3,7 +3,7 @@ SMODS.Joker {
     loc_txt = {
         name = "Great Wave",
         text = {
-            "Retrigger {C:attention}rightmost{} played card used in",
+            "Retrigger {C:attention}leftmost{} played card used in",
             "scoring {C:attention}once{} for every {C:chips}hand{} remaining"
         }
     },
@@ -20,7 +20,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if not card.debuff then
             if context.repetition and context.cardarea == G.play then
-                if context.other_card == context.scoring_hand[#context.scoring_hand] then
+                if context.other_card == context.scoring_hand[1] then
                     return {
                         message = localize('k_again_ex'),
                         repetitions = G.GAME.current_round.hands_left,
