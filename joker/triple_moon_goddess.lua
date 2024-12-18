@@ -3,7 +3,9 @@ SMODS.Joker {
     loc_txt = {
         name = 'Triple Moon Goddess',
         text = {
-            "Temporary description"
+            "If played hand contains a {C:attention}Three of a Kind{},",
+            "{C:green}#1# in #2#{} chance to create a random {C:planet}Planet{} card and",
+            "{C:green}#3# in #4#{} chance to create a random {C:purple}Tarot{} card"
         }
     },
     config = {
@@ -22,8 +24,15 @@ SMODS.Joker {
     eternal_compat = true,
     soul_pos = nil,
 
-    loc_vars = function(self, card, initial, delay_sprites)
-
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.GAME.probabilities.normal,
+                card.ability.extra.planet_odds,
+                G.GAME.probabilities.normal,
+                card.ability.extra.tarot_odds
+            }
+        }
     end,
 
     calculate = function(self, card, context)
