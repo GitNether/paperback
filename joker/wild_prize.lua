@@ -31,10 +31,10 @@ SMODS.Joker {
                 "Aces",
                 "9s",
                 "7s",
-                center.ability.extra.repetitions,
+                card.ability.extra.repetitions,
                 G.GAME.probabilities.normal,
-                center.ability.extra.odds,
-                center.ability.extra.a_money
+                card.ability.extra.odds,
+                card.ability.extra.a_money
             }
         }
     end,
