@@ -3,7 +3,7 @@ SMODS.Joker {
     loc_txt = {
         name = "[[WILD PRIZE!1!]]",
         text = {
-            "Retrigger all {C:attention}#1#{}, {C:attention}#2#{}, and {C:attention}#3#{} #4# time(s)",
+            "Retrigger all {C:attention}#1#{}, {C:attention}#2#{}, and {C:attention}#3#{} {C:attention}#4#{} time(s)",
             "Each of these have a {C:green}#5# in #6#{} chance",
             "to earn {C:money}$#7#{} when scored",
         }
@@ -31,10 +31,10 @@ SMODS.Joker {
                 "Aces",
                 "9s",
                 "7s",
-                card.ability.extra.repetitions,
+                center.ability.extra.repetitions,
                 G.GAME.probabilities.normal,
-                card.ability.extra.odds,
-                card.ability.extra.a_money
+                center.ability.extra.odds,
+                center.ability.extra.a_money
             }
         }
     end,
