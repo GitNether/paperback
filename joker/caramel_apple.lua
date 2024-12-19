@@ -73,7 +73,7 @@ SMODS.Joker {
                                     local jokers_to_create = math.min(1,
                                         G.jokers.config.card_limit - (#G.jokers.cards + G.GAME.joker_buffer))
                                     G.GAME.joker_buffer = G.GAME.joker_buffer + jokers_to_create
-                                    
+
                                     G.E_MANAGER:add_event(Event({
                                         func = function()
                                             local card = create_card('Joker', G.jokers, nil, 0, nil, nil, 'j_pape_pointy_stick', nil)
