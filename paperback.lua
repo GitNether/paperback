@@ -17,7 +17,7 @@ PB_UTIL = NFS.load(SMODS.current_mod.path .. "/paperback-utils.lua")()
 -- end
 
 -- Registers the atlas for Jokers
-SMODS.Atlas {  
+SMODS.Atlas {
     key = 'jokers_atlas',
     px = 71,
     py = 95,
@@ -62,7 +62,7 @@ local ENABLED_JOKERS = {
     "prince_of_darkness",
     -- "passport",
     -- "black_rainbows",
-    -- "emergency_broadcast",
+    "emergency_broadcast",
     "triple_moon_goddess",
     -- "plague_doctor",
     -- "white_night",
