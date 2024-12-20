@@ -1,18 +1,20 @@
 SMODS.Joker {
-	key = 'emergency_broadcast',
-	loc_txt = {
+  key = 'emergency_broadcast',
+  loc_txt = {
     name = "Emergency Broadcast",
     text = {
-      "Temporary Description"
+      "Scored {C:attention}5s{} and {C:attention}8s{} provide",
+      "{C:mult}+#1#{} Mult and {C:chips}+#2#{} Chips"
     }
-	},
-	config = {
-	  extra = {
-
-	  }
+  },
+  config = {
+    extra = {
+      a_mult = 5,
+      a_chips = 8,
+    }
   },
   rarity = 1,
-  pos = { x = 0, y = 0 },
+  pos = { x = 9, y = 4 },
   atlas = 'jokers_atlas',
   cost = 6,
   unlocked = true,
@@ -22,15 +24,25 @@ SMODS.Joker {
   soul_pos = nil,
 
   loc_vars = function(self, info_queue, card)
-
+    return {
+      vars = {
+        card.ability.extra.a_mult,
+        card.ability.extra.a_chips,
+      }
+    }
   end,
 
   calculate = function(self, card, context)
-    if context.joker_main then
-      return {
-       message = localize('k_balanced'),
-       colour = { 0.8, 0.45, 0.85, 1 },
-      }
+    if not card.debuff then
+      if context.individual and context.cardarea == G.play then
+        if context.other_card:get_id() == 5 or context.other_card:get_id() == 8 then
+          return {
+            mult = card.ability.extra.a_mult,
+            chips = card.ability.extra.a_chips,
+            card = card
+          }
+        end
+      end
     end
   end
 }
