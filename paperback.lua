@@ -93,7 +93,7 @@ local ENABLED_JOKERS = {
     -- "autumn_leaves",
     -- "evergreens",
     -- "river",
-    -- "moribund",
+    "moribund",
 }
 
 -- Register the jokers in custom order
