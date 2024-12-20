@@ -26,10 +26,10 @@ SMODS.Atlas {
 
 -- Registers the mod icon
 SMODS.Atlas { -- modicon
-	key = 'modicon',
-	px = 32,
-	py = 32,
-	path = 'modicon.png'
+    key = 'modicon',
+    px = 32,
+    py = 32,
+    path = 'modicon.png'
 }
 
 -- Disable specific jokers by commenting them out
@@ -86,10 +86,18 @@ local ENABLED_JOKERS = {
     "charred_marshmallow",
     "sticky_stick",
     -- "paranoia",
+    -- "as_above_so_below",
+    -- "unholy_alliance",
+    -- "cherry_blossoms",
+    -- "blue_bonnets",
+    -- "autumn_leaves",
+    -- "evergreens",
+    -- "river",
+    -- "moribund",
 }
 
 -- Register the jokers in custom order
-for i=1, #ENABLED_JOKERS do
+for i = 1, #ENABLED_JOKERS do
     NFS.load(SMODS.current_mod.path .. "/joker/" .. ENABLED_JOKERS[i] .. ".lua")()
     sendDebugMessage("Loaded joker: " .. ENABLED_JOKERS[i], "Paperback")
 end
