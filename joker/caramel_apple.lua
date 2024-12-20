@@ -25,12 +25,12 @@ SMODS.Joker {
     soul_pos = nil,
     yes_pool_flag = "caramel_apple_can_spawn",
 
-    loc_vars = function(self, info_queue, center)
+    loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                center.ability.extra.mult,
+                card.ability.extra.mult,
                 G.GAME.probabilities.normal,
-                center.ability.extra.odds
+                card.ability.extra.odds
             }
         }
     end,
@@ -76,7 +76,8 @@ SMODS.Joker {
 
                                     G.E_MANAGER:add_event(Event({
                                         func = function()
-                                            local card = create_card('Joker', G.jokers, nil, 0, nil, nil, 'j_pape_pointy_stick', nil)
+                                            local card = create_card('Joker', G.jokers, nil, 0, nil, nil,
+                                                'j_pape_pointy_stick', nil)
                                             card:add_to_deck()
                                             G.jokers:emplace(card)
                                             card:start_materialize()

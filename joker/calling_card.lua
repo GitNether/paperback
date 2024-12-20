@@ -9,7 +9,12 @@ SMODS.Joker {
             "{C:inactive}(Currently {}{X:red,C:white}X#2#{}{C:inactive} Mult){}"
         }
     },
-    config = { extra = { Xmult_mod = 0.25, x_mult = 1 } },
+    config = {
+        extra = {
+            Xmult_mod = 0.25,
+            x_mult = 1
+        }
+    },
     rarity = 2,
     pos = { x = 0, y = 0 },
     atlas = 'jokers_atlas',
@@ -26,15 +31,15 @@ SMODS.Joker {
     end,
 
     loc_vars = function(self, info_queue, center)
-        return { vars = {center.ability.extra.Xmult_mod, center.ability.extra.x_mult} }
+        return { vars = { center.ability.extra.Xmult_mod, center.ability.extra.x_mult } }
     end,
-    
+
     calculate = function(self, card, context)
         if context.end_of_round and not context.individual and not context.repetition and not context.blueprint and G.GAME.blind.boss and not self.gone then
             card.ability.extra.x_mult = card.ability.extra.x_mult + card.ability.extra.Xmult_mod
         end
         if context.joker_main then
-            if G.GAME.blind.triggered and not context.blueprint and not context.individual and not context.repetition then 
+            if G.GAME.blind.triggered and not context.blueprint and not context.individual and not context.repetition then
                 card.ability.extra.x_mult = card.ability.extra.x_mult + card.ability.extra.Xmult_mod
             end
             if card.ability.extra.x_mult > 1 then

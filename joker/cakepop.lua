@@ -25,12 +25,12 @@ SMODS.Joker {
     soul_pos = nil,
     yes_pool_flag = "cakepop_can_spawn",
 
-    loc_vars = function(self, info_queue, center)
+    loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                center.ability.extra.mult,
+                card.ability.extra.mult,
                 G.GAME.probabilities.normal,
-                center.ability.extra.odds
+                card.ability.extra.odds
             }
         }
     end,

@@ -10,7 +10,7 @@ SMODS.Joker {
     },
     config = {
         extra = {
-            a_mult = 5,
+            a_mult = 3,
             mult = 0
         }
     },
@@ -58,7 +58,7 @@ SMODS.Joker {
             -- Gives the mult during scoring
             if context.joker_main then
                 return {
-                    message = localize{ type = 'variable', key = 'a_mult', vars = { card.ability.extra.mult } },
+                    message = localize { type = 'variable', key = 'a_mult', vars = { card.ability.extra.mult } },
                     mult_mod = card.ability.extra.mult
                 }
             end

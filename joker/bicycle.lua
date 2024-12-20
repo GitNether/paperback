@@ -25,12 +25,12 @@ SMODS.Joker {
 
     enhancement_gate = "m_wild",
 
-    loc_vars = function(self, info_queue, center)
+    loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = G.P_CENTERS.m_wild
 
         return {
             vars = {
-                center.ability.extra.x_mult
+                card.ability.extra.x_mult
             }
         }
     end,
