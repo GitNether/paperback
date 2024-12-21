@@ -52,7 +52,7 @@ SMODS.Joker {
                     end
                 end
             end
-            
+
             -- Upgrade mult
             card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.a_mult
             return {
@@ -71,3 +71,4 @@ SMODS.Joker {
         end
     end
 }
+

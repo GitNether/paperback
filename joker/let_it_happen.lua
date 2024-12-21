@@ -12,7 +12,7 @@ SMODS.Joker {
     config = {
         extra = {
             hands_played_this_ante = {},
-        }               
+        }
     },
     rarity = 3,
     pos = { x = 7, y = 2 },
@@ -33,7 +33,7 @@ SMODS.Joker {
             else
                 hands_played_string = hands_played_string .. ", "
             end
-            
+
             hands_played_string = hands_played_string .. center.ability.extra.hands_played_this_ante[i]
         end
 
@@ -83,6 +83,6 @@ SMODS.Joker {
                 colour = { 0.8, 0.45, 0.85, 1 }
             }
         end
-
     end
 }
+
