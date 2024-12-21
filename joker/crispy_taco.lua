@@ -24,18 +24,18 @@ SMODS.Joker {
     soul_pos = nil,
 
     no_pool_flag = "soft_taco_can_spawn",
-    
-    loc_vars = function(self, info_queue, center)
+
+    loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                center.ability.extra.x_chips,
+                card.ability.extra.x_chips,
                 G.GAME.probabilities.normal,
-                center.ability.extra.odds
+                card.ability.extra.odds
             }
         }
     end,
 
-    calculate = function (self, card, context)
+    calculate = function(self, card, context)
         -- Scores the xChips
         if context.cardarea == G.jokers and context.joker_main then
             PB_UTIL.xChips(card.ability.extra.x_chips, card)
@@ -43,24 +43,29 @@ SMODS.Joker {
 
         -- Checks if Joker should be destroyed at the end of the round
         if context.end_of_round and not context.blueprint and not (context.individual or context.repetition) then
-            if pseudorandom("Crispy Taco") < G.GAME.probabilities.normal/card.ability.extra.odds then
+            if pseudorandom("Crispy Taco") < G.GAME.probabilities.normal / card.ability.extra.odds then
                 G.E_MANAGER:add_event(Event({
                     func = function()
                         play_sound('tarot1')
                         card.T.r = -0.2
-                        card:juice_up(0.3,0.4)
+                        card:juice_up(0.3, 0.4)
                         card.states.drag.is = true
                         card.children.center.pinch.x = true
-                        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, blockable = false,
-                                                    func = function()
-                                                        G.jokers:remove_card(card)
-                                                        card:remove()
-                                                        card = nil
+                        G.E_MANAGER:add_event(Event({
+                            trigger = 'after',
+                            delay = 0.3,
+                            blockable = false,
+                            func = function()
+                                G.jokers:remove_card(card)
+                                card:remove()
+                                card = nil
 
-                                                        -- Allows Soft Taco to spawn, prevents Crispy Taco from spawning
-                                                        G.GAME.pool_flags.soft_taco_can_spawn = true
+                                -- Allows Soft Taco to spawn, prevents Crispy Taco from spawning
+                                G.GAME.pool_flags.soft_taco_can_spawn = true
 
-                                                        return true; end }))
+                                return true;
+                            end
+                        }))
                         return true
                     end
                 }))
@@ -80,3 +85,4 @@ SMODS.Joker {
         end
     end
 }
+

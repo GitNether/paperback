@@ -30,15 +30,15 @@ SMODS.Joker {
     perishable_compat = false,
     soul_pos = nil,
 
-    loc_vars = function(self, info_queue, center)
+    loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                center.ability.extra.suit,
-                center.ability.extra.a_mult,
-                center.ability.extra.a_chips,
-                center.ability.extra.a_sv,
-                center.ability.extra.mult,
-                center.ability.extra.chips
+                card.ability.extra.suit,
+                card.ability.extra.a_mult,
+                card.ability.extra.a_chips,
+                card.ability.extra.a_sv,
+                card.ability.extra.mult,
+                card.ability.extra.chips
             }
         }
     end,
@@ -78,7 +78,7 @@ SMODS.Joker {
                     }
                 end
             end
-            
+
             -- Give the mult and chips during play
             if context.joker_main then
                 return {
@@ -90,4 +90,3 @@ SMODS.Joker {
         end
     end
 }
-

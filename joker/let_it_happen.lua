@@ -24,17 +24,17 @@ SMODS.Joker {
     eternal_compat = true,
     soul_pos = nil,
 
-    loc_vars = function(self, info_queue, center)
+    loc_vars = function(self, info_queue, card)
         local hands_played_string = ""
 
-        for i = 1, #center.ability.extra.hands_played_this_ante do
+        for i = 1, #card.ability.extra.hands_played_this_ante do
             if i == 1 then
                 hands_played_string = hands_played_string .. " "
             else
                 hands_played_string = hands_played_string .. ", "
             end
 
-            hands_played_string = hands_played_string .. center.ability.extra.hands_played_this_ante[i]
+            hands_played_string = hands_played_string .. card.ability.extra.hands_played_this_ante[i]
         end
 
         if hands_played_string == "" then
@@ -85,4 +85,3 @@ SMODS.Joker {
         end
     end
 }
-

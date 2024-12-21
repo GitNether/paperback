@@ -25,17 +25,17 @@ SMODS.Joker {
     eternal_compat = true,
     soul_pos = nil,
 
-    loc_vars = function(self, info_queue, center)
+    loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                center.ability.extra.mult_mod,
-                center.ability.extra.sv_gain,
-                center.ability.extra.mult_mod * center.sell_cost
+                card.ability.extra.mult_mod,
+                card.ability.extra.sv_gain,
+                card.ability.extra.mult_mod * card.sell_cost
             }
         }
     end,
 
-    calculate = function (self, card, context)
+    calculate = function(self, card, context)
         local mult = card.ability.extra.mult_mod * card.sell_cost
 
         if not (context.individual or context.repetition) then
@@ -43,7 +43,7 @@ SMODS.Joker {
             if context.joker_main then
                 return {
                     mult_mod = mult,
-                    message = localize{ type = 'variable', key = 'a_mult', vars = { mult } },
+                    message = localize { type = 'variable', key = 'a_mult', vars = { mult } },
                 }
             end
 

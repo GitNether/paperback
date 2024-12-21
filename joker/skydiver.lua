@@ -26,12 +26,12 @@ SMODS.Joker {
     eternal_compat = true,
     soul_pos = nil,
 
-    loc_vars = function(self, info_queue, center)
-        local lowest_rank = get_rank(center.ability.extra.lowest_rank)
+    loc_vars = function(self, info_queue, card)
+        local lowest_rank = get_rank(card.ability.extra.lowest_rank)
 
         return {
             vars = {
-                center.ability.extra.x_mult,
+                card.ability.extra.x_mult,
                 lowest_rank
             }
         }
@@ -44,7 +44,7 @@ SMODS.Joker {
             if context.joker_main then
                 local active = true
 
-                -- Loop through the scoring_hand 
+                -- Loop through the scoring_hand
                 for i = 1, #context.scoring_hand do
                     if context.scoring_hand[i].ability.name == "Stone Card" then
                         if 0 > card.ability.extra.lowest_rank then
@@ -58,7 +58,7 @@ SMODS.Joker {
                 end
                 if active then
                     return {
-                        message = localize{type='variable',key='a_xmult',vars={card.ability.extra.x_mult}},
+                        message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.x_mult } },
                         Xmult_mod = card.ability.extra.x_mult,
                         card = card
                     }
@@ -115,3 +115,4 @@ function get_rank(rank)
         return tostring(rank)
     end
 end
+

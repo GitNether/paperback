@@ -25,11 +25,11 @@ SMODS.Joker {
     perishable_compat = false,
     soul_pos = nil,
 
-    loc_vars = function(self, info_queue, center)
+    loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                center.ability.extra.a_mult,
-                center.ability.extra.mult
+                card.ability.extra.a_mult,
+                card.ability.extra.mult
             }
         }
     end,
@@ -71,4 +71,3 @@ SMODS.Joker {
         end
     end
 }
-
