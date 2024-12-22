@@ -48,18 +48,26 @@ SMODS.Joker {
         if not card.debuff then
             -- Check if the card is being calculated before the scoring hand is scored and not blueprinted
             if context.before and not context.blueprint then
-                local suits = PB_UTIL.get_unique_suits(context.scoring_hand)
+                local unique_suits = PB_UTIL.get_unique_suits(context.scoring_hand)
 
                 -- Count the number of unique suits
-                local unique_suits = 0
-                for k, v in pairs(suits) do
-                    if v > 0 then
-                        unique_suits = unique_suits + 1
-                    end
+                -- local unique_suits = 0
+                -- for k, v in pairs(suits) do
+                -- if suits >= 0 then
+                    -- unique_suits = unique_suits + 1
+                -- end
+                -- end
+
+                local heart_found = false
+                for i = 1, #context.scoring_hand do
+                   if context.scoring_hand[i]:is_suit("Hearts") then
+                    heart_found = true 
+                    break
+                   end
                 end
 
                 -- Check if the scoring hand contains a Heart and three unique suits
-                if suits["Hearts"] == 1 and unique_suits >= 3 then
+                if heart_found and unique_suits >= 3 then
                     -- Increment the mult and chips
                     card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.a_mult
                     card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.a_chips
@@ -82,7 +90,7 @@ SMODS.Joker {
             -- Give the mult and chips during play
             if context.joker_main then
                 return {
-                    message = localize { type = 'variable', key = 'prince_of_darkness', vars = { card.ability.extra.mult, card.ability.extra.chips } },
+                    message = "Scored!",
                     mult_mod = card.ability.extra.mult,
                     chip_mod = card.ability.extra.chips,
                 }
