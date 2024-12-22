@@ -94,6 +94,7 @@ local ENABLED_JOKERS = {
     -- "evergreens",
     -- "river",
     "moribund",
+    "joker_cookie",
 }
 
 -- Register the jokers in custom order
