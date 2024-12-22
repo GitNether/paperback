@@ -21,24 +21,57 @@ SMODS.Joker {
   calculate = function(self, card, context)
     if not context.blueprint then
       if context.after and not (context.repetition or context.individual) then
-        -- Loop through each card in scoring_hand and check if it is a dark suit
-        for _, v in pairs(context.scoring_hand) do
-          -- If it is a dark suit, destroy that card
-          if v:is_suit("Spades") or v:is_suit("Clubs") or v.ability.name == "Wild Card" then
-            v.getting_sliced = true
-            G.E_MANAGER:add_event(Event({
-              trigger = 'after',
-              delay = 0.2,
-              func = function()
-                if v.ability.name == 'Glass Card' then
-                  v:shatter()
-                else
-                  v:start_dissolve()
-                end
-                return true
-              end
-            }))
+        local destroyed_cards = {}
+
+        -- Add the light cards in hand to be destroyed to the list
+        for i = #G.hand.cards, 1, -1 do
+          local current_card = G.hand.cards[i]
+          if current_card:is_suit("Hearts") or current_card:is_suit("Diamonds") then
+            destroyed_cards[#destroyed_cards + 1] = current_card
           end
+        end
+
+        -- Add the dark cards in scoring_hand to be destroyed to the list
+        for i = #G.play.cards, 1, -1 do
+          local current_card = G.play.cards[i]
+          if current_card:is_suit("Spades") or current_card:is_suit("Clubs") then
+            destroyed_cards[#destroyed_cards + 1] = current_card
+          end
+        end
+
+
+        -- Plays the tarot sound and juices up the joker card
+        G.E_MANAGER:add_event(Event({
+          trigger = 'after',
+          delay = 0.4,
+          func = function()
+            play_sound('tarot1')
+            card:juice_up(0.3, 0.5)
+            return true
+          end
+        }))
+
+        -- The event to handle deleting the cards in destroyed_cards
+        G.E_MANAGER:add_event(Event({
+          trigger = 'after',
+          delay = 0.2,
+          func = function()
+            for i = #destroyed_cards, 1, -1 do
+              local current_card = destroyed_cards[i]
+              if current_card.ability.name == 'Glass Card' then
+                current_card:shatter()
+              else
+                current_card:start_dissolve(nil, i == #destroyed_cards)
+              end
+            end
+            return true
+          end
+        }))
+
+        delay(0.3)
+
+        for i = 1, #G.jokers.cards do
+          G.jokers.cards[i]:calculate_joker({ remove_playing_cards = true, removed = destroyed_cards })
         end
       end
     end
