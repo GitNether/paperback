@@ -86,6 +86,7 @@ local ENABLED_JOKERS = {
     "charred_marshmallow",
     "sticky_stick",
     "paranoia",
+    "subterfuge",
     -- "as_above_so_below",
     -- "unholy_alliance",
     -- "cherry_blossoms",
