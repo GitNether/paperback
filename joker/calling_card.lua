@@ -25,13 +25,18 @@ SMODS.Joker {
     eternal_compat = true,
     soul_pos = nil,
 
-    set_ability = function(self, card, initial, delay_sprites)
-        card.ability.extra.x_mult = card.ability.extra.x_mult or 1
-        card.ability.extra.Xmult_mod = 0.25
-    end,
+    -- set_ability = function(self, card, initial, delay_sprites)
+    --     card.ability.extra.x_mult = card.ability.extra.x_mult or 1
+    --     card.ability.extra.Xmult_mod = 0.25
+    -- end,
 
-    loc_vars = function(self, info_queue, center)
-        return { vars = { center.ability.extra.Xmult_mod, center.ability.extra.x_mult } }
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.Xmult_mod,
+                card.ability.extra.x_mult
+            }
+        }
     end,
 
     calculate = function(self, card, context)

@@ -29,16 +29,16 @@ SMODS.Joker {
         calculate_highest_shared_level(card)
     end,
 
-    loc_vars = function(self, info_queue, center)
+    loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                center.ability.extra.x_mult_mod,
-                center.ability.extra.x_mult
+                card.ability.extra.x_mult_mod,
+                card.ability.extra.x_mult
             }
         }
     end,
 
-    calculate = function (self, card, context)
+    calculate = function(self, card, context)
         -- If a hand is being leveled up, recalculate the xMult bonus
         if context.level_up_hand then
             calculate_highest_shared_level(card)
@@ -48,7 +48,7 @@ SMODS.Joker {
         if context.joker_main then
             return {
                 Xmult_mod = card.ability.extra.x_mult,
-                message = localize{ type = 'variable', key = 'a_xmult', vars = { card.ability.extra.x_mult } },
+                message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.x_mult } },
                 card = card
             }
         end
@@ -62,11 +62,10 @@ function level_up_hand(card, hand, instant, amount)
     level_up_hand_ref(card, hand, instant, amount)
 
     -- Do stuff
-    for i=1, #G.jokers.cards do
-        G.jokers.cards[i]:calculate_joker({level_up_hand = true})
+    for i = 1, #G.jokers.cards do
+        G.jokers.cards[i]:calculate_joker({ level_up_hand = true })
     end
 end
-
 
 -- Helper function to find the minimum level in G.GAME.hands (The shared level) in base 9 planets
 function calculate_highest_shared_level(card)
@@ -105,3 +104,4 @@ function calculate_highest_shared_level(card)
         card.ability.extra.x_mult = card.ability.extra.x_mult_mod * min_level
     end
 end
+

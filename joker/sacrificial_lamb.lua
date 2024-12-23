@@ -24,15 +24,15 @@ SMODS.Joker {
     eternal_compat = true,
     soul_pos = nil,
 
-    loc_vars = function(self, info_queue, center)
+    loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                center.ability.extra.mult_mod,
-                center.ability.extra.mult,
+                card.ability.extra.mult_mod,
+                card.ability.extra.mult,
             }
         }
     end,
-    
+
     calculate = function(self, card, context)
         -- Gains mult when cards are destroyed. Each card destroyed provides the specified mult_mod
         if not context.blueprint then
@@ -41,14 +41,16 @@ SMODS.Joker {
                 if context.destroyed_card and context.destroyed_card ~= card then
                     card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_mod
 
-                    card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize{type = 'variable', key = 'a_mult', vars = {card.ability.extra.mult_mod}}})
+                    card_eval_status_text(card, 'extra', nil, nil, nil,
+                        { message = localize { type = 'variable', key = 'a_mult', vars = { card.ability.extra.mult_mod } } })
                 end
-            -- Checks if playing cards are destroyed
+                -- Checks if playing cards are destroyed
             elseif context.remove_playing_cards then
                 if context.removed and #context.removed > 0 then
                     card.ability.extra.mult = card.ability.extra.mult + (#context.removed * card.ability.extra.mult_mod)
 
-                    card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize{type = 'variable', key = 'a_mult', vars = {card.ability.extra.mult_mod * #context.removed}}})
+                    card_eval_status_text(card, 'extra', nil, nil, nil,
+                        { message = localize { type = 'variable', key = 'a_mult', vars = { card.ability.extra.mult_mod * #context.removed } } })
                 end
             end
         end
