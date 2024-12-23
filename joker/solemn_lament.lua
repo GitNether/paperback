@@ -26,15 +26,15 @@ SMODS.Joker {
     eternal_compat = true,
     soul_pos = nil,
 
-    loc_vars = function(self, info_queue, center)
+    loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                center.ability.extra.a_mult
+                card.ability.extra.a_mult
             }
         }
     end,
 
-    calculate = function (self, card, context)
+    calculate = function(self, card, context)
         if not card.debuff then
             if context.individual and context.cardarea == G.play then
                 if sl_is_valid_card(context.other_card) then
@@ -66,10 +66,10 @@ function sl_is_valid_card(card)
     end
 end
 
-
 -- Returns the number of repetitions for the joker
 function sl_get_repetitions()
     return (G.GAME.current_round.hands_left < G.GAME.current_round.discards_left)
-                and G.GAME.current_round.hands_left
-            or G.GAME.current_round.discards_left
+        and G.GAME.current_round.hands_left
+        or G.GAME.current_round.discards_left
 end
+
