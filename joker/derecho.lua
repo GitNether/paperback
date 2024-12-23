@@ -23,12 +23,12 @@ SMODS.Joker {
     blueprint_compat = true,
     eternal_compat = true,
     soul_pos = nil,
-    
-    loc_vars = function(self, info_queue, center)
+
+    loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                center.ability.extra.x_mult_mod,
-                center.ability.extra.x_mult
+                card.ability.extra.x_mult_mod,
+                card.ability.extra.x_mult
             }
         }
     end,
@@ -46,19 +46,19 @@ SMODS.Joker {
                 end
 
                 card.ability.extra.x_mult = card.ability.extra.x_mult + card.ability.extra.x_mult_mod
-                    
+
                 return {
                     message = localize('k_upgrade_ex'),
                     colour = G.C.MULT,
                     card = card
                 }
             end
-    
+
             -- Give the xMult during play
             if context.joker_main and not card.debuff then
                 return {
                     Xmult_mod = card.ability.extra.x_mult,
-                    message = localize{type='variable',key='a_xmult',vars={card.ability.extra.x_mult}},
+                    message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.x_mult } },
                     card = card,
                 }
             end

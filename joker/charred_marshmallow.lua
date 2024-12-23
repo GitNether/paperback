@@ -25,12 +25,12 @@ SMODS.Joker {
     soul_pos = nil,
     yes_pool_flag = "charred_marshmallow_can_spawn",
 
-    loc_vars = function(self, info_queue, center)
+    loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                center.ability.extra.mult,
+                card.ability.extra.mult,
                 G.GAME.probabilities.normal,
-                center.ability.extra.odds
+                card.ability.extra.odds
             }
         }
     end,
@@ -40,7 +40,7 @@ SMODS.Joker {
         if context.individual and context.cardarea == G.play then
             if context.other_card:is_suit("Spades") then
                 return {
-                    mult = 5,
+                    mult = card.ability.extra.mult,
                     card = card
                 }
             end
@@ -73,10 +73,11 @@ SMODS.Joker {
                                     local jokers_to_create = math.min(1,
                                         G.jokers.config.card_limit - (#G.jokers.cards + G.GAME.joker_buffer))
                                     G.GAME.joker_buffer = G.GAME.joker_buffer + jokers_to_create
-                                    
+
                                     G.E_MANAGER:add_event(Event({
                                         func = function()
-                                            local card = create_card('Joker', G.jokers, nil, 0, nil, nil, 'j_pape_sticky_stick', nil)
+                                            local card = create_card('Joker', G.jokers, nil, 0, nil, nil,
+                                                'j_pape_sticky_stick', nil)
                                             card:add_to_deck()
                                             G.jokers:emplace(card)
                                             card:start_materialize()
@@ -107,3 +108,4 @@ SMODS.Joker {
         end
     end
 }
+

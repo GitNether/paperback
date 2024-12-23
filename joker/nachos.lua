@@ -29,13 +29,13 @@ SMODS.Joker {
         card.ability.extra.reduction_amount = 0.05
     end,
 
-    loc_vars = function(self, info_queue, center) 
-            return {
-                vars = {
-                    center.ability.extra.X_chips,
-                    center.ability.extra.reduction_amount
-                }
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.X_chips,
+                card.ability.extra.reduction_amount
             }
+        }
     end,
 
     calculate = function(self, card, context)
@@ -56,12 +56,17 @@ SMODS.Joker {
                             card:juice_up(0.3, 0.4)
                             card.states.drag.is = true
                             card.children.center.pinch.x = true
-                            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, blockable = false,
+                            G.E_MANAGER:add_event(Event({
+                                trigger = 'after',
+                                delay = 0.3,
+                                blockable = false,
                                 func = function()
                                     G.jokers:remove_card(card)
                                     card:remove()
                                     card = nil
-                                    return true; end}))
+                                    return true;
+                                end
+                            }))
                             return true
                         end
                     }))
@@ -69,12 +74,12 @@ SMODS.Joker {
                         message = localize('k_eaten_ex'),
                         colour = G.C.FILTER
                     }
-                -- Reduce the xChips value
                 else
+                    -- Reduce the xChips value
                     card.ability.extra.X_chips = card.ability.extra.X_chips - card.ability.extra.reduction_amount
                     return {
                         delay = 0.2,
-                        message = localize{type='variable',key='a_xmult_minus',vars={card.ability.extra.reduction_amount}},
+                        message = localize { type = 'variable', key = 'a_xmult_minus', vars = { card.ability.extra.reduction_amount } },
                         colour = G.C.CHIPS
                     }
                 end

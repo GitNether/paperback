@@ -28,16 +28,16 @@ SMODS.Joker {
         calculate_highest_shared_played(card)
     end,
 
-    loc_vars = function(self, info_queue, center)
+    loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                center.ability.extra.x_mult_mod,
-                center.ability.extra.x_mult
+                card.ability.extra.x_mult_mod,
+                card.ability.extra.x_mult
             }
         }
     end,
 
-    calculate = function (self, card, context)
+    calculate = function(self, card, context)
         -- Gives the xMult during play
         if context.joker_main then
             calculate_highest_shared_played(card)
@@ -45,7 +45,7 @@ SMODS.Joker {
             if card.ability.extra.x_mult ~= 1 then
                 return {
                     Xmult_mod = card.ability.extra.x_mult,
-                    message = localize{ type = 'variable', key = 'a_xmult', vars = { card.ability.extra.x_mult } },
+                    message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.x_mult } },
                     card = card
                 }
             end
@@ -71,3 +71,4 @@ function calculate_highest_shared_played(card)
     -- set the card's x_mult to a value depending on the minimum played
     card.ability.extra.x_mult = card.ability.extra.x_mult_mod * min_played + 1
 end
+
