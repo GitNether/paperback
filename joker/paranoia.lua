@@ -1,10 +1,17 @@
+loc_colour('dark_suit')
+loc_colour('light_suit')
+
+G.ARGS.LOC_COLOURS['Dark_suit'] = HEX('3c4a4e')
+G.ARGS.LOC_COLOURS['Light_suit'] = HEX('f06841')
+
+
 SMODS.Joker {
   key = 'paranoia',
   loc_txt = {
     name = "Paranoia",
     text = {
-      "After scoring a hand, destroy all {C:dark_suit}dark{} suits played",
-      "and all {C:light_suit}light suits held in hand"
+      "After scoring a hand, destroy all {C:Dark_suit}dark suits{} played",
+      "and all {C:Light_suit}light suits{} held in hand"
     }
   },
   rarity = 3,
@@ -13,7 +20,7 @@ SMODS.Joker {
   cost = 8,
   unlocked = true,
   discovered = true,
-  blueprint_compat = true,
+  blueprint_compat = false,
   eternal_compat = true,
   perishable_compat = true,
   soul_pos = nil,
@@ -39,36 +46,37 @@ SMODS.Joker {
           end
         end
 
-
-        -- Plays the tarot sound and juices up the joker card
-        G.E_MANAGER:add_event(Event({
-          trigger = 'after',
-          delay = 0.4,
-          func = function()
-            play_sound('tarot1')
-            card:juice_up(0.3, 0.5)
-            return true
-          end
-        }))
-
+                
+        local dissolve_time_fac = 1
         -- The event to handle deleting the cards in destroyed_cards
         G.E_MANAGER:add_event(Event({
           trigger = 'after',
-          delay = 0.2,
+          delay = 0.7*dissolve_time_fac*1.051,
           func = function()
+            if #destroyed_cards ~= 0 then
+              card_eval_status_text(card, 'extra', nil, nil, nil, { message = "TOO LATE!", colour = G.C.MULT, instant = true})
+
+              play_sound('tarot1')
+              card:juice_up(0.3, 0.5)
+            end
+
             for i = #destroyed_cards, 1, -1 do
               local current_card = destroyed_cards[i]
-              if current_card.ability.name == 'Glass Card' then
-                current_card:shatter()
-              else
-                current_card:start_dissolve(nil, i == #destroyed_cards)
+              if not current_card.removed then
+                if current_card.ability.name == 'Glass Card' then
+                  current_card:shatter()
+                else
+                  current_card:start_dissolve(nil, nil, dissolve_time_fac)
+                end 
               end
             end
             return true
           end
         }))
 
-        delay(0.3)
+        for _, current_card in ipairs(destroyed_cards) do
+          current_card.destroyed = true
+        end
 
         for i = 1, #G.jokers.cards do
           G.jokers.cards[i]:calculate_joker({ remove_playing_cards = true, removed = destroyed_cards })
@@ -77,6 +85,3 @@ SMODS.Joker {
     end
   end
 }
-
-G.C.DARK_SUIT = HEX('324975')
-G.C.LIGHT_SUIT = HEX('f05250')
