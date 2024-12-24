@@ -92,7 +92,7 @@ local ENABLED_JOKERS = {
     "blue_bonnets",
     "autumn_leaves",
     "evergreens",
-    -- "river",
+    "river",
     "moribund",
     "joker_cookie",
 }
