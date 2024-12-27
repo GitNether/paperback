@@ -55,8 +55,8 @@ SMODS.Joker {
       end
     end
 
-    -- Quietly reset the xMult for the card at the end of round
-    if context.end_of_round and not context.blueprint then
+    -- Quietly reset the xMult for the card at the end of played hand
+    if context.after and not context.blueprint then
       card.ability.extra.xMult = 1.05
     end
   end
