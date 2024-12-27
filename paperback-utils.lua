@@ -38,6 +38,21 @@ function Card:start_dissolve(dissolve_colours, silent, dissolve_time_fac, no_jui
     start_dissolve_ref(self, dissolve_colours, silent, dissolve_time_fac, no_juice)
 end
 
+function PB_UTIL.calculate_stick_xMult(card)
+    local xMult = card.ability.extra.xMult
+
+    -- Only calculate the xMult if the G.jokers cardarea exists
+    if G.jokers and G.jokers.cards then
+        for k, current_card in pairs(G.jokers.cards) do
+            if current_card ~= card and string.match(string.lower(current_card.ability.name), "%f[%w]stick%f[%W]") then
+                xMult = xMult + card.ability.extra.xMult
+            end
+        end
+    end
+
+    return xMult
+end
+
 PB_UTIL.base_poker_hands = {
     "Straight Flush",
     "Four of a Kind",
@@ -260,4 +275,3 @@ function PB_UTIL.card_eval_status_text(card, eval_type, amt, percent, dir, extra
 end
 
 return PB_UTIL
-
