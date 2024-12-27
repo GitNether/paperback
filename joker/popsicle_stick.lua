@@ -5,7 +5,7 @@ SMODS.Joker {
         text = {
             "Gives {X:mult,C:white}X#1#{} Mult for every",
             "other {C:attention}\"Stick\"{} Joker you have...",
-            "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} mult)"
+            "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)"
         }
     },
     config = {

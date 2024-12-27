@@ -4,7 +4,7 @@ SMODS.Joker {
     name = "River",
     text = {
       "If played hand contains {C:attention}5 scoring cards{},",
-      "earn the lowest scoring card's {C:chips}Chip Bonus{} as {C:money}money{}",
+      "earn the lowest scoring card's {C:chips}Chip Bonus{} as {C:money}Money{}",
       "{C:inactive}(Max of {C:money}$#1#{C:inactive})"
     }
   },

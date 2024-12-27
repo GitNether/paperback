@@ -3,7 +3,7 @@ SMODS.Joker {
     loc_txt = {
         name = "Prince of Darkness",
         text = {
-            "If scoring hand contains a {C:heart}#1#{} and three",
+            "If scoring hand contains a {C:hearts}#1#{} and three",
             "unique suits, this card gains {C:mult}+#2#{} Mult,",
             "{C:chips}+#3#{} Chips, and {C:money}+#4#{} Sell Value",
             "{C:inactive}(Currently {C:mult}+#5#{} {C:inactive}Mult, {C:chips}+#6#{} {C:inactive}Chips)",
@@ -54,16 +54,16 @@ SMODS.Joker {
                 -- local unique_suits = 0
                 -- for k, v in pairs(suits) do
                 -- if suits >= 0 then
-                    -- unique_suits = unique_suits + 1
+                -- unique_suits = unique_suits + 1
                 -- end
                 -- end
 
                 local heart_found = false
                 for i = 1, #context.scoring_hand do
-                   if context.scoring_hand[i]:is_suit("Hearts") then
-                    heart_found = true 
-                    break
-                   end
+                    if context.scoring_hand[i]:is_suit("Hearts") then
+                        heart_found = true
+                        break
+                    end
                 end
 
                 -- Check if the scoring hand contains a Heart and three unique suits

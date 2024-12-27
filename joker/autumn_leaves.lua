@@ -3,8 +3,8 @@ SMODS.Joker {
   loc_txt = {
     name = "Autumn Leaves",
     text = {
-      "{C:diamonds}Diamonds{} give {X:mult,C:white}X#1#{} mult when scored.",
-      "Increases by {X:mult,C:white}X#2#{} mult for each ",
+      "{C:diamonds}Diamonds{} give {X:mult,C:white}X#1#{} Mult when scored.",
+      "Increases by {X:mult,C:white}X#2#{} Mult for each ",
       "consecutively scored {C:diamonds}Diamond{}",
     }
   },

@@ -4,7 +4,7 @@ SMODS.Joker {
         name = "Let it Happen",
         text = {
             "If hand has not been played this Ante,",
-            "balance {C:mult}mult{} and {C:chips}chips{}",
+            "balance {C:mult}Mult{} and {C:chips}Chips{}",
             "{C:inactive}(Hands played:{C:attention}#1# {C:inactive})"
 
         }
