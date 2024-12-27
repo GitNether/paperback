@@ -7,8 +7,6 @@
 --- VERSION: 0.3.0
 --- BADGE_COLOR: 8b61ad
 
-_RELEASE_MODE = false -- DEBUG MODE :: REMOVE IN RELEASE
-
 PB_UTIL = NFS.load(SMODS.current_mod.path .. "/paperback-utils.lua")()
 
 -- -- Loads the JokerDisplay
@@ -100,6 +98,13 @@ local ENABLED_JOKERS = {
 
 -- Register the jokers in custom order
 for i = 1, #ENABLED_JOKERS do
-    NFS.load(SMODS.current_mod.path .. "/joker/" .. ENABLED_JOKERS[i] .. ".lua")()
+    local status, err = pcall(function()
+        return NFS.load(SMODS.current_mod.path .. "/joker/" .. ENABLED_JOKERS[i] .. ".lua")()
+    end)
     sendDebugMessage("Loaded joker: " .. ENABLED_JOKERS[i], "Paperback")
+
+    -- If a file didn't load correctly, display the file in question and return
+    if not status then
+        error(ENABLED_JOKERS[i] .. ": " .. err)
+    end
 end
