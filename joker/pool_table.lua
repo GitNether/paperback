@@ -47,9 +47,11 @@ SMODS.Joker {
                             G.consumeables:emplace(card)
                             G.GAME.consumeable_buffer = 0
                             return true
-                        end})
+                        end
+                    })
                     )
-                    card_eval_status_text(card, 'extra', nil, nil, nil, { message = localize('k_plus_planet'), colour = G.C.SECONDARY_SET.Planet})
+                    card_eval_status_text(card, 'extra', nil, nil, nil,
+                        { message = localize('k_plus_planet'), colour = G.C.SECONDARY_SET.Planet })
                 end
             end
         end
