@@ -71,7 +71,7 @@ local ENABLED_JOKERS = {
     "wild_prize",
     -- "down_to_size",
     "bicycle",
-    -- "grand_strategy",
+    "grand_strategy",
     -- "marketable_plushie",
     "great_wave",
     "let_it_happen",
