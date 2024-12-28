@@ -6,6 +6,7 @@ SMODS.Joker {
             "{C:hearts}Hearts{} give {X:mult,C:white}X#1#{} Mult when scored.",
             "Increases by {X:mult,C:white}X#2#{} Mult for each ",
             "consecutively scored {C:hearts}Hearts{}",
+            "{C:inactive}(Resets after each hand played)"
         }
     },
     config = {
