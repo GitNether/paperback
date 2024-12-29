@@ -35,6 +35,11 @@ SMODS.Joker {
         }
     end,
 
+    add_to_deck = function(self, card, from_debuff)
+        card.ability.extra_value = (-1 * card.sell_cost) + 1
+        card:set_cost()
+    end,
+
     calculate = function(self, card, context)
         local mult = card.ability.extra.mult_mod * card.sell_cost
 
@@ -50,7 +55,11 @@ SMODS.Joker {
             -- Increase the sell value at end of round
             if context.end_of_round and not context.blueprint then
                 if card.set_cost then
-                    card.ability.extra_value = (card.ability.extra_value or 0) + 1
+                    if card.custom_sell_cost then
+                        card.custom_sell_cost_increase = 1
+                    else
+                        card.ability.extra_value = (card.ability.extra_value or 0) + 1
+                    end
                     card:set_cost()
                 end
 
