@@ -19,11 +19,23 @@ function Back.apply_to_run(arg_56_0)
     G.P_CENTERS['j_diet_cola']['no_pool_flag'] = 'ghost_cola_can_spawn'
 end
 
--- set_cost hook for "Wish You Were Here"
+-- set_cost hook for zeroing out a sell value
 local set_cost_ref = Card.set_cost
 function Card.set_cost(self)
-    set_cost_ref(self)
-    if self.config.center.key == 'j_pape_wish_you_were_here' then self.sell_cost = 1 + (self.ability.extra_value or 0) end
+    -- Don't calculate the original sell_cost calculation if a custom sell_cost increase has been indicated
+    if self.custom_sell_cost then
+        self.sell_cost = self.sell_cost + (self.custom_sell_cost_increase or 1)
+        self.custom_sell_cost_increase = nil
+    else
+        set_cost_ref(self)
+    end
+
+    -- if trying to set the sell cost to zero, set it to zero
+    if self.zero_sell_cost then
+        self.sell_cost = 0
+        self.custom_sell_cost = true
+        self.zero_sell_cost = nil
+    end
 end
 
 -- Add new context for destroying cards of any type (Used for Sacrificial Lamb)
