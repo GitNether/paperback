@@ -50,7 +50,7 @@ local ENABLED_JOKERS = {
     "ghost_cola",
     "mismatched_sock",
     "shopping_center",
-    -- "union_card",
+    "union_card",
     "nachos",
     -- "jester_of_nihil",
     -- "complete_breakfast",
