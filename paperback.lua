@@ -53,7 +53,7 @@ local ENABLED_JOKERS = {
     -- "union_card",
     "nachos",
     -- "jester_of_nihil",
-    -- "complete_breakfast",
+    "complete_breakfast",
     "reference_card",
     "crispy_taco",
     "soft_taco",
