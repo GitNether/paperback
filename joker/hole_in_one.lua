@@ -37,17 +37,14 @@ SMODS.Joker {
       if G.GAME.current_round.hands_played == 1 then
         -- Double all Joker sell values
         for index, v in ipairs(G.jokers.cards) do
-          if v.custom_sell_cost then
-            if v.set_cost then
+          if card.set_cost then
+            if v.custom_sell_cost then
               v.custom_sell_cost_increase = v.sell_cost
-              v:set_cost()
-            end
-          else
-            if v.set_cost then
+            else
               v.ability.extra_value = (v.ability.extra_value or 0)
                   + (v.sell_cost > card.ability.extra.money_max and card.ability.extra.money_max or v.sell_cost)
-              v:set_cost()
             end
+            v:set_cost()
           end
         end
 
