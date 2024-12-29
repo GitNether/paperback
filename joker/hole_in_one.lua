@@ -4,7 +4,7 @@ SMODS.Joker {
     name = "Hole in One",
     text = {
       "If first {C:chips}hand{} of round cleared the {C:attention}blind{},",
-      "double the {C:money}Sell Value{} of all Jokers {C:inactive}(Max of {C:money}$#1#{C:inactive} per round).",
+      "double the {C:money}Sell Value{} of all Jokers and Consumeables {C:inactive}(Max of {C:money}$#1#{C:inactive} per round).",
       "If this Joker is sold, all Jokers and Consumeables are set to",
       "a {C:money}Sell Value{} of {C:money}$0{}"
     }
