@@ -42,7 +42,7 @@ local ENABLED_JOKERS = {
     "pride_flag",
     "pool_table",
     "summoning_circle",
-    -- "hole_in_one",
+    "hole_in_one",
     "derecho",
     -- "forgery",
     "skydiver",
