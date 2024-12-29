@@ -16,18 +16,24 @@ SMODS.Joker {
     blueprint_compat = false,
     eternal_compat = true,
     soul_pos = nil,
-    
+
     -- On Joker spawn, add additional slot in shop
     add_to_deck = function(self, card, from_debuff)
-        G.E_MANAGER:add_event(Event({func = function()
-            change_shop_size(1)
-            return true end }))
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                change_shop_size(1)
+                return true
+            end
+        }))
     end,
 
     -- On Joker despawn, remove the additional slot in shop
     remove_from_deck = function(self, card, from_debuff)
-        G.E_MANAGER:add_event(Event({func = function()
-            change_shop_size(-1)
-            return true end }))
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                change_shop_size(-1)
+                return true
+            end
+        }))
     end
 }
