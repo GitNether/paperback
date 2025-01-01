@@ -86,7 +86,7 @@ local ENABLED_JOKERS = {
     "paranoia",
     "subterfuge",
     -- "as_above_so_below",
-    -- "unholy_alliance",
+    "unholy_alliance",
     "cherry_blossoms",
     "blue_bonnets",
     "autumn_leaves",

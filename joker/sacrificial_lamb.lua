@@ -34,25 +34,12 @@ SMODS.Joker {
     end,
 
     calculate = function(self, card, context)
-        -- Gains mult when cards are destroyed. Each card destroyed provides the specified mult_mod
-        if not context.blueprint then
-            -- Checks if a joker is destroyed
-            if context.destroying_cards then
-                if context.destroyed_card and context.destroyed_card ~= card then
-                    card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_mod
+        -- Gains mult when playing cards are destroyed. Each card destroyed provides the specified mult_mod
+        if not context.blueprint and context.remove_playing_cards and context.removed and #context.removed > 0 then
+            card.ability.extra.mult = card.ability.extra.mult + (#context.removed * card.ability.extra.mult_mod)
 
-                    card_eval_status_text(card, 'extra', nil, nil, nil,
-                        { message = localize { type = 'variable', key = 'a_mult', vars = { card.ability.extra.mult_mod } } })
-                end
-                -- Checks if playing cards are destroyed
-            elseif context.remove_playing_cards then
-                if context.removed and #context.removed > 0 then
-                    card.ability.extra.mult = card.ability.extra.mult + (#context.removed * card.ability.extra.mult_mod)
-
-                    card_eval_status_text(card, 'extra', nil, nil, nil,
-                        { message = localize { type = 'variable', key = 'a_mult', vars = { card.ability.extra.mult_mod * #context.removed } } })
-                end
-            end
+            card_eval_status_text(card, 'extra', nil, nil, nil,
+                { message = localize { type = 'variable', key = 'a_mult', vars = { card.ability.extra.mult_mod * #context.removed } } })
         end
 
         -- Gives the mult when scoring

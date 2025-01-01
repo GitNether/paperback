@@ -50,6 +50,47 @@ function Card:start_dissolve(dissolve_colours, silent, dissolve_time_fac, no_jui
     start_dissolve_ref(self, dissolve_colours, silent, dissolve_time_fac, no_juice)
 end
 
+-- Hook into G.jokers.remove_card, so we check whenever a joker is removed
+local remove_card_ref = CardArea.remove_card
+CardArea.remove_card = function(self, card, discarded_only)
+    if not self.cards then return end
+
+    local ret = remove_card_ref(self, card, discarded_only)
+
+    -- We check if the card area that this card is being removed from is the Jokers card area
+    -- We also need to check that the card is not being sold
+    if self.config.type == 'joker' and not G.CONTROLLER.locks.selling_card then
+        -- Apply effects to Sacrificial Lamb and Unholy Alliance since the card removed is a joker
+        for k, v in ipairs(G.jokers.cards) do
+            if card.ability.set == 'Joker' then
+                if v.config.center_key == 'j_pape_sacrificial_lamb' then
+                    v.ability.extra.mult = v.ability.extra.mult + v.ability.extra.mult_mod
+
+                    SMODS.eval_this(v, {
+                        message = localize {
+                            type = 'variable',
+                            key = 'a_mult',
+                            vars = { v.ability.extra.mult_mod }
+                        }
+                    })
+                elseif v.config.center_key == 'j_pape_unholy_alliance' then
+                    v.ability.extra.xMult = v.ability.extra.xMult + v.ability.extra.xMult_gain
+
+                    SMODS.eval_this(v, {
+                        message = localize {
+                            type = 'variable',
+                            key = 'a_xmult',
+                            vars = { v.ability.extra.xMult_gain }
+                        }
+                    })
+                end
+            end
+        end
+    end
+
+    return ret
+end
+
 function PB_UTIL.calculate_stick_xMult(card)
     local xMult = card.ability.extra.xMult
 
