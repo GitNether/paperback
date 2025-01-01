@@ -22,7 +22,7 @@ end
 -- set_cost hook for zeroing out a sell value
 local set_cost_ref = Card.set_cost
 function Card.set_cost(self)
-    if G.STAGE == G.STAGES.RUN then
+    if G.STAGE == G.STAGES.RUN and self.added_to_deck then
         -- If this card is Union Card, set sell cost to 0
         if self.config.center.key == "j_pape_union_card" then
             self.sell_cost = 0
