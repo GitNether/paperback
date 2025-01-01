@@ -4,7 +4,7 @@ SMODS.Joker {
         name = "Union Card",
         text = {
             "Sell value of all cards is locked",
-            "at {C:money}$0{} until this joker is sold",
+            "at {C:money}$0{} until this Joker is sold",
             "Gives {X:mult,C:white}X{} Mult equal to the",
             "number of scored {C:diamonds}Diamonds{} or",
             "{C:hearts}Hearts{} in played hand"
