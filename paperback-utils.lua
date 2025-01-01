@@ -24,14 +24,14 @@ local set_cost_ref = Card.set_cost
 function Card.set_cost(self)
     if G.STAGE == G.STAGES.RUN and self.added_to_deck then
         -- If this card is Union Card, set sell cost to 0
-        if self.config.center.key == "j_pape_union_card" then
+        if self.config.center.key == "j_paperback_union_card" then
             self.sell_cost = 0
             return
         end
 
         -- If the player has Union Card, set sell cost to 0
         for k, v in ipairs(G.jokers.cards) do
-            if v.config.center.key == "j_pape_union_card" then
+            if v.config.center.key == "j_paperback_union_card" then
                 self.sell_cost = 0
                 return
             end
@@ -79,7 +79,7 @@ CardArea.remove_card = function(self, card, discarded_only)
         -- Apply effects to Sacrificial Lamb and Unholy Alliance since the card removed is a joker
         for k, v in ipairs(G.jokers.cards) do
             if card.ability.set == 'Joker' then
-                if v.config.center_key == 'j_pape_sacrificial_lamb' then
+                if v.config.center_key == 'j_paperback_sacrificial_lamb' then
                     v.ability.extra.mult = v.ability.extra.mult + v.ability.extra.mult_mod
 
                     SMODS.eval_this(v, {
@@ -89,7 +89,7 @@ CardArea.remove_card = function(self, card, discarded_only)
                             vars = { v.ability.extra.mult_mod }
                         }
                     })
-                elseif v.config.center_key == 'j_pape_unholy_alliance' then
+                elseif v.config.center_key == 'j_paperback_unholy_alliance' then
                     v.ability.extra.xMult = v.ability.extra.xMult + v.ability.extra.xMult_gain
 
                     SMODS.eval_this(v, {

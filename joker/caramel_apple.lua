@@ -77,7 +77,7 @@ SMODS.Joker {
                                     G.E_MANAGER:add_event(Event({
                                         func = function()
                                             local card = create_card('Joker', G.jokers, nil, 0, nil, nil,
-                                                'j_pape_pointy_stick', nil)
+                                                'j_paperback_pointy_stick', nil)
                                             card:add_to_deck()
                                             G.jokers:emplace(card)
                                             card:start_materialize()
