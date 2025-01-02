@@ -20,7 +20,7 @@ SMODS.Joker {
         }
     },
     rarity = 1,
-    pos = { x = 0, y = 6 },
+    pos = { x = 6, y = 5 },
     atlas = 'jokers_atlas',
     cost = 4,
     unlocked = true,
