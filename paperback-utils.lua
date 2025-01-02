@@ -230,7 +230,7 @@ function PB_UTIL.card_eval_status_text(card, eval_type, amt, percent, dir, extra
     text = localize { type = 'variable', key = 'a_chips', vars = { amt } }
     delay = 0.6
   elseif eval_type == 'mult' then
-    sound = 'multhit1'     --'other1'
+    sound = 'multhit1' --'other1'
     amt = amt
     text = localize { type = 'variable', key = 'a_mult', vars = { amt } }
     colour = G.C.MULT
@@ -314,7 +314,7 @@ function PB_UTIL.card_eval_status_text(card, eval_type, amt, percent, dir, extra
         G.ROOM.jiggle = G.ROOM.jiggle + 0.7
       end
     else
-      G.E_MANAGER:add_event(Event({       --Add bonus chips from this card
+      G.E_MANAGER:add_event(Event({ --Add bonus chips from this card
         trigger = 'before',
         delay = delay,
         func = function()
@@ -341,6 +341,36 @@ function PB_UTIL.card_eval_status_text(card, eval_type, amt, percent, dir, extra
   if extra and extra.playing_cards_created then
     playing_card_joker_effects(extra.playing_cards_created)
   end
+end
+
+-- Gets a pseudorandom tag from the Tag pool
+function PB_UTIL.poll_tag(seed)
+  -- This part is basically a copy of how the base game does it
+  -- Look at get_next_tag_key in common_events.lua
+  local pool = get_current_pool('Tag')
+  local tag_key = pseudorandom_element(pool, pseudoseed(seed))
+
+  while tag_key == 'UNAVAILABLE' do
+    tag_key = pseudorandom_element(pool, pseudoseed(seed))
+  end
+
+  local tag = Tag(tag_key)
+
+  -- The way the hand for an orbital tag in the base game is selected could cause issues
+  -- with mods that modify blinds, so we randomly pick one from all visible hands
+  if tag_key == "tag_orbital" then
+    local available_hands = {}
+
+    for k, hand in pairs(G.GAME.hands) do
+      if hand.visible then
+        available_hands[#available_hands + 1] = k
+      end
+    end
+
+    tag.ability.orbital_hand = pseudorandom_element(available_hands, pseudoseed(seed .. '_orbital'))
+  end
+
+  return tag
 end
 
 -- If Cryptid is also loaded, add food jokers to pool for ://SPAGHETTI

@@ -20,11 +20,9 @@ SMODS.Joker {
 
   calculate = function(self, card, context)
     if context.skip_blind then
-      local tag = get_next_tag_key()
-
       G.E_MANAGER:add_event(Event({
         func = (function()
-          add_tag(Tag(tag))
+          add_tag(PB_UTIL.poll_tag("jimbo_adventure"))
           play_sound('generic1', 0.9 + math.random() * 0.1, 0.8)
           play_sound('holo1', 1.2 + math.random() * 0.1, 0.4)
           return true
