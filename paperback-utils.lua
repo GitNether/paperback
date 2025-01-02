@@ -354,6 +354,7 @@ if (SMODS.Mods["Cryptid"] or {}).can_load then
     table.insert(Cryptid.food, "j_paperback_joker_cookie")
     table.insert(Cryptid.food, "j_paperback_nachos")
     table.insert(Cryptid.food, "j_paperback_soft_taco")
+    table.insert(Cryptid.food, "j_paperback_complete_breakfast")
 end
 
 return PB_UTIL
