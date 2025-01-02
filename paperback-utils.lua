@@ -24,14 +24,14 @@ local set_cost_ref = Card.set_cost
 function Card.set_cost(self)
     if G.STAGE == G.STAGES.RUN and self.added_to_deck then
         -- If this card is Union Card, set sell cost to 0
-        if self.config.center.key == "j_pape_union_card" then
+        if self.config.center.key == "j_paperback_union_card" then
             self.sell_cost = 0
             return
         end
 
         -- If the player has Union Card, set sell cost to 0
         for k, v in ipairs(G.jokers.cards) do
-            if v.config.center.key == "j_pape_union_card" then
+            if v.config.center.key == "j_paperback_union_card" then
                 self.sell_cost = 0
                 return
             end
@@ -79,7 +79,7 @@ CardArea.remove_card = function(self, card, discarded_only)
         -- Apply effects to Sacrificial Lamb and Unholy Alliance since the card removed is a joker
         for k, v in ipairs(G.jokers.cards) do
             if card.ability.set == 'Joker' then
-                if v.config.center_key == 'j_pape_sacrificial_lamb' then
+                if v.config.center_key == 'j_paperback_sacrificial_lamb' then
                     v.ability.extra.mult = v.ability.extra.mult + v.ability.extra.mult_mod
 
                     SMODS.eval_this(v, {
@@ -89,7 +89,7 @@ CardArea.remove_card = function(self, card, discarded_only)
                             vars = { v.ability.extra.mult_mod }
                         }
                     })
-                elseif v.config.center_key == 'j_pape_unholy_alliance' then
+                elseif v.config.center_key == 'j_paperback_unholy_alliance' then
                     v.ability.extra.xMult = v.ability.extra.xMult + v.ability.extra.xMult_gain
 
                     SMODS.eval_this(v, {
@@ -345,15 +345,15 @@ end
 
 -- If Cryptid is also loaded, add food jokers to pool for ://SPAGHETTI
 if (SMODS.Mods["Cryptid"] or {}).can_load then
-    table.insert(Cryptid.food, "j_pape_cakepop")
-    table.insert(Cryptid.food, "j_pape_caramel_apple")
-    table.insert(Cryptid.food, "j_pape_charred_marshmallow")
-    table.insert(Cryptid.food, "j_pape_crispy_taco")
-    table.insert(Cryptid.food, "j_pape_dreamsicle")
-    table.insert(Cryptid.food, "j_pape_ghost_cola")
-    table.insert(Cryptid.food, "j_pape_joker_cookie")
-    table.insert(Cryptid.food, "j_pape_nachos")
-    table.insert(Cryptid.food, "j_pape_soft_taco")
+    table.insert(Cryptid.food, "j_paperback_cakepop")
+    table.insert(Cryptid.food, "j_paperback_caramel_apple")
+    table.insert(Cryptid.food, "j_paperback_charred_marshmallow")
+    table.insert(Cryptid.food, "j_paperback_crispy_taco")
+    table.insert(Cryptid.food, "j_paperback_dreamsicle")
+    table.insert(Cryptid.food, "j_paperback_ghost_cola")
+    table.insert(Cryptid.food, "j_paperback_joker_cookie")
+    table.insert(Cryptid.food, "j_paperback_nachos")
+    table.insert(Cryptid.food, "j_paperback_soft_taco")
 end
 
 return PB_UTIL
