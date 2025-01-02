@@ -1,12 +1,3 @@
---- STEAMODDED HEADER
---- MOD_NAME: Paperback
---- MOD_ID: paperback
---- MOD_AUTHOR: [PaperMoon, Nether, OppositeWolf770, B]
---- MOD_DESCRIPTION: A vanilla centered mod built upon expanding the base game with jokers
---- LOADER_VERSION_GEQ: 1.0.0
---- VERSION: 0.3.1
---- BADGE_COLOR: 8b61ad
-
 PB_UTIL = NFS.load(SMODS.current_mod.path .. "/paperback-utils.lua")()
 
 -- -- Loads the JokerDisplay
