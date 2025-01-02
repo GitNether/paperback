@@ -7,5 +7,5 @@
     "main_file": "paperback.lua",
     "badge_colour": "8b61ad",
     "version": "0.3.1",
-    "dependencies": ["Steamodded (>=1.0.0~)", "Lovely (>=0.6)"]
+    "dependencies": ["Steamodded (>=1.0.0~ALPHA-1203b)", "Lovely (>=0.6)"]
 }
