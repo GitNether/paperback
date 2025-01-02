@@ -343,4 +343,17 @@ function PB_UTIL.card_eval_status_text(card, eval_type, amt, percent, dir, extra
     end
 end
 
+-- If Cryptid is also loaded, add food jokers to pool for ://SPAGHETTI
+if (SMODS.Mods["Cryptid"] or {}).can_load then
+    table.insert(Cryptid.food, "j_paperback_cakepop")
+    table.insert(Cryptid.food, "j_paperback_caramel_apple")
+    table.insert(Cryptid.food, "j_paperback_charred_marshmallow")
+    table.insert(Cryptid.food, "j_paperback_crispy_taco")
+    table.insert(Cryptid.food, "j_paperback_dreamsicle")
+    table.insert(Cryptid.food, "j_paperback_ghost_cola")
+    table.insert(Cryptid.food, "j_paperback_joker_cookie")
+    table.insert(Cryptid.food, "j_paperback_nachos")
+    table.insert(Cryptid.food, "j_paperback_soft_taco")
+end
+
 return PB_UTIL
