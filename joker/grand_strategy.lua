@@ -3,7 +3,7 @@ SMODS.Joker {
   config = {
     extra = {
       xMult = 4,
-      card_modifiers_required = 10,
+      card_modifiers_required = 7,
     }
   },
   rarity = 3,
