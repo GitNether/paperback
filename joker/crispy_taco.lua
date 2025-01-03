@@ -1,12 +1,5 @@
 SMODS.Joker {
   key = "crispy_taco",
-  loc_txt = {
-    name = "Crispy Taco",
-    text = {
-      "{X:chips,C:white}X#1#{} Chips. {C:green}#2# in #3#{} chance this card",
-      "is {C:attention}destroyed{} at end of round."
-    }
-  },
   config = {
     extra = {
       x_chips = 3,

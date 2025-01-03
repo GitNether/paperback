@@ -1,12 +1,5 @@
 SMODS.Joker {
   key = 'emergency_broadcast',
-  loc_txt = {
-    name = "Emergency Broadcast",
-    text = {
-      "Scored {C:attention}5s{} and {C:attention}8s{} provide",
-      "{C:mult}+#1#{} Mult and {C:chips}+#2#{} Chips"
-    }
-  },
   config = {
     extra = {
       a_mult = 5,

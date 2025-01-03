@@ -1,13 +1,5 @@
 SMODS.Joker {
   key = "reference_card",
-  loc_txt = {
-    name = "Reference Card",
-    text = {
-      "Gains {X:mult,C:white}X#1#{} Mult each time the least",
-      "played {C:attention}base poker hand{} has been played.",
-      "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)",
-    }
-  },
   config = {
     extra = {
       x_mult = 1,

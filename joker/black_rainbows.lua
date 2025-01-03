@@ -1,12 +1,5 @@
 SMODS.Joker {
   key = 'black_rainbows',
-  loc_txt = {
-    name = "Black Rainbows",
-    text = {
-      "Scored {C:spades}Spades{} and {C:clubs}Clubs{} have a",
-      "{C:green}#1# in #2#{} chance to be made {C:polychrome}Polychrome{}",
-    }
-  },
   config = {
     extra = {
       odds = 11,

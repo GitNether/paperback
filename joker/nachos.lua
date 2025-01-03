@@ -1,13 +1,5 @@
 SMODS.Joker {
   key = 'nachos',
-  loc_txt = {
-    name = "Nachos",
-    text = {
-      "{X:chips,C:white}X#1#{} Chips,",
-      "loses {X:chips,C:white}X#2#{} Chips",
-      "per {C:attention}card{} discarded"
-    }
-  },
   config = {
     extra = {
       X_chips = 2,

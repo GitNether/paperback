@@ -1,13 +1,5 @@
 SMODS.Joker {
   key = 'triple_moon_goddess',
-  loc_txt = {
-    name = 'Triple Moon Goddess',
-    text = {
-      "If played hand contains a {C:attention}Three of a Kind{},",
-      "{C:green}#1# in #2#{} chance to create a random {C:planet}Planet{} card and",
-      "{C:green}#3# in #4#{} chance to create a random {C:purple}Tarot{} card"
-    }
-  },
   config = {
     extra = {
       planet_odds = 3,

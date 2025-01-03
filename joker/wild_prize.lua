@@ -1,13 +1,5 @@
 SMODS.Joker {
   key = "wild_prize",
-  loc_txt = {
-    name = "[[WILD PRIZE!1!]]",
-    text = {
-      "Retrigger all {C:attention}#1#{}, {C:attention}#2#{}, and {C:attention}#3#{} {C:attention}#4#{} time(s)",
-      "Each of these have a {C:green}#5# in #6#{} chance",
-      "to earn {C:money}$#7#{} when scored",
-    }
-  },
   config = {
     extra = {
       a_money = 1,

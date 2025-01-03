@@ -1,13 +1,5 @@
 SMODS.Joker {
   key = 'derecho',
-  loc_txt = {
-    name = "Derecho",
-    text = {
-      "Gains {X:mult,C:white}X#1#{} Mult if",
-      "{C:attention}scored hand{} contains only {C:spades}dark suits",
-      "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)"
-    }
-  },
   config = {
     extra = {
       x_mult_mod = 0.1,

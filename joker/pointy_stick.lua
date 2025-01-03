@@ -1,13 +1,5 @@
 SMODS.Joker {
   key = 'pointy_stick',
-  loc_txt = {
-    name = "Pointy Stick",
-    text = {
-      "Gives {X:mult,C:white}X#1#{} Mult for every",
-      "other {C:attention}\"Stick\"{} Joker you have...",
-      "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)"
-    }
-  },
   config = {
     extra = {
       xMult = 1

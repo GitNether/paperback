@@ -1,12 +1,5 @@
 SMODS.Joker {
   key = 'ghost_cola',
-  loc_txt = {
-    name = "Ghost Cola",
-    text = {
-      "Sell this card to create a {C:attention}#1#{}",
-      "and a random {C:dark_edition}Negative{} {C:spectral}Spectral{} card.",
-    }
-  },
   config = {},
   rarity = 2,
   pos = { x = 5, y = 1 },

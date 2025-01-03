@@ -1,14 +1,5 @@
 SMODS.Joker {
   key = 'prince_of_darkness',
-  loc_txt = {
-    name = "Prince of Darkness",
-    text = {
-      "If scoring hand contains a {C:hearts}#1#{} and three",
-      "unique suits, this card gains {C:mult}+#2#{} Mult,",
-      "{C:chips}+#3#{} Chips, and {C:money}+#4#{} Sell Value",
-      "{C:inactive}(Currently {C:mult}+#5#{} {C:inactive}Mult, {C:chips}+#6#{} {C:inactive}Chips)",
-    }
-  },
   config = {
     extra = {
       suit = 'Heart',

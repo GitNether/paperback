@@ -1,14 +1,5 @@
 SMODS.Joker {
   key = "solar_system",
-  loc_txt = {
-    name = "Solar System",
-    text = {
-      "Gives {X:mult,C:white}X#1#{} Mult for every",
-      "{C:attention}level{} all 9 base",
-      "{C:planet}planets{} share",
-      "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)"
-    }
-  },
   config = {
     extra = {
       x_mult_mod = 2,

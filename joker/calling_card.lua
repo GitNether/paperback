@@ -1,14 +1,5 @@
 SMODS.Joker {
   key = 'calling_card',
-  loc_txt = {
-    name = "Calling Card",
-    text = {
-      "This Joker gains {X:red,C:white}X#1#{} Mult",
-      "whenever you defeat a {C:attention}Boss Blind{}",
-      "or trigger its {C:attention}ability{}",
-      "{C:inactive}(Currently {}{X:red,C:white}X#2#{}{C:inactive} Mult){}"
-    }
-  },
   config = {
     extra = {
       Xmult_mod = 0.25,

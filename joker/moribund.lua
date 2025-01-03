@@ -1,14 +1,5 @@
 SMODS.Joker {
   key = 'moribund',
-  loc_txt = {
-    name = "Moribund",
-    text = {
-      "This Joker gains {C:mult}+#1#{} Mult when a {C:attention}blind",
-      "is cleared with {C:attention}0{C:chips} hands{} remaining.",
-      "Doubles its {C:mult}Mult{} if blind is not cleared",
-      "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
-    }
-  },
   config = {
     extra = {
       a_mult = 10,

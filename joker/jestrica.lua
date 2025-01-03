@@ -1,13 +1,5 @@
 SMODS.Joker {
   key = 'jestrica',
-  loc_txt = {
-    name = "Jestrica",
-    text = {
-      "If {C:attention}scoring hand{} contains only {C:diamonds}Diamonds{},",
-      "this Joker gains {C:mult}+#1#{} Mult",
-      "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)",
-    }
-  },
   config = {
     extra = {
       mult = 0,

@@ -1,15 +1,5 @@
 SMODS.Joker {
   key = "furioso",
-  loc_txt = {
-    name = "Furioso",
-    text = {
-      "Each uniquely scored {C:attention}rank{}",
-      "adds {X:mult,C:white}X#1#{} Mult to this Joker.",
-      "Resets after defeating a {C:attention}boss blind",
-      "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)",
-      "{C:inactive}(Ranks played:{C:attention}#3# {C:inactive})"
-    }
-  },
   config = {
     extra = {
       x_mult_mod = 0.2,

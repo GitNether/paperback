@@ -1,12 +1,5 @@
 SMODS.Joker {
   key = 'shopping_center',
-  loc_txt = {
-    name = "Shopping Center",
-    text = {
-      "{C:money}Shops{} have an additional",
-      "{C:attention}card slot"
-    }
-  },
   rarity = 1,
   pos = { x = 7, y = 1 },
   atlas = 'jokers_atlas',

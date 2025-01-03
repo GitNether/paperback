@@ -1,13 +1,5 @@
 SMODS.Joker {
   key = "cakepop",
-  loc_txt = {
-    name = "Cakepop",
-    text = {
-      "Scored {C:hearts}Hearts{} give {C:mult}+#1#{} Mult",
-      "{C:green}#2# in #3#{} chance this card is",
-      "eaten at end of round"
-    }
-  },
   config = {
     extra = {
       mult = 5,

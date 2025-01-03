@@ -1,13 +1,5 @@
 SMODS.Joker {
   key = 'pride_flag',
-  loc_txt = {
-    name = "Pride Flag",
-    text = {
-      "Gains {C:mult}+#1#{} Mult if scored hand",
-      "contains {C:attention}three{} unique suits",
-      "{C:inactive}(Currently {C:mult}+#2#{} {C:inactive}Mult)"
-    }
-  },
   config = {
     extra = {
       a_mult = 3,

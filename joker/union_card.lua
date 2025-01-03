@@ -1,15 +1,5 @@
 SMODS.Joker {
   key = 'union_card',
-  loc_txt = {
-    name = "Union Card",
-    text = {
-      "Sell value of all cards is locked",
-      "at {C:money}$0{} until this Joker is sold",
-      "Gives {X:mult,C:white}X{} Mult equal to the",
-      "number of scored {C:diamonds}Diamonds{} or",
-      "{C:hearts}Hearts{} in played hand"
-    }
-  },
   rarity = 3,
   pos = { x = 8, y = 1 },
   atlas = "jokers_atlas",

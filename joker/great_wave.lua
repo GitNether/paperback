@@ -1,12 +1,5 @@
 SMODS.Joker {
   key = "great_wave",
-  loc_txt = {
-    name = "Great Wave",
-    text = {
-      "Retrigger {C:attention}leftmost{} played card used in",
-      "scoring {C:attention}once{} for every {C:chips}hand{} remaining"
-    }
-  },
   rarity = 3,
   pos = { x = 4, y = 2 },
   atlas = "jokers_atlas",

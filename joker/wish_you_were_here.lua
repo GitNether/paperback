@@ -1,14 +1,5 @@
 SMODS.Joker {
   key = "wish_you_were_here",
-  loc_txt = {
-    name = "Wish You Were Here",
-    text = {
-      "Gives {C:mult}Mult{} equal to",
-      "{C:mult}#1#X{} this Joker's {C:attention}Sell Value{}.",
-      "Gains {C:money}+#2# {C:attention}Sell Value{} at end of round",
-      "{C:inactive}(Currently {C:mult}+#3# {C:inactive}Mult){}"
-    }
-  },
   config = {
     extra = {
       sv_gain = 1,
