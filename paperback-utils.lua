@@ -33,14 +33,6 @@ function Card.set_cost(self)
       self.sell_cost = 0
       return
     end
-
-    -- -- If the player has Union Card, set sell cost to 0
-    -- for k, v in ipairs(G.jokers.cards) do
-    --   if v.config.center.key == "j_paperback_union_card" then
-    --     self.sell_cost = 0
-    --     return
-    --   end
-    -- end
   end
 
   -- Don't calculate the original sell_cost calculation if a custom sell_cost increase has been indicated

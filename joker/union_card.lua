@@ -11,6 +11,8 @@ SMODS.Joker {
   soul_pos = nil,
 
   add_to_deck = function(self, card, from_debuff)
+    card.sell_cost = 0
+
     for k, v in ipairs(G.jokers.cards) do
       if v.set_cost then
         v.zero_sell_cost = true
@@ -72,7 +74,7 @@ local add_to_deck_ref = Card.add_to_deck
 Card.add_to_deck = function(self, from_debuff)
   add_to_deck_ref(self, from_debuff)
 
-  if next(SMODS.find_card("j_paperback_union_card")) and self.set_cost then
+  if next(SMODS.find_card("j_paperback_union_card")) then
     self.sell_cost = 0
   end
 end
