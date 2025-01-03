@@ -67,11 +67,12 @@ SMODS.Joker {
   end
 }
 
+-- If user has Union Card, set the newly acquired card to $0
 local add_to_deck_ref = Card.add_to_deck
 Card.add_to_deck = function(self, from_debuff)
   add_to_deck_ref(self, from_debuff)
 
-  if self.set_cost then
-    self:set_cost()
+  if next(SMODS.find_card("j_paperback_union_card")) and self.set_cost then
+    self.sell_cost = 0
   end
 end
