@@ -50,7 +50,7 @@ local ENABLED_JOKERS = {
   "soft_taco",
   "prince_of_darkness",
   -- "passport",
-  -- "black_rainbows",
+  "black_rainbows",
   "emergency_broadcast",
   "triple_moon_goddess",
   -- "plague_doctor",

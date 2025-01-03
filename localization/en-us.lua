@@ -426,6 +426,13 @@ return {
           "eaten at end of round",
         },
       },
+      j_paperback_black_rainbows = {
+        name = "Black Rainbows",
+        text = {
+          "Scored {C:spades}Spades{} have a {C:green}#1# in #2#",
+          "chance to be made {C:dark_edition}Polychrome{}"
+        }
+      }
     },
   },
 }
