@@ -1,16 +1,5 @@
 SMODS.Joker {
   key = "solemn_lament",
-  loc_txt = {
-    name = "Solemn Lament",
-    text = {
-      "Retrigger {C:attention}first{} played card used in",
-      "scoring {C:attention}once{} for every remaining",
-      "{C:chips}hand{} or {C:mult}discard{}",
-      "{C:inactive}(The lowest of the two)",
-      "{C:attention}Aces{}, {C:attention}6s{}, and {C:attention}8s{} give",
-      "{C:mult}+#1#{} Mult when scored"
-    }
-  },
   config = {
     extra = {
       a_mult = 3,

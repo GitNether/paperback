@@ -1,13 +1,5 @@
 SMODS.Joker {
   key = "bicycle",
-  loc_txt = {
-    name = "Bicycle",
-    text = {
-      "{C:attention}Wild Cards{} give",
-      "{C:mult}Mult{} equal to their",
-      "{C:chips}Chip Bonus{}, then {X:mult,C:white}X#1#{} Mult",
-    }
-  },
   config = {
     extra = {
       x_mult = 1.5

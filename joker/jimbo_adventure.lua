@@ -1,13 +1,5 @@
 SMODS.Joker {
   key = "jimbo_adventure",
-  loc_txt = {
-    name = "Jimbo Adventure",
-    text = {
-      "Skipping a {C:attention}blind{} creates",
-      "a random {C:attention}Tag{}"
-    }
-  },
-
   rarity = 1,
   pos = { x = 1, y = 5 },
   atlas = 'jokers_atlas',

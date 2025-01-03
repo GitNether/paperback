@@ -1,13 +1,5 @@
 SMODS.Joker {
   key = 'unholy_alliance',
-  loc_txt = {
-    name = "Unholy Alliance",
-    text = {
-      "This Joker gains {X:mult,C:white}X#1#{} Mult",
-      "when a card or joker is {C:attention}destroyed{}",
-      "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)"
-    }
-  },
   config = {
     extra = {
       xMult = 1,

@@ -1,14 +1,5 @@
 SMODS.Joker {
   key = "let_it_happen",
-  loc_txt = {
-    name = "Let it Happen",
-    text = {
-      "If hand has not been played this Ante,",
-      "balance {C:mult}Mult{} and {C:chips}Chips{}",
-      "{C:inactive}(Hands played:{C:attention}#1# {C:inactive})"
-
-    }
-  },
   config = {
     extra = {
       hands_played_this_ante = {},

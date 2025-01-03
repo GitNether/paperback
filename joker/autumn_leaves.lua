@@ -1,14 +1,5 @@
 SMODS.Joker {
   key = "autumn_leaves",
-  loc_txt = {
-    name = "Autumn Leaves",
-    text = {
-      "{C:diamonds}Diamonds{} give {X:mult,C:white}X#1#{} Mult when scored.",
-      "Increases by {X:mult,C:white}X#2#{} Mult for each ",
-      "consecutively scored {C:diamonds}Diamond{}",
-      "{C:inactive}(Resets after each hand played)"
-    }
-  },
   config = {
     extra = {
       xMult = 1.05,

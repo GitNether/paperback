@@ -1,12 +1,5 @@
 SMODS.Joker {
   key = "soft_taco",
-  loc_txt = {
-    name = "Soft Taco",
-    text = {
-      "{X:mult,C:white}X#1#{} Mult. {C:green}#2# in #3#{} chance this card",
-      "is {C:attention}destroyed{} at end of round."
-    }
-  },
   config = {
     extra = {
       x_mult = 3,

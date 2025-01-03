@@ -1,14 +1,5 @@
 SMODS.Joker {
   key = "stamp",
-  loc_txt = {
-    name = "Stamp",
-    text = {
-      "{C:green}#1# in #2#{} chance this",
-      "Joker gains {C:chips}+#3#{} Chips when",
-      "any card with a {C:attention}seal{} is scored",
-      "{C:inactive}(Currently {C:chips}+#4#{C:inactive} Chips)"
-    }
-  },
   config = {
     extra = {
       chips = 0,

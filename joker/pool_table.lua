@@ -1,13 +1,5 @@
 SMODS.Joker {
   key = 'pool_table',
-  loc_txt = {
-    name = "Pool Table",
-    text = {
-      "If first hand of round scores all {C:attention}non-face cards{},",
-      "creates the {C:planet}Planet{} card of the played {C:attention}poker hand{}",
-      "{C:inactive}(Must have room)"
-    }
-  },
   config = {},
   rarity = 3,
   pos = { x = 9, y = 0 },

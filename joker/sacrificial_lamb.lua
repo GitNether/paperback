@@ -1,13 +1,5 @@
 SMODS.Joker {
   key = 'sacrificial_lamb',
-  loc_txt = {
-    name = "Sacrificial Lamb",
-    text = {
-      "Gains {C:mult}+#1#{} Mult for",
-      "each card or Joker {C:attention}destroyed",
-      "{C:inactive}(Currently {C:mult}+#2# {C:inactive}Mult)"
-    }
-  },
   config = {
     extra = {
       mult_mod = 5,

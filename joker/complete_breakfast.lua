@@ -1,15 +1,5 @@
 SMODS.Joker {
   key = 'complete_breakfast',
-  loc_txt = {
-    name = "Complete Breakfast",
-    text = {
-      "{C:mult}+#1#{} Mult and {C:chips}+#2#{} Chips",
-      "{C:green}#3# in #4#{} chance this card is",
-      "eaten after played hand",
-      "Chance increases by {C:attention}#5#{} after",
-      "every played hand"
-    }
-  },
   config = {
     extra = {
       mult = 20,

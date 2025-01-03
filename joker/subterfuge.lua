@@ -1,13 +1,5 @@
 SMODS.Joker {
   key = 'subterfuge',
-  loc_txt = {
-    name = "Subterfuge",
-    text = {
-      "Destroy the {C:attention}first played hand{} every round",
-      "Gains {X:mult,C:white}X#1#{} Mult for every card below {C:attention}#2#{}",
-      "{C:inactive}(Currently {X:mult,C:white}X#3#{C:inactive} Mult)"
-    }
-  },
   config = {
     extra = {
       xMult = 1,

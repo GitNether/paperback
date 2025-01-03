@@ -1,14 +1,5 @@
 SMODS.Joker {
   key = 'quick_fix',
-  loc_txt = {
-    name = "Quick Fix",
-    text = {
-      "{C:attention}+#1#{} Hand Size.",
-      "{C:green}#2# in #3#{} chance this",
-      "card is destroyed",
-      "at end of round"
-    }
-  },
   config = {
     extra = {
       h_size = 2,

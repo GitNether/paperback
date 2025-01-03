@@ -1,19 +1,10 @@
 SMODS.Joker {
   key = 'joker_cookie',
-  loc_txt = {
-    name = "Joker Cookie",
-    text = {
-      "Earn {C:money}$#1#{} at end of round",
-      "Payout increases by {C:money}$#2#{} when cashing out",
-      "{C:green}#3# in #4#{} chance this card",
-      "is eaten at end of round"
-    }
-  },
   config = {
     extra = {
-        dollar_bonus = 1,
-        dollar_gain = 1,
-        odds = 5
+      dollar_bonus = 1,
+      dollar_gain = 1,
+      odds = 5
     }
   },
   rarity = 1,
@@ -44,39 +35,43 @@ SMODS.Joker {
         if pseudorandom("Joker Cookie") < G.GAME.probabilities.normal / card.ability.extra.odds then
           G.E_MANAGER:add_event(Event({
             func = function()
-                play_sound('tarot1')
-                card.T.r = -0.2
-                card:juice_up(0.3, 0.4)
-                card.states.drag.is = true
-                card.children.center.pinch.x = true
-                G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, blockable = false,
-                    func = function()
-                            G.jokers:remove_card(card)
-                            card:remove()
-                            card = nil
-                        return true; end})) 
-                return true
+              play_sound('tarot1')
+              card.T.r = -0.2
+              card:juice_up(0.3, 0.4)
+              card.states.drag.is = true
+              card.children.center.pinch.x = true
+              G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.3,
+                blockable = false,
+                func = function()
+                  G.jokers:remove_card(card)
+                  card:remove()
+                  card = nil
+                  return true;
+                end
+              }))
+              return true
             end
-          })) 
+          }))
 
           -- Return the "Eaten!" message
           return {
             message = localize('k_eaten_ex')
           }
         else
-
           -- Return the "Safe!" message
           return {
             message = localize('k_safe_ex')
           }
-        end 
+        end
       end
 
       -- Upgrade the Joker when the user cashes out
       if context.cashing_out then
         card.ability.extra.dollar_bonus = card.ability.extra.dollar_bonus + card.ability.extra.dollar_gain
-        card_eval_status_text(card, 'extra', nil, nil, nil, { message = "Upgraded!", colour = G.C.MONEY})
-      end 
+        card_eval_status_text(card, 'extra', nil, nil, nil, { message = "Upgraded!", colour = G.C.MONEY })
+      end
     end
   end,
 

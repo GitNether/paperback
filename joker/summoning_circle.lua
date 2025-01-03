@@ -1,13 +1,5 @@
 SMODS.Joker {
   key = "summoning_circle",
-  loc_txt = {
-    name = "Summoning Circle",
-    text = {
-      "If played hand contains a {C:attention}Five of a Kind{},",
-      "create a copy of a {C:attention}random consumeable{}",
-      "{C:inactive}(Must have room)"
-    }
-  },
   rarity = 3,
   pos = { x = 1, y = 0 },
   atlas = "jokers_atlas",

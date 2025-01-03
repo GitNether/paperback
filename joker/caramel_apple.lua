@@ -1,13 +1,5 @@
 SMODS.Joker {
   key = "caramel_apple",
-  loc_txt = {
-    name = "Caramel Apple",
-    text = {
-      "Scored {C:clubs}Clubs{} give {C:mult}+#1#{} Mult",
-      "{C:green}#2# in #3#{} chance this card is",
-      "eaten at end of round"
-    }
-  },
   config = {
     extra = {
       mult = 5,
