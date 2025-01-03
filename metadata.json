@@ -2,7 +2,7 @@
     "id": "paperback",
     "name": "Paperback",
     "prefix": "paperback",
-    "author": ["PaperMoon", "Nether", "OppositeWolf770", "B"],
+    "author": ["PaperMoon", "Nether", "OppositeWolf770", "B", "srockw"],
     "description": "A vanilla centered mod built upon expanding the base game with jokers",
     "main_file": "paperback.lua",
     "badge_colour": "8b61ad",
