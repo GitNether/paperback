@@ -81,7 +81,7 @@ SMODS.Joker {
         }))
 
         return {
-          message = "Broken",
+          message = localize('paperback_broken_ex'),
           colour = G.C.MULT,
           card = card
         }

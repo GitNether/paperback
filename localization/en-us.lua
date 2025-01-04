@@ -39,7 +39,7 @@ return {
         name = "Crispy Taco",
         text = {
           "{X:chips,C:white}X#1#{} Chips. {C:green}#2# in #3#{} chance this card",
-          "is {C:attention}destroyed{} at end of round.",
+          "is eaten at end of round.",
         },
       },
       j_paperback_furioso = {
@@ -49,14 +49,14 @@ return {
           "adds {X:mult,C:white}X#1#{} Mult to this Joker.",
           "Resets after defeating a {C:attention}boss blind",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)",
-          "{C:inactive}(Ranks played:{C:attention}#3# {C:inactive})",
+          "{C:inactive}(Ranks played:{C:attention}#3#{C:inactive})",
         },
       },
       j_paperback_soft_taco = {
         name = "Soft Taco",
         text = {
           "{X:mult,C:white}X#1#{} Mult. {C:green}#2# in #3#{} chance this card",
-          "is {C:attention}destroyed{} at end of round.",
+          "is eaten at end of round.",
         },
       },
       j_paperback_charred_marshmallow = {
@@ -154,8 +154,8 @@ return {
         name = "Hole in One",
         text = {
           "If first {C:chips}hand{} of round cleared the {C:attention}blind{},",
-          "double the {C:money}Sell Value{} of all Jokers and Consumeables {C:inactive}(Max of {C:money}$#1#{C:inactive} per round).",
-          "If this Joker is sold, all Jokers and Consumeables are set to",
+          "double the {C:money}Sell Value{} of all Jokers and Consumables {C:inactive}(Max of {C:money}$#1#{C:inactive} per round).",
+          "If this Joker is sold, all Jokers and Consumables are set to",
           "a {C:money}Sell Value{} of {C:money}$0{}",
         },
       },
@@ -170,7 +170,7 @@ return {
       j_paperback_quick_fix = {
         name = "Quick Fix",
         text = {
-          "{C:attention}+#1#{} Hand Size.",
+          "{C:attention}+#1#{} hand size",
           "{C:green}#2# in #3#{} chance this",
           "card is destroyed",
           "at end of round",
@@ -191,7 +191,7 @@ return {
         text = {
           "{C:clubs}Clubs{} give {X:mult,C:white}X#1#{} Mult when scored.",
           "Increases by {X:mult,C:white}X#2#{} Mult for each ",
-          "consecutively scored {C:clubs}Clubs{}",
+          "consecutively scored {C:clubs}Club{}",
           "{C:inactive}(Resets after each hand played)",
         },
       },
@@ -357,7 +357,7 @@ return {
         text = {
           "{C:hearts}Hearts{} give {X:mult,C:white}X#1#{} Mult when scored.",
           "Increases by {X:mult,C:white}X#2#{} Mult for each ",
-          "consecutively scored {C:hearts}Hearts{}",
+          "consecutively scored {C:hearts}Heart{}",
           "{C:inactive}(Resets after each hand played)",
         },
       },
@@ -414,7 +414,7 @@ return {
         text = {
           "If hand has not been played this Ante,",
           "balance {C:mult}Mult{} and {C:chips}Chips{}",
-          "{C:inactive}(Hands played:{C:attention}#1# {C:inactive})",
+          "{C:inactive}(Hands played:{C:attention}#1#{C:inactive})",
         },
       },
       j_paperback_evergreens = {
@@ -437,10 +437,20 @@ return {
       j_paperback_black_rainbows = {
         name = "Black Rainbows",
         text = {
-          "Scored {C:spades}Spades{} have a {C:green}#1# in #2#",
+          "Scored {C:spades}Spades{} and {C:clubs}Clubs{} have a {C:green}#1# in #2#",
           "chance to be made {C:dark_edition}Polychrome{}"
         }
       }
     },
   },
+  misc = {
+    dictionary = {
+      paperback_polychrome_ex = "Polychrome!",
+      paperback_destroyed_ex = "Destroyed!",
+      paperback_doubled_ex = "Doubled!",
+      paperback_too_late_ex = "TOO LATE!",
+      paperback_broken_ex = "Broken!",
+      paperback_none = "None"
+    }
+  }
 }

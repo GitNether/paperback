@@ -70,7 +70,7 @@ SMODS.Joker {
       -- Upgrade the Joker when the user cashes out
       if context.cashing_out then
         card.ability.extra.dollar_bonus = card.ability.extra.dollar_bonus + card.ability.extra.dollar_gain
-        card_eval_status_text(card, 'extra', nil, nil, nil, { message = "Upgraded!", colour = G.C.MONEY })
+        card_eval_status_text(card, 'extra', nil, nil, nil, { message = localize('k_upgrade_ex'), colour = G.C.MONEY })
       end
     end
   end,

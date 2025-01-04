@@ -52,7 +52,7 @@ SMODS.Joker {
       -- Display a message if a card was turned polychrome
       if polychrome_triggered then
         return {
-          message = "Triggered!",
+          message = localize('paperback_polychrome_ex'),
           colour = G.C.GREEN,
           card = card
         }

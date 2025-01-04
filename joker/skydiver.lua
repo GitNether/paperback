@@ -17,7 +17,7 @@ SMODS.Joker {
   soul_pos = nil,
 
   loc_vars = function(self, info_queue, card)
-    local lowest_rank = get_rank(card.ability.extra.lowest_rank)
+    local lowest_rank = localize(get_rank(card.ability.extra.lowest_rank), 'ranks')
 
     return {
       vars = {
