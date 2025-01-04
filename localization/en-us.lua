@@ -1,6 +1,14 @@
 return {
   descriptions = {
     Joker = {
+      j_paperback_big_misser = {
+        name = "Big Misser",
+        text = {
+          "{X:mult,C:white}X#1#{} Mult for every empty",
+          "consumable slot",
+          "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)"
+        }
+      },
       j_paperback_complete_breakfast = {
         name = "Complete Breakfast",
         text = {

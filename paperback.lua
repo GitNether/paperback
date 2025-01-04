@@ -94,7 +94,7 @@ local ENABLED_JOKERS = {
   -- "cream_liqueur",
   -- "mimicry",
   -- "prismatic_shard",
-  -- "big_misser",
+  "big_misser",
   -- "eyelander",
   -- "highlander",
   -- "peanuts",
