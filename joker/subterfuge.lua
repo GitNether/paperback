@@ -51,7 +51,7 @@ SMODS.Joker {
           func = function()
             if #destroyed_cards ~= 0 then
               card_eval_status_text(card, 'extra', nil, nil, nil,
-                { message = "Destroyed!", colour = G.C.MULT, instant = true })
+                { message = localize('paperback_destroyed_ex'), colour = G.C.MULT, instant = true })
 
               play_sound('tarot1')
               card:juice_up(0.3, 0.5)

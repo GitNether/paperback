@@ -51,7 +51,7 @@ SMODS.Joker {
     end
 
     if ranks_played == "" then
-      ranks_played = " None"
+      ranks_played = " " .. localize('paperback_none')
     end
 
     return {

@@ -29,7 +29,7 @@ SMODS.Joker {
     end
 
     if hands_played_string == "" then
-      hands_played_string = " None"
+      hands_played_string = " " .. localize('paperback_none')
     end
 
     return {

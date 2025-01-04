@@ -67,7 +67,7 @@ SMODS.Joker {
         }))
 
         return {
-          message = "Destroyed",
+          message = localize('k_eaten_ex'),
           colour = G.C.MULT,
           card = card
         }

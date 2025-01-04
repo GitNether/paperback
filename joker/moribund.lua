@@ -35,7 +35,7 @@ SMODS.Joker {
           card.ability.extra.mult = card.ability.extra.mult * 2
 
           return {
-            message = "Doubled!",
+            message = localize('paperback_doubled_ex'),
             colour = G.C.MULT,
             card = card
           }
