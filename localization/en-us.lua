@@ -296,8 +296,10 @@ return {
       j_paperback_jestrica = {
         name = "Jestrica",
         text = {
-          "If {C:attention}scoring hand{} contains only {C:diamonds}Diamonds{},",
+          "If {C:attention}scoring hand{} contains only {C:diamonds}Diamonds{}",
           "this Joker gains {C:mult}+#1#{} Mult",
+          "If {C:attention}scoring hand{} does not contain any {C:diamonds}Diamonds{}",
+          "this Joker loses {C:mult}half{} of its Mult",
           "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)",
         },
       },
@@ -450,7 +452,8 @@ return {
       paperback_doubled_ex = "Doubled!",
       paperback_too_late_ex = "TOO LATE!",
       paperback_broken_ex = "Broken!",
-      paperback_none = "None"
+      paperback_none = "None",
+      paperback_downgrade_ex = "Downgrade!"
     }
   }
 }
