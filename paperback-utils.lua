@@ -63,19 +63,13 @@ function Card:start_dissolve(dissolve_colours, silent, dissolve_time_fac, no_jui
   start_dissolve_ref(self, dissolve_colours, silent, dissolve_time_fac, no_juice)
 end
 
--- Hook into G.jokers.remove_card, so we check whenever a joker is removed
-local remove_card_ref = CardArea.remove_card
-CardArea.remove_card = function(self, card, discarded_only)
-  if not self.cards then return end
-
-  local ret = remove_card_ref(self, card, discarded_only)
-
-  -- We check if the card area that this card is being removed from is the Jokers card area
-  -- We also need to check that the card is not being sold
-  if self.config.type == 'joker' and not G.CONTROLLER.locks.selling_card then
-    -- Apply effects to Sacrificial Lamb and Unholy Alliance since the card removed is a joker
+local remove_ref = Card.remove
+function Card.remove(self)
+  -- Check that the card being removed is a joker that's in the player's deck and that it's not being sold
+  if self.added_to_deck and self.ability.set == 'Joker' and not G.CONTROLLER.locks.selling_card then
     for k, v in ipairs(G.jokers.cards) do
-      if card.ability.set == 'Joker' then
+      -- Make sure the joker that triggers due to this card's removal is not being removed itself
+      if not v.removed and not v.getting_sliced then
         if v.config.center_key == 'j_paperback_sacrificial_lamb' then
           v.ability.extra.mult = v.ability.extra.mult + v.ability.extra.mult_mod
 
@@ -101,7 +95,7 @@ CardArea.remove_card = function(self, card, discarded_only)
     end
   end
 
-  return ret
+  return remove_ref(self)
 end
 
 function PB_UTIL.calculate_stick_xMult(card)

@@ -366,7 +366,8 @@ return {
       j_paperback_paranoia = {
         name = "Paranoia",
         text = {
-          "After scoring a hand, destroy all {C:Dark_suit}dark suits{} played",
+          "After scoring a hand,",
+          "destroy all {C:Dark_suit}dark suits{} played",
           "and all {C:Light_suit}light suits{} held in hand",
         },
       },
