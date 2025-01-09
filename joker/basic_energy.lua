@@ -26,31 +26,24 @@ SMODS.Joker {
 
   calculate = function(self, card, context)
     -- Check that the card being consumed is not a copy made by this joker
-    if context.using_consumeable and not context.consumeable.ability.paperback_energy_copy then
+    if context.using_consumeable and not context.consumeable.ability.paperback_energized then
       if pseudorandom("basic_energy") < G.GAME.probabilities.normal / card.ability.extra.odds then
-        G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
-
         G.E_MANAGER:add_event(Event({
           func = function()
-            -- Copy the card and mark it as a copy of this joker
-            G.E_MANAGER:add_event(Event({
-              func = function()
-                local copy = copy_card(context.consumeable)
-                copy.ability.paperback_energy_copy = true
+            if #G.consumeables.cards < G.consumeables.config.card_limit then
+              -- Copy the card and mark it as a copy of this joker
+              local copy = copy_card(context.consumeable)
+              copy.ability.paperback_energized = true
+              copy:add_to_deck()
+              G.consumeables:emplace(copy)
 
-                copy:add_to_deck()
-                G.consumeables:emplace(copy)
-                G.GAME.consumeable_buffer = 0
-                return true
-              end
-            }))
-
-            -- Display a copy message, using the color of the set of the card being copied if it exists
-            -- otherwise just green
-            SMODS.eval_this(context.blueprint_card or card, {
-              message = localize("paperback_copy_ex"),
-              colour = G.C.SECONDARY_SET[context.consumeable.ability.set] or G.C.GREEN
-            })
+              -- Display a copy message, using the color of the set of the card being copied if it exists
+              -- otherwise just green
+              SMODS.calculate_effect({
+                message = localize("paperback_copy_ex"),
+                colour = G.C.SECONDARY_SET[context.consumeable.ability.set] or G.C.GREEN
+              }, context.blueprint_card or card)
+            end
             return true
           end
         }))

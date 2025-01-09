@@ -12,10 +12,10 @@ pattern = "local cfg = (card and card.ability) or _c['config']"
 position = "after"
 match_indent = true
 payload = '''
-if card and card.ability and card.ability.paperback_energy_copy then
+if card and card.ability and card.ability.paperback_energized then
   info_queue[#info_queue + 1] = {
     set = 'Other',
-    key = 'paperback_energy_copy'
+    key = 'paperback_energized'
   }
 end
 '''

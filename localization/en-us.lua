@@ -455,11 +455,10 @@ return {
       }
     },
     Other = {
-      paperback_energy_copy = {
+      paperback_energized = {
         name = "Energized",
         text = {
-          "This card cannot",
-          "be copied by",
+          "Cannot be copied by",
           "{C:attention}Basic Joker Energy{}"
         }
       }
