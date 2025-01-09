@@ -1,0 +1,21 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+# We target the function that builds the UI for hovering over cards
+# Adding the tooltip for Basic Joker Energy if the card is marked by it
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = "local cfg = (card and card.ability) or _c['config']"
+position = "after"
+match_indent = true
+payload = '''
+if card and card.ability and card.ability.paperback_energy_copy then
+  info_queue[#info_queue + 1] = {
+    set = 'Other',
+    key = 'paperback_energy_copy'
+  }
+end
+'''

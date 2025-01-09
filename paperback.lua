@@ -89,7 +89,7 @@ local ENABLED_JOKERS = {
   -- "the_world",
   -- "meeple",
   -- "angel_investor",
-  -- "basic_energy",
+  "basic_energy",
   -- "coffee",
   -- "cream_liqueur",
   -- "mimicry",
