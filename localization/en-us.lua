@@ -1,6 +1,15 @@
 return {
   descriptions = {
     Joker = {
+      j_paperback_basic_energy = {
+        name = "Basic Joker Energy",
+        text = {
+          "Using any {C:attention}Consumable{} has a",
+          "{C:green}#1# in #2#{} chance to make a copy",
+          "{C:inactive}(Cannot make copy of a copy)",
+          "{C:inactive}(Must have room)"
+        }
+      },
       j_paperback_big_misser = {
         name = "Big Misser",
         text = {
@@ -445,6 +454,15 @@ return {
         }
       }
     },
+    Other = {
+      paperback_energized = {
+        name = "Energized",
+        text = {
+          "Cannot be copied by",
+          "{C:attention}Basic Joker Energy{}"
+        }
+      }
+    },
   },
   misc = {
     dictionary = {
@@ -454,7 +472,8 @@ return {
       paperback_too_late_ex = "TOO LATE!",
       paperback_broken_ex = "Broken!",
       paperback_none = "None",
-      paperback_downgrade_ex = "Downgrade!"
+      paperback_downgrade_ex = "Downgrade!",
+      paperback_copy_ex = "Copy!"
     }
   }
 }
