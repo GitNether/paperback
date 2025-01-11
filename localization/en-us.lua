@@ -1,6 +1,15 @@
 return {
   descriptions = {
     Joker = {
+      j_paperback_coffee = {
+        name = "Coffee",
+        text = {
+          "{C:attention}+#1#{} hand size,",
+          "increases by {C:attention}#2#{} when {C:attention}Blind{} is skipped.",
+          "{C:green}#3# in #4#{} chance this Joker is consumed when",
+          "{C:attention}Small Blind{} or {C:attention}Big Blind{} is selected",
+        }
+      },
       j_paperback_basic_energy = {
         name = "Basic Joker Energy",
         text = {
@@ -473,7 +482,8 @@ return {
       paperback_broken_ex = "Broken!",
       paperback_none = "None",
       paperback_downgrade_ex = "Downgrade!",
-      paperback_copy_ex = "Copy!"
+      paperback_copy_ex = "Copy!",
+      paperback_consumed_ex = "Consumed!"
     }
   }
 }
