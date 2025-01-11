@@ -348,8 +348,8 @@ return {
       j_paperback_reference_card = {
         name = "Reference Card",
         text = {
-          "Gains {X:mult,C:white}X#1#{} Mult each time the least",
-          "played {C:attention}base poker hand{} has been played.",
+          "Gains {X:mult,C:white}X#1#{} Mult for every time {C:attention}all{} 9",
+          "{C:attention}base poker hands{} have been played",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)",
         },
       },
