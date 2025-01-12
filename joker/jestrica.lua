@@ -3,13 +3,14 @@ SMODS.Joker {
   config = {
     extra = {
       mult = 0,
-      a_mult = 2,
+      increase = 1,
+      scored = false
     }
   },
   rarity = 1,
   pos = { x = 7, y = 5 },
   atlas = 'jokers_atlas',
-  cost = 6,
+  cost = 5,
   unlocked = true,
   discovered = true,
   blueprint_compat = true,
@@ -19,48 +20,50 @@ SMODS.Joker {
   loc_vars = function(self, info_queue, card)
     return {
       vars = {
-        card.ability.extra.a_mult,
+        card.ability.extra.increase,
         card.ability.extra.mult,
       }
     }
   end,
 
   calculate = function(self, card, context)
-    -- Go through each card in scoring hand and check how many diamonds there are
-    if context.before and not context.blueprint then
-      local diamonds = 0
+    -- Give mult when scored and copied
+    if context.joker_main and context.cardarea == G.jokers then
+      return {
+        mult = card.ability.extra.mult,
+      }
+    end
 
-      for k, current_card in pairs(context.scoring_hand) do
-        if current_card:is_suit("Diamonds") then
-          diamonds = diamonds + 1
-        end
-      end
+    -- Upgrade this Joker for every scored 8
+    if not context.blueprint and context.individual and context.cardarea == G.play then
+      if context.other_card:get_id() == 8 then
+        card.ability.extra.scored = true
+        card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.increase
 
-      if diamonds >= #context.scoring_hand then
-        -- Upgrade the mult on Joker and return a message if everything is a diamond
-        card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.a_mult
         return {
-          message = localize('k_upgrade_ex'),
-          colour = G.C.MULT,
-          card = card
-        }
-      elseif diamonds <= 0 and card.ability.extra.mult > 0 then
-        -- Reduce the mult of this card by half if none are diamonds
-        card.ability.extra.mult = math.floor(card.ability.extra.mult / 2)
-        return {
-          message = localize('paperback_downgrade_ex'),
-          colour = G.C.MULT,
+          extra = {
+            focus = card,
+            message = localize('k_upgrade_ex'),
+            colour = G.C.MULT,
+          },
           card = card
         }
       end
     end
 
-    -- Give the mult during scoring
-    if context.joker_main and card.ability.extra.mult > 0 then
-      return {
-        message = localize { type = 'variable', key = 'a_mult', vars = { card.ability.extra.mult } },
-        mult_mod = card.ability.extra.mult
-      }
+    -- Check if this Joker's mult should reset depending on if an 8 was scored this round
+    if not context.blueprint and context.end_of_round and not (context.individual or context.repetition) then
+      if not card.ability.extra.scored and card.ability.extra.mult > 0 then
+        card.ability.extra.mult = 0
+
+        return {
+          message = localize('k_reset'),
+          colour = G.C.MULT
+        }
+      end
+
+      -- Reset the scored flag after round ends
+      card.ability.extra.scored = false
     end
   end
 }
