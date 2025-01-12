@@ -38,31 +38,10 @@ SMODS.Joker {
     -- Checks if Joker should be destroyed at the end of the round
     if context.end_of_round and not context.blueprint and not (context.individual or context.repetition) then
       if pseudorandom("Crispy Taco") < G.GAME.probabilities.normal / card.ability.extra.odds then
-        G.E_MANAGER:add_event(Event({
-          func = function()
-            play_sound('tarot1')
-            card.T.r = -0.2
-            card:juice_up(0.3, 0.4)
-            card.states.drag.is = true
-            card.children.center.pinch.x = true
-            G.E_MANAGER:add_event(Event({
-              trigger = 'after',
-              delay = 0.3,
-              blockable = false,
-              func = function()
-                G.jokers:remove_card(card)
-                card:remove()
-                card = nil
-
-                -- Allows Soft Taco to spawn, prevents Crispy Taco from spawning
-                G.GAME.pool_flags.soft_taco_can_spawn = true
-
-                return true;
-              end
-            }))
-            return true
-          end
-        }))
+        PB_UTIL.destroy_joker(card, function()
+          -- Allows Soft Taco to spawn, prevents Crispy Taco from spawning
+          G.GAME.pool_flags.soft_taco_can_spawn = true
+        end)
 
         return {
           message = localize('k_eaten_ex'),

@@ -43,27 +43,7 @@ SMODS.Joker {
 
     if context.setting_blind and not context.blind.boss then
       if pseudorandom("coffee") < G.GAME.probabilities.normal / card.ability.extra.odds then
-        -- Destroy the joker
-        G.E_MANAGER:add_event(Event({
-          func = function()
-            play_sound('tarot1')
-            card.T.r = -0.2
-            card:juice_up(0.3, 0.4)
-            card.states.drag.is = true
-            card.children.center.pinch.x = true
-            G.E_MANAGER:add_event(Event({
-              trigger = 'after',
-              delay = 0.3,
-              blockable = false,
-              func = function()
-                G.jokers:remove_card(card)
-                card:remove()
-                return true
-              end
-            }))
-            return true
-          end
-        }))
+        PB_UTIL.destroy_joker(card)
 
         -- Revert all the hand size increase when eaten
         G.hand:change_size(-card.ability.extra.hand_size)
