@@ -364,6 +364,34 @@ function PB_UTIL.poll_tag(seed)
   return tag
 end
 
+function PB_UTIL.destroy_joker(card, after)
+  G.E_MANAGER:add_event(Event({
+    func = function()
+      play_sound('tarot1')
+      card.T.r = -0.2
+      card:juice_up(0.3, 0.4)
+      card.states.drag.is = true
+      card.children.center.pinch.x = true
+      G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.3,
+        blockable = false,
+        func = function()
+          G.jokers:remove_card(card)
+          card:remove()
+
+          if after and type(after) == "function" then
+            after()
+          end
+
+          return true
+        end
+      }))
+      return true
+    end
+  }))
+end
+
 -- If Cryptid is also loaded, add food jokers to pool for ://SPAGHETTI
 if (SMODS.Mods["Cryptid"] or {}).can_load then
   table.insert(Cryptid.food, "j_paperback_cakepop")
