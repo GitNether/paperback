@@ -320,11 +320,10 @@ return {
       j_paperback_jestrica = {
         name = "Jestrica",
         text = {
-          "If {C:attention}scoring hand{} contains only {C:diamonds}Diamonds{}",
-          "this Joker gains {C:mult}+#1#{} Mult",
-          "If {C:attention}scoring hand{} does not contain any {C:diamonds}Diamonds{}",
-          "this Joker loses {C:mult}half{} of its Mult",
-          "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)",
+          "{C:mult}+#1#{} Mult when an {C:attention}8{} is scored",
+          "Resets if no {C:attention}8s{} were scored",
+          "this round",
+          "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
         },
       },
       j_paperback_grand_strategy = {
