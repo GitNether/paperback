@@ -105,17 +105,19 @@ return {
       j_paperback_pool_table = {
         name = "Pool Table",
         text = {
-          "If first hand of round scores all {C:attention}non-face cards{},",
-          "creates the {C:planet}Planet{} card of the played {C:attention}poker hand{}",
+          "If first hand of round",
+          "scores no {C:attention}face cards{},",
+          "create the {C:planet}Planet{} card of",
+          "the played {C:attention}poker hand",
           "{C:inactive}(Must have room)",
         },
       },
       j_paperback_bicycle = {
         name = "Bicycle",
         text = {
-          "{C:attention}Wild Cards{} give",
-          "{C:mult}Mult{} equal to their",
-          "{C:chips}Chip Bonus{}, then {X:mult,C:white}X#1#{} Mult",
+          "{C:attention}Wild Cards{} give {C:mult}Mult",
+          "equal to their {C:chips}Chip Bonus{},",
+          "then {X:mult,C:white}X#1#{} Mult",
         },
       },
       j_paperback_stamp = {
@@ -152,8 +154,9 @@ return {
       j_paperback_river = {
         name = "River",
         text = {
-          "If played hand contains {C:attention}5 scoring cards{},",
-          "earn the lowest scoring card's {C:chips}Chip Bonus{} as {C:money}Money{}",
+          "If played hand contains {C:attention}5 scoring",
+          "{C:attention}cards{} earn the lowest scoring",
+          "card's {C:chips}Chip Bonus{} as {C:money}Money",
           "{C:inactive}(Max of {C:money}$#1#{C:inactive})",
         },
       },
@@ -171,10 +174,11 @@ return {
       j_paperback_hole_in_one = {
         name = "Hole in One",
         text = {
-          "If first {C:chips}hand{} of round cleared the {C:attention}blind{},",
-          "double the {C:money}Sell Value{} of all Jokers and Consumables {C:inactive}(Max of {C:money}$#1#{C:inactive} per round).",
-          "If this Joker is sold, all Jokers and Consumables are set to",
-          "a {C:money}Sell Value{} of {C:money}$0{}",
+          "If first {C:chips}hand{} of round cleared the",
+          "{C:attention}blind{}, double the {C:attention}sell value{} of all {C:attention}cards",
+          "{C:inactive}(Max of {C:money}$#1#{C:inactive} per round)",
+          "When this Joker is sold, set the {C:attention}sell",
+          "{C:attention}value{} of all {C:attention}cards{} to {C:money}$0"
         },
       },
       j_paperback_mismatched_sock = {
@@ -197,10 +201,10 @@ return {
       j_paperback_skydiver = {
         name = "Skydiver",
         text = {
-          "{C:white,X:mult}X#1#{} Mult if all {C:attention}scored cards{}",
-          "are less than or equal to the {C:attention}lowest ranked{}",
-          "card scored this round. Lowest rank updated at",
-          "end of played {C:chips}hand.",
+          "{C:white,X:mult}X#1#{} Mult if all {C:attention}scored cards{} are less",
+          "than or equal to the {C:attention}lowest ranked",
+          "card scored this round",
+          "{C:inactive}(Updates at end of played hand{C:inactive})",
           "{C:inactive}(Currently: {C:attention}#2#{C:inactive})",
         },
       },
@@ -216,8 +220,9 @@ return {
       j_paperback_great_wave = {
         name = "Great Wave",
         text = {
-          "Retrigger {C:attention}leftmost{} played card used in",
-          "scoring {C:attention}once{} for every {C:chips}hand{} remaining",
+          "Retrigger {C:attention}leftmost{} played",
+          "card used in scoring {C:attention}once{}",
+          "for every {C:chips}hand{} remaining",
         },
       },
       j_paperback_caramel_apple = {
@@ -272,9 +277,10 @@ return {
       j_paperback_wish_you_were_here = {
         name = "Wish You Were Here",
         text = {
-          "Gives {C:mult}Mult{} equal to",
-          "{C:mult}#1#X{} this Joker's {C:attention}Sell Value{}.",
-          "Gains {C:money}+#2# {C:attention}Sell Value{} at end of round",
+          "Gives {C:mult}Mult{} equal to {C:mult}#1#X{} the",
+          "{C:attention}sell value{} of this Joker.",
+          "Gains {C:money}$#2#{} of {C:attention}sell value{} at",
+          "end of round",
           "{C:inactive}(Currently {C:mult}+#3# {C:inactive}Mult){}",
         },
       },
@@ -306,8 +312,8 @@ return {
       j_paperback_derecho = {
         name = "Derecho",
         text = {
-          "Gains {X:mult,C:white}X#1#{} Mult if",
-          "{C:attention}scored hand{} contains only {C:spades}dark suits",
+          "Gains {X:mult,C:white}X#1#{} Mult if {C:attention}scored hand",
+          "contains only {C:spades}dark suits",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
       },
@@ -333,17 +339,17 @@ return {
       j_paperback_solar_system = {
         name = "Solar System",
         text = {
-          "Gives {X:mult,C:white}X#1#{} Mult for every",
-          "{C:attention}level{} all 9 base",
-          "{C:planet}planets{} share",
+          "Gives {X:mult,C:white}X#1#{} Mult for",
+          "every {C:attention}level{} all 9 base",
+          "{C:planet}Planets{} share",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)",
         },
       },
       j_paperback_reference_card = {
         name = "Reference Card",
         text = {
-          "Gains {X:mult,C:white}X#1#{} Mult each time the least",
-          "played {C:attention}base poker hand{} has been played.",
+          "Gains {X:mult,C:white}X#1#{} Mult for every time {C:attention}all{} 9",
+          "{C:attention}base poker hands{} have been played",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)",
         },
       },
@@ -365,7 +371,7 @@ return {
       j_paperback_union_card = {
         name = "Union Card",
         text = {
-          "Sell value of all cards is locked",
+          "{C:attention}Sell value{} of all {C:attention}cards{} is locked",
           "at {C:money}$0{} until this Joker is sold",
           "Gives {X:mult,C:white}X{} Mult equal to the",
           "number of scored {C:diamonds}Diamonds{} or",
@@ -400,8 +406,9 @@ return {
       j_paperback_summoning_circle = {
         name = "Summoning Circle",
         text = {
-          "If played hand contains a {C:attention}Five of a Kind{},",
-          "create a copy of a {C:attention}random consumeable{}",
+          "If played hand contains a",
+          "{C:attention}Five of a Kind{}, create a copy",
+          "of a {C:attention}random consumable",
           "{C:inactive}(Must have room)",
         },
       },
@@ -458,8 +465,9 @@ return {
       j_paperback_black_rainbows = {
         name = "Black Rainbows",
         text = {
-          "Scored {C:spades}Spades{} and {C:clubs}Clubs{} have a {C:green}#1# in #2#",
-          "chance to be made {C:dark_edition}Polychrome{}"
+          "Scored {C:spades}Spades{} and {C:clubs}Clubs",
+          "have a {C:green}#1# in #2#{} chance to",
+          "be made {C:dark_edition}Polychrome"
         }
       }
     },
