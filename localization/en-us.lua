@@ -468,7 +468,15 @@ return {
           "have a {C:green}#1# in #2#{} chance to",
           "be made {C:dark_edition}Polychrome"
         }
-      }
+      },
+      j_paperback_meeple = {
+        name = "Meeple",
+        text = {
+          "Scored {C:attention}face cards{} have a",
+          "{C:green}#1# in #2#{} chance to",
+          "give {C:mult}+#3#{} Discard(s)"
+        }
+      },
     },
     Other = {
       paperback_energized = {
@@ -490,7 +498,10 @@ return {
       paperback_none = "None",
       paperback_downgrade_ex = "Downgrade!",
       paperback_copy_ex = "Copy!",
-      paperback_consumed_ex = "Consumed!"
+      paperback_consumed_ex = "Consumed!",
+    },
+    v_dictionary = {
+      paperback_a_discards_ex = "+#1# Discards!"
     }
   }
 }

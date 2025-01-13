@@ -87,7 +87,7 @@ local ENABLED_JOKERS = {
   "jimbo_adventure",
   "joker_cookie",
   -- "the_world",
-  -- "meeple",
+  "meeple",
   -- "angel_investor",
   "basic_energy",
   "coffee",
