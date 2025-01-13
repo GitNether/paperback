@@ -22,7 +22,7 @@ return {
       j_paperback_big_misser = {
         name = "Big Misser",
         text = {
-          "{X:mult,C:white}X#1#{} Mult for every empty",
+          "{X:mult,C:white}X#1#{} Mult for each empty",
           "consumable slot",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)"
         }
@@ -63,8 +63,8 @@ return {
       j_paperback_furioso = {
         name = "Furioso",
         text = {
-          "Each uniquely scored {C:attention}rank{}",
-          "adds {X:mult,C:white}X#1#{} Mult to this Joker.",
+          "This Joker gains {X:mult,C:white}X#1#{} Mult for",
+          "each uniquely scored {C:attention}rank{}.",
           "Resets after defeating a {C:attention}boss blind",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)",
           "{C:inactive}(Ranks played:{C:attention}#3#{C:inactive})",
