@@ -91,7 +91,7 @@ local ENABLED_JOKERS = {
   -- "angel_investor",
   "basic_energy",
   "coffee",
-  -- "cream_liqueur",
+  "cream_liqueur",
   -- "mimicry",
   -- "prismatic_shard",
   "big_misser",
