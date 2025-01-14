@@ -63,6 +63,19 @@ function Card:start_dissolve(dissolve_colours, silent, dissolve_time_fac, no_jui
   start_dissolve_ref(self, dissolve_colours, silent, dissolve_time_fac, no_juice)
 end
 
+-- Add new context that happens before triggering tags
+local yep_ref = Tag.yep
+function Tag.yep(self, message, _colour, func)
+  for k, v in ipairs(G.jokers.cards) do
+    v:calculate_joker({
+      paperback_using_tag = true,
+      paperback_tag = self
+    })
+  end
+
+  return yep_ref(self, message, _colour, func)
+end
+
 local remove_ref = Card.remove
 function Card.remove(self)
   -- Check that the card being removed is a joker that's in the player's deck and that it's not being sold

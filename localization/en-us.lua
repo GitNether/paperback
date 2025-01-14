@@ -1,6 +1,14 @@
 return {
   descriptions = {
     Joker = {
+      j_paperback_cream_liqueur = {
+        name = "Cream Liqueur",
+        text = {
+          "{C:attention}Tags{} earn {C:money}$#1#{} when activated",
+          "{C:green}#2# in #3#{} chance to be consumed",
+          "at end of round"
+        }
+      },
       j_paperback_coffee = {
         name = "Coffee",
         text = {
