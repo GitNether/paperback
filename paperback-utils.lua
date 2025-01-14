@@ -181,7 +181,6 @@ function PB_UTIL.is_in_your_collection(card)
   return false
 end
 
--- xChips functions from @PT_Cerlo on Discord
 function PB_UTIL.xChips(amt, card)
   hand_chips = mod_chips(hand_chips * (amt or 1))
   update_hand_text(
@@ -228,6 +227,23 @@ function PB_UTIL.poll_tag(seed)
   end
 
   return tag
+end
+
+-- Gets a psuedorandom consumable from the Consumables pool (Soul and Black Hole included)
+function PB_UTIL.poll_consumable(seed)
+  local types = {}
+
+  for k, v in pairs(SMODS.ConsumableTypes) do
+    types[#types + 1] = k
+  end
+
+  return SMODS.create_card {
+    set = pseudorandom_element(types, pseudoseed(seed)),
+    area = G.consumables,
+    edition = 'e_negative',
+    soulable = true,
+    key_append = seed,
+  }
 end
 
 function PB_UTIL.destroy_joker(card, after)

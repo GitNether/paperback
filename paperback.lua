@@ -109,6 +109,7 @@ local ENABLED_JOKERS = {
   -- "epic_sauce",
   -- "find_jimbo",
   -- "champagne",
+  "apple",
 }
 
 -- Register the jokers in custom order
