@@ -48,13 +48,19 @@ SMODS.Joker {
 
         return {
           message = localize('k_eaten_ex'),
-          colour = G.C.FILTER
+          colour = G.C.FILTER,
+          card = card
         }
       else
         return {
           delay = 0.2,
-          message = localize { type = 'variable', key = 'a_xmult_minus', vars = { card.ability.extra.reduction_amount } },
-          colour = G.C.CHIPS
+          message = localize {
+            type = 'variable',
+            key = 'paperback_a_xchips_minus',
+            vars = { card.ability.extra.reduction_amount }
+          },
+          colour = G.C.CHIPS,
+          card = card
         }
       end
     end
