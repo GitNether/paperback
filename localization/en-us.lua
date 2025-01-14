@@ -5,8 +5,8 @@ return {
         name = "Cream Liqueur",
         text = {
           "{C:attention}Tags{} earn {C:money}$#1#{} when activated",
-          "{C:green}#2# in #3#{} chance to be consumed",
-          "at end of round"
+          "{C:green}#2# in #3#{} chance this card is",
+          "consumed at end of round"
         }
       },
       j_paperback_coffee = {
@@ -14,7 +14,7 @@ return {
         text = {
           "{C:attention}+#1#{} hand size,",
           "increases by {C:attention}#2#{} when {C:attention}Blind{} is skipped.",
-          "{C:green}#3# in #4#{} chance this Joker is consumed when",
+          "{C:green}#3# in #4#{} chance this card is consumed when",
           "{C:attention}Small Blind{} or {C:attention}Big Blind{} is selected",
         }
       },
@@ -171,12 +171,10 @@ return {
       j_paperback_solemn_lament = {
         name = "Solemn Lament",
         text = {
-          "Retrigger {C:attention}first{} played card used in",
-          "scoring {C:attention}once{} for every remaining",
+          "Retrigger {C:attention}first{} scored card",
+          "{C:attention}once{} for every remaining",
           "{C:chips}hand{} or {C:mult}discard{}",
           "{C:inactive}(The lowest of the two)",
-          "{C:attention}Aces{}, {C:attention}6s{}, and {C:attention}8s{} give",
-          "{C:mult}+#1#{} Mult when scored",
         },
       },
       j_paperback_hole_in_one = {
@@ -185,7 +183,7 @@ return {
           "If first {C:chips}hand{} of round cleared the",
           "{C:attention}blind{}, double the {C:attention}sell value{} of all {C:attention}cards",
           "{C:inactive}(Max of {C:money}$#1#{C:inactive} per round)",
-          "When this Joker is sold, set the {C:attention}sell",
+          "When this card is sold, set the {C:attention}sell",
           "{C:attention}value{} of all {C:attention}cards{} to {C:money}$0"
         },
       },
@@ -286,7 +284,7 @@ return {
         name = "Wish You Were Here",
         text = {
           "Gives {C:mult}Mult{} equal to {C:mult}#1#X{} the",
-          "{C:attention}sell value{} of this Joker.",
+          "{C:attention}sell value{} of this card.",
           "Gains {C:money}$#2#{} of {C:attention}sell value{} at",
           "end of round",
           "{C:inactive}(Currently {C:mult}+#3# {C:inactive}Mult){}",
@@ -379,7 +377,7 @@ return {
         name = "Union Card",
         text = {
           "{C:attention}Sell value{} of all {C:attention}cards{} is locked",
-          "at {C:money}$0{} until this Joker is sold",
+          "at {C:money}$0{} until this card is sold",
           "Gives {X:mult,C:white}X{} Mult equal to the",
           "number of scored {C:diamonds}Diamonds{} or",
           "{C:hearts}Hearts{} in played hand",
@@ -431,7 +429,7 @@ return {
         name = "Prince of Darkness",
         text = {
           "If scoring hand contains a {C:hearts}#1#{} and three",
-          "unique suits, this card gains {C:mult}+#2#{} Mult,",
+          "unique suits, this Joker gains {C:mult}+#2#{} Mult,",
           "{C:chips}+#3#{} Chips, and {C:money}+#4#{} Sell Value",
           "{C:inactive}(Currently {C:mult}+#5#{} {C:inactive}Mult, {C:chips}+#6#{} {C:inactive}Chips)",
         },
@@ -483,6 +481,15 @@ return {
           "Scored {C:attention}face cards{} have a",
           "{C:green}#1# in #2#{} chance to",
           "give {C:mult}+#3#{} Discard(s)"
+        }
+      },
+      j_paperback_apple = {
+        name = "Apple",
+        text = {
+          "Scored {C:hearts}Hearts{} have a",
+          "{C:green}#1# in #2#{} chance to give",
+          "a {C:dark_edition}Negative {C:attention}Consumable",
+          "{S:1.1,C:red,E:2}self destructs",
         }
       },
     },
