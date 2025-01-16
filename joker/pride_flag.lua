@@ -2,7 +2,7 @@ SMODS.Joker {
   key = 'pride_flag',
   config = {
     extra = {
-      a_mult = 3,
+      a_mult = 2,
       mult = 0
     }
   },
