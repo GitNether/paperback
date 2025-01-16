@@ -42,6 +42,10 @@ SMODS.Joker {
           -- Brown color taken from the sprite
           colour = HEX("C4A07D")
         }
+      else
+        return {
+          message = localize('k_safe_ex'),
+        }
       end
     end
   end
