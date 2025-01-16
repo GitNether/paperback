@@ -33,27 +33,7 @@ SMODS.Joker {
       if context.end_of_round and not (context.individual or context.repetition) then
         -- Destroy the Joker if the odds are hit
         if pseudorandom("Joker Cookie") < G.GAME.probabilities.normal / card.ability.extra.odds then
-          G.E_MANAGER:add_event(Event({
-            func = function()
-              play_sound('tarot1')
-              card.T.r = -0.2
-              card:juice_up(0.3, 0.4)
-              card.states.drag.is = true
-              card.children.center.pinch.x = true
-              G.E_MANAGER:add_event(Event({
-                trigger = 'after',
-                delay = 0.3,
-                blockable = false,
-                func = function()
-                  G.jokers:remove_card(card)
-                  card:remove()
-                  card = nil
-                  return true;
-                end
-              }))
-              return true
-            end
-          }))
+          PB_UTIL.destroy_joker(card)
 
           -- Return the "Eaten!" message
           return {
@@ -70,7 +50,7 @@ SMODS.Joker {
       -- Upgrade the Joker when the user cashes out
       if context.cashing_out then
         card.ability.extra.dollar_bonus = card.ability.extra.dollar_bonus + card.ability.extra.dollar_gain
-        card_eval_status_text(card, 'extra', nil, nil, nil, { message = "Upgraded!", colour = G.C.MONEY })
+        card_eval_status_text(card, 'extra', nil, nil, nil, { message = localize('k_upgrade_ex'), colour = G.C.MONEY })
       end
     end
   end,

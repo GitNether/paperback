@@ -47,7 +47,7 @@ SMODS.Joker {
           func = function()
             if #destroyed_cards ~= 0 then
               card_eval_status_text(card, 'extra', nil, nil, nil,
-                { message = "TOO LATE!", colour = G.C.MULT, instant = true })
+                { message = localize('paperback_too_late_ex'), colour = G.C.MULT, instant = true })
 
               play_sound('tarot1')
               card:juice_up(0.3, 0.5)

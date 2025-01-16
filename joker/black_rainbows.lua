@@ -11,7 +11,7 @@ SMODS.Joker {
   cost = 8,
   unlocked = true,
   discovered = true,
-  blueprint_compat = true,
+  blueprint_compat = false,
   eternal_compat = true,
   soul_pos = nil,
 
@@ -27,17 +27,35 @@ SMODS.Joker {
   end,
 
   calculate = function(self, card, context)
-    if context.individual and context.cardarea == G.play then
-      if context.other_card:is_suit("Spades") or context.other_card:is_suit("Clubs") and not context.other_card.debuffed then
-        if pseudorandom('black_rainbows') < G.GAME.probabilities.normal / card.ability.extra.odds then
-          G.E_MANAGER:add_event(Event({
-            trigger = 'before',
-            func = function()
-              context.other_card:set_edition({ polychrome = true }, true)
-              return true
-            end
-          }))
+    if context.before and not context.blueprint then
+      local polychrome_triggered = false
+
+      -- Go through each card in the scoring hand and check if it is a valid card
+      for k, v in pairs(context.scoring_hand) do
+        if (v:is_suit("Spades") or v:is_suit("Clubs")) and not v.debuffed and not card.edition then
+          -- If the odds succeed, set the card's edition to polychrome
+          if pseudorandom('black_rainbows') < G.GAME.probabilities.normal / card.ability.extra.odds then
+            polychrome_triggered = true
+            G.E_MANAGER:add_event(Event({
+              trigger = 'before',
+              delay = 0.4,
+              func = function()
+                v:set_edition({ polychrome = true }, true)
+                v:juice_up(0.3, 0.5)
+                return true
+              end
+            }))
+          end
         end
+      end
+
+      -- Display a message if a card was turned polychrome
+      if polychrome_triggered then
+        return {
+          message = localize('paperback_polychrome_ex'),
+          colour = G.C.GREEN,
+          card = card
+        }
       end
     end
   end

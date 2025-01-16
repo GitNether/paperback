@@ -44,36 +44,23 @@ SMODS.Joker {
 
       -- Destroy Nachos if the current value is <= 1
       if card.ability.extra.X_chips <= 1 then
-        G.E_MANAGER:add_event(Event({
-          func = function()
-            play_sound('tarot1')
-            card.T.r = -0.2
-            card:juice_up(0.3, 0.4)
-            card.states.drag.is = true
-            card.children.center.pinch.x = true
-            G.E_MANAGER:add_event(Event({
-              trigger = 'after',
-              delay = 0.3,
-              blockable = false,
-              func = function()
-                G.jokers:remove_card(card)
-                card:remove()
-                card = nil
-                return true;
-              end
-            }))
-            return true
-          end
-        }))
+        PB_UTIL.destroy_joker(card)
+
         return {
           message = localize('k_eaten_ex'),
-          colour = G.C.FILTER
+          colour = G.C.FILTER,
+          card = card
         }
       else
         return {
           delay = 0.2,
-          message = localize { type = 'variable', key = 'a_xmult_minus', vars = { card.ability.extra.reduction_amount } },
-          colour = G.C.CHIPS
+          message = localize {
+            type = 'variable',
+            key = 'paperback_a_xchips_minus',
+            vars = { card.ability.extra.reduction_amount }
+          },
+          colour = G.C.CHIPS,
+          card = card
         }
       end
     end

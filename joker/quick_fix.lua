@@ -36,52 +36,31 @@ SMODS.Joker {
     if context.end_of_round and not context.blueprint and not (context.individual or context.repetition) then
       if pseudorandom("Quick Fix") < G.GAME.probabilities.normal / card.ability.extra.odds then
         -- Destroy Quick Fix
-        G.E_MANAGER:add_event(Event({
-          func = function()
-            play_sound('tarot1')
-            card.T.r = -0.2
-            card:juice_up(0.3, 0.4)
-            card.states.drag.is = true
-            card.children.center.pinch.x = true
+        PB_UTIL.destroy_joker(card, function()
+          -- Remove Quick Fix from the Joker pool
+          G.GAME.pool_flags.quick_fix_can_spawn = false
+
+          -- Create Half Joker if possible
+          if #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit then
+            local jokers_to_create = math.min(1,
+              G.jokers.config.card_limit - (#G.jokers.cards + G.GAME.joker_buffer))
+            G.GAME.joker_buffer = G.GAME.joker_buffer + jokers_to_create
+
             G.E_MANAGER:add_event(Event({
-              trigger = 'after',
-              delay = 0.3,
-              blockable = false,
               func = function()
-                G.jokers:remove_card(card)
-                card:remove()
-                card = nil
-
-                -- Remove Quick Fix from the Joker pool
-                G.GAME.pool_flags.quick_fix_can_spawn = false
-
-                -- Create Half Joker if possible
-                if #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit then
-                  local jokers_to_create = math.min(1,
-                    G.jokers.config.card_limit - (#G.jokers.cards + G.GAME.joker_buffer))
-                  G.GAME.joker_buffer = G.GAME.joker_buffer + jokers_to_create
-
-                  G.E_MANAGER:add_event(Event({
-                    func = function()
-                      local card = create_card('Joker', G.jokers, nil, 0, nil, nil, 'j_half', nil)
-                      card:add_to_deck()
-                      G.jokers:emplace(card)
-                      card:start_materialize()
-                      G.GAME.joker_buffer = 0
-                      return true
-                    end
-                  }))
-                end
-                return true;
+                local card = create_card('Joker', G.jokers, nil, 0, nil, nil, 'j_half', nil)
+                card:add_to_deck()
+                G.jokers:emplace(card)
+                card:start_materialize()
+                G.GAME.joker_buffer = 0
+                return true
               end
             }))
-
-            return true
           end
-        }))
+        end)
 
         return {
-          message = "Broken",
+          message = localize('paperback_broken_ex'),
           colour = G.C.MULT,
           card = card
         }

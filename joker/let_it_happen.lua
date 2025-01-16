@@ -25,11 +25,11 @@ SMODS.Joker {
         hands_played_string = hands_played_string .. ", "
       end
 
-      hands_played_string = hands_played_string .. card.ability.extra.hands_played_this_ante[i]
+      hands_played_string = hands_played_string .. localize(card.ability.extra.hands_played_this_ante[i], "poker_hands")
     end
 
     if hands_played_string == "" then
-      hands_played_string = " None"
+      hands_played_string = " " .. localize('paperback_none')
     end
 
     return {

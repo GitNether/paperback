@@ -26,10 +26,15 @@ SMODS.Joker {
     }
   end,
 
-  add_to_deck = function(self, card, from_debuff)
-    card.ability.extra_value = (-1 * card.sell_cost) + 1
+  set_ability = function(self, card, initial, delay_sprites)
+    card.zero_sell_cost = true
     card:set_cost()
   end,
+
+  -- add_to_deck = function(self, card, from_debuff)
+  --   card.custom_sell_cost = true
+  --   card:set_cost()
+  -- end,
 
   calculate = function(self, card, context)
     local mult = card.ability.extra.mult_mod * card.sell_cost
