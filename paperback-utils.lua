@@ -1,8 +1,5 @@
 PB_UTIL = {}
 
--- message for the scoring of "Prince of Darkness"
-G.localization.misc.v_dictionary.prince_of_darkness = { "+#1# Mult, +#2# Chips" }
-
 -- Creates the flags
 local BackApply_to_run_ref = Back.apply_to_run
 function Back.apply_to_run(arg_56_0)
@@ -230,7 +227,7 @@ function PB_UTIL.poll_tag(seed)
 end
 
 -- Gets a psuedorandom consumable from the Consumables pool (Soul and Black Hole included)
-function PB_UTIL.poll_consumable(seed)
+function PB_UTIL.poll_consumable(seed, soulable)
   local types = {}
 
   for k, v in pairs(SMODS.ConsumableTypes) do
@@ -240,8 +237,7 @@ function PB_UTIL.poll_consumable(seed)
   return SMODS.create_card {
     set = pseudorandom_element(types, pseudoseed(seed)),
     area = G.consumables,
-    edition = 'e_negative',
-    soulable = true,
+    soulable = soulable,
     key_append = seed,
   }
 end
@@ -287,6 +283,7 @@ if (SMODS.Mods["Cryptid"] or {}).can_load then
   table.insert(Cryptid.food, "j_paperback_soft_taco")
   table.insert(Cryptid.food, "j_paperback_complete_breakfast")
   table.insert(Cryptid.food, "j_paperback_coffee")
+  table.insert(Cryptid.food, "j_paperback_cream_liqueur")
 end
 
 return PB_UTIL

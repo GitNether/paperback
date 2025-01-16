@@ -3,6 +3,7 @@ SMODS.Joker {
   config = {
     extra = {
       odds = 1,
+      card_generated = false,
     }
   },
   rarity = 1,
@@ -28,32 +29,30 @@ SMODS.Joker {
   end,
 
   calculate = function(self, card, context)
-    if not context.blueprint then
-      if context.individual and context.cardarea == G.play then
-        if context.other_card:is_suit("Hearts") then
+    if context.individual and context.cardarea == G.play then
+      if context.other_card:is_suit("Hearts") then
+        if not card.ability.extra.card_generated then
           if pseudorandom("Apple") < G.GAME.probabilities.normal / card.ability.extra.odds then
-            G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
             G.E_MANAGER:add_event(Event({
               trigger = 'before',
               func = function()
                 -- Give the negative consumable
-                local _card = PB_UTIL.poll_consumable('apple')
+                local _card = PB_UTIL.poll_consumable('apple', true)
+                _card:set_edition({ negative = true })
                 _card:add_to_deck()
                 G.consumeables:emplace(_card)
-                G.GAME.consumeable_buffer = 0
 
                 return true
               end
             }))
 
+            card.ability.extra.card_generated = true
             PB_UTIL.destroy_joker(card)
 
             if not context.blueprint then
-              return {
-                message = "Destroyed!",
-                colour = G.C.RED,
-                card = card
-              }
+              SMODS.calculate_effect({
+                message = localize('paperback_destroyed_ex'),
+              }, card)
             end
           end
         end
