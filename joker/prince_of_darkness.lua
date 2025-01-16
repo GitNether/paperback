@@ -41,14 +41,6 @@ SMODS.Joker {
       if context.before and not context.blueprint then
         local unique_suits = PB_UTIL.get_unique_suits(context.scoring_hand)
 
-        -- Count the number of unique suits
-        -- local unique_suits = 0
-        -- for k, v in pairs(suits) do
-        -- if suits >= 0 then
-        -- unique_suits = unique_suits + 1
-        -- end
-        -- end
-
         local heart_found = false
         for i = 1, #context.scoring_hand do
           if context.scoring_hand[i]:is_suit("Hearts") then
