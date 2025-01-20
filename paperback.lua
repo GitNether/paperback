@@ -106,7 +106,7 @@ local ENABLED_JOKERS = {
   -- "power_surge",
   -- "weather_radio",
   "jestrica",
-  -- "epic_sauce",
+  "epic_sauce",
   -- "find_jimbo",
   -- "champagne",
   "apple",

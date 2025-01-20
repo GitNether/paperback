@@ -1,6 +1,15 @@
 return {
   descriptions = {
     Joker = {
+      j_paperback_epic_sauce = {
+        name = "Epic Sauce",
+        text = {
+          "{X:mult,C:white}X#1#{} Mult",
+          "Destroy a random {C:attention}Joker{}",
+          "if played hand is not",
+          "the {C:attention}first hand{} of round"
+        }
+      },
       j_paperback_cream_liqueur = {
         name = "Cream Liqueur",
         text = {
@@ -514,6 +523,7 @@ return {
       paperback_downgrade_ex = "Downgrade!",
       paperback_copy_ex = "Copy!",
       paperback_consumed_ex = "Consumed!",
+      paperback_too_hot_ex = "Too Hot!"
     },
     v_dictionary = {
       paperback_a_discards_ex = "+#1# Discards!",

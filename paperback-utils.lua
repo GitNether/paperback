@@ -272,18 +272,25 @@ end
 
 -- If Cryptid is also loaded, add food jokers to pool for ://SPAGHETTI
 if (SMODS.Mods["Cryptid"] or {}).can_load then
-  table.insert(Cryptid.food, "j_paperback_cakepop")
-  table.insert(Cryptid.food, "j_paperback_caramel_apple")
-  table.insert(Cryptid.food, "j_paperback_charred_marshmallow")
-  table.insert(Cryptid.food, "j_paperback_crispy_taco")
-  table.insert(Cryptid.food, "j_paperback_dreamsicle")
-  table.insert(Cryptid.food, "j_paperback_ghost_cola")
-  table.insert(Cryptid.food, "j_paperback_joker_cookie")
-  table.insert(Cryptid.food, "j_paperback_nachos")
-  table.insert(Cryptid.food, "j_paperback_soft_taco")
-  table.insert(Cryptid.food, "j_paperback_complete_breakfast")
-  table.insert(Cryptid.food, "j_paperback_coffee")
-  table.insert(Cryptid.food, "j_paperback_cream_liqueur")
+  local food_jokers = {
+    "cakepop",
+    "caramel_apple",
+    "charred_marshmallow",
+    "crispy_taco",
+    "dreamsicle",
+    "ghost_cola",
+    "joker_cookie",
+    "nachos",
+    "soft_taco",
+    "complete_breakfast",
+    "coffee",
+    "cream_liqueur",
+    "epic_sauce"
+  }
+
+  for k, v in ipairs(food_jokers) do
+    table.insert(Cryptid.food, "j_paperback_" .. v)
+  end
 end
 
 return PB_UTIL
