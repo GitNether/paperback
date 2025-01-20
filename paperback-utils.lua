@@ -270,6 +270,23 @@ function PB_UTIL.destroy_joker(card, after)
   }))
 end
 
+function PB_UTIL.reset_find_jimbo(card)
+  local valid_cards = {}
+
+  for k, v in ipairs(G.playing_cards) do
+    if not SMODS.has_no_suit(v) and not SMODS.has_no_rank(v) then
+      valid_cards[#valid_cards + 1] = v
+    end
+  end
+
+  if #valid_cards > 0 then
+    local selected_card = pseudorandom_element(valid_cards, pseudoseed('find_jimbo'))
+    card.ability.extra.rank = selected_card.base.value
+    card.ability.extra.id = selected_card.base.id
+    card.ability.extra.suit = selected_card.base.suit
+  end
+end
+
 -- If Cryptid is also loaded, add food jokers to pool for ://SPAGHETTI
 if (SMODS.Mods["Cryptid"] or {}).can_load then
   table.insert(Cryptid.food, "j_paperback_cakepop")
