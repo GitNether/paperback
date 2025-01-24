@@ -1,6 +1,16 @@
 return {
   descriptions = {
     Joker = {
+      j_paperback_forgery = {
+        name = "Forgery",
+        text = {
+          "Copies ability of a random {C:attention}Joker",
+          "every hand, if it provides {X:mult,C:white}XMult{},",
+          "{C:mult}Mult{} or {C:chips}Chips{}, multiply its values",
+          "between {X:attention,C:white}X#1#{} and {X:attention,C:white}X#2#",
+          "{C:inactive}(Currently {C:attention}#3#{C:inactive} at {X:attention,C:white}X#4#{C:inactive})"
+        }
+      },
       j_paperback_the_world = {
         name = "The World",
         text = {

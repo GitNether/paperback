@@ -35,7 +35,7 @@ local ENABLED_JOKERS = {
   "summoning_circle",
   "hole_in_one",
   "derecho",
-  -- "forgery",
+  "forgery",
   "skydiver",
   "solemn_lament",
   "ghost_cola",

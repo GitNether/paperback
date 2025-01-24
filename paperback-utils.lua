@@ -269,6 +269,24 @@ function PB_UTIL.destroy_joker(card, after)
   }))
 end
 
+function PB_UTIL.reset_forgery(card)
+  -- Find a random owned joker that is blueprint compatible
+  local eligible_jokers = {}
+
+  for k, v in ipairs(G.jokers.cards) do
+    if v ~= card and v.config.center.blueprint_compat then
+      eligible_jokers[#eligible_jokers + 1] = v
+    end
+  end
+
+  -- Select what multiplier to use for the effects of this joker
+  card.ability.extra.multiplier = card.ability.extra.max_multiplier - pseudorandom("forgery_multiplier")
+
+  -- Assign the key of the random joker to Forgery
+  local joker = pseudorandom_element(eligible_jokers, pseudoseed("forgery"))
+  card.ability.extra.copying = joker and joker.config.center_key or nil
+end
+
 -- If Cryptid is also loaded, add food jokers to pool for ://SPAGHETTI
 if (SMODS.Mods["Cryptid"] or {}).can_load then
   local food_jokers = {
