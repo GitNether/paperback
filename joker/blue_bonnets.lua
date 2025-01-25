@@ -30,7 +30,7 @@ SMODS.Joker {
     if context.individual and context.cardarea == G.play then
       -- Reset the xMult if the current card is not a club
       if not context.other_card:is_suit("Clubs") then
-        card.ability.extra.xMult = 1.05
+        card.ability.extra.xMult = card.ability.extra.xMult_base
         return
       end
 
@@ -49,7 +49,7 @@ SMODS.Joker {
 
     -- Quietly reset the xMult for the card at the end of played hand
     if context.after and not context.blueprint then
-      card.ability.extra.xMult = 1.05
+      card.ability.extra.xMult = card.ability.extra.xMult_base
     end
   end
 }

@@ -2,7 +2,7 @@ SMODS.Joker {
   key = "apple",
   config = {
     extra = {
-      odds = 1,
+      odds = 10,
       card_generated = false,
     }
   },

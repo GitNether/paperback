@@ -284,9 +284,9 @@ return {
       j_paperback_wild_prize = {
         name = "[[WILD PRIZE!1!]]",
         text = {
-          "Retrigger all {C:attention}#1#{}, {C:attention}#2#{}, and {C:attention}#3#{} {C:attention}#4#{} time(s)",
-          "Each of these have a {C:green}#5# in #6#{} chance",
-          "to earn {C:money}$#7#{} when scored",
+          "{C:attention}Wild Cards{} have a {C:green}#1# in #2#{} chance",
+          "to be {C:attention}retriggered{} and a {C:green}#1# in #3#{} chance",
+          "to earn {C:money}$#4#{} when scored",
         },
       },
       j_paperback_wish_you_were_here = {

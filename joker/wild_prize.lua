@@ -3,11 +3,11 @@ SMODS.Joker {
   config = {
     extra = {
       a_money = 1,
-      repetitions = 1,
-      odds = 9
+      retrigger_odds = 4,
+      money_odds = 5,
     }
   },
-  rarity = 2,
+  rarity = 1,
   pos = { x = 5, y = 2 },
   atlas = "jokers_atlas",
   cost = 7,
@@ -18,23 +18,23 @@ SMODS.Joker {
   soul_pos = nil,
 
   loc_vars = function(self, info_queue, card)
+    info_queue[#info_queue + 1] = G.P_CENTERS.m_wild
+
     return {
       vars = {
-        "Aces",
-        "9s",
-        "7s",
-        card.ability.extra.repetitions,
         G.GAME.probabilities.normal,
-        card.ability.extra.odds,
-        card.ability.extra.a_money
+        card.ability.extra.retrigger_odds,
+        card.ability.extra.money_odds,
+        card.ability.extra.a_money,
       }
     }
   end,
 
   calculate = function(self, card, context)
-    if not card.debuff then
-      if context.individual and context.cardarea == G.play then
-        if wp_is_valid_card(context.other_card) and pseudorandom("Wild Prize") < G.GAME.probabilities.normal / card.ability.extra.odds then
+    -- Check if the card is wild and it needs to give money
+    if context.individual and context.cardarea == G.play then
+      if context.other_card.ability.name == "Wild Card" then
+        if pseudorandom("Wild Prize Money") < G.GAME.probabilities.normal / card.ability.extra.money_odds then
           G.GAME.dollar_buffer = (G.GAME.dollar_buffer or 0) + card.ability.extra.a_money
           G.E_MANAGER:add_event(Event({
             func = (function()
@@ -49,21 +49,17 @@ SMODS.Joker {
       end
     end
 
+    -- Check if card is wild and it needs to be retriggered
     if context.repetition and context.cardarea == G.play then
-      if wp_is_valid_card(context.other_card) then
-        return {
-          message = localize('k_again_ex'),
-          repetitions = card.ability.extra.repetitions,
-          card = card
-        }
+      if context.other_card.ability.name == "Wild Card" then
+        if pseudorandom("Wild Prize Retrigger") < G.GAME.probabilities.normal / card.ability.extra.retrigger_odds then
+          return {
+            message = localize('k_again_ex'),
+            repetitions = 1,
+            card = card
+          }
+        end
       end
     end
   end
 }
-
-
-function wp_is_valid_card(card)
-  if card:get_id() == 14 or card:get_id() == 9 or card:get_id() == 7 then
-    return true
-  end
-end

@@ -138,18 +138,17 @@ PB_UTIL.base_poker_hands = {
 -- Gets the number of unique suits in a scoring hand
 function PB_UTIL.get_unique_suits(scoring_hand)
   -- Initialize the suits table
-  local suits = {
-    ['Hearts'] = 0,
-    ['Diamonds'] = 0,
-    ['Spades'] = 0,
-    ['Clubs'] = 0
-  }
+  local suits = {}
+
+  for k, v in pairs(SMODS.Suits) do
+    suits[k] = 0
+  end
 
   -- Check for unique suits in scoring_hand
   for i = 1, #scoring_hand do
     local scoring_card = scoring_hand[i]
+
     for scoring_suit, _ in pairs(suits) do
-      -- Check if the suit hasn't been matched yet
       if suits[scoring_suit] == 0 and scoring_card:is_suit(scoring_suit, true) then
         suits[scoring_suit] = 1
 
