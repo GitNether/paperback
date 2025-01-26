@@ -1,6 +1,14 @@
 return {
   descriptions = {
     Joker = {
+      j_paperback_the_world = {
+        name = "The World",
+        text = {
+          "All {C:chips}hands{} and {C:mult}discards{} are",
+          "considered the {C:attention}first{} and",
+          "{C:attention}last{} of round"
+        }
+      },
       j_paperback_epic_sauce = {
         name = "Epic Sauce",
         text = {
