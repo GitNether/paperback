@@ -86,7 +86,7 @@ local ENABLED_JOKERS = {
   "moribund",
   "jimbo_adventure",
   "joker_cookie",
-  -- "the_world",
+  "the_world",
   "meeple",
   -- "angel_investor",
   "basic_energy",
