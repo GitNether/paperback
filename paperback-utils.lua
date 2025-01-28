@@ -269,6 +269,21 @@ function PB_UTIL.destroy_joker(card, after)
   }))
 end
 
+PB_UTIL.forgery_valid_effects = {
+  -- The list of all effects can be found in smods/src/utils.lua:1121
+  'chips', 'h_chips', 'chip_mod',
+  'mult', 'h_mult', 'mult_mod',
+  'x_mult', 'Xmult', 'xmult', 'x_mult_mod', 'Xmult_mod'
+}
+
+function PB_UTIL.is_valid_forgery_effect(effect)
+  for _, v in ipairs(PB_UTIL.forgery_valid_effects) do
+    if v == effect then return true end
+  end
+
+  return false
+end
+
 function PB_UTIL.reset_forgery(card)
   -- Find a random owned joker that is blueprint compatible
   local eligible_jokers = {}

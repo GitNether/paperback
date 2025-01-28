@@ -5,13 +5,7 @@ SMODS.Joker {
     extra = {
       copying = nil,
       max_multiplier = 1.5,
-      multiplier = 1,
-      valid_effects = {
-        -- The list of all effects can be found in smods/src/utils.lua:1121
-        'chips', 'h_chips', 'chip_mod',
-        'mult', 'h_mult', 'mult_mod',
-        'x_mult', 'Xmult', 'xmult', 'x_mult_mod', 'Xmult_mod'
-      }
+      multiplier = 1
     }
   },
   pos = { x = 2, y = 1 },
@@ -101,7 +95,7 @@ SMODS.Joker {
 
           -- Multiply the returned effects if they're mult, xmult or chips
           for k, v in pairs(other_joker_ret) do
-            if card.ability.extra.valid_effects[k] and type(v) == "number" then
+            if PB_UTIL.is_valid_forgery_effect(k) and type(v) == "number" then
               other_joker_ret[k] = v * card.ability.extra.multiplier
             end
           end
