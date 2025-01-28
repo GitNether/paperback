@@ -56,12 +56,7 @@ SMODS.Joker {
 
       if suitable_cards > 1 then
         return {
-          Xmult_mod = suitable_cards,
-          message = localize {
-            type = 'variable',
-            key = 'a_xmult',
-            vars = { suitable_cards }
-          },
+          x_mult = suitable_cards,
           card = card
         }
       end

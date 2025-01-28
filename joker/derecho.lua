@@ -49,8 +49,7 @@ SMODS.Joker {
       -- Give the xMult during play
       if context.joker_main and not card.debuff then
         return {
-          Xmult_mod = card.ability.extra.x_mult,
-          message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.x_mult } },
+          x_mult = card.ability.extra.x_mult,
           card = card,
         }
       end

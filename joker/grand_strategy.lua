@@ -33,8 +33,7 @@ SMODS.Joker {
     if context.joker_main then
       if PB_UTIL.special_cards_in_deck() >= card.ability.extra.card_modifiers_required then
         return {
-          message = localize { type = "variable", key = 'a_xmult', vars = { card.ability.extra.xMult } },
-          Xmult_mod = card.ability.extra.xMult,
+          x_mult = card.ability.extra.xMult,
           card = card
         }
       end

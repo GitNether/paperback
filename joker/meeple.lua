@@ -33,7 +33,11 @@ SMODS.Joker {
           ease_discard(card.ability.extra.discards_given)
 
           return {
-            message = localize { type = 'variable', key = 'paperback_a_discards_ex', vars = { card.ability.extra.discards_given } },
+            message = localize {
+              type = 'variable',
+              key = 'paperback_a_discards_ex',
+              vars = { card.ability.extra.discards_given }
+            },
             colour = G.C.MULT,
             card = card
           }

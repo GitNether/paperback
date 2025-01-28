@@ -33,8 +33,7 @@ SMODS.Joker {
 
       if xMult ~= 1 then
         return {
-          message = localize { type = 'variable', key = 'a_xmult', vars = { xMult } },
-          Xmult_mod = xMult,
+          x_mult = xMult,
           card = card
         }
       end
