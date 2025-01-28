@@ -83,23 +83,23 @@ function Card.remove(self)
         if v.config.center_key == 'j_paperback_sacrificial_lamb' then
           v.ability.extra.mult = v.ability.extra.mult + v.ability.extra.mult_mod
 
-          SMODS.eval_this(v, {
+          SMODS.calculate_effect({
             message = localize {
               type = 'variable',
               key = 'a_mult',
               vars = { v.ability.extra.mult_mod }
             }
-          })
+          }, v)
         elseif v.config.center_key == 'j_paperback_unholy_alliance' then
           v.ability.extra.xMult = v.ability.extra.xMult + v.ability.extra.xMult_gain
 
-          SMODS.eval_this(v, {
+          SMODS.calculate_effect({
             message = localize {
               type = 'variable',
               key = 'a_xmult',
               vars = { v.ability.extra.xMult_gain }
             }
-          })
+          }, v)
         end
       end
     end
