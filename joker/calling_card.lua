@@ -53,9 +53,8 @@ SMODS.Joker {
       -- Give the xMult during scoring
       if card.ability.extra.x_mult > 1 then
         return {
-          Xmult_mod = card.ability.extra.x_mult,
-          card = card,
-          message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.x_mult } }
+          x_mult = card.ability.extra.x_mult,
+          card = card
         }
       end
     end

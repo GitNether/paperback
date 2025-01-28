@@ -43,8 +43,7 @@ SMODS.Joker {
       -- Give the mult during play
       if context.joker_main then
         return {
-          mult_mod = mult,
-          message = localize { type = 'variable', key = 'a_mult', vars = { mult } },
+          mult = mult,
         }
       end
 

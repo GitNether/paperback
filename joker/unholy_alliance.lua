@@ -38,9 +38,8 @@ SMODS.Joker {
     if context.joker_main then
       if card.ability.extra.xMult > 1 then
         return {
-          Xmult_mod = card.ability.extra.xMult,
-          card = card,
-          message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.xMult } }
+          x_mult = card.ability.extra.xMult,
+          card = card
         }
       end
     end

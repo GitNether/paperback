@@ -48,8 +48,7 @@ SMODS.Joker {
         end
         if active then
           return {
-            message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.x_mult } },
-            Xmult_mod = card.ability.extra.x_mult,
+            x_mult = card.ability.extra.x_mult,
             card = card
           }
         end
