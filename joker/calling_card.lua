@@ -44,8 +44,10 @@ SMODS.Joker {
       if G.GAME.blind.triggered and not context.blueprint then
         card.ability.extra.x_mult = card.ability.extra.x_mult + card.ability.extra.Xmult_mod
 
-        card_eval_status_text(card, 'extra', nil, nil, nil,
-          { message = localize('k_upgrade_ex'), colour = G.C.MULT })
+        SMODS.calculate_effect({
+          message = localize('k_upgrade_ex'),
+          colour = G.C.MULT
+        }, card)
       end
 
       -- Give the xMult during scoring
