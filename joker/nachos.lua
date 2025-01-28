@@ -33,8 +33,9 @@ SMODS.Joker {
   calculate = function(self, card, context)
     -- Gives the xChips during play
     if context.joker_main then
-      PB_UTIL.xChips(card.ability.extra.X_chips, context.blueprint_card or card)
-      return
+      return {
+        paperback_x_chips = card.ability.extra.X_chips
+      }
     end
 
     -- Penalize discarding cards only when the current mult is higher than 1
