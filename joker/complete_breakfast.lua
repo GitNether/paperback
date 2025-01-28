@@ -37,17 +37,9 @@ SMODS.Joker {
 
     -- Give mult and chips when evaluating joker
     if context.joker_main then
-      SMODS.eval_this(context.blueprint_card or card, {
-        chip_mod = card.ability.extra.chips,
-        message = localize {
-          type = 'variable',
-          key = 'a_chips',
-          vars = { card.ability.extra.chips },
-        }
-      })
-
       return {
         mult = card.ability.extra.mult,
+        chips = card.ability.extra.chips,
         card = card
       }
     end
@@ -67,10 +59,10 @@ SMODS.Joker {
       else
         card.ability.extra.chance_multiplier = card.ability.extra.chance_multiplier + 1
 
-        SMODS.eval_this(card, {
+        SMODS.calculate_effect({
           message = localize('k_safe_ex'),
           colour = G.C.CHIPS,
-        })
+        }, card)
 
         return {
           message = localize('k_val_up'),
