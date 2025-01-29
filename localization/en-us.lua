@@ -28,6 +28,15 @@ return {
           "the {C:attention}first hand{} of round"
         }
       },
+      j_paperback_find_jimbo = {
+        name = "Find Jimbo",
+        text = {
+          "After a hand is scored,",
+          "each played {C:attention}#1#{} of",
+          "{V:1}#2#{} earns {C:money}$#3#{}",
+          "{s:0.8}Card changes every round"
+        },
+      },
       j_paperback_cream_liqueur = {
         name = "Cream Liqueur",
         text = {
