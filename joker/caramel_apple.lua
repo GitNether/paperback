@@ -3,13 +3,13 @@ SMODS.Joker {
   config = {
     extra = {
       mult = 5,
-      odds = 6
+      odds = 4
     }
   },
-  rarity = 2,
+  rarity = 1,
   pos = { x = 2, y = 3 },
   atlas = 'jokers_atlas',
-  cost = 7,
+  cost = 6,
   unlocked = true,
   discovered = true,
   blueprint_compat = true,
