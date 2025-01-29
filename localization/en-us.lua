@@ -304,7 +304,7 @@ return {
         text = {
           "{C:attention}Wild Cards{} have a {C:green}#1# in #2#{} chance",
           "to be {C:attention}retriggered{} and a {C:green}#1# in #3#{} chance",
-          "to earn {C:money}$#4#{} when scored",
+          "to earn between {C:money}$#4#{} and {C:money}$#5#{} when scored",
         },
       },
       j_paperback_wish_you_were_here = {

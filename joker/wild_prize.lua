@@ -2,9 +2,10 @@ SMODS.Joker {
   key = "wild_prize",
   config = {
     extra = {
-      a_money = 1,
+      a_money_low = -1,
+      a_money_high = 9,
       retrigger_odds = 4,
-      money_odds = 5,
+      money_odds = 2,
     }
   },
   rarity = 1,
@@ -25,7 +26,8 @@ SMODS.Joker {
         G.GAME.probabilities.normal,
         card.ability.extra.retrigger_odds,
         card.ability.extra.money_odds,
-        card.ability.extra.a_money,
+        card.ability.extra.a_money_low,
+        card.ability.extra.a_money_high,
       }
     }
   end,
@@ -35,14 +37,15 @@ SMODS.Joker {
     if context.individual and context.cardarea == G.play then
       if context.other_card.ability.name == "Wild Card" then
         if pseudorandom("Wild Prize Money") < G.GAME.probabilities.normal / card.ability.extra.money_odds then
-          G.GAME.dollar_buffer = (G.GAME.dollar_buffer or 0) + card.ability.extra.a_money
+          local dollars = pseudorandom("Wild Prize Money Amount", card.ability.extra.a_money_low, card.ability.extra.a_money_high)
+          G.GAME.dollar_buffer = (G.GAME.dollar_buffer or 0) + dollars
           G.E_MANAGER:add_event(Event({
             func = (function()
               G.GAME.dollar_buffer = 0; return true
             end)
           }))
           return {
-            dollars = card.ability.extra.a_money,
+            dollars = dollars,
             card = card
           }
         end
