@@ -2,12 +2,10 @@ SMODS.Joker {
   key = 'prince_of_darkness',
   config = {
     extra = {
-      suit = 'Heart',
-      a_mult = 3,
-      a_chips = 5,
-      a_sv = 1,
-      mult = 0,
-      chips = 0
+      unique_suits = 2,
+      x_mult = 2,
+      hands = 2,
+      hands_remaining = 0
     }
   },
   rarity = 2,
@@ -24,12 +22,10 @@ SMODS.Joker {
   loc_vars = function(self, info_queue, card)
     return {
       vars = {
-        card.ability.extra.suit,
-        card.ability.extra.a_mult,
-        card.ability.extra.a_chips,
-        card.ability.extra.a_sv,
-        card.ability.extra.mult,
-        card.ability.extra.chips
+        card.ability.extra.unique_suits,
+        card.ability.extra.x_mult,
+        card.ability.extra.hands,
+        card.ability.extra.hands_remaining
       }
     }
   end,
@@ -49,34 +45,46 @@ SMODS.Joker {
           end
         end
 
-        -- Check if the scoring hand contains a Heart and three unique suits
+        -- Check if the scoring hand contains a Heart and two additional unique suits (three unique suits with Heart included)
         if heart_found and unique_suits >= 3 then
-          -- Increment the mult and chips
-          card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.a_mult
-          card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.a_chips
+          card.ability.extra.hands_remaining = card.ability.extra.hands
 
-          -- Increment the sell value
-          if card.set_cost then
-            card.ability.extra_value = (card.ability.extra_value or 0) + card.ability.extra.a_sv
-            card:set_cost()
-          end
-
-          -- Return the upgrade text
           return {
-            message = localize('k_upgrade_ex'),
-            colour = G.C.MULT,
-            card = card
+            message = localize("k_active_ex"),
+            colour = G.C.GREEN,
+            card = card,
           }
         end
       end
 
       -- Give the mult and chips during play
       if context.joker_main then
-        return {
-          message = "Scored!",
-          mult_mod = card.ability.extra.mult,
-          chip_mod = card.ability.extra.chips,
-        }
+        if card.ability.extra.hands_remaining > 0 then
+          return {
+            x_mult = card.ability.extra.x_mult
+          }
+        end
+      end
+
+      -- Reduce the hands remaining after the hand is scored
+      if context.after and not context.blueprint then
+        if card.ability.extra.hands_remaining > 0 then
+          card.ability.extra.hands_remaining = card.ability.extra.hands_remaining - 1
+
+          if card.ability.extra.hands_remaining == 0 then
+            return {
+              message = localize("paperback_inactive"),
+              colour = G.C.RED,
+              card = card
+            }
+          else
+            return {
+              message = localize { type = 'variable', key = 'paperback_a_hands_minus', vars = { 1 } },
+              colour = G.C.RED,
+              card = card
+            }
+          end
+        end
       end
     end
   end

@@ -455,10 +455,10 @@ return {
       j_paperback_prince_of_darkness = {
         name = "Prince of Darkness",
         text = {
-          "If scoring hand contains a {C:hearts}#1#{} and three",
-          "unique suits, this Joker gains {C:mult}+#2#{} Mult,",
-          "{C:chips}+#3#{} Chips, and {C:money}+#4#{} Sell Value",
-          "{C:inactive}(Currently {C:mult}+#5#{} {C:inactive}Mult, {C:chips}+#6#{} {C:inactive}Chips)",
+          "If scoring hand contains a {C:hearts}Heart{}",
+          "and {C:attention}#1#{} unique suits, this Joker gives",
+          "{X:mult,C:white}X#2#{} Mult for the next {C:chips}#3#{} hands",
+          "{C:inactive}(Currently next {C:chips}#4#{C:inactive} hands)",
         },
       },
       j_paperback_popsicle_stick = {
@@ -541,12 +541,14 @@ return {
       paperback_downgrade_ex = "Downgrade!",
       paperback_copy_ex = "Copy!",
       paperback_consumed_ex = "Consumed!",
-      paperback_too_hot_ex = "Too Hot!"
+      paperback_too_hot_ex = "Too Hot!",
+      paperback_inactive = "Inactive",
     },
     v_dictionary = {
       paperback_a_discards_ex = "+#1# Discards!",
       paperback_a_xchips = "X#1# Chips",
       paperback_a_xchips_minus = "-X#1# Chips",
+      paperback_a_hands_minus = "-#1# Hands",
       paperback_prince_of_darkness = "+#1# Mult, +#2# Chips"
     }
   }
