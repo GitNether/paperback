@@ -1,6 +1,33 @@
 return {
   descriptions = {
     Joker = {
+      j_paperback_forgery = {
+        name = "Forgery",
+        text = {
+          "Copies ability of a random {C:attention}Joker",
+          "every hand, if it provides {X:mult,C:white}XMult{},",
+          "{C:mult}Mult{} or {C:chips}Chips{}, multiply its values",
+          "between {X:attention,C:white}X#1#{} and {X:attention,C:white}X#2#",
+          "{C:inactive}(Currently {C:attention}#3#{C:inactive} at {X:attention,C:white}X#4#{C:inactive})"
+        }
+      },
+      j_paperback_the_world = {
+        name = "The World",
+        text = {
+          "All {C:chips}hands{} and {C:mult}discards{} are",
+          "considered the {C:attention}first{} and",
+          "{C:attention}last{} of round"
+        }
+      },
+      j_paperback_epic_sauce = {
+        name = "Epic Sauce",
+        text = {
+          "{X:mult,C:white}X#1#{} Mult",
+          "Destroy a random {C:attention}Joker{}",
+          "if played hand is not",
+          "the {C:attention}first hand{} of round"
+        }
+      },
       j_paperback_find_jimbo = {
         name = "Find Jimbo",
         text = {
@@ -8,7 +35,7 @@ return {
           "each played {C:attention}#1#{} of",
           "{V:1}#2#{} earns {C:money}$#3#{}",
           "{s:0.8}Card changes every round"
-        }
+        },
       },
       j_paperback_cream_liqueur = {
         name = "Cream Liqueur",
@@ -286,7 +313,7 @@ return {
         text = {
           "{C:attention}Wild Cards{} have a {C:green}#1# in #2#{} chance",
           "to be {C:attention}retriggered{} and a {C:green}#1# in #3#{} chance",
-          "to earn {C:money}$#4#{} when scored",
+          "to earn between {C:money}$#4#{} and {C:money}$#5#{} when scored",
         },
       },
       j_paperback_wish_you_were_here = {
@@ -437,10 +464,10 @@ return {
       j_paperback_prince_of_darkness = {
         name = "Prince of Darkness",
         text = {
-          "If scoring hand contains a {C:hearts}#1#{} and three",
-          "unique suits, this Joker gains {C:mult}+#2#{} Mult,",
-          "{C:chips}+#3#{} Chips, and {C:money}+#4#{} Sell Value",
-          "{C:inactive}(Currently {C:mult}+#5#{} {C:inactive}Mult, {C:chips}+#6#{} {C:inactive}Chips)",
+          "If scoring hand contains a {C:hearts}Heart{}",
+          "and {C:attention}#1#{} unique suits, this Joker gives",
+          "{X:mult,C:white}X#2#{} Mult for the next {C:chips}#3#{} hands",
+          "{C:inactive}(Currently next {C:chips}#4#{C:inactive} hands)",
         },
       },
       j_paperback_popsicle_stick = {
@@ -523,11 +550,14 @@ return {
       paperback_downgrade_ex = "Downgrade!",
       paperback_copy_ex = "Copy!",
       paperback_consumed_ex = "Consumed!",
+      paperback_too_hot_ex = "Too Hot!",
+      paperback_inactive = "Inactive",
     },
     v_dictionary = {
       paperback_a_discards_ex = "+#1# Discards!",
       paperback_a_xchips = "X#1# Chips",
       paperback_a_xchips_minus = "-X#1# Chips",
+      paperback_a_hands_minus = "-#1# Hands",
       paperback_prince_of_darkness = "+#1# Mult, +#2# Chips"
     }
   }

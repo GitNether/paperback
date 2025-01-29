@@ -4,21 +4,7 @@ SMODS.Joker {
     extra = {
       x_mult_mod = 0.2,
       x_mult = 1,
-      ranks = {
-        [0] = false,
-        [1] = false,
-        [2] = false,
-        [3] = false,
-        [4] = false,
-        [5] = false,
-        [6] = false,
-        [7] = false,
-        [8] = false,
-        [9] = false,
-        [10] = false,
-        [11] = false,
-        [12] = false
-      }
+      ranks = {}
     }
   },
   rarity = 2,
@@ -35,19 +21,7 @@ SMODS.Joker {
     local ranks_played = ""
 
     for k, v in pairs(card.ability.extra.ranks) do
-      if v then
-        if k == 11 then
-          ranks_played = ranks_played .. " J"
-        elseif k == 12 then
-          ranks_played = ranks_played .. " Q"
-        elseif k == 13 then
-          ranks_played = ranks_played .. " K"
-        elseif k == 14 then
-          ranks_played = ranks_played .. " A"
-        else
-          ranks_played = ranks_played .. " " .. k
-        end
-      end
+      ranks_played = ranks_played .. " " .. localize(v, 'ranks')
     end
 
     if ranks_played == "" then
@@ -66,24 +40,17 @@ SMODS.Joker {
   calculate = function(self, card, context)
     -- Calculate the added x_mult depending on rank flags
     if context.individual and not context.blueprint and not context.repetition then
-      if context.cardarea == G.play then
-        if not context.other_card.debuff then
-          local rank
-          if context.other_card.ability.effect == 'Stone Card' then
-            rank = 0
-          else
-            rank = context.other_card:get_id()
-          end
-          if not card.ability.extra.ranks[rank] then
-            card.ability.extra.x_mult = card.ability.extra.x_mult + card.ability.extra.x_mult_mod
+      if context.cardarea == G.play and not context.other_card.debuff then
+        local rank = SMODS.has_no_rank(context.other_card) and nil or context.other_card:get_id()
 
-            card.ability.extra.ranks[rank] = true
+        if rank and not card.ability.extra.ranks[rank] then
+          card.ability.extra.x_mult = card.ability.extra.x_mult + card.ability.extra.x_mult_mod
+          card.ability.extra.ranks[rank] = context.other_card.base.value
 
-            return {
-              extra = { focus = card, message = localize('k_upgrade_ex'), colour = G.C.MULT },
-              card = card,
-            }
-          end
+          return {
+            extra = { focus = card, message = localize('k_upgrade_ex'), colour = G.C.MULT },
+            card = card,
+          }
         end
       end
     end
@@ -91,18 +58,14 @@ SMODS.Joker {
     -- Give the x_mult during play
     if context.joker_main then
       return {
-        Xmult_mod = card.ability.extra.x_mult,
-        message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.x_mult } },
+        x_mult = card.ability.extra.x_mult,
         card = card
       }
     end
 
     -- If boss blind defeated, reset all rank flags and reset x_mult
     if context.end_of_round and not (context.individual or context.repetition) and G.GAME.blind.boss and not context.blueprint then
-      for i = 1, #card.ability.extra.ranks do
-        card.ability.extra.ranks[i] = false
-      end
-
+      card.ability.extra.ranks = {}
       card.ability.extra.x_mult = 1
 
       return {

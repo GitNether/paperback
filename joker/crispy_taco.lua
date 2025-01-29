@@ -31,8 +31,9 @@ SMODS.Joker {
   calculate = function(self, card, context)
     -- Scores the xChips
     if context.joker_main then
-      PB_UTIL.xChips(card.ability.extra.x_chips, context.blueprint_card or card)
-      return
+      return {
+        paperback_x_chips = card.ability.extra.x_chips
+      }
     end
 
     -- Checks if Joker should be destroyed at the end of the round

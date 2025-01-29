@@ -35,12 +35,7 @@ SMODS.Joker {
   calculate = function(self, card, context)
     if context.joker_main and context.cardarea == G.jokers then
       return {
-        Xmult_mod = card.ability.extra.Xmult,
-        message = localize {
-          type = 'variable',
-          key = 'a_xmult',
-          vars = { card.ability.extra.Xmult }
-        }
+        x_mult = card.ability.extra.Xmult,
       }
     end
   end
