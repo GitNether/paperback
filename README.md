@@ -6,7 +6,7 @@ Join the [Discord Server](https://discord.gg/uhqx4Yr33j) for updates on the mod 
 
 Take a look at the [Wiki Page](https://balatromods.miraheze.org/wiki/Paperback) for an interactive description of the mod!
 
-See [spreadsheet with progress](https://docs.google.com/spreadsheets/d/0PASVdFEUthutKjdsQ8aZ0w863nwBcSf285EYwWuR1lQ/edit?usp=sharing) to see all the content that is currently planned for the mod!
+See [spreadsheet with progress](https://docs.google.com/spreadsheets/d/1PASVdFEUthutKjdsQ8aZ0w863nwBcSf285EYwWuR1lQ/edit?usp=drivesdk) to see all the content that is currently planned for the mod!
 
 See [Releases](https://github.com/GitNether/paperback/releases) for the official working releases.
 
