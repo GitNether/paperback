@@ -109,7 +109,23 @@ local ENABLED_JOKERS = {
   "epic_sauce",
   "find_jimbo",
   -- "champagne",
+  -- "deadringer",
   "apple",
+  -- "winter_melon",
+  -- "ddakji",
+  -- "you_are_a_fool",
+  -- "book_of_vengeance",
+  -- "perke_os",
+  -- "alert",
+  -- "legacy",
+  -- "freezer",
+  -- "ice_cubes",
+  -- "backpack",
+  -- "pocket_pair",
+  -- "throwing_card",
+  -- "jimbocards",
+  -- "moai",
+  -- "the_quiet"
 }
 
 -- Register the jokers in custom order
