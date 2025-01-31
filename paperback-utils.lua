@@ -211,6 +211,29 @@ function SMODS.calculate_individual_effect(effect, scored_card, key, amount, fro
   return ret
 end
 
+-- Adds a booster pack with the specified key to the shop
+-- Does nothing if the shop doesn't exist
+function PB_UTIL.add_booster_pack(key)
+  if not G.shop then return end
+
+  -- Create the pack the same way vanilla game does it
+  local pack = Card(
+    G.shop_booster.T.x + G.shop_booster.T.w / 2,
+    G.shop_booster.T.y,
+    G.CARD_W * 1.27, G.CARD_H * 1.27,
+    G.P_CARDS.empty,
+    G.P_CENTERS[key],
+    { bypass_discovery_center = true, bypass_discovery_ui = true }
+  )
+
+  -- Create the price tag above the pack
+  create_shop_card_ui(pack, 'Booster', G.shop_booster)
+
+  -- Add the pack to the shop
+  pack:start_materialize()
+  G.shop_booster:emplace(pack)
+end
+
 -- Gets a pseudorandom tag from the Tag pool
 function PB_UTIL.poll_tag(seed)
   -- This part is basically a copy of how the base game does it

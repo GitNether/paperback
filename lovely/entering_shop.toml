@@ -1,0 +1,36 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+# Before any of these values are modified we store them for later use
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "if not shop_exists then"
+position = "before"
+match_indent = true
+payload = '''
+local paperback_load_jokers = G.load_shop_jokers
+local paperback_load_vouchers = G.load_shop_vouchers
+local paperback_load_boosters = G.load_shop_booster
+'''
+
+# After the shop is created, trigger a new context for entering shop, which
+# includes information about what items were created
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "G.CONTROLLER:snap_to({node = G.shop:get_UIE_by_ID('next_round_button')})"
+position = "before"
+match_indent = true
+payload = '''
+SMODS.calculate_context({
+  paperback = {
+    entering_shop = true,
+    create_jokers = not paperback_load_jokers,
+    create_vouchers = not paperback_load_vouchers,
+    create_boosters = not paperback_load_boosters
+  }
+})
+'''
