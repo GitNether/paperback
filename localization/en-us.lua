@@ -1,6 +1,15 @@
 return {
   descriptions = {
     Joker = {
+      j_paperback_jester_of_nihil = {
+        name = "Jester of Nihil",
+        text = {
+          "{C:attention}Debuffs{} the suit of the {C:attention}last",
+          "{C:attention}scored{} card and gives {C:mult}+#1#{} Mult",
+          "for every {C:attention}debuffed{} card",
+          "{C:inactive}(Currently {V:1}#2#{C:inactive} and {C:mult}+#3#{C:inactive} Mult)",
+        }
+      },
       j_paperback_forgery = {
         name = "Forgery",
         text = {
