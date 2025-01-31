@@ -43,7 +43,7 @@ local ENABLED_JOKERS = {
   "shopping_center",
   "union_card",
   "nachos",
-  -- "jester_of_nihil",
+  "jester_of_nihil",
   "complete_breakfast",
   "reference_card",
   "crispy_taco",
