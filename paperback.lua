@@ -120,7 +120,7 @@ local ENABLED_JOKERS = {
   -- "legacy",
   -- "freezer",
   -- "ice_cubes",
-  -- "backpack",
+  "backpack",
   -- "pocket_pair",
   -- "throwing_card",
   -- "jimbocards",

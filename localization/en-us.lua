@@ -1,6 +1,13 @@
 return {
   descriptions = {
     Joker = {
+      j_paperback_backpack = {
+        name = "Backpack",
+        text = {
+          "Shops have an additional",
+          "{C:attention}Buffoon Pack"
+        }
+      },
       j_paperback_jester_of_nihil = {
         name = "Jester of Nihil",
         text = {
@@ -561,6 +568,7 @@ return {
       paperback_consumed_ex = "Consumed!",
       paperback_too_hot_ex = "Too Hot!",
       paperback_inactive = "Inactive",
+      paperback_supplies_ex = "Supplies!"
     },
     v_dictionary = {
       paperback_a_discards_ex = "+#1# Discards!",
