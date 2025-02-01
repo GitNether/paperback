@@ -48,64 +48,45 @@ function Card.set_cost(self)
   end
 end
 
--- Add new context for destroying cards of any type (Used for Sacrificial Lamb)
-local start_dissolve_ref = Card.start_dissolve
-function Card:start_dissolve(dissolve_colours, silent, dissolve_time_fac, no_juice)
-  if self.getting_sliced then
-    for i = 1, #G.jokers.cards do
-      G.jokers.cards[i]:calculate_joker({ destroying_cards = true, destroyed_card = self })
-    end
-  end
-
-  start_dissolve_ref(self, dissolve_colours, silent, dissolve_time_fac, no_juice)
-end
-
 -- Add new context that happens before triggering tags
 local yep_ref = Tag.yep
 function Tag.yep(self, message, _colour, func)
-  for k, v in ipairs(G.jokers.cards) do
-    v:calculate_joker({
-      paperback_using_tag = true,
-      paperback_tag = self
-    })
-  end
+  SMODS.calculate_context({
+    paperback = {
+      using_tag = true,
+      tag = self
+    }
+  })
 
   return yep_ref(self, message, _colour, func)
 end
 
+-- Add new context that happens after destroying jokers
 local remove_ref = Card.remove
 function Card.remove(self)
   -- Check that the card being removed is a joker that's in the player's deck and that it's not being sold
   if self.added_to_deck and self.ability.set == 'Joker' and not G.CONTROLLER.locks.selling_card then
-    for k, v in ipairs(G.jokers.cards) do
-      -- Make sure the joker that triggers due to this card's removal is not being removed itself
-      if not v.removed and not v.getting_sliced then
-        if v.config.center_key == 'j_paperback_sacrificial_lamb' then
-          v.ability.extra.mult = v.ability.extra.mult + v.ability.extra.mult_mod
-
-          SMODS.calculate_effect({
-            message = localize {
-              type = 'variable',
-              key = 'a_mult',
-              vars = { v.ability.extra.mult_mod }
-            }
-          }, v)
-        elseif v.config.center_key == 'j_paperback_unholy_alliance' then
-          v.ability.extra.xMult = v.ability.extra.xMult + v.ability.extra.xMult_gain
-
-          SMODS.calculate_effect({
-            message = localize {
-              type = 'variable',
-              key = 'a_xmult',
-              vars = { v.ability.extra.xMult_gain }
-            }
-          }, v)
-        end
-      end
-    end
+    SMODS.calculate_context({
+      paperback = {
+        destroying_joker = true,
+        destroyed_joker = self
+      }
+    })
   end
 
   return remove_ref(self)
+end
+
+-- Add new context that happens when pressing the cash out button
+local cash_out_ref = G.FUNCS.cash_out
+G.FUNCS.cash_out = function(e)
+  SMODS.calculate_context({
+    paperback = {
+      cashing_out = true
+    }
+  })
+
+  cash_out_ref(e)
 end
 
 function PB_UTIL.calculate_stick_xMult(card)

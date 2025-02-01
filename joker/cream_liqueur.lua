@@ -27,10 +27,10 @@ SMODS.Joker {
   end,
 
   calculate = function(self, card, context)
-    if context.paperback_using_tag then
-      SMODS.calculate_effect({
+    if context.paperback and context.paperback.using_tag then
+      return {
         dollars = card.ability.extra.money
-      }, context.blueprint_card or card)
+      }
     end
 
     if not context.blueprint and context.end_of_round and not (context.individual or context.repetition) then
