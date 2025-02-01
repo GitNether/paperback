@@ -3,7 +3,8 @@ SMODS.Joker {
   config = {
     extra = {
       x_mult = 3,
-      lowest_rank = 14,
+      lowest_rank = 'Ace',
+      lowest_id = 14,
     }
   },
   rarity = 2,
@@ -17,7 +18,7 @@ SMODS.Joker {
   soul_pos = nil,
 
   loc_vars = function(self, info_queue, card)
-    local lowest_rank = localize(get_rank(card.ability.extra.lowest_rank), 'ranks')
+    local lowest_rank = localize(card.ability.extra.lowest_rank, 'ranks')
 
     return {
       vars = {
@@ -27,6 +28,12 @@ SMODS.Joker {
     }
   end,
 
+  set_ability = function(self, card, initial, delay_sprites)
+    if initial then
+      PB_UTIL.reset_skydiver(card)
+    end
+  end,
+
   -- Calculate function for the Joker
   calculate = function(self, card, context)
     if not card.debuff then
@@ -34,18 +41,15 @@ SMODS.Joker {
       if context.joker_main then
         local active = true
 
-        -- Loop through the scoring_hand
-        for i = 1, #context.scoring_hand do
-          if context.scoring_hand[i].ability.name == "Stone Card" then
-            if 0 > card.ability.extra.lowest_rank then
-              active = false
-              break
-            end
-          elseif context.scoring_hand[i]:get_id() > card.ability.extra.lowest_rank then
+        -- If there is a scored card with a rank that has a higher rank than the lowest
+        -- recorded by this joker, do not trigger the effect
+        for k, v in ipairs(context.scoring_hand) do
+          if not SMODS.has_no_rank(v) and PB_UTIL.compare_ranks(v:get_id(), card.ability.extra.lowest_id) then
             active = false
             break
           end
         end
+
         if active then
           return {
             x_mult = card.ability.extra.x_mult,
@@ -55,52 +59,41 @@ SMODS.Joker {
       end
 
       if context.after and not (context.individual or context.repetition) and not context.blueprint then
-        local last_lowest = card.ability.extra.lowest_rank
+        local last_lowest = PB_UTIL.get_rank_from_id(card.ability.extra.lowest_id)
 
         if context.scoring_hand then
           for _, v in pairs(context.scoring_hand) do
-            if v.ability.name == "Stone Card" then
-              if 0 < card.ability.extra.lowest_rank then
-                card.ability.extra.lowest_rank = 0
+            if not SMODS.has_no_rank(v) then
+              local other_rank = PB_UTIL.get_rank_from_id(v:get_id())
+
+              -- If the lowest rank is higher than or equal to the new rank, that means we have a new low
+              if PB_UTIL.compare_ranks(last_lowest, other_rank, true) then
+                last_lowest = other_rank
               end
-            elseif v:get_id() < card.ability.extra.lowest_rank then
-              card.ability.extra.lowest_rank = v:get_id()
             end
           end
 
-          if card.ability.extra.lowest_rank < last_lowest then
+          local updated = card.ability.extra.lowest_id ~= last_lowest.id
+
+          if updated then
+            card.ability.extra.lowest_rank = last_lowest.key
+            card.ability.extra.lowest_id = last_lowest.id
+
             return {
-              message = tostring(card.ability.extra.lowest_rank),
-              card = card
+              message = localize(card.ability.extra.lowest_rank, 'ranks'),
             }
           end
         end
       end
 
-      if context.end_of_round and not (context.individual or context.repetition) and G.GAME.blind.boss and not context.blueprint then
-        card.ability.extra.lowest_rank = 14
+      if context.end_of_round and not (context.individual or context.repetition) and not context.blueprint then
+        PB_UTIL.reset_skydiver(card)
 
         return {
           message = localize('k_reset'),
-          colour = G.C.MULT,
-          card = card
+          colour = G.C.MULT
         }
       end
     end
   end
 }
-
-
-function get_rank(rank)
-  if rank == 11 then
-    return "Jack"
-  elseif rank == 12 then
-    return "Queen"
-  elseif rank == 13 then
-    return "King"
-  elseif rank == 14 then
-    return "Ace"
-  else
-    return tostring(rank)
-  end
-end
