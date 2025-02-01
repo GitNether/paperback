@@ -359,6 +359,50 @@ function PB_UTIL.reset_find_jimbo(card)
   end
 end
 
+function PB_UTIL.reset_skydiver(card)
+  local highest_rank = PB_UTIL.get_sorted_ranks()[1]
+  card.ability.extra.lowest_rank = highest_rank.key
+  card.ability.extra.lowest_id = highest_rank.id
+end
+
+-- Gets a sorted list of all ranks in descending order
+function PB_UTIL.get_sorted_ranks()
+  local ranks = {}
+
+  for k, v in pairs(SMODS.Ranks) do
+    ranks[#ranks + 1] = v
+  end
+
+  table.sort(ranks, function(a, b)
+    return a.sort_nominal > b.sort_nominal
+  end)
+
+  return ranks
+end
+
+function PB_UTIL.get_rank_from_id(id)
+  for k, v in pairs(SMODS.Ranks) do
+    if v.id == id then return v end
+  end
+end
+
+-- Returns whether the first rank is higher than the second
+function PB_UTIL.compare_ranks(rank1, rank2, allow_equal)
+  if type(rank1) ~= "table" then
+    rank1 = PB_UTIL.get_rank_from_id(rank1)
+  end
+
+  if type(rank2) ~= "table" then
+    rank2 = PB_UTIL.get_rank_from_id(rank2)
+  end
+
+  local comp = function(a, b)
+    return allow_equal and (a >= b) or (a > b)
+  end
+
+  return comp(rank1.sort_nominal, rank2.sort_nominal)
+end
+
 -- If Cryptid is also loaded, add food jokers to pool for ://SPAGHETTI
 if (SMODS.Mods["Cryptid"] or {}).can_load then
   local food_jokers = {
