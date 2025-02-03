@@ -1,6 +1,23 @@
 return {
   descriptions = {
     Joker = {
+      j_paperback_alert = {
+        name = "Alert",
+        text = {
+          "If {C:attention}played hand{} is a single",
+          "{C:attention}face card{}, destroy it",
+          "{C:inactive}(#1#/#2#)?"
+        }
+      },
+      j_paperback_legacy = {
+        name = "Legacy",
+        text = {
+          "When a non {C:attention}Enhanced card{} is",
+          "destroyed, adds {C:attention}double{} its {C:chips}chip",
+          "{C:chips}value{} as {C:mult}mult{} to this card",
+          "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
+        }
+      },
       j_paperback_backpack = {
         name = "Backpack",
         text = {
@@ -575,7 +592,8 @@ return {
       paperback_a_xchips = "X#1# Chips",
       paperback_a_xchips_minus = "-X#1# Chips",
       paperback_a_hands_minus = "-#1# Hands",
-      paperback_prince_of_darkness = "+#1# Mult, +#2# Chips"
+      paperback_prince_of_darkness = "+#1# Mult, +#2# Chips",
+      paperback_a_completion = "#1#/#2#"
     }
   }
 }
