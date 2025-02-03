@@ -38,42 +38,10 @@ SMODS.Joker {
           end
         end
 
-
-        local dissolve_time_fac = 1
-        -- The event to handle deleting the cards in destroyed_cards
-        G.E_MANAGER:add_event(Event({
-          trigger = 'after',
-          delay = 0.7 * dissolve_time_fac * 1.051,
-          func = function()
-            if #destroyed_cards ~= 0 then
-              card_eval_status_text(card, 'extra', nil, nil, nil,
-                { message = localize('paperback_too_late_ex'), colour = G.C.MULT, instant = true })
-
-              play_sound('tarot1')
-              card:juice_up(0.3, 0.5)
-            end
-
-            for i = #destroyed_cards, 1, -1 do
-              local current_card = destroyed_cards[i]
-              if not current_card.removed then
-                if current_card.ability.name == 'Glass Card' then
-                  current_card:shatter()
-                else
-                  current_card:start_dissolve(nil, nil, dissolve_time_fac)
-                end
-              end
-            end
-            return true
-          end
-        }))
-
-        for _, current_card in ipairs(destroyed_cards) do
-          current_card.destroyed = true
-        end
-
-        for i = 1, #G.jokers.cards do
-          G.jokers.cards[i]:calculate_joker({ remove_playing_cards = true, removed = destroyed_cards })
-        end
+        PB_UTIL.destroy_playing_cards(destroyed_cards, card, {
+          message = localize('paperback_too_late_ex'),
+          colour = G.C.MULT
+        })
       end
     end
   end

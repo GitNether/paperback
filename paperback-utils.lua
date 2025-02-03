@@ -275,6 +275,52 @@ function PB_UTIL.poll_consumable(seed, soulable)
   }
 end
 
+-- This is used for jokers that need to destroy cards outside
+-- of the "destroy_card" context
+function PB_UTIL.destroy_playing_cards(destroyed_cards, card, effects)
+  G.E_MANAGER:add_event(Event({
+    func = function()
+      -- Show a message on the card at the same time the playing cards are
+      -- being destroyed
+      if #destroyed_cards > 0 and type(effects) == 'table' then
+        effects.sound = 'tarot1'
+        effects.instant = true
+        SMODS.calculate_effect(effects, card)
+      end
+
+      -- Destroy every card
+      for _, v in ipairs(destroyed_cards) do
+        if SMODS.shatters(v) then
+          v:shatter()
+        else
+          v:start_dissolve()
+        end
+      end
+
+      G.E_MANAGER:add_event(Event {
+        func = function()
+          SMODS.calculate_context({
+            remove_playing_cards = true,
+            removed = destroyed_cards
+          })
+          return true
+        end
+      })
+
+      return true
+    end
+  }))
+
+  -- Mark the cards as destroyed
+  for _, v in ipairs(destroyed_cards) do
+    if SMODS.shatters(v) then
+      v.shattered = true
+    else
+      v.destroyed = true
+    end
+  end
+end
+
 function PB_UTIL.destroy_joker(card, after)
   G.E_MANAGER:add_event(Event({
     func = function()
