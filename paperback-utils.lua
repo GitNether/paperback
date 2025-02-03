@@ -89,6 +89,20 @@ G.FUNCS.cash_out = function(e)
   cash_out_ref(e)
 end
 
+-- Adds a new context for leveling up a hand
+local level_up_hand_ref = level_up_hand
+function level_up_hand(card, hand, instant, amount)
+  local ret = level_up_hand_ref(card, hand, instant, amount)
+
+  SMODS.calculate_context({
+    paperback = {
+      level_up_hand = true
+    }
+  })
+
+  return ret
+end
+
 function PB_UTIL.calculate_stick_xMult(card)
   local xMult = card.ability.extra.xMult
 
@@ -344,6 +358,26 @@ function PB_UTIL.reset_skydiver(card)
   local highest_rank = PB_UTIL.get_sorted_ranks()[1]
   card.ability.extra.lowest_rank = highest_rank.key
   card.ability.extra.lowest_id = highest_rank.id
+end
+
+function PB_UTIL.update_solar_system(card)
+  local hands = G.GAME.hands
+
+  -- set the minimum level to the first planet in the subset
+  local min_level = hands[PB_UTIL.base_poker_hands[1]].level
+
+  -- go through each hand, comparing them to the first hand in subset
+  for _, hand in ipairs(PB_UTIL.base_poker_hands) do
+    local current_hand = hands[hand]
+
+    -- if the hand level is lower, set the minimum level to that value
+    if current_hand.level < min_level then
+      min_level = current_hand.level
+    end
+  end
+
+  -- set the card's x_mult to a value depending on the minimum level
+  card.ability.extra.x_mult = card.ability.extra.x_mult_mod * math.max(1, min_level)
 end
 
 -- Gets a sorted list of all ranks in descending order
