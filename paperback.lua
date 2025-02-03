@@ -108,7 +108,7 @@ local ENABLED_JOKERS = {
   "jestrica",
   "epic_sauce",
   "find_jimbo",
-  -- "champagne",
+  "champagne",
   -- "deadringer",
   "apple",
   -- "winter_melon",
