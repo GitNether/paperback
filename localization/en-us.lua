@@ -1,6 +1,15 @@
 return {
   descriptions = {
     Joker = {
+      j_paperback_champagne = {
+        name = "Champagne",
+        text = {
+          "During a {C:attention}Boss Blind{}, scored",
+          "cards earn {C:money}$#1#{}, {C:attention}doubled{} if",
+          "the card has a {C:attention}seal",
+          "{C:attention}Consumed{} in {C:attention}#2#{} rounds"
+        }
+      },
       j_paperback_pocket_pair = {
         name = "Pocket Pair",
         text = {
@@ -600,7 +609,8 @@ return {
       paperback_a_xchips_minus = "-X#1# Chips",
       paperback_a_hands_minus = "-#1# Hands",
       paperback_prince_of_darkness = "+#1# Mult, +#2# Chips",
-      paperback_a_completion = "#1#/#2#"
+      paperback_a_completion = "#1#/#2#",
+      paperback_a_round_minus = "-#1# Round"
     }
   }
 }
