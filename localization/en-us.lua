@@ -601,7 +601,10 @@ return {
       paperback_consumed_ex = "Consumed!",
       paperback_too_hot_ex = "Too Hot!",
       paperback_inactive = "Inactive",
-      paperback_supplies_ex = "Supplies!"
+      paperback_supplies_ex = "Supplies!",
+
+      paperback_ui_requires_restart = "Requires Restart",
+      paperback_ui_enable_jokers = "Enable Jokers"
     },
     v_dictionary = {
       paperback_a_discards_ex = "+#1# Discards!",
