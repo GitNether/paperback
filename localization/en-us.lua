@@ -10,6 +10,13 @@ return {
           "{C:attention}Consumed{} in {C:attention}#2#{} rounds"
         }
       },
+      j_paperback_pocket_pair = {
+        name = "Pocket Pair",
+        text = {
+          "Earn {C:money}$#1#{} per {C:attention}#2#{} drawn",
+          "at the start of round"
+        }
+      },
       j_paperback_alert = {
         name = "Alert",
         text = {
