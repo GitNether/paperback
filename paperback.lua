@@ -128,15 +128,19 @@ local ENABLED_JOKERS = {
   -- "the_quiet"
 }
 
--- Register the jokers in custom order
-for i = 1, #ENABLED_JOKERS do
-  local status, err = pcall(function()
-    return NFS.load(SMODS.current_mod.path .. "/joker/" .. ENABLED_JOKERS[i] .. ".lua")()
-  end)
-  sendDebugMessage("Loaded joker: " .. ENABLED_JOKERS[i], "Paperback")
 
-  -- If a file didn't load correctly, display the file in question and return
-  if not status then
-    error(ENABLED_JOKERS[i] .. ": " .. err)
+-- Only load jokers if they are enabled in the config
+if PB_UTIL.config.jokers_enabled then
+  -- Register the jokers in custom order
+  for i = 1, #ENABLED_JOKERS do
+    local status, err = pcall(function()
+      return NFS.load(SMODS.current_mod.path .. "/joker/" .. ENABLED_JOKERS[i] .. ".lua")()
+    end)
+    sendDebugMessage("Loaded joker: " .. ENABLED_JOKERS[i], "Paperback")
+
+    -- If a file didn't load correctly, display the file in question and return
+    if not status then
+      error(ENABLED_JOKERS[i] .. ": " .. err)
+    end
   end
 end

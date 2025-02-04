@@ -1,5 +1,56 @@
 PB_UTIL = {}
 
+-- Load mod config
+PB_UTIL.config = SMODS.current_mod.config
+
+-- Create config UI
+SMODS.current_mod.config_tab = function()
+  return {
+    n = G.UIT.ROOT,
+    config = {
+      align = 'cm',
+      padding = 0.05,
+      emboss = 0.05, -- raises this element
+      r = 0.1,       -- adds a radius to the borders
+      colour = G.C.BLACK
+    },
+    nodes = {
+      {
+        n = G.UIT.C, -- Column
+        config = { align = 'cm' },
+        nodes = {
+          {
+            n = G.UIT.R, -- Row
+            config = { align = 'cm', minh = 1 },
+            nodes = {
+              {
+                n = G.UIT.T, -- Text
+                config = {
+                  text = localize('paperback_ui_requires_restart'),
+                  colour = G.C.RED,
+                  scale = 0.5
+                }
+              }
+            }
+          },
+          {
+            n = G.UIT.R,
+            config = { align = 'cm' },
+            nodes = {
+              create_toggle {
+                id = 'jokers_toggle',
+                label = localize('paperback_ui_enable_jokers'),
+                ref_table = PB_UTIL.config,
+                ref_value = 'jokers_enabled'
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+end
+
 -- Creates the flags
 local BackApply_to_run_ref = Back.apply_to_run
 function Back.apply_to_run(arg_56_0)
