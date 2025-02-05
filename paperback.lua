@@ -43,7 +43,7 @@ local ENABLED_JOKERS = {
   "shopping_center",
   "union_card",
   "nachos",
-  -- "jester_of_nihil",
+  "jester_of_nihil",
   "complete_breakfast",
   "reference_card",
   "crispy_taco",
@@ -108,19 +108,38 @@ local ENABLED_JOKERS = {
   "jestrica",
   "epic_sauce",
   "find_jimbo",
-  -- "champagne",
+  "champagne",
+  -- "deadringer",
   "apple",
+  -- "winter_melon",
+  -- "ddakji",
+  -- "you_are_a_fool",
+  -- "book_of_vengeance",
+  -- "perke_os",
+  "alert",
+  "legacy",
+  -- "freezer",
+  -- "ice_cubes",
+  "backpack",
+  "pocket_pair",
+  -- "throwing_card",
+  -- "jimbocards",
+  -- "moai",
+  -- "the_quiet"
 }
 
--- Register the jokers in custom order
-for i = 1, #ENABLED_JOKERS do
-  local status, err = pcall(function()
-    return NFS.load(SMODS.current_mod.path .. "/joker/" .. ENABLED_JOKERS[i] .. ".lua")()
-  end)
-  sendDebugMessage("Loaded joker: " .. ENABLED_JOKERS[i], "Paperback")
+-- Only load jokers if they are enabled in the config
+if PB_UTIL.config.jokers_enabled then
+  -- Register the jokers in custom order
+  for i = 1, #ENABLED_JOKERS do
+    local status, err = pcall(function()
+      return NFS.load(SMODS.current_mod.path .. "/joker/" .. ENABLED_JOKERS[i] .. ".lua")()
+    end)
+    sendDebugMessage("Loaded joker: " .. ENABLED_JOKERS[i], "Paperback")
 
-  -- If a file didn't load correctly, display the file in question and return
-  if not status then
-    error(ENABLED_JOKERS[i] .. ": " .. err)
+    -- If a file didn't load correctly, display the file in question and return
+    if not status then
+      error(ENABLED_JOKERS[i] .. ": " .. err)
+    end
   end
 end

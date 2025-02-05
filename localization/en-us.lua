@@ -1,6 +1,55 @@
 return {
   descriptions = {
     Joker = {
+      j_paperback_champagne = {
+        name = "Champagne",
+        text = {
+          "During a {C:attention}Boss Blind{}, scored",
+          "cards earn {C:money}$#1#{}, {C:attention}doubled{} if",
+          "the card has a {C:attention}seal",
+          "{C:attention}Consumed{} in {C:attention}#2#{} rounds"
+        }
+      },
+      j_paperback_pocket_pair = {
+        name = "Pocket Pair",
+        text = {
+          "Earn {C:money}$#1#{} per {C:attention}#2#{} drawn",
+          "at the start of round"
+        }
+      },
+      j_paperback_alert = {
+        name = "Alert",
+        text = {
+          "If {C:attention}played hand{} is a single",
+          "{C:attention}face card{}, destroy it",
+          "{C:inactive}(#1#/#2#)?"
+        }
+      },
+      j_paperback_legacy = {
+        name = "Legacy",
+        text = {
+          "When a non {C:attention}Enhanced card{} is",
+          "destroyed, adds {C:attention}double{} its {C:chips}chip",
+          "{C:chips}value{} as {C:mult}mult{} to this card",
+          "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
+        }
+      },
+      j_paperback_backpack = {
+        name = "Backpack",
+        text = {
+          "Shops have an additional",
+          "{C:attention}Buffoon Pack"
+        }
+      },
+      j_paperback_jester_of_nihil = {
+        name = "Jester of Nihil",
+        text = {
+          "{C:attention}Debuffs{} the suit of the {C:attention}last",
+          "{C:attention}scored{} card and gives {C:mult}+#1#{} Mult",
+          "for every {C:attention}debuffed{} card",
+          "{C:inactive}(Currently {V:1}#2#{C:inactive} and {C:mult}+#3#{C:inactive} Mult)",
+        }
+      },
       j_paperback_forgery = {
         name = "Forgery",
         text = {
@@ -415,8 +464,8 @@ return {
           "{C:attention}Sell value{} of all {C:attention}cards{} is locked",
           "at {C:money}$0{} until this card is sold",
           "Gives {X:mult,C:white}X{} Mult equal to the",
-          "number of scored {C:diamonds}Diamonds{} or",
-          "{C:hearts}Hearts{} in played hand",
+          "number of scored {C:paperback_light_suit}light suits{}",
+          "in played hand",
         },
       },
       j_paperback_cherry_blossoms = {
@@ -432,8 +481,8 @@ return {
         name = "Paranoia",
         text = {
           "After scoring a hand,",
-          "destroy all {C:Dark_suit}dark suits{} played",
-          "and all {C:Light_suit}light suits{} held in hand",
+          "destroy all {C:paperback_dark_suit}dark suits{} played",
+          "and all {C:paperback_light_suit}light suits{} held in hand",
         },
       },
       j_paperback_unholy_alliance = {
@@ -536,8 +585,20 @@ return {
           "Cannot be copied by",
           "{C:attention}Basic Joker Energy{}"
         }
+      },
+      paperback_light_suits = {
+        name = "Light Suits",
+        text = {
+          "{C:diamonds}Diamonds{}, {C:hearts}Hearts{}"
+        }
+      },
+      paperback_dark_suits = {
+        name = "Dark Suits",
+        text = {
+          "{C:spades}Spades{}, {C:clubs}Clubs{}"
+        }
       }
-    },
+    }
   },
   misc = {
     dictionary = {
@@ -552,13 +613,19 @@ return {
       paperback_consumed_ex = "Consumed!",
       paperback_too_hot_ex = "Too Hot!",
       paperback_inactive = "Inactive",
+      paperback_supplies_ex = "Supplies!",
+
+      paperback_ui_requires_restart = "Requires Restart",
+      paperback_ui_enable_jokers = "Enable Jokers"
     },
     v_dictionary = {
       paperback_a_discards_ex = "+#1# Discards!",
       paperback_a_xchips = "X#1# Chips",
       paperback_a_xchips_minus = "-X#1# Chips",
       paperback_a_hands_minus = "-#1# Hands",
-      paperback_prince_of_darkness = "+#1# Mult, +#2# Chips"
+      paperback_prince_of_darkness = "+#1# Mult, +#2# Chips",
+      paperback_a_completion = "#1#/#2#",
+      paperback_a_round_minus = "-#1# Round"
     }
   }
 }

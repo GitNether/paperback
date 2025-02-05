@@ -1,9 +1,3 @@
-loc_colour('dark_suit')
-loc_colour('light_suit')
-
-G.ARGS.LOC_COLOURS['Dark_suit'] = HEX('3c4a4e')
-G.ARGS.LOC_COLOURS['Light_suit'] = HEX('f06841')
-
 SMODS.Joker {
   key = 'paranoia',
   rarity = 3,
@@ -17,6 +11,11 @@ SMODS.Joker {
   perishable_compat = true,
   soul_pos = nil,
 
+  loc_vars = function(self, info_queue, card)
+    info_queue[#info_queue + 1] = PB_UTIL.suit_tooltip('light')
+    info_queue[#info_queue + 1] = PB_UTIL.suit_tooltip('dark')
+  end,
+
   calculate = function(self, card, context)
     if not context.blueprint then
       if context.after and not (context.repetition or context.individual) then
@@ -25,7 +24,7 @@ SMODS.Joker {
         -- Add the light cards in hand to be destroyed to the list
         for i = #G.hand.cards, 1, -1 do
           local current_card = G.hand.cards[i]
-          if current_card:is_suit("Hearts") or current_card:is_suit("Diamonds") then
+          if PB_UTIL.is_suit(current_card, 'light') then
             destroyed_cards[#destroyed_cards + 1] = current_card
           end
         end
@@ -33,47 +32,15 @@ SMODS.Joker {
         -- Add the dark cards in scoring_hand to be destroyed to the list
         for i = #G.play.cards, 1, -1 do
           local current_card = G.play.cards[i]
-          if current_card:is_suit("Spades") or current_card:is_suit("Clubs") then
+          if PB_UTIL.is_suit(current_card, 'dark') then
             destroyed_cards[#destroyed_cards + 1] = current_card
           end
         end
 
-
-        local dissolve_time_fac = 1
-        -- The event to handle deleting the cards in destroyed_cards
-        G.E_MANAGER:add_event(Event({
-          trigger = 'after',
-          delay = 0.7 * dissolve_time_fac * 1.051,
-          func = function()
-            if #destroyed_cards ~= 0 then
-              card_eval_status_text(card, 'extra', nil, nil, nil,
-                { message = localize('paperback_too_late_ex'), colour = G.C.MULT, instant = true })
-
-              play_sound('tarot1')
-              card:juice_up(0.3, 0.5)
-            end
-
-            for i = #destroyed_cards, 1, -1 do
-              local current_card = destroyed_cards[i]
-              if not current_card.removed then
-                if current_card.ability.name == 'Glass Card' then
-                  current_card:shatter()
-                else
-                  current_card:start_dissolve(nil, nil, dissolve_time_fac)
-                end
-              end
-            end
-            return true
-          end
-        }))
-
-        for _, current_card in ipairs(destroyed_cards) do
-          current_card.destroyed = true
-        end
-
-        for i = 1, #G.jokers.cards do
-          G.jokers.cards[i]:calculate_joker({ remove_playing_cards = true, removed = destroyed_cards })
-        end
+        PB_UTIL.destroy_playing_cards(destroyed_cards, card, {
+          message = localize('paperback_too_late_ex'),
+          colour = G.C.MULT
+        })
       end
     end
   end

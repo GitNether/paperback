@@ -1,5 +1,78 @@
 PB_UTIL = {}
 
+-- Load mod config
+PB_UTIL.config = SMODS.current_mod.config
+
+-- Create config UI
+SMODS.current_mod.config_tab = function()
+  return {
+    n = G.UIT.ROOT,
+    config = {
+      align = 'cm',
+      padding = 0.05,
+      emboss = 0.05, -- raises this element
+      r = 0.1,       -- adds a radius to the borders
+      colour = G.C.BLACK
+    },
+    nodes = {
+      {
+        n = G.UIT.C, -- Column
+        config = { align = 'cm' },
+        nodes = {
+          {
+            n = G.UIT.R, -- Row
+            config = { align = 'cm', minh = 1 },
+            nodes = {
+              {
+                n = G.UIT.T, -- Text
+                config = {
+                  text = localize('paperback_ui_requires_restart'),
+                  colour = G.C.RED,
+                  scale = 0.5
+                }
+              }
+            }
+          },
+          {
+            n = G.UIT.R,
+            config = { align = 'cm' },
+            nodes = {
+              create_toggle {
+                id = 'jokers_toggle',
+                label = localize('paperback_ui_enable_jokers'),
+                ref_table = PB_UTIL.config,
+                ref_value = 'jokers_enabled'
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+end
+
+-- Define light and dark suits
+PB_UTIL.light_suits = { 'Diamonds', 'Hearts' }
+PB_UTIL.dark_suits = { 'Spades', 'Clubs' }
+
+-- Add the respective colors to the loc colours table
+local color_table = G.ARGS.LOC_COLOURS or {}
+color_table.paperback_light_suit = HEX('f06841')
+color_table.paperback_dark_suit = HEX('3c4a4e')
+G.ARGS.LOC_COLOURS = color_table
+
+PB_UTIL.base_poker_hands = {
+  "Straight Flush",
+  "Four of a Kind",
+  "Full House",
+  "Flush",
+  "Straight",
+  "Three of a Kind",
+  "Two Pair",
+  "Pair",
+  "High Card"
+}
+
 -- Creates the flags
 local BackApply_to_run_ref = Back.apply_to_run
 function Back.apply_to_run(arg_56_0)
@@ -12,6 +85,8 @@ function Back.apply_to_run(arg_56_0)
   G.GAME.pool_flags.caramel_apple_can_spawn = true
   G.GAME.pool_flags.charred_marshmallow_can_spawn = true
   G.GAME.pool_flags.sticks_can_spawn = false
+  G.GAME.pool_flags.paperback_alert_can_spawn = true
+  G.GAME.pool_flags.paperback_legacy_can_spawn = false
 
   G.P_CENTERS['j_diet_cola']['no_pool_flag'] = 'ghost_cola_can_spawn'
 end
@@ -48,64 +123,59 @@ function Card.set_cost(self)
   end
 end
 
--- Add new context for destroying cards of any type (Used for Sacrificial Lamb)
-local start_dissolve_ref = Card.start_dissolve
-function Card:start_dissolve(dissolve_colours, silent, dissolve_time_fac, no_juice)
-  if self.getting_sliced then
-    for i = 1, #G.jokers.cards do
-      G.jokers.cards[i]:calculate_joker({ destroying_cards = true, destroyed_card = self })
-    end
-  end
-
-  start_dissolve_ref(self, dissolve_colours, silent, dissolve_time_fac, no_juice)
-end
-
 -- Add new context that happens before triggering tags
 local yep_ref = Tag.yep
 function Tag.yep(self, message, _colour, func)
-  for k, v in ipairs(G.jokers.cards) do
-    v:calculate_joker({
-      paperback_using_tag = true,
-      paperback_tag = self
-    })
-  end
+  SMODS.calculate_context({
+    paperback = {
+      using_tag = true,
+      tag = self
+    }
+  })
 
   return yep_ref(self, message, _colour, func)
 end
 
+-- Add new context that happens after destroying jokers
 local remove_ref = Card.remove
 function Card.remove(self)
   -- Check that the card being removed is a joker that's in the player's deck and that it's not being sold
   if self.added_to_deck and self.ability.set == 'Joker' and not G.CONTROLLER.locks.selling_card then
-    for k, v in ipairs(G.jokers.cards) do
-      -- Make sure the joker that triggers due to this card's removal is not being removed itself
-      if not v.removed and not v.getting_sliced then
-        if v.config.center_key == 'j_paperback_sacrificial_lamb' then
-          v.ability.extra.mult = v.ability.extra.mult + v.ability.extra.mult_mod
-
-          SMODS.calculate_effect({
-            message = localize {
-              type = 'variable',
-              key = 'a_mult',
-              vars = { v.ability.extra.mult_mod }
-            }
-          }, v)
-        elseif v.config.center_key == 'j_paperback_unholy_alliance' then
-          v.ability.extra.xMult = v.ability.extra.xMult + v.ability.extra.xMult_gain
-
-          SMODS.calculate_effect({
-            message = localize {
-              type = 'variable',
-              key = 'a_xmult',
-              vars = { v.ability.extra.xMult_gain }
-            }
-          }, v)
-        end
-      end
-    end
+    SMODS.calculate_context({
+      paperback = {
+        destroying_joker = true,
+        destroyed_joker = self
+      }
+    })
   end
 
   return remove_ref(self)
+end
+
+-- Add new context that happens when pressing the cash out button
+local cash_out_ref = G.FUNCS.cash_out
+G.FUNCS.cash_out = function(e)
+  SMODS.calculate_context({
+    paperback = {
+      cashing_out = true
+    }
+  })
+
+  cash_out_ref(e)
+end
+
+-- Adds a new context for leveling up a hand
+local level_up_hand_ref = level_up_hand
+function level_up_hand(card, hand, instant, amount)
+  local ret = level_up_hand_ref(card, hand, instant, amount)
+
+  SMODS.calculate_context({
+    paperback = {
+      level_up_hand = true
+    }
+  })
+
+  return ret
 end
 
 function PB_UTIL.calculate_stick_xMult(card)
@@ -122,18 +192,6 @@ function PB_UTIL.calculate_stick_xMult(card)
 
   return xMult
 end
-
-PB_UTIL.base_poker_hands = {
-  "Straight Flush",
-  "Four of a Kind",
-  "Full House",
-  "Flush",
-  "Straight",
-  "Three of a Kind",
-  "Two Pair",
-  "Pair",
-  "High Card"
-}
 
 -- Gets the number of unique suits in a scoring hand
 function PB_UTIL.get_unique_suits(scoring_hand)
@@ -211,6 +269,29 @@ function SMODS.calculate_individual_effect(effect, scored_card, key, amount, fro
   return ret
 end
 
+-- Adds a booster pack with the specified key to the shop
+-- Does nothing if the shop doesn't exist
+function PB_UTIL.add_booster_pack(key)
+  if not G.shop then return end
+
+  -- Create the pack the same way vanilla game does it
+  local pack = Card(
+    G.shop_booster.T.x + G.shop_booster.T.w / 2,
+    G.shop_booster.T.y,
+    G.CARD_W * 1.27, G.CARD_H * 1.27,
+    G.P_CARDS.empty,
+    G.P_CENTERS[key],
+    { bypass_discovery_center = true, bypass_discovery_ui = true }
+  )
+
+  -- Create the price tag above the pack
+  create_shop_card_ui(pack, 'Booster', G.shop_booster)
+
+  -- Add the pack to the shop
+  pack:start_materialize()
+  G.shop_booster:emplace(pack)
+end
+
 -- Gets a pseudorandom tag from the Tag pool
 function PB_UTIL.poll_tag(seed)
   -- This part is basically a copy of how the base game does it
@@ -255,6 +336,52 @@ function PB_UTIL.poll_consumable(seed, soulable)
     soulable = soulable,
     key_append = seed,
   }
+end
+
+-- This is used for jokers that need to destroy cards outside
+-- of the "destroy_card" context
+function PB_UTIL.destroy_playing_cards(destroyed_cards, card, effects)
+  G.E_MANAGER:add_event(Event({
+    func = function()
+      -- Show a message on the card at the same time the playing cards are
+      -- being destroyed
+      if #destroyed_cards > 0 and type(effects) == 'table' then
+        effects.sound = 'tarot1'
+        effects.instant = true
+        SMODS.calculate_effect(effects, card)
+      end
+
+      -- Destroy every card
+      for _, v in ipairs(destroyed_cards) do
+        if SMODS.shatters(v) then
+          v:shatter()
+        else
+          v:start_dissolve()
+        end
+      end
+
+      G.E_MANAGER:add_event(Event {
+        func = function()
+          SMODS.calculate_context({
+            remove_playing_cards = true,
+            removed = destroyed_cards
+          })
+          return true
+        end
+      })
+
+      return true
+    end
+  }))
+
+  -- Mark the cards as destroyed
+  for _, v in ipairs(destroyed_cards) do
+    if SMODS.shatters(v) then
+      v.shattered = true
+    else
+      v.destroyed = true
+    end
+  end
 end
 
 function PB_UTIL.destroy_joker(card, after)
@@ -334,6 +461,137 @@ function PB_UTIL.reset_find_jimbo(card)
     card.ability.extra.id = selected_card.base.id
     card.ability.extra.suit = selected_card.base.suit
   end
+end
+
+function PB_UTIL.reset_skydiver(card)
+  local highest_rank = PB_UTIL.get_sorted_ranks()[1]
+  card.ability.extra.lowest_rank = highest_rank.key
+  card.ability.extra.lowest_id = highest_rank.id
+end
+
+function PB_UTIL.update_solar_system(card)
+  local hands = G.GAME.hands
+
+  -- set the minimum level to the first planet in the subset
+  local min_level = hands[PB_UTIL.base_poker_hands[1]].level
+
+  -- go through each hand, comparing them to the first hand in subset
+  for _, hand in ipairs(PB_UTIL.base_poker_hands) do
+    local current_hand = hands[hand]
+
+    -- if the hand level is lower, set the minimum level to that value
+    if current_hand.level < min_level then
+      min_level = current_hand.level
+    end
+  end
+
+  -- set the card's x_mult to a value depending on the minimum level
+  card.ability.extra.x_mult = card.ability.extra.x_mult_mod * math.max(1, min_level)
+end
+
+-- Gets a sorted list of all ranks in descending order
+function PB_UTIL.get_sorted_ranks()
+  local ranks = {}
+
+  for k, v in pairs(SMODS.Ranks) do
+    ranks[#ranks + 1] = v
+  end
+
+  table.sort(ranks, function(a, b)
+    return a.sort_nominal > b.sort_nominal
+  end)
+
+  return ranks
+end
+
+function PB_UTIL.get_rank_from_id(id)
+  for k, v in pairs(SMODS.Ranks) do
+    if v.id == id then return v end
+  end
+end
+
+-- Returns whether the first rank is higher than the second
+function PB_UTIL.compare_ranks(rank1, rank2, allow_equal)
+  if type(rank1) ~= "table" then
+    rank1 = PB_UTIL.get_rank_from_id(rank1)
+  end
+
+  if type(rank2) ~= "table" then
+    rank2 = PB_UTIL.get_rank_from_id(rank2)
+  end
+
+  local comp = function(a, b)
+    return allow_equal and (a >= b) or (a > b)
+  end
+
+  return comp(rank1.sort_nominal, rank2.sort_nominal)
+end
+
+-- Used to check whether a card is a light or dark suit
+--- @param type 'light' | 'dark'
+function PB_UTIL.is_suit(card, type)
+  for _, v in ipairs(type == 'light' and PB_UTIL.light_suits or PB_UTIL.dark_suits) do
+    if card:is_suit(v) then return true end
+  end
+end
+
+-- Returns a table that can be inserted into info_queue to show all suits of the provided type
+--- @param type 'light' | 'dark'
+function PB_UTIL.suit_tooltip(type)
+  local suits = type == 'light' and PB_UTIL.light_suits or PB_UTIL.dark_suits
+  local key = 'paperback_' .. type .. '_suits'
+  local colours = {}
+
+  -- If any modded suits were loaded, we need to dynamically
+  -- add them to the localization table
+  if #suits > 2 then
+    local text = {}
+    local line = ""
+    local text_parsed = {}
+
+    for i = 1, #suits do
+      local suit = suits[i]
+
+      colours[#colours + 1] = G.C.SUITS[suit] or G.C.IMPORTANT
+      line = line .. "{V:" .. i .. "}" .. localize(suit, 'suits_plural') .. "{}"
+
+      if i < #suits then
+        line = line .. ", "
+      end
+
+      if #line > 25 then
+        text[#text + 1] = line
+        line = ""
+      end
+    end
+
+    if #line > 0 then
+      text[#text + 1] = line
+    end
+
+    for _, v in ipairs(text) do
+      text_parsed[#text_parsed + 1] = loc_parse_string(v)
+    end
+
+    G.localization.descriptions.Other[key].text = text
+    G.localization.descriptions.Other[key].text_parsed = text_parsed
+  end
+
+  return {
+    set = 'Other',
+    key = key,
+    vars = {
+      colours = colours
+    }
+  }
+end
+
+-- Load modded suits
+if (SMODS.Mods["Bunco"] or {}).can_load then
+  local prefix = SMODS.Mods["Bunco"].prefix
+
+  table.insert(PB_UTIL.light_suits, prefix .. '_Fleurons')
+  table.insert(PB_UTIL.dark_suits, prefix .. '_Halberds')
 end
 
 -- If Cryptid is also loaded, add food jokers to pool for ://SPAGHETTI

@@ -10,7 +10,7 @@ SMODS.Joker {
   rarity = 1,
   pos = { x = 4, y = 5 },
   atlas = 'jokers_atlas',
-  cost = 6,
+  cost = 3,
   unlocked = true,
   discovered = true,
   blueprint_compat = false,
@@ -48,9 +48,13 @@ SMODS.Joker {
       end
 
       -- Upgrade the Joker when the user cashes out
-      if context.cashing_out then
+      if context.paperback and context.paperback.cashing_out then
         card.ability.extra.dollar_bonus = card.ability.extra.dollar_bonus + card.ability.extra.dollar_gain
-        card_eval_status_text(card, 'extra', nil, nil, nil, { message = localize('k_upgrade_ex'), colour = G.C.MONEY })
+
+        return {
+          message = localize('k_upgrade_ex'),
+          colour = G.C.MONEY
+        }
       end
     end
   end,
@@ -62,14 +66,3 @@ SMODS.Joker {
     return dollar_bonus
   end
 }
-
-
--- Hooks into cash_out function to call calculate_joker()
-local cash_out_ref = G.FUNCS.cash_out
-G.FUNCS.cash_out = function(e)
-  for i = 1, #G.jokers.cards do
-    G.jokers.cards[i]:calculate_joker({ cashing_out = true })
-  end
-
-  cash_out_ref(e)
-end

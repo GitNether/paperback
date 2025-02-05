@@ -10,6 +10,10 @@ SMODS.Joker {
   eternal_compat = true,
   soul_pos = nil,
 
+  loc_vars = function(self, info_queue, card)
+    info_queue[#info_queue + 1] = PB_UTIL.suit_tooltip('light')
+  end,
+
   add_to_deck = function(self, card, from_debuff)
     card.sell_cost = 0
 
@@ -49,7 +53,7 @@ SMODS.Joker {
       local suitable_cards = 0
 
       for k, v in ipairs(context.scoring_hand) do
-        if v:is_suit("Diamonds") or v:is_suit("Hearts") then
+        if PB_UTIL.is_suit(v, 'light') then
           suitable_cards = suitable_cards + 1
         end
       end

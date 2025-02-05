@@ -15,6 +15,7 @@ SMODS.Joker {
   discovered = true,
   blueprint_compat = true,
   eternal_compat = true,
+  perishable_compat = false,
   soul_pos = nil,
 
   -- Sets the sprite and hitbox
