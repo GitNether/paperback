@@ -464,8 +464,8 @@ return {
           "{C:attention}Sell value{} of all {C:attention}cards{} is locked",
           "at {C:money}$0{} until this card is sold",
           "Gives {X:mult,C:white}X{} Mult equal to the",
-          "number of scored {C:diamonds}Diamonds{} or",
-          "{C:hearts}Hearts{} in played hand",
+          "number of scored {C:paperback_light_suit}light suits{}",
+          "in played hand",
         },
       },
       j_paperback_cherry_blossoms = {
@@ -481,8 +481,8 @@ return {
         name = "Paranoia",
         text = {
           "After scoring a hand,",
-          "destroy all {C:Dark_suit}dark suits{} played",
-          "and all {C:Light_suit}light suits{} held in hand",
+          "destroy all {C:paperback_dark_suit}dark suits{} played",
+          "and all {C:paperback_light_suit}light suits{} held in hand",
         },
       },
       j_paperback_unholy_alliance = {
@@ -585,8 +585,20 @@ return {
           "Cannot be copied by",
           "{C:attention}Basic Joker Energy{}"
         }
+      },
+      paperback_light_suits = {
+        name = "Light Suits",
+        text = {
+          "{C:diamonds}Diamonds{}, {C:hearts}Hearts{}"
+        }
+      },
+      paperback_dark_suits = {
+        name = "Dark Suits",
+        text = {
+          "{C:spades}Spades{}, {C:clubs}Clubs{}"
+        }
       }
-    },
+    }
   },
   misc = {
     dictionary = {

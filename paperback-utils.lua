@@ -51,6 +51,28 @@ SMODS.current_mod.config_tab = function()
   }
 end
 
+-- Define light and dark suits
+PB_UTIL.light_suits = { 'Diamonds', 'Hearts' }
+PB_UTIL.dark_suits = { 'Spades', 'Clubs' }
+
+-- Add the respective colors to the loc colours table
+local color_table = G.ARGS.LOC_COLOURS or {}
+color_table.paperback_light_suit = HEX('f06841')
+color_table.paperback_dark_suit = HEX('3c4a4e')
+G.ARGS.LOC_COLOURS = color_table
+
+PB_UTIL.base_poker_hands = {
+  "Straight Flush",
+  "Four of a Kind",
+  "Full House",
+  "Flush",
+  "Straight",
+  "Three of a Kind",
+  "Two Pair",
+  "Pair",
+  "High Card"
+}
+
 -- Creates the flags
 local BackApply_to_run_ref = Back.apply_to_run
 function Back.apply_to_run(arg_56_0)
@@ -170,18 +192,6 @@ function PB_UTIL.calculate_stick_xMult(card)
 
   return xMult
 end
-
-PB_UTIL.base_poker_hands = {
-  "Straight Flush",
-  "Four of a Kind",
-  "Full House",
-  "Flush",
-  "Straight",
-  "Three of a Kind",
-  "Two Pair",
-  "Pair",
-  "High Card"
-}
 
 -- Gets the number of unique suits in a scoring hand
 function PB_UTIL.get_unique_suits(scoring_hand)
@@ -515,6 +525,73 @@ function PB_UTIL.compare_ranks(rank1, rank2, allow_equal)
   end
 
   return comp(rank1.sort_nominal, rank2.sort_nominal)
+end
+
+-- Used to check whether a card is a light or dark suit
+--- @param type 'light' | 'dark'
+function PB_UTIL.is_suit(card, type)
+  for _, v in ipairs(type == 'light' and PB_UTIL.light_suits or PB_UTIL.dark_suits) do
+    if card:is_suit(v) then return true end
+  end
+end
+
+-- Returns a table that can be inserted into info_queue to show all suits of the provided type
+--- @param type 'light' | 'dark'
+function PB_UTIL.suit_tooltip(type)
+  local suits = type == 'light' and PB_UTIL.light_suits or PB_UTIL.dark_suits
+  local key = 'paperback_' .. type .. '_suits'
+  local colours = {}
+
+  -- If any modded suits were loaded, we need to dynamically
+  -- add them to the localization table
+  if #suits > 2 then
+    local text = {}
+    local line = ""
+    local text_parsed = {}
+
+    for i = 1, #suits do
+      local suit = suits[i]
+
+      colours[#colours + 1] = G.C.SUITS[suit] or G.C.IMPORTANT
+      line = line .. "{V:" .. i .. "}" .. localize(suit, 'suits_plural') .. "{}"
+
+      if i < #suits then
+        line = line .. ", "
+      end
+
+      if #line > 25 then
+        text[#text + 1] = line
+        line = ""
+      end
+    end
+
+    if #line > 0 then
+      text[#text + 1] = line
+    end
+
+    for _, v in ipairs(text) do
+      text_parsed[#text_parsed + 1] = loc_parse_string(v)
+    end
+
+    G.localization.descriptions.Other[key].text = text
+    G.localization.descriptions.Other[key].text_parsed = text_parsed
+  end
+
+  return {
+    set = 'Other',
+    key = key,
+    vars = {
+      colours = colours
+    }
+  }
+end
+
+-- Load modded suits
+if (SMODS.Mods["Bunco"] or {}).can_load then
+  local prefix = SMODS.Mods["Bunco"].prefix
+
+  table.insert(PB_UTIL.light_suits, prefix .. '_Fleurons')
+  table.insert(PB_UTIL.dark_suits, prefix .. '_Halberds')
 end
 
 -- If Cryptid is also loaded, add food jokers to pool for ://SPAGHETTI
