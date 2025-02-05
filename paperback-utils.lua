@@ -56,10 +56,9 @@ PB_UTIL.light_suits = { 'Diamonds', 'Hearts' }
 PB_UTIL.dark_suits = { 'Spades', 'Clubs' }
 
 -- Add the respective colors to the loc colours table
-local color_table = G.ARGS.LOC_COLOURS or {}
-color_table.paperback_light_suit = HEX('f06841')
-color_table.paperback_dark_suit = HEX('3c4a4e')
-G.ARGS.LOC_COLOURS = color_table
+loc_colour('mult') -- This just makes sure the loc_colours table is instantiated
+G.ARGS.LOC_COLOURS.paperback_light_suit = HEX('f06841')
+G.ARGS.LOC_COLOURS.paperback_dark_suit = HEX('3c4a4e')
 
 PB_UTIL.base_poker_hands = {
   "Straight Flush",
