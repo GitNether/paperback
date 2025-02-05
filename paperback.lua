@@ -128,7 +128,6 @@ local ENABLED_JOKERS = {
   -- "the_quiet"
 }
 
-
 -- Only load jokers if they are enabled in the config
 if PB_UTIL.config.jokers_enabled then
   -- Register the jokers in custom order

@@ -1,9 +1,3 @@
-loc_colour('dark_suit')
-loc_colour('light_suit')
-
-G.ARGS.LOC_COLOURS['Dark_suit'] = HEX('3c4a4e')
-G.ARGS.LOC_COLOURS['Light_suit'] = HEX('f06841')
-
 SMODS.Joker {
   key = 'paranoia',
   rarity = 3,
@@ -17,6 +11,11 @@ SMODS.Joker {
   perishable_compat = true,
   soul_pos = nil,
 
+  loc_vars = function(self, info_queue, card)
+    info_queue[#info_queue + 1] = PB_UTIL.suit_tooltip('light')
+    info_queue[#info_queue + 1] = PB_UTIL.suit_tooltip('dark')
+  end,
+
   calculate = function(self, card, context)
     if not context.blueprint then
       if context.after and not (context.repetition or context.individual) then
@@ -25,7 +24,7 @@ SMODS.Joker {
         -- Add the light cards in hand to be destroyed to the list
         for i = #G.hand.cards, 1, -1 do
           local current_card = G.hand.cards[i]
-          if current_card:is_suit("Hearts") or current_card:is_suit("Diamonds") then
+          if PB_UTIL.is_suit(current_card, 'light') then
             destroyed_cards[#destroyed_cards + 1] = current_card
           end
         end
@@ -33,7 +32,7 @@ SMODS.Joker {
         -- Add the dark cards in scoring_hand to be destroyed to the list
         for i = #G.play.cards, 1, -1 do
           local current_card = G.play.cards[i]
-          if current_card:is_suit("Spades") or current_card:is_suit("Clubs") then
+          if PB_UTIL.is_suit(current_card, 'dark') then
             destroyed_cards[#destroyed_cards + 1] = current_card
           end
         end
