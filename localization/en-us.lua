@@ -387,9 +387,8 @@ return {
       j_paperback_subterfuge = {
         name = "Subterfuge",
         text = {
-          "Destroy the {C:attention}first played hand{} every round",
-          "Gains {X:mult,C:white}X#1#{} Mult for every card below {C:attention}#2#{}",
-          "{C:inactive}(Currently {X:mult,C:white}X#3#{C:inactive} Mult)",
+          "Destroys the {C:attention}first played",
+          "{C:attention}hand{} every round"
         },
       },
       j_paperback_triple_moon_goddess = {
