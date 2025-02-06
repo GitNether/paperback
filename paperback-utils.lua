@@ -108,7 +108,7 @@ function Card.set_cost(self)
 
   -- Don't calculate the original sell_cost calculation if a custom sell_cost increase has been indicated
   if self.custom_sell_cost then
-    self.sell_cost = self.sell_cost + (self.custom_sell_cost_increase or 1)
+    self.sell_cost = self.sell_cost + (self.custom_sell_cost_increase or 0)
     self.custom_sell_cost_increase = nil
   else
     set_cost_ref(self)
@@ -175,6 +175,18 @@ function level_up_hand(card, hand, instant, amount)
   })
 
   return ret
+end
+
+function PB_UTIL.modify_sell_value(card, amount)
+  if not card.set_cost or amount == 0 then return end
+
+  if card.custom_sell_cost then
+    card.custom_sell_cost_increase = amount
+  else
+    card.ability.extra_value = (card.ability.extra_value or 0) + amount
+  end
+
+  card:set_cost()
 end
 
 function PB_UTIL.calculate_stick_xMult(card)
