@@ -51,6 +51,41 @@ SMODS.current_mod.config_tab = function()
   }
 end
 
+-- Initialize Food pool if not existing, which may be created by other mods.
+-- Any joker can add itself to this pool by adding a pools table to its definition
+-- Credits to Cryptid for the idea
+if not SMODS.ObjectTypes.Food then
+  SMODS.ObjectType {
+    key = 'Food',
+    default = 'j_egg',
+    cards = {},
+    inject = function(self)
+      SMODS.ObjectType.inject(self)
+      -- Insert base game food jokers
+      self:inject_card(G.P_CENTERS.j_gros_michel)
+      self:inject_card(G.P_CENTERS.j_egg)
+      self:inject_card(G.P_CENTERS.j_ice_cream)
+      self:inject_card(G.P_CENTERS.j_cavendish)
+      self:inject_card(G.P_CENTERS.j_turtle_bean)
+      self:inject_card(G.P_CENTERS.j_diet_cola)
+      self:inject_card(G.P_CENTERS.j_popcorn)
+      self:inject_card(G.P_CENTERS.j_ramen)
+      self:inject_card(G.P_CENTERS.j_selzer)
+    end
+  }
+end
+
+function PB_UTIL.is_food(card)
+  -- Accepts a key, a center or a card
+  local key = (type(card) == "string" and card) or (card.key and card.key) or card.config.center_key
+
+  if key then
+    for _, v in ipairs(G.P_CENTER_POOLS.Food) do
+      if v.key == key then return true end
+    end
+  end
+end
+
 -- Define light and dark suits
 PB_UTIL.light_suits = { 'Diamonds', 'Hearts' }
 PB_UTIL.dark_suits = { 'Spades', 'Clubs' }
@@ -591,29 +626,6 @@ if (SMODS.Mods["Bunco"] or {}).can_load then
 
   table.insert(PB_UTIL.light_suits, prefix .. '_Fleurons')
   table.insert(PB_UTIL.dark_suits, prefix .. '_Halberds')
-end
-
--- If Cryptid is also loaded, add food jokers to pool for ://SPAGHETTI
-if (SMODS.Mods["Cryptid"] or {}).can_load then
-  local food_jokers = {
-    "cakepop",
-    "caramel_apple",
-    "charred_marshmallow",
-    "crispy_taco",
-    "dreamsicle",
-    "ghost_cola",
-    "joker_cookie",
-    "nachos",
-    "soft_taco",
-    "complete_breakfast",
-    "coffee",
-    "cream_liqueur",
-    "epic_sauce"
-  }
-
-  for k, v in ipairs(food_jokers) do
-    table.insert(Cryptid.food, "j_paperback_" .. v)
-  end
 end
 
 return PB_UTIL

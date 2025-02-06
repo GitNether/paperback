@@ -16,6 +16,9 @@ SMODS.Joker {
   eternal_compat = false,
   soul_pos = nil,
   yes_pool_flag = "caramel_apple_can_spawn",
+  pools = {
+    Food = true
+  },
 
   loc_vars = function(self, info_queue, card)
     return {

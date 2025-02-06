@@ -15,6 +15,9 @@ SMODS.Joker {
   blueprint_compat = true,
   eternal_compat = false,
   soul_pos = nil,
+  pools = {
+    Food = true
+  },
 
   set_ability = function(self, card, initial, delay_sprites)
     card.ability.extra.X_chips = card.ability.extra.X_chips or 1

@@ -17,6 +17,9 @@ SMODS.Joker {
   soul_pos = nil,
 
   no_pool_flag = "soft_taco_can_spawn",
+  pools = {
+    Food = true
+  },
 
   loc_vars = function(self, info_queue, card)
     return {
