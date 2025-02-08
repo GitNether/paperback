@@ -587,6 +587,22 @@ return {
           "{C:chips}left{} and {C:mult}right{} cards are destroyed",
           "{C:inactive}(Drag to rearrange)"
         }
+      },
+      c_paperback_ace_of_swords = {
+        name = "Ace of Swords",
+        text = {
+          "Converts up to",
+          "{C:attention}#1#{} selected cards",
+          "to {V:1}#2#{}",
+        }
+      },
+      c_paperback_ace_of_pentacles = {
+        name = "Ace of Pentacles",
+        text = {
+          "Converts up to",
+          "{C:attention}#1#{} selected cards",
+          "to {V:1}#2#{}",
+        }
       }
     },
     Other = {
