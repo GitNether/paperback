@@ -87,10 +87,11 @@ end
 PB_UTIL.light_suits = { 'Diamonds', 'Hearts' }
 PB_UTIL.dark_suits = { 'Spades', 'Clubs' }
 
--- Add the respective colors to the loc colours table
-loc_colour('mult') -- This just makes sure the loc_colours table is instantiated
-G.ARGS.LOC_COLOURS.paperback_light_suit = HEX('f06841')
-G.ARGS.LOC_COLOURS.paperback_dark_suit = HEX('3c4a4e')
+-- Add Crowns and Stars if enabled
+if PB_UTIL.config.suits_enabled then
+  table.insert(PB_UTIL.light_suits, 'paperback_Stars')
+  table.insert(PB_UTIL.dark_suits, 'paperback_Crowns')
+end
 
 PB_UTIL.base_poker_hands = {
   "Straight Flush",
@@ -690,7 +691,7 @@ function PB_UTIL.suit_tooltip(type)
         line = line .. ", "
       end
 
-      if #line > 25 then
+      if #line > 30 then
         text[#text + 1] = line
         line = ""
       end
