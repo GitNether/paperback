@@ -511,7 +511,9 @@ function PB_UTIL.use_consumable_animation(card, cards_to_flip, action)
     trigger = 'after',
     delay = '0.1',
     func = function()
-      action()
+      if action and type(action) == "function" then
+        action()
+      end
       return true
     end
   })

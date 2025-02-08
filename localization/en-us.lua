@@ -588,6 +588,15 @@ return {
           "{C:inactive}(Drag to rearrange)"
         }
       },
+      c_paperback_four_of_cups = {
+        name = "Four of Cups",
+        text = {
+          "Remove {C:attention}enhancements{}, {C:attention}seals{} and",
+          "{C:attention}editions{} from up to {C:attention}#1#{} selected",
+          "cards and earn {C:money}$#2#{} for each",
+          "one removed"
+        }
+      },
       c_paperback_ace_of_swords = {
         name = "Ace of Swords",
         text = {
