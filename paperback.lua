@@ -179,7 +179,7 @@ local ENABLED_MINOR_ARCANA = {
   "nine_of_cups",
   "ten_of_cups",
   -- "page_of_cups",
-  -- "knight_of_cups",
+  "knight_of_cups",
   -- "queen_of_cups",
   -- "king_of_cups",
   -- "ace_of_wands",

@@ -636,6 +636,16 @@ return {
           "a selected card"
         }
       },
+      c_paperback_knight_of_cups = {
+        name = "Knight of Cups",
+        text = {
+          "Select {C:attention}#1#{} cards, the {C:attention}left{} card",
+          "copies {C:attention}everything{} from the {C:attention}right",
+          "card except {C:attention}rank{} and {C:attention}suit",
+          "Destroys the {C:attention}right{} card",
+          "{C:inactive}(Drag to rearrange)"
+        }
+      },
       c_paperback_ace_of_swords = {
         name = "Ace of Swords",
         text = {
