@@ -620,6 +620,15 @@ return {
           "not {C:attention}currently selected"
         }
       },
+      c_paperback_nine_of_cups = {
+        name = "Nine of Cups",
+        text = {
+          "Destroy a selected {C:attention}Joker{} and",
+          "create a new {C:attention}Joker{} of the same",
+          "{C:attention}rarity{}, or higher if possible",
+          "{C:inactive}(Cannot make {C:legendary}Legendary{C:inactive})"
+        }
+      },
       c_paperback_ace_of_swords = {
         name = "Ace of Swords",
         text = {

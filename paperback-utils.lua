@@ -105,6 +105,13 @@ PB_UTIL.base_poker_hands = {
   "High Card"
 }
 
+PB_UTIL.base_rarities = {
+  "Common",
+  "Uncommon",
+  "Rare",
+  "Legendary"
+}
+
 -- Register a list of items in custom order
 function PB_UTIL.register_items(items, path)
   for i = 1, #items do
