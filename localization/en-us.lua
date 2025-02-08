@@ -612,6 +612,14 @@ return {
           "to up to {C:attention}#1#{} selected cards"
         }
       },
+      c_paperback_eight_of_cups = {
+        name = "Eight of Cups",
+        text = {
+          "Converts up to {C:attention}#1#{} selected",
+          "cards into a suit that is",
+          "not {C:attention}currently selected"
+        }
+      },
       c_paperback_ace_of_swords = {
         name = "Ace of Swords",
         text = {
