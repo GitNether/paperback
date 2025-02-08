@@ -629,6 +629,13 @@ return {
           "{C:inactive}(Cannot make {C:legendary}Legendary{C:inactive})"
         }
       },
+      c_paperback_ten_of_cups = {
+        name = "Ten of Cups",
+        text = {
+          "Add {C:dark_edition}Polychrome{} to",
+          "a selected card"
+        }
+      },
       c_paperback_ace_of_swords = {
         name = "Ace of Swords",
         text = {
