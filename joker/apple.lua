@@ -16,6 +16,9 @@ SMODS.Joker {
   eternal_compat = false,
   perishable_compat = true,
   soul_pos = { x = 7, y = 6 },
+  pools = {
+    Food = true
+  },
 
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = G.P_CENTERS.e_negative
