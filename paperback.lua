@@ -173,7 +173,7 @@ local ENABLED_MINOR_ARCANA = {
   -- "three_of_cups",
   "four_of_cups",
   -- "five_of_cups",
-  -- "six_of_cups",
+  "six_of_cups",
   -- "seven_of_cups",
   -- "eight_of_cups",
   -- "nine_of_cups",

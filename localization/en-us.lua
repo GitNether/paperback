@@ -597,6 +597,14 @@ return {
           "one removed"
         }
       },
+      c_paperback_six_of_cups = {
+        name = "Six of Cups",
+        text = {
+          "Select a card and earn",
+          "{C:attention}half{} its {C:chips}chip value",
+          "as {C:money}money{}"
+        }
+      },
       c_paperback_ace_of_swords = {
         name = "Ace of Swords",
         text = {

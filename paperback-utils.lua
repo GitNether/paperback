@@ -475,7 +475,7 @@ end
 -- animation on playing cards when using a consumable that modifies them
 function PB_UTIL.use_consumable_animation(card, cards_to_flip, action)
   -- If it's not a list, make it one
-  if not cards_to_flip[1] then
+  if cards_to_flip and not cards_to_flip[1] then
     cards_to_flip = { cards_to_flip }
   end
 
@@ -489,23 +489,25 @@ function PB_UTIL.use_consumable_animation(card, cards_to_flip, action)
     end
   })
 
-  for i = 1, #cards_to_flip do
-    local c = cards_to_flip[i]
-    local percent = 1.15 - (i - 0.999) / (#cards_to_flip - 0.998) * 0.3
+  if cards_to_flip then
+    for i = 1, #cards_to_flip do
+      local c = cards_to_flip[i]
+      local percent = 1.15 - (i - 0.999) / (#cards_to_flip - 0.998) * 0.3
 
-    G.E_MANAGER:add_event(Event {
-      trigger = 'after',
-      delay = 0.15,
-      func = function()
-        c:flip()
-        play_sound('card1', percent)
-        c:juice_up(0.3, 0.3)
-        return true
-      end
-    })
+      G.E_MANAGER:add_event(Event {
+        trigger = 'after',
+        delay = 0.15,
+        func = function()
+          c:flip()
+          play_sound('card1', percent)
+          c:juice_up(0.3, 0.3)
+          return true
+        end
+      })
+    end
+
+    delay(0.2)
   end
-
-  delay(0.2)
 
   G.E_MANAGER:add_event(Event {
     trigger = 'after',
@@ -518,20 +520,22 @@ function PB_UTIL.use_consumable_animation(card, cards_to_flip, action)
     end
   })
 
-  for i = 1, #cards_to_flip do
-    local c = cards_to_flip[i]
-    local percent = 0.85 + (i - 0.999) / (#cards_to_flip - 0.998) * 0.3
+  if cards_to_flip then
+    for i = 1, #cards_to_flip do
+      local c = cards_to_flip[i]
+      local percent = 0.85 + (i - 0.999) / (#cards_to_flip - 0.998) * 0.3
 
-    G.E_MANAGER:add_event(Event {
-      trigger = 'after',
-      delay = 0.15,
-      func = function()
-        c:flip()
-        play_sound('tarot2', percent, 0.6)
-        c:juice_up(0.3, 0.3)
-        return true
-      end
-    })
+      G.E_MANAGER:add_event(Event {
+        trigger = 'after',
+        delay = 0.15,
+        func = function()
+          c:flip()
+          play_sound('tarot2', percent, 0.6)
+          c:juice_up(0.3, 0.3)
+          return true
+        end
+      })
+    end
   end
 
   G.E_MANAGER:add_event(Event {
@@ -543,7 +547,9 @@ function PB_UTIL.use_consumable_animation(card, cards_to_flip, action)
     end
   })
 
-  delay(0.5)
+  if cards_to_flip then
+    delay(0.5)
+  end
 end
 
 PB_UTIL.forgery_valid_effects = {
