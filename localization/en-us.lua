@@ -577,6 +577,18 @@ return {
         }
       },
     },
+    paperback_minor_arcana = {
+      c_paperback_two_of_cups = {
+        name = "Two of Cups",
+        text = {
+          "Select {C:attention}#1#{} cards, the {C:attention}middle{} card",
+          "inherits the {C:chips}suit{} of the {C:chips}left{} card",
+          "and {C:mult}rank{} of the {C:mult}right{} card, both",
+          "{C:chips}left{} and {C:mult}right{} cards are destroyed",
+          "{C:inactive}(Drag to rearrange)"
+        }
+      }
+    },
     Other = {
       paperback_energized = {
         name = "Energized",
@@ -601,6 +613,11 @@ return {
   },
   misc = {
     dictionary = {
+      -- Badge under cards
+      k_paperback_minor_arcana = "Minor Arcana",
+      -- Name of consumable type in collection
+      b_paperback_minor_arcana_cards = "Minor Arcana",
+
       paperback_polychrome_ex = "Polychrome!",
       paperback_destroyed_ex = "Destroyed!",
       paperback_doubled_ex = "Doubled!",
@@ -615,7 +632,8 @@ return {
       paperback_supplies_ex = "Supplies!",
 
       paperback_ui_requires_restart = "Requires Restart",
-      paperback_ui_enable_jokers = "Enable Jokers"
+      paperback_ui_enable_jokers = "Enable Jokers",
+      paperback_ui_enable_minor_arcana = "Enable Minor Arcana"
     },
     v_dictionary = {
       paperback_a_discards_ex = "+#1# Discards!",

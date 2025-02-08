@@ -16,36 +16,28 @@ SMODS.current_mod.config_tab = function()
     },
     nodes = {
       {
-        n = G.UIT.C, -- Column
-        config = { align = 'cm' },
+        n = G.UIT.R, -- Row
+        config = { align = 'cm', minh = 1 },
         nodes = {
           {
-            n = G.UIT.R, -- Row
-            config = { align = 'cm', minh = 1 },
-            nodes = {
-              {
-                n = G.UIT.T, -- Text
-                config = {
-                  text = localize('paperback_ui_requires_restart'),
-                  colour = G.C.RED,
-                  scale = 0.5
-                }
-              }
-            }
-          },
-          {
-            n = G.UIT.R,
-            config = { align = 'cm' },
-            nodes = {
-              create_toggle {
-                id = 'jokers_toggle',
-                label = localize('paperback_ui_enable_jokers'),
-                ref_table = PB_UTIL.config,
-                ref_value = 'jokers_enabled'
-              }
+            n = G.UIT.T, -- Text
+            config = {
+              text = localize('paperback_ui_requires_restart'),
+              colour = G.C.RED,
+              scale = 0.5
             }
           }
         }
+      },
+      create_toggle {
+        label = localize('paperback_ui_enable_jokers'),
+        ref_table = PB_UTIL.config,
+        ref_value = 'jokers_enabled'
+      },
+      create_toggle {
+        label = localize('paperback_ui_enable_minor_arcana'),
+        ref_table = PB_UTIL.config,
+        ref_value = 'minor_arcana_enabled'
       }
     }
   }
@@ -106,6 +98,21 @@ PB_UTIL.base_poker_hands = {
   "Pair",
   "High Card"
 }
+
+-- Register a list of items in custom order
+function PB_UTIL.register_items(items, path)
+  for i = 1, #items do
+    local status, err = pcall(function()
+      return NFS.load(SMODS.current_mod.path .. "/" .. path .. "/" .. items[i] .. ".lua")()
+    end)
+    sendDebugMessage("Loaded item " .. path .. ":" .. items[i], "Paperback")
+
+    -- If a file didn't load correctly, display the file in question and return
+    if not status then
+      error(items[i] .. ": " .. err)
+    end
+  end
+end
 
 -- Creates the flags
 local BackApply_to_run_ref = Back.apply_to_run
@@ -456,6 +463,79 @@ function PB_UTIL.destroy_joker(card, after)
       return true
     end
   }))
+end
+
+-- This function is basically a copy of how the base game does the flipping
+-- animation on playing cards when using a consumable that modifies them
+function PB_UTIL.use_consumable_animation(card, cards_to_flip, action)
+  -- If it's not a list, make it one
+  if not cards_to_flip[1] then
+    cards_to_flip = { cards_to_flip }
+  end
+
+  G.E_MANAGER:add_event(Event {
+    trigger = 'after',
+    delay = 0.4,
+    func = function()
+      play_sound('tarot1')
+      card:juice_up(0.3, 0.5)
+      return true
+    end
+  })
+
+  for i = 1, #cards_to_flip do
+    local c = cards_to_flip[i]
+    local percent = 1.15 - (i - 0.999) / (#cards_to_flip - 0.998) * 0.3
+
+    G.E_MANAGER:add_event(Event {
+      trigger = 'after',
+      delay = 0.15,
+      func = function()
+        c:flip()
+        play_sound('card1', percent)
+        c:juice_up(0.3, 0.3)
+        return true
+      end
+    })
+  end
+
+  delay(0.2)
+
+  G.E_MANAGER:add_event(Event {
+    trigger = 'after',
+    delay = '0.1',
+    func = function()
+      action()
+      return true
+    end
+  })
+
+  for i = 1, #cards_to_flip do
+    local c = cards_to_flip[i]
+    local percent = 0.85 + (i - 0.999) / (#cards_to_flip - 0.998) * 0.3
+
+    G.E_MANAGER:add_event(Event {
+      trigger = 'after',
+      delay = 0.15,
+      func = function()
+        c:flip()
+        play_sound('tarot2', percent, 0.6)
+        c:juice_up(0.3, 0.3)
+        return true
+      end
+    })
+  end
+
+  G.E_MANAGER:add_event(Event {
+    trigger = 'after',
+    delay = 0.2,
+    func = function()
+      G.hand:unhighlight_all()
+      return true
+    end
+  })
+
+  delay(0.5)
 end
 
 PB_UTIL.forgery_valid_effects = {
