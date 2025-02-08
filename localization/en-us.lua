@@ -605,6 +605,13 @@ return {
           "as {C:money}money{}"
         }
       },
+      c_paperback_seven_of_cups = {
+        name = "Seven of Cups",
+        text = {
+          "Give a random {C:attention}enhancement",
+          "to up to {C:attention}#1#{} selected cards"
+        }
+      },
       c_paperback_ace_of_swords = {
         name = "Ace of Swords",
         text = {
