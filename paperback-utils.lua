@@ -38,6 +38,11 @@ SMODS.current_mod.config_tab = function()
         label = localize('paperback_ui_enable_minor_arcana'),
         ref_table = PB_UTIL.config,
         ref_value = 'minor_arcana_enabled'
+      },
+      create_toggle {
+        label = localize('paperback_ui_custom_suits_enabled'),
+        ref_table = PB_UTIL.config,
+        ref_value = 'suits_enabled'
       }
     }
   }
