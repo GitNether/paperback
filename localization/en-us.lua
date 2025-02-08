@@ -633,7 +633,8 @@ return {
 
       paperback_ui_requires_restart = "Requires Restart",
       paperback_ui_enable_jokers = "Enable Jokers",
-      paperback_ui_enable_minor_arcana = "Enable Minor Arcana"
+      paperback_ui_enable_minor_arcana = "Enable Minor Arcana",
+      paperback_ui_custom_suits_enabled = "Enable Custom Suits"
     },
     v_dictionary = {
       paperback_a_discards_ex = "+#1# Discards!",
@@ -643,6 +644,14 @@ return {
       paperback_prince_of_darkness = "+#1# Mult, +#2# Chips",
       paperback_a_completion = "#1#/#2#",
       paperback_a_round_minus = "-#1# Round"
+    },
+    suits_singular = {
+      paperback_Crowns = "Crown",
+      paperback_Stars = 'Star'
+    },
+    suits_plural = {
+      paperback_Crowns = "Crowns",
+      paperback_Stars = 'Stars'
     }
   }
 }

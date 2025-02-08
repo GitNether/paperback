@@ -1,0 +1,26 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+[[patches]]
+[patches.pattern]
+target = "globals.lua"
+pattern = "RENTAL = HEX('b18f43'),"
+position = "after"
+match_indent = true
+payload = '''
+PAPERBACK_LIGHT_SUIT = HEX('F06841'),
+PAPERBACK_DARK_SUIT = HEX('3C4A4E'),
+'''
+
+[[patches]]
+[patches.pattern]
+target = "functions/misc_functions.lua"
+pattern = "G.ARGS.LOC_COLOURS = G.ARGS.LOC_COLOURS or {"
+position = "after"
+match_indent = true
+payload = '''
+  paperback_light_suit = G.C.PAPERBACK_LIGHT_SUIT,
+  paperback_dark_suit = G.C.PAPERBACK_DARK_SUIT,
+'''
