@@ -105,6 +105,22 @@ PB_UTIL.base_poker_hands = {
   "High Card"
 }
 
+PB_UTIL.base_ranks = {
+  "Ace",
+  "King",
+  "Queen",
+  "Jack",
+  "10",
+  "9",
+  "8",
+  "7",
+  "6",
+  "5",
+  "4",
+  "3",
+  "2"
+}
+
 PB_UTIL.base_rarities = {
   "Common",
   "Uncommon",
@@ -230,6 +246,34 @@ function level_up_hand(card, hand, instant, amount)
   })
 
   return ret
+end
+
+function PB_UTIL.get_complete_suits(vanilla_ranks)
+  if not G.playing_cards then return 0 end
+
+  local deck = {}
+  local amount = 0
+
+  for k, v in ipairs(G.playing_cards) do
+    if not SMODS.has_no_suit(v) then
+      deck[v.base.suit] = deck[v.base.suit] or {}
+      deck[v.base.suit][v.base.value] = true
+    end
+  end
+
+  for _, deck_ranks in pairs(deck) do
+    local res = true
+
+    for k, v in pairs(vanilla_ranks and PB_UTIL.base_ranks or SMODS.Ranks) do
+      if not deck_ranks[vanilla_ranks and v or k] then
+        res = false
+      end
+    end
+
+    amount = amount + (res and 1 or 0)
+  end
+
+  return amount
 end
 
 function PB_UTIL.modify_sell_value(card, amount)
