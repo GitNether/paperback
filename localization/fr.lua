@@ -431,7 +431,7 @@ return {
           "{C:attention}cartes{} est bloquée à {C:money}0${} jusqu'à",
           "ce que cette carte soit vendue",
           "Octroie {X:mult,C:white}X1{} Multi pour chaque",
-          "carte {C:diamonds}Carreau{} ou {C:hearts}Cœur{}",
+          "carte de {C:Light_suit}Couleur Claire{}",
           "comptée dans la main jouée",
         },
       },
@@ -449,8 +449,8 @@ return {
         name = "Paranoïa",
         text = {
           "Après chaque main jouée, {C:attention}détruit{}",
-          "les cartes {C:spades}Pique{} et {C:clubs}Trèfle{} jouées,",
-          "ainsi que les cartes {C:hearts}Cœur{} et {C:diamonds}Carreau{} en main",
+          "les cartes de {C:Dark_suit}Couleur Sombre{} jouées,",
+          "ainsi que les cartes de {C:Light_suit}Couleur Claire{} en main",
         },
       },
       j_paperback_unholy_alliance = {
