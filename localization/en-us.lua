@@ -726,7 +726,10 @@ return {
       paperback_ui_requires_restart = "Requires Restart",
       paperback_ui_enable_jokers = "Enable Jokers",
       paperback_ui_enable_minor_arcana = "Enable Minor Arcana",
-      paperback_ui_custom_suits_enabled = "Enable Custom Suits"
+      paperback_ui_custom_suits_enabled = "Enable Custom Suits",
+      paperback_ui_developers = "Developers",
+      paperback_ui_artists = "Artists",
+      paperback_ui_localization = "Localization",
     },
     v_dictionary = {
       paperback_a_discards_ex = "+#1# Discards!",

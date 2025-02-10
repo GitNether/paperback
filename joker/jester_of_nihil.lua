@@ -133,10 +133,12 @@ local debuff_card_ref = Blind.debuff_card
 function Blind.debuff_card(self, card, from_blind)
   local ret = debuff_card_ref(self, card, from_blind)
 
-  for k, v in ipairs(SMODS.find_card('j_paperback_jester_of_nihil')) do
-    if card:is_suit(v.ability.extra.suit) then
-      card:set_debuff(true)
-      if card.debuff then card.debuffed_by_blind = true end
+  if card.area ~= G.jokers then
+    for k, v in ipairs(SMODS.find_card('j_paperback_jester_of_nihil')) do
+      if card:is_suit(v.ability.extra.suit) then
+        card:set_debuff(true)
+        if card.debuff then card.debuffed_by_blind = true end
+      end
     end
   end
 
