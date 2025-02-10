@@ -35,7 +35,7 @@ SMODS.Joker {
     -- Scores the xChips
     if context.joker_main then
       return {
-        paperback_x_chips = card.ability.extra.x_chips
+        x_chips = card.ability.extra.x_chips
       }
     end
 

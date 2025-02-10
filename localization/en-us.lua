@@ -733,8 +733,6 @@ return {
     },
     v_dictionary = {
       paperback_a_discards_ex = "+#1# Discards!",
-      paperback_a_xchips = "X#1# Chips",
-      paperback_a_xchips_minus = "-X#1# Chips",
       paperback_a_hands_minus = "-#1# Hands",
       paperback_prince_of_darkness = "+#1# Mult, +#2# Chips",
       paperback_a_completion = "#1#/#2#",
