@@ -315,40 +315,6 @@ function PB_UTIL.is_in_your_collection(card)
   return false
 end
 
--- Adding the x_chips effect
--- First we need to add the key to the calculation keys of SMODS
-table.insert(SMODS.calculation_keys, 'paperback_x_chips')
-
--- Then we hook into the SMODS function that handles effects to add the logic for this effect
-local calc_individual_effect_ref = SMODS.calculate_individual_effect
-function SMODS.calculate_individual_effect(effect, scored_card, key, amount, from_edition)
-  local ret = calc_individual_effect_ref(effect, scored_card, key, amount, from_edition)
-
-  if key == 'paperback_x_chips' and amount then
-    local chips = hand_chips * amount
-
-    hand_chips = mod_chips(chips)
-    update_hand_text({ delay = 0 }, { chips = hand_chips, mult = mult })
-
-    if not effect.remove_default_message then
-      card_eval_status_text(scored_card or effect.card or effect.focus, 'extra', nil, percent, nil, {
-        message = localize {
-          type = 'variable',
-          key = amount > 0 and 'paperback_a_xchips' or 'paperback_a_xchips_minus',
-          vars = { amount }
-        },
-        chip_mod = chips,
-        colour = G.C.CHIPS,
-        sound = 'chips1'
-      })
-    end
-
-    return true
-  end
-
-  return ret
-end
-
 -- Adds a booster pack with the specified key to the shop
 -- Does nothing if the shop doesn't exist
 function PB_UTIL.add_booster_pack(key)
@@ -576,7 +542,7 @@ end
 PB_UTIL.forgery_valid_effects = {
   -- The list of all effects can be found in smods/src/utils.lua:1121
   'chips', 'h_chips', 'chip_mod',
-  'paperback_x_chips',
+  'x_chips', 'xchips', 'Xchip_mod',
   'mult', 'h_mult', 'mult_mod',
   'x_mult', 'Xmult', 'xmult', 'x_mult_mod', 'Xmult_mod'
 }
