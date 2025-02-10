@@ -83,6 +83,21 @@ function PB_UTIL.is_food(card)
   end
 end
 
+-- Gets all the food jokers in the G.jokers card area
+function PB_UTIL.get_owned_food()
+  local res = {}
+
+  if G.jokers then
+    for _, v in ipairs(G.jokers.cards) do
+      if PB_UTIL.is_food(v) then
+        res[#res + 1] = v
+      end
+    end
+  end
+
+  return res
+end
+
 -- Define light and dark suits
 PB_UTIL.light_suits = { 'Diamonds', 'Hearts' }
 PB_UTIL.dark_suits = { 'Spades', 'Clubs' }

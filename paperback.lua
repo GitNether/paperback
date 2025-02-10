@@ -158,7 +158,7 @@ local ENABLED_JOKERS = {
   "alert",
   "legacy",
   -- "freezer",
-  -- "ice_cubes",
+  "ice_cube",
   "backpack",
   "pocket_pair",
   -- "throwing_card",

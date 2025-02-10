@@ -1,6 +1,15 @@
 return {
   descriptions = {
     Joker = {
+      j_paperback_ice_cube = {
+        name = "Ice Cube",
+        text = {
+          "{X:mult,C:white}X#1#{} Mult for every",
+          "{C:attention}Food Joker{} you have",
+          "Melts in {C:attention}#2#{} rounds",
+          "{C:inactive}(Currently {X:mult,C:white}X#3#{C:inactive} Mult)"
+        }
+      },
       j_paperback_champagne = {
         name = "Champagne",
         text = {
@@ -712,6 +721,7 @@ return {
       paperback_too_hot_ex = "Too Hot!",
       paperback_inactive = "Inactive",
       paperback_supplies_ex = "Supplies!",
+      paperback_melted_ex = "Melted!",
 
       paperback_ui_requires_restart = "Requires Restart",
       paperback_ui_enable_jokers = "Enable Jokers",
