@@ -587,6 +587,88 @@ return {
           "{C:chips}left{} and {C:mult}right{} cards are destroyed",
           "{C:inactive}(Drag to rearrange)"
         }
+      },
+      c_paperback_four_of_cups = {
+        name = "Four of Cups",
+        text = {
+          "Remove {C:attention}enhancements{}, {C:attention}seals{} and",
+          "{C:attention}editions{} from up to {C:attention}#1#{} selected",
+          "cards and earn {C:money}$#2#{} for each",
+          "one removed"
+        }
+      },
+      c_paperback_six_of_cups = {
+        name = "Six of Cups",
+        text = {
+          "Select a card and earn",
+          "{C:attention}half{} its {C:chips}chip value",
+          "as {C:money}money{}"
+        }
+      },
+      c_paperback_seven_of_cups = {
+        name = "Seven of Cups",
+        text = {
+          "Give a random {C:attention}enhancement",
+          "to up to {C:attention}#1#{} selected cards"
+        }
+      },
+      c_paperback_eight_of_cups = {
+        name = "Eight of Cups",
+        text = {
+          "Converts up to {C:attention}#1#{} selected",
+          "cards into a suit that is",
+          "not {C:attention}currently selected"
+        }
+      },
+      c_paperback_nine_of_cups = {
+        name = "Nine of Cups",
+        text = {
+          "Destroy a selected {C:attention}Joker{} and",
+          "create a new {C:attention}Joker{} of the same",
+          "{C:attention}rarity{}, or higher if possible",
+          "{C:inactive}(Cannot make {C:legendary}Legendary{C:inactive})"
+        }
+      },
+      c_paperback_ten_of_cups = {
+        name = "Ten of Cups",
+        text = {
+          "Add {C:dark_edition}Polychrome{} to",
+          "a selected card"
+        }
+      },
+      c_paperback_knight_of_cups = {
+        name = "Knight of Cups",
+        text = {
+          "Select {C:attention}#1#{} cards, the {C:attention}left{} card",
+          "copies {C:attention}everything{} from the {C:attention}right",
+          "card except {C:attention}rank{} and {C:attention}suit",
+          "Destroys the {C:attention}right{} card",
+          "{C:inactive}(Drag to rearrange)"
+        }
+      },
+      c_paperback_king_of_cups = {
+        name = "King of Cups",
+        text = {
+          "Earn {C:money}$#1#{} for each suit with all",
+          "13 {C:attention}base ranks{} that you have",
+          "{C:inactive}(Currently {C:money}$#2#{C:inactive})"
+        }
+      },
+      c_paperback_ace_of_swords = {
+        name = "Ace of Swords",
+        text = {
+          "Converts up to",
+          "{C:attention}#1#{} selected cards",
+          "to {V:1}#2#{}",
+        }
+      },
+      c_paperback_ace_of_pentacles = {
+        name = "Ace of Pentacles",
+        text = {
+          "Converts up to",
+          "{C:attention}#1#{} selected cards",
+          "to {V:1}#2#{}",
+        }
       }
     },
     Other = {

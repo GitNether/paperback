@@ -105,6 +105,29 @@ PB_UTIL.base_poker_hands = {
   "High Card"
 }
 
+PB_UTIL.base_ranks = {
+  "Ace",
+  "King",
+  "Queen",
+  "Jack",
+  "10",
+  "9",
+  "8",
+  "7",
+  "6",
+  "5",
+  "4",
+  "3",
+  "2"
+}
+
+PB_UTIL.base_rarities = {
+  "Common",
+  "Uncommon",
+  "Rare",
+  "Legendary"
+}
+
 -- Register a list of items in custom order
 function PB_UTIL.register_items(items, path)
   for i = 1, #items do
@@ -223,6 +246,34 @@ function level_up_hand(card, hand, instant, amount)
   })
 
   return ret
+end
+
+function PB_UTIL.get_complete_suits(vanilla_ranks)
+  if not G.playing_cards then return 0 end
+
+  local deck = {}
+  local amount = 0
+
+  for k, v in ipairs(G.playing_cards) do
+    if not SMODS.has_no_suit(v) then
+      deck[v.base.suit] = deck[v.base.suit] or {}
+      deck[v.base.suit][v.base.value] = true
+    end
+  end
+
+  for _, deck_ranks in pairs(deck) do
+    local res = true
+
+    for k, v in pairs(vanilla_ranks and PB_UTIL.base_ranks or SMODS.Ranks) do
+      if not deck_ranks[vanilla_ranks and v or k] then
+        res = false
+      end
+    end
+
+    amount = amount + (res and 1 or 0)
+  end
+
+  return amount
 end
 
 function PB_UTIL.modify_sell_value(card, amount)
@@ -475,7 +526,7 @@ end
 -- animation on playing cards when using a consumable that modifies them
 function PB_UTIL.use_consumable_animation(card, cards_to_flip, action)
   -- If it's not a list, make it one
-  if not cards_to_flip[1] then
+  if cards_to_flip and not cards_to_flip[1] then
     cards_to_flip = { cards_to_flip }
   end
 
@@ -489,47 +540,53 @@ function PB_UTIL.use_consumable_animation(card, cards_to_flip, action)
     end
   })
 
-  for i = 1, #cards_to_flip do
-    local c = cards_to_flip[i]
-    local percent = 1.15 - (i - 0.999) / (#cards_to_flip - 0.998) * 0.3
+  if cards_to_flip then
+    for i = 1, #cards_to_flip do
+      local c = cards_to_flip[i]
+      local percent = 1.15 - (i - 0.999) / (#cards_to_flip - 0.998) * 0.3
 
-    G.E_MANAGER:add_event(Event {
-      trigger = 'after',
-      delay = 0.15,
-      func = function()
-        c:flip()
-        play_sound('card1', percent)
-        c:juice_up(0.3, 0.3)
-        return true
-      end
-    })
+      G.E_MANAGER:add_event(Event {
+        trigger = 'after',
+        delay = 0.15,
+        func = function()
+          c:flip()
+          play_sound('card1', percent)
+          c:juice_up(0.3, 0.3)
+          return true
+        end
+      })
+    end
+
+    delay(0.2)
   end
-
-  delay(0.2)
 
   G.E_MANAGER:add_event(Event {
     trigger = 'after',
     delay = '0.1',
     func = function()
-      action()
+      if action and type(action) == "function" then
+        action()
+      end
       return true
     end
   })
 
-  for i = 1, #cards_to_flip do
-    local c = cards_to_flip[i]
-    local percent = 0.85 + (i - 0.999) / (#cards_to_flip - 0.998) * 0.3
+  if cards_to_flip then
+    for i = 1, #cards_to_flip do
+      local c = cards_to_flip[i]
+      local percent = 0.85 + (i - 0.999) / (#cards_to_flip - 0.998) * 0.3
 
-    G.E_MANAGER:add_event(Event {
-      trigger = 'after',
-      delay = 0.15,
-      func = function()
-        c:flip()
-        play_sound('tarot2', percent, 0.6)
-        c:juice_up(0.3, 0.3)
-        return true
-      end
-    })
+      G.E_MANAGER:add_event(Event {
+        trigger = 'after',
+        delay = 0.15,
+        func = function()
+          c:flip()
+          play_sound('tarot2', percent, 0.6)
+          c:juice_up(0.3, 0.3)
+          return true
+        end
+      })
+    end
   end
 
   G.E_MANAGER:add_event(Event {
@@ -541,7 +598,9 @@ function PB_UTIL.use_consumable_animation(card, cards_to_flip, action)
     end
   })
 
-  delay(0.5)
+  if cards_to_flip then
+    delay(0.5)
+  end
 end
 
 PB_UTIL.forgery_valid_effects = {
