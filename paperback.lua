@@ -3,11 +3,6 @@ PB_UTIL = NFS.load(SMODS.current_mod.path .. "/paperback-utils.lua")()
 -- Load our mod's UI
 NFS.load(SMODS.current_mod.path .. "/ui.lua")()
 
--- -- Loads the JokerDisplay
--- if JokerDisplay then
---     SMODS.load_path("JokerDisplay.lua")()
--- end
-
 -- Registers the atlas for Jokers
 SMODS.Atlas {
   key = 'jokers_atlas',
