@@ -60,7 +60,7 @@ SMODS.Joker {
           delay = 0.2,
           message = localize {
             type = 'variable',
-            key = 'paperback_a_xchips_minus',
+            key = 'a_xchips_minus',
             vars = { card.ability.extra.reduction_amount }
           },
           colour = G.C.CHIPS,

@@ -177,7 +177,7 @@ return {
           "{C:inactive}(O menor dos dois valores)",
         },
       },
-	  j_paperback_hole_in_one = {
+      j_paperback_hole_in_one = {
         name = "Hole in One",
         text = {
           "Se a {C:chips}mão{} inicial da rodada vencer o {C:attention}blind{},",
@@ -517,10 +517,7 @@ return {
     },
     v_dictionary = {
       paperback_a_discards_ex = "+#1# Descartes!",
-      paperback_a_xchips = "X#1# Fichas",
-      paperback_a_xchips_minus = "-X#1# Fichas",
       paperback_prince_of_darkness = "+#1# Multi, +#2# Fichas"
     }
   }
 }
-

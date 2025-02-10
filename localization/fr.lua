@@ -150,9 +150,9 @@ return {
       j_paperback_pop_stick = {
         name = "Bâton de Sucette",
         text = {
-            "Augmente de {X:mult,C:white}X#1#{} Multi pour chaque",
-            "Joker {C:attention}\"Bâton\"{} possédé...",
-            "{C:inactive}(Actuellement {X:mult,C:white}X#2#{C:inactive} Multi)",
+          "Augmente de {X:mult,C:white}X#1#{} Multi pour chaque",
+          "Joker {C:attention}\"Bâton\"{} possédé...",
+          "{C:inactive}(Actuellement {X:mult,C:white}X#2#{C:inactive} Multi)",
         },
       },
       j_paperback_pool_table = {
@@ -185,9 +185,9 @@ return {
       j_paperback_sticky_stick = {
         name = "Bâton Collant",
         text = {
-            "Augmente de {X:mult,C:white}X#1#{} Multi pour chaque",
-            "Joker {C:attention}\"Bâton\"{} possédé...",
-            "{C:inactive}(Actuellement {X:mult,C:white}X#2#{C:inactive} Multi)",
+          "Augmente de {X:mult,C:white}X#1#{} Multi pour chaque",
+          "Joker {C:attention}\"Bâton\"{} possédé...",
+          "{C:inactive}(Actuellement {X:mult,C:white}X#2#{C:inactive} Multi)",
         },
       },
       j_paperback_shopping_center = {
@@ -279,10 +279,10 @@ return {
       j_paperback_caramel_apple = {
         name = "Pomme d'amour",
         text = {
-            "Les cartes {C:clubs}Trèfle{} comptées",
-            "octroient {C:mult}+#1#{} Multi,",
-            "{C:green}#2# chance(s) sur #3#{} que cette carte",
-            "soit détruite à la fin de la manche",
+          "Les cartes {C:clubs}Trèfle{} comptées",
+          "octroient {C:mult}+#1#{} Multi,",
+          "{C:green}#2# chance(s) sur #3#{} que cette carte",
+          "soit détruite à la fin de la manche",
         },
       },
       j_paperback_nachos = {
@@ -473,9 +473,9 @@ return {
       j_paperback_pointy_stick = {
         name = "Bâton Pointu",
         text = {
-            "Augmente de {X:mult,C:white}X#1#{} Multi pour chaque",
-            "Joker {C:attention}\"Bâton\"{} possédé...",
-            "{C:inactive}(Actuellement {X:mult,C:white}X#2#{C:inactive} Multi)",
+          "Augmente de {X:mult,C:white}X#1#{} Multi pour chaque",
+          "Joker {C:attention}\"Bâton\"{} possédé...",
+          "{C:inactive}(Actuellement {X:mult,C:white}X#2#{C:inactive} Multi)",
         },
       },
       j_paperback_prince_of_darkness = {
@@ -517,10 +517,10 @@ return {
       j_paperback_cakepop = {
         name = "Cake pop",
         text = {
-            "Les cartes {C:hearts}Cœur{} comptées",
-            "octroient {C:mult}+#1#{} Multi,",
-            "{C:green}#2# chance(s) sur #3#{} que cette carte",
-            "soit détruite à la fin de la manche",
+          "Les cartes {C:hearts}Cœur{} comptées",
+          "octroient {C:mult}+#1#{} Multi,",
+          "{C:green}#2# chance(s) sur #3#{} que cette carte",
+          "soit détruite à la fin de la manche",
         },
       },
       j_paperback_black_rainbows = {
@@ -575,8 +575,6 @@ return {
     },
     v_dictionary = {
       paperback_a_discards_ex = "+#1# défausse(s) !",
-      paperback_a_xchips = "X#1# Jetons",
-      paperback_a_xchips_minus = "-X#1# Jetons",
       paperback_a_hands_minus = "-#1# Main(s)",
       paperback_prince_of_darkness = "+#1# Multi, +#2# Jetons"
     }
