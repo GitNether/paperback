@@ -165,6 +165,23 @@ function Card.set_cost(self)
   end
 end
 
+-- Draws a debuffed shader on top of cards in your collection if they are disabled
+-- as a consequence of a certain setting being disabled in our config
+local draw_ref = Card.draw
+function Card.draw(self, layer)
+  local ret = draw_ref(self, layer)
+
+  if not self.debuff and self.area and self.area.config and self.area.config.collection then
+    local config = self.config and self.config.center and self.config.center.paperback or {}
+
+    if config.requires_custom_suits and not PB_UTIL.config.suits_enabled then
+      self.children.center:draw_shader('debuff', nil, self.ARGS.send_to_shader)
+    end
+  end
+
+  return ret
+end
+
 -- Add new context that happens before triggering tags
 local yep_ref = Tag.yep
 function Tag.yep(self, message, _colour, func)
