@@ -12,6 +12,10 @@ match_indent = true
 payload = '''
 PAPERBACK_LIGHT_SUIT = HEX('F06841'),
 PAPERBACK_DARK_SUIT = HEX('3C4A4E'),
+PAPERBACK_STARS_LC = HEX('BFBFBF'),
+PAPERBACK_STARS_HC = HEX('9A9A9A'),
+PAPERBACK_CROWNS_LC = HEX('A37E4D'),
+PAPERBACK_CROWNS_HC = HEX('B38E5E'),
 '''
 
 [[patches]]
@@ -23,6 +27,6 @@ match_indent = true
 payload = '''
   paperback_light_suit = G.C.PAPERBACK_LIGHT_SUIT,
   paperback_dark_suit = G.C.PAPERBACK_DARK_SUIT,
-  paperback_stars = G.C.SUITS.paperback_Stars or G.C.UI.TEXT_DARK,
-  paperback_crowns = G.C.SUITS.paperback_Crowns or G.C.UI.TEXT_DARK,
+  paperback_stars = G.C.SUITS.paperback_Stars or G.C.PAPERBACK_STARS_LC,
+  paperback_crowns = G.C.SUITS.paperback_Crowns or G.C.PAPERBACK_CROWNS_LC,
 '''

@@ -265,11 +265,11 @@ if PB_UTIL.config.suits_enabled then
 
     lc_atlas = 'suits_lc',
     lc_ui_atlas = 'suits_ui_lc',
-    lc_colour = HEX("BFBFBF"),
+    lc_colour = G.C.PAPERBACK_STARS_LC,
 
     hc_atlas = 'suits_hc',
     hc_ui_atlas = 'suits_ui_hc',
-    hc_colour = HEX("9A9A9A"),
+    hc_colour = G.C.PAPERBACK_STARS_HC,
 
     pos = { y = 0 },
     ui_pos = { x = 0, y = 1 },
@@ -286,11 +286,11 @@ if PB_UTIL.config.suits_enabled then
 
     lc_atlas = 'suits_lc',
     lc_ui_atlas = 'suits_ui_lc',
-    lc_colour = HEX("A37E4D"),
+    lc_colour = G.C.PAPERBACK_CROWNS_LC,
 
     hc_atlas = 'suits_hc',
     hc_ui_atlas = 'suits_ui_hc',
-    hc_colour = HEX("B38E5E"),
+    hc_colour = G.C.PAPERBACK_CROWNS_HC,
 
     pos = { y = 1 },
     ui_pos = { x = 0, y = 0 },
