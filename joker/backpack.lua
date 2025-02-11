@@ -19,7 +19,7 @@ SMODS.Joker {
     if ctx and ctx.entering_shop and ctx.create_boosters then
       G.E_MANAGER:add_event(Event {
         func = function()
-          PB_UTIL.add_booster_pack('p_buffoon_normal_' .. pseudorandom('backpack', 1, 2))
+          PB_UTIL.add_booster_pack('p_buffoon_normal_' .. pseudorandom('backpack', 1, 2), 0)
           return true
         end
       })

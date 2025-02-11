@@ -46,8 +46,8 @@ return {
       j_paperback_backpack = {
         name = "Backpack",
         text = {
-          "Shops have an additional",
-          "{C:attention}Buffoon Pack"
+          "{C:money}Shops{} have an additional",
+          "free {C:attention}Buffoon Pack"
         }
       },
       j_paperback_jester_of_nihil = {

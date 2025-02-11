@@ -336,7 +336,7 @@ end
 
 -- Adds a booster pack with the specified key to the shop
 -- Does nothing if the shop doesn't exist
-function PB_UTIL.add_booster_pack(key)
+function PB_UTIL.add_booster_pack(key, price)
   if not G.shop then return end
 
   -- Create the pack the same way vanilla game does it
@@ -348,6 +348,10 @@ function PB_UTIL.add_booster_pack(key)
     G.P_CENTERS[key],
     { bypass_discovery_center = true, bypass_discovery_ui = true }
   )
+
+  if price then
+    pack.cost = price
+  end
 
   -- Create the price tag above the pack
   create_shop_card_ui(pack, 'Booster', G.shop_booster)
