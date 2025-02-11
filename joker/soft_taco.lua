@@ -40,7 +40,7 @@ SMODS.Joker {
     end
 
     -- Checks if Joker should be destroyed at the end of the round
-    if context.end_of_round and not context.blueprint and not (context.individual or context.repetition) then
+    if context.end_of_round and not context.blueprint and context.main_eval then
       if pseudorandom("Soft Taco") < G.GAME.probabilities.normal / card.ability.extra.odds then
         PB_UTIL.destroy_joker(card, function()
           -- Allows Crispy Taco to spawn, prevents Soft Taco from spawning

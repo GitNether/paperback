@@ -29,7 +29,7 @@ SMODS.Joker {
   calculate = function(self, card, context)
     if not card.debuff then
       -- Upgrade the Joker when hand is played
-      if context.before and not (context.individual or context.repetition) and not context.blueprint then
+      if context.before and context.main_eval and not context.blueprint then
         for i = 1, #context.scoring_hand do
           if context.scoring_hand[i].ability.name ~= "Wild Card" then
             if context.scoring_hand[i]:is_suit("Hearts") or context.scoring_hand[i]:is_suit("Diamonds") then

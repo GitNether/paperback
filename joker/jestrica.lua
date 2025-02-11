@@ -52,7 +52,7 @@ SMODS.Joker {
     end
 
     -- Check if this Joker's mult should reset depending on if an 8 was scored this round
-    if not context.blueprint and context.end_of_round and not (context.individual or context.repetition) then
+    if not context.blueprint and context.end_of_round and context.main_eval then
       if not card.ability.extra.scored and card.ability.extra.mult > 0 then
         card.ability.extra.mult = 0
 

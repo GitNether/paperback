@@ -33,7 +33,7 @@ SMODS.Joker {
 
   calculate = function(self, card, context)
     if not context.blueprint then
-      if context.end_of_round and not (context.individual or context.repetition) then
+      if context.end_of_round and context.main_eval then
         -- Destroy the Joker if the odds are hit
         if pseudorandom("Joker Cookie") < G.GAME.probabilities.normal / card.ability.extra.odds then
           PB_UTIL.destroy_joker(card)

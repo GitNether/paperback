@@ -37,25 +37,22 @@ SMODS.Joker {
   -- end,
 
   calculate = function(self, card, context)
-    local mult = card.ability.extra.mult_mod * card.sell_cost
+    if context.joker_main then
+      local mult = card.ability.extra.mult_mod * card.sell_cost
 
-    if not (context.individual or context.repetition) then
-      -- Give the mult during play
-      if context.joker_main then
-        return {
-          mult = mult,
-        }
-      end
+      return {
+        mult = mult,
+      }
+    end
 
-      -- Increase the sell value at end of round
-      if context.end_of_round and not context.blueprint then
-        PB_UTIL.modify_sell_value(card, 1)
+    -- Increase the sell value at end of round
+    if context.end_of_round and not context.blueprint and context.main_eval then
+      PB_UTIL.modify_sell_value(card, 1)
 
-        return {
-          message = localize('k_val_up'),
-          colour = G.C.MONEY
-        }
-      end
+      return {
+        message = localize('k_val_up'),
+        colour = G.C.MONEY
+      }
     end
   end
 }

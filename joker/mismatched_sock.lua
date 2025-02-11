@@ -28,7 +28,7 @@ SMODS.Joker {
 
   calculate = function(self, card, context)
     -- Upgrade mult if no pairs in scoring_hand
-    if context.before and not context.blueprint and not (context.individual or context.repetition) then
+    if context.before and not context.blueprint and context.main_eval then
       -- Keep track of the number of specific ranks in scoring_hand
       local count = {}
       -- Loop over scoring_hand to add them to the count

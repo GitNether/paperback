@@ -66,7 +66,7 @@ SMODS.Joker {
     end
 
     -- Reset the joker at the end of the ante
-    if context.end_of_round and not (context.individual or context.repetition) and G.GAME.blind.boss and not context.blueprint then
+    if context.end_of_round and context.main_eval and G.GAME.blind.boss and not context.blueprint then
       card.ability.extra.hands_played_this_ante = {}
 
       return {

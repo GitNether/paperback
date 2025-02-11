@@ -58,7 +58,7 @@ SMODS.Joker {
         end
       end
 
-      if context.after and not (context.individual or context.repetition) and not context.blueprint then
+      if context.after and context.main_eval and not context.blueprint then
         local last_lowest = PB_UTIL.get_rank_from_id(card.ability.extra.lowest_id)
 
         if context.scoring_hand then
@@ -86,7 +86,7 @@ SMODS.Joker {
         end
       end
 
-      if context.end_of_round and not (context.individual or context.repetition) and not context.blueprint then
+      if context.end_of_round and context.main_eval and not context.blueprint then
         PB_UTIL.reset_skydiver(card)
 
         return {

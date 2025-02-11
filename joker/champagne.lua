@@ -35,7 +35,7 @@ SMODS.Joker {
       }
     end
 
-    if not context.blueprint and context.end_of_round and not (context.individual or context.repetition) then
+    if not context.blueprint and context.end_of_round and context.main_eval then
       card.ability.extra.rounds_left = card.ability.extra.rounds_left - 1
 
       if card.ability.extra.rounds_left <= 0 then

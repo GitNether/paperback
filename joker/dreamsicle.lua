@@ -42,7 +42,7 @@ SMODS.Joker {
     end
 
     -- Check if the Joker needs to be eaten
-    if context.end_of_round and not context.blueprint and not (context.individual or context.repetition) then
+    if context.end_of_round and not context.blueprint and context.main_eval then
       if pseudorandom("Dreamsicle") < G.GAME.probabilities.normal / card.ability.extra.odds then
         PB_UTIL.destroy_joker(card, function()
           -- Remove Dreamsicle from the pool

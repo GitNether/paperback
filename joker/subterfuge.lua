@@ -12,7 +12,7 @@ SMODS.Joker {
   soul_pos = nil,
 
   calculate = function(self, card, context)
-    if not context.blueprint and context.after and not (context.individual or context.repetition) then
+    if not context.blueprint and context.after and context.main_eval then
       local destroyed_cards = {}
 
       for _, v in ipairs(G.play.cards) do

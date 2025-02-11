@@ -56,7 +56,7 @@ SMODS.Joker {
       end
     end
 
-    if not context.blueprint and context.end_of_round and not (context.individual or context.repetition) then
+    if not context.blueprint and context.end_of_round and context.main_eval then
       PB_UTIL.reset_find_jimbo(card)
     end
   end

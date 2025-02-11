@@ -33,7 +33,7 @@ SMODS.Joker {
   end,
 
   calculate = function(self, card, context)
-    if context.end_of_round and not context.blueprint and not (context.individual or context.repetition) then
+    if context.end_of_round and not context.blueprint and context.main_eval then
       if pseudorandom("Quick Fix") < G.GAME.probabilities.normal / card.ability.extra.odds then
         -- Destroy Quick Fix
         PB_UTIL.destroy_joker(card, function()

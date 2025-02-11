@@ -30,7 +30,7 @@ SMODS.Joker {
 
   calculate = function(self, card, context)
     -- Check for a 30ak in played hand
-    if context.before and not context.blueprint and not (context.individual or context.repetition) then
+    if context.before and not context.blueprint and context.main_eval then
       -- Keep track of the number of specific ranks in scoring_hand, and initialize the found flag
       local count = {}
       local found = false

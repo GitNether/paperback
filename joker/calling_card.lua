@@ -28,7 +28,7 @@ SMODS.Joker {
 
   calculate = function(self, card, context)
     -- Upgrade joker if boss blind defeated
-    if context.end_of_round and not (context.individual or context.repetition) and not context.blueprint then
+    if context.end_of_round and context.main_eval and not context.blueprint then
       if G.GAME.blind.boss then
         card.ability.extra.x_mult = card.ability.extra.x_mult + card.ability.extra.Xmult_mod
 

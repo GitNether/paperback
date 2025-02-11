@@ -36,7 +36,7 @@ SMODS.Joker {
       }
     end
 
-    if not context.blueprint and context.end_of_round and not (context.individual or context.repetition) then
+    if not context.blueprint and context.end_of_round and context.main_eval then
       if pseudorandom("cream_liqueur") < G.GAME.probabilities.normal / card.ability.extra.odds then
         PB_UTIL.destroy_joker(card)
 

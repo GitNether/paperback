@@ -64,7 +64,7 @@ SMODS.Joker {
     end
 
     -- If boss blind defeated, reset all rank flags and reset x_mult
-    if context.end_of_round and not (context.individual or context.repetition) and G.GAME.blind.boss and not context.blueprint then
+    if context.end_of_round and context.main_eval and G.GAME.blind.boss and not context.blueprint then
       card.ability.extra.ranks = {}
       card.ability.extra.x_mult = 1
 

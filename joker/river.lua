@@ -24,7 +24,7 @@ SMODS.Joker {
   end,
 
   calculate = function(self, card, context)
-    if context.before and not (context.individual or context.repetition) then
+    if context.before and context.main_eval then
       -- Check if the scoring_hand contains five cards
       if #context.scoring_hand >= 5 then
         local lowest_chip_card = context.scoring_hand[1]

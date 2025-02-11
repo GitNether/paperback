@@ -42,7 +42,7 @@ SMODS.Joker {
         end
 
         -- If blind cleared and 0 hands left, upgrade joker
-        if G.GAME.current_round.hands_left == 0 and not (context.individual or context.repetition) then
+        if G.GAME.current_round.hands_left == 0 and context.main_eval then
           card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.a_mult
 
           return {

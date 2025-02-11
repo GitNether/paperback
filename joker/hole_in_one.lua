@@ -24,7 +24,7 @@ SMODS.Joker {
 
   calculate = function(self, card, context)
     -- Double all sell values at end of round and if hands played == 1
-    if context.end_of_round and not (context.individual or context.repetition) and not context.blueprint then
+    if context.end_of_round and context.main_eval and not context.blueprint then
       if G.GAME.current_round.hands_played == 1 then
         -- Double all Joker sell values
         for _, v in ipairs(G.jokers.cards) do
