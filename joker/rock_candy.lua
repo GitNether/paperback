@@ -52,9 +52,10 @@ SMODS.Joker {
           G.GAME.pool_flags.rock_candy_can_spawn = false
 
           -- Create Rockin' Stick
-          if #G.jokers.cards < G.jokers.config.card_limit then
-            SMODS.add_card { key = 'j_paperback_rockin_stick' }
-          end
+          SMODS.add_card {
+            key = 'j_paperback_rockin_stick',
+            edition = card.edition
+          }
         end)
 
         return {

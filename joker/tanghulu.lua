@@ -52,9 +52,10 @@ SMODS.Joker {
           G.GAME.pool_flags.tanghulu_can_spawn = false
 
           -- Create Sweet Stick
-          if #G.jokers.cards < G.jokers.config.card_limit then
-            SMODS.add_card { key = 'j_paperback_sweet_stick' }
-          end
+          SMODS.add_card {
+            key = 'j_paperback_sweet_stick',
+            edition = card.edition
+          }
         end)
 
         return {

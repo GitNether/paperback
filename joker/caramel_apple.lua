@@ -49,23 +49,10 @@ SMODS.Joker {
           G.GAME.pool_flags.caramel_apple_can_spawn = false
 
           -- Create Popsicle Stick
-          if #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit then
-            local jokers_to_create = math.min(1,
-              G.jokers.config.card_limit - (#G.jokers.cards + G.GAME.joker_buffer))
-            G.GAME.joker_buffer = G.GAME.joker_buffer + jokers_to_create
-
-            G.E_MANAGER:add_event(Event({
-              func = function()
-                local card = create_card('Joker', G.jokers, nil, 0, nil, nil,
-                  'j_paperback_pointy_stick', nil)
-                card:add_to_deck()
-                G.jokers:emplace(card)
-                card:start_materialize()
-                G.GAME.joker_buffer = 0
-                return true
-              end
-            }))
-          end
+          SMODS.add_card {
+            key = 'j_paperback_pointy_stick',
+            edition = card.edition
+          }
         end)
 
         return {
