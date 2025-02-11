@@ -616,6 +616,22 @@ return {
           "other {C:attention}\"Stick\"{} Joker you have...",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
+      },
+      j_paperback_tanghulu = {
+        name = "Tanghulu",
+        text = {
+          "Scored {C:paperback_crowns}Crowns{} give {C:mult}+#1#{} Mult",
+          "{C:green}#2# in #3#{} chance this card is",
+          "eaten at end of round",
+        },
+      },
+      j_paperback_sweet_stick = {
+        name = "Sweet Stick",
+        text = {
+          "Gives {X:mult,C:white}X#1#{} Mult for every",
+          "other {C:attention}\"Stick\"{} Joker you have...",
+          "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
+        },
       }
     },
     paperback_minor_arcana = {
