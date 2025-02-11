@@ -585,6 +585,22 @@ return {
           "{S:1.1,C:red,E:2}self destructs",
         }
       },
+      j_paperback_heretical_joker = {
+        name = "Heretical Joker",
+        text = {
+          "Played cards with",
+          "{C:paperback_stars}Star{} suit give",
+          "{C:mult}+#1#{} Mult when scored",
+        },
+      },
+      j_paperback_fraudulent_joker = {
+        name = "Fraudulent Joker",
+        text = {
+          "Played cards with",
+          "{C:paperback_crowns}Crown{} suit give",
+          "{C:mult}+#1#{} Mult when scored",
+        },
+      },
     },
     paperback_minor_arcana = {
       c_paperback_two_of_cups = {
