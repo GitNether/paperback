@@ -171,7 +171,7 @@ local ENABLED_JOKERS = {
   "tanghulu",
   "sweet_stick",
   "quartz",
-  -- "pyrite",
+  "pyrite",
   -- "bismuth",
   -- "kintsugi_joker",
   -- "watercolor_joker"

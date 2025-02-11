@@ -639,6 +639,13 @@ return {
           "Scored {C:paperback_stars}Stars{} give {X:chips,C:white}X#1#{} Chips",
           "for every other played {C:paperback_stars}Star"
         }
+      },
+      j_paperback_pyrite = {
+        name = "Pyrite",
+        text = {
+          "Scored {C:paperback_crowns}Crowns{} earn",
+          "between {C:money}$#1#{} and {C:money}$#2#"
+        }
       }
     },
     paperback_minor_arcana = {
