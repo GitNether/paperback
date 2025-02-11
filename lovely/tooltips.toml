@@ -4,7 +4,6 @@ dump_lua = true
 priority = 0
 
 # We target the function that builds the UI for hovering over cards
-# Adding the tooltip for Basic Joker Energy if the card is marked by it
 [[patches]]
 [patches.pattern]
 target = "functions/common_events.lua"
@@ -12,10 +11,23 @@ pattern = "local cfg = (card and card.ability) or _c['config']"
 position = "after"
 match_indent = true
 payload = '''
+-- Add the tooltip for Basic Joker Energy if the card is marked by it
 if card and card.ability and card.ability.paperback_energized then
   info_queue[#info_queue + 1] = {
     set = 'Other',
     key = 'paperback_energized'
   }
+end
+
+-- Add tooltips for items removed from the pool by the paperback config
+if card and card.config and card.config.center and card.config.center.paperback then
+  local config = card.config.center.paperback
+
+  if config.requires_custom_suits and not PB_UTIL.config.suits_enabled then
+    info_queue[#info_queue + 1] = {
+      set = 'Other',
+      key = 'paperback_requires_custom_suits'
+    }
+  end
 end
 '''

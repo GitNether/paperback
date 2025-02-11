@@ -15,6 +15,10 @@ SMODS.Joker {
   eternal_compat = true,
   yes_pool_flag = "sticks_can_spawn",
 
+  paperback = {
+    requires_custom_suits = true
+  },
+
   in_pool = function(self, card)
     return PB_UTIL.config.suits_enabled
   end,

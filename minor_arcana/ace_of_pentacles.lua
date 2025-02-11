@@ -22,6 +22,10 @@ SMODS.Consumable {
     }
   end,
 
+  paperback = {
+    requires_custom_suits = true
+  },
+
   in_pool = function(self)
     return PB_UTIL.config.suits_enabled
   end

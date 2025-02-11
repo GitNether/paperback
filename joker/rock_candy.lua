@@ -19,6 +19,10 @@ SMODS.Joker {
     Food = true
   },
 
+  paperback = {
+    requires_custom_suits = true
+  },
+
   in_pool = function(self, card)
     return PB_UTIL.config.suits_enabled
   end,

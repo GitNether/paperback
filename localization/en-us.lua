@@ -761,7 +761,15 @@ return {
         text = {
           "{C:spades}Spades{}, {C:clubs}Clubs{}"
         }
-      }
+      },
+      paperback_requires_custom_suits = {
+        name = "Requires Custom Suits",
+        text = {
+          "Removed from pool due",
+          "to {C:attention}Custom Suits{} being",
+          "disabled in {C:legendary}Paperback",
+        }
+      },
     }
   },
   misc = {
