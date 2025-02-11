@@ -35,14 +35,14 @@ SMODS.Joker {
   remove_from_deck = function(self, card, from_debuff)
     for k, v in ipairs(G.jokers.cards) do
       if v.set_cost then
-        v.custom_sell_cost = false
+        v.ability.custom_sell_cost = false
         v:set_cost()
       end
     end
 
     for k, v in ipairs(G.consumeables.cards) do
       if v.set_cost then
-        v.custom_sell_cost = false
+        v.ability.custom_sell_cost = false
         v:set_cost()
       end
     end

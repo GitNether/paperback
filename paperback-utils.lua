@@ -150,9 +150,9 @@ function Card.set_cost(self)
   end
 
   -- Don't calculate the original sell_cost calculation if a custom sell_cost increase has been indicated
-  if self.custom_sell_cost then
-    self.sell_cost = self.sell_cost + (self.custom_sell_cost_increase or 0)
-    self.custom_sell_cost_increase = nil
+  if self.ability.custom_sell_cost then
+    self.sell_cost = self.sell_cost + (self.ability.custom_sell_cost_increase or 0)
+    self.ability.custom_sell_cost_increase = nil
   else
     set_cost_ref(self)
   end
@@ -160,7 +160,7 @@ function Card.set_cost(self)
   -- if trying to set the sell cost to zero, set it to zero
   if self.zero_sell_cost then
     self.sell_cost = 0
-    self.custom_sell_cost = true
+    self.ability.custom_sell_cost = true
     self.zero_sell_cost = nil
   end
 end
@@ -268,8 +268,8 @@ end
 function PB_UTIL.modify_sell_value(card, amount)
   if not card.set_cost or amount == 0 then return end
 
-  if card.custom_sell_cost then
-    card.custom_sell_cost_increase = amount
+  if card.ability.custom_sell_cost then
+    card.ability.custom_sell_cost_increase = amount
   else
     card.ability.extra_value = (card.ability.extra_value or 0) + amount
   end
