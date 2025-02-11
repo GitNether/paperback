@@ -632,6 +632,13 @@ return {
           "other {C:attention}\"Stick\"{} Joker you have...",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
+      },
+      j_paperback_quartz = {
+        name = "Quartz",
+        text = {
+          "Scored {C:paperback_stars}Stars{} give {X:chips,C:white}X#1#{} Chips",
+          "for every other played {C:paperback_stars}Star"
+        }
       }
     },
     paperback_minor_arcana = {

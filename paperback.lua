@@ -170,7 +170,7 @@ local ENABLED_JOKERS = {
   "rockin_stick",
   "tanghulu",
   "sweet_stick",
-  -- "quartz",
+  "quartz",
   -- "pyrite",
   -- "bismuth",
   -- "kintsugi_joker",
