@@ -3,6 +3,15 @@ PB_UTIL = {}
 -- Load mod config
 PB_UTIL.config = SMODS.current_mod.config
 
+-- Talisman compatibility
+to_big = to_big or function(n)
+  return n
+end
+
+to_number = to_number or function(n)
+  return n
+end
+
 -- Initialize Food pool if not existing, which may be created by other mods.
 -- Any joker can add itself to this pool by adding a pools table to its definition
 -- Credits to Cryptid for the idea
@@ -630,13 +639,13 @@ function PB_UTIL.update_solar_system(card)
     local current_hand = hands[hand]
 
     -- if the hand level is lower, set the minimum level to that value
-    if current_hand.level < min_level then
+    if to_big(current_hand.level) < to_big(min_level) then
       min_level = current_hand.level
     end
   end
 
   -- set the card's x_mult to a value depending on the minimum level
-  card.ability.extra.x_mult = card.ability.extra.x_mult_mod * math.max(1, min_level)
+  card.ability.extra.x_mult = card.ability.extra.x_mult_mod * math.max(1, to_number(min_level))
 end
 
 -- Gets a sorted list of all ranks in descending order
