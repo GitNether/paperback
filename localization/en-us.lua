@@ -585,6 +585,68 @@ return {
           "{S:1.1,C:red,E:2}self destructs",
         }
       },
+      j_paperback_heretical_joker = {
+        name = "Heretical Joker",
+        text = {
+          "Played cards with",
+          "{C:paperback_stars}Star{} suit give",
+          "{C:mult}+#1#{} Mult when scored",
+        },
+      },
+      j_paperback_fraudulent_joker = {
+        name = "Fraudulent Joker",
+        text = {
+          "Played cards with",
+          "{C:paperback_crowns}Crown{} suit give",
+          "{C:mult}+#1#{} Mult when scored",
+        },
+      },
+      j_paperback_rock_candy = {
+        name = "Rock Candy",
+        text = {
+          "Scored {C:paperback_stars}Stars{} give {C:mult}+#1#{} Mult",
+          "{C:green}#2# in #3#{} chance this card is",
+          "eaten at end of round",
+        },
+      },
+      j_paperback_rockin_stick = {
+        name = "Rockin' Stick",
+        text = {
+          "Gives {X:mult,C:white}X#1#{} Mult for every",
+          "other {C:attention}\"Stick\"{} Joker you have...",
+          "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
+        },
+      },
+      j_paperback_tanghulu = {
+        name = "Tanghulu",
+        text = {
+          "Scored {C:paperback_crowns}Crowns{} give {C:mult}+#1#{} Mult",
+          "{C:green}#2# in #3#{} chance this card is",
+          "eaten at end of round",
+        },
+      },
+      j_paperback_sweet_stick = {
+        name = "Sweet Stick",
+        text = {
+          "Gives {X:mult,C:white}X#1#{} Mult for every",
+          "other {C:attention}\"Stick\"{} Joker you have...",
+          "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
+        },
+      },
+      j_paperback_quartz = {
+        name = "Quartz",
+        text = {
+          "Scored {C:paperback_stars}Stars{} give {X:chips,C:white}X#1#{} Chips",
+          "for every other played {C:paperback_stars}Star"
+        }
+      },
+      j_paperback_pyrite = {
+        name = "Pyrite",
+        text = {
+          "Scored {C:paperback_crowns}Crowns{} earn",
+          "between {C:money}$#1#{} and {C:money}$#2#"
+        }
+      }
     },
     paperback_minor_arcana = {
       c_paperback_two_of_cups = {

@@ -23,4 +23,6 @@ match_indent = true
 payload = '''
   paperback_light_suit = G.C.PAPERBACK_LIGHT_SUIT,
   paperback_dark_suit = G.C.PAPERBACK_DARK_SUIT,
+  paperback_stars = G.C.SUITS.paperback_Stars or G.C.UI.TEXT_DARK,
+  paperback_crowns = G.C.SUITS.paperback_Crowns or G.C.UI.TEXT_DARK,
 '''

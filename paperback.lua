@@ -162,7 +162,19 @@ local ENABLED_JOKERS = {
   -- "throwing_card",
   -- "jimbocards",
   -- "moai",
-  -- "the_quiet"
+  -- "the_quiet",
+  -- "hanafuda",
+  "heretical_joker",
+  "fraudulent_joker",
+  "rock_candy",
+  "rockin_stick",
+  "tanghulu",
+  "sweet_stick",
+  "quartz",
+  "pyrite",
+  -- "bismuth",
+  -- "kintsugi_joker",
+  -- "watercolor_joker"
 }
 
 local ENABLED_MINOR_ARCANA = {

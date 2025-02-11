@@ -124,6 +124,8 @@ function Back.apply_to_run(arg_56_0)
   G.GAME.pool_flags.cakepop_can_spawn = true
   G.GAME.pool_flags.caramel_apple_can_spawn = true
   G.GAME.pool_flags.charred_marshmallow_can_spawn = true
+  G.GAME.pool_flags.rock_candy_can_spawn = true
+  G.GAME.pool_flags.tanghulu_can_spawn = true
   G.GAME.pool_flags.sticks_can_spawn = false
   G.GAME.pool_flags.paperback_alert_can_spawn = true
   G.GAME.pool_flags.paperback_legacy_can_spawn = false
