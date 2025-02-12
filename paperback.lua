@@ -301,3 +301,35 @@ if PB_UTIL.config.suits_enabled then
     end
   }
 end
+
+-- Apply paperback config to each loaded center
+for _, center in pairs(SMODS.Centers) do
+  if type(center) == "table" and center.paperback then
+    local func_ref = center.in_pool or function() return true end
+    local config = center.paperback
+
+    if config.requires_crowns or config.requires_stars then
+      config.requires_custom_suits = true
+    end
+
+    -- Hook the in_pool function, adding extra logic depending on the
+    -- config provided by this center
+    center.in_pool = function(self, args)
+      local ret, dupes = func_ref(self, args)
+
+      if config.requires_custom_suits then
+        ret = ret and PB_UTIL.config.suits_enabled
+      end
+
+      if config.requires_crowns then
+        ret = ret and PB_UTIL.has_suit_in_deck('paperback_Crowns', true)
+      end
+
+      if config.requires_stars then
+        ret = ret and PB_UTIL.has_suit_in_deck('paperback_Stars', true)
+      end
+
+      return ret, dupes
+    end
+  end
+end

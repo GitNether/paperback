@@ -15,6 +15,9 @@ SMODS.Joker {
   discovered = true,
   blueprint_compat = true,
   eternal_compat = true,
+  paperback = {
+    requires_crowns = true
+  },
 
   loc_vars = function(self, info_queue, card)
     return {
@@ -22,13 +25,5 @@ SMODS.Joker {
         card.ability.extra.s_mult,
       }
     }
-  end,
-
-  paperback = {
-    requires_custom_suits = true
-  },
-
-  in_pool = function(self, card)
-    return PB_UTIL.config.suits_enabled
   end
 }

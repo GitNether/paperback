@@ -14,14 +14,9 @@ SMODS.Joker {
   blueprint_compat = true,
   eternal_compat = true,
   yes_pool_flag = "sticks_can_spawn",
-
   paperback = {
-    requires_custom_suits = true
+    requires_crowns = true
   },
-
-  in_pool = function(self, card)
-    return PB_UTIL.config.suits_enabled
-  end,
 
   loc_vars = function(self, info_queue, card)
     local xMult = PB_UTIL.calculate_stick_xMult(card)

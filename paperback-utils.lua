@@ -694,6 +694,14 @@ function PB_UTIL.is_suit(card, type)
   end
 end
 
+function PB_UTIL.has_suit_in_deck(suit, ignore_wild)
+  for _, v in ipairs(G.playing_cards or {}) do
+    if not SMODS.has_no_suit(v) and (v.base.suit == suit or (not ignore_wild and v:is_suit(suit))) then
+      return true
+    end
+  end
+end
+
 -- Returns a table that can be inserted into info_queue to show all suits of the provided type
 --- @param type 'light' | 'dark'
 function PB_UTIL.suit_tooltip(type)
