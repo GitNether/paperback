@@ -50,7 +50,7 @@ if PB_UTIL.config.suits_enabled then
 
     in_pool = function(self, args)
       -- Only add this suit to pool when not creating a deck
-      return not (args and args.initial_deck)
+      return not (args and args.initial_deck) and PB_UTIL.has_suit_in_deck('paperback_Stars', true)
     end
   }
 
@@ -71,7 +71,7 @@ if PB_UTIL.config.suits_enabled then
 
     in_pool = function(self, args)
       -- Only add this suit to pool when not creating a deck
-      return not (args and args.initial_deck)
+      return not (args and args.initial_deck) and PB_UTIL.has_suit_in_deck('paperback_Crowns', true)
     end
   }
 end
