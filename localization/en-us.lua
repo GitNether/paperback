@@ -812,6 +812,16 @@ return {
           "to {C:attention}Enhancements{} being",
           "disabled in {C:legendary}Paperback",
         }
+      },
+
+      -- Minor Arcana
+      p_paperback_minor_arcana_normal = {
+        name = "Minor Arcana Pack",
+        text = {
+          "Choose {C:attention}#1#{} of up to {C:attention}#2#",
+          "{C:paperback_minor_arcana}Minor Arcana{} cards",
+          "to be used immediately"
+        }
       }
     }
   },
@@ -821,6 +831,8 @@ return {
       k_paperback_minor_arcana = "Minor Arcana",
       -- Name of consumable type in collection
       b_paperback_minor_arcana_cards = "Minor Arcana",
+      -- Text shown at the bottom while opening booster
+      paperback_minor_arcana_pack = "Minor Arcana Pack",
 
       paperback_polychrome_ex = "Polychrome!",
       paperback_destroyed_ex = "Destroyed!",

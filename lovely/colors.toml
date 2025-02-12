@@ -16,6 +16,7 @@ PAPERBACK_STARS_LC = HEX('BFBFBF'),
 PAPERBACK_STARS_HC = HEX('9A9A9A'),
 PAPERBACK_CROWNS_LC = HEX('A37E4D'),
 PAPERBACK_CROWNS_HC = HEX('B38E5E'),
+PAPERBACK_MINOR_ARCANA = HEX('BDA0D9'),
 '''
 
 [[patches]]
@@ -29,4 +30,5 @@ payload = '''
   paperback_dark_suit = G.C.PAPERBACK_DARK_SUIT,
   paperback_stars = G.C.SUITS.paperback_Stars or G.C.PAPERBACK_STARS_LC,
   paperback_crowns = G.C.SUITS.paperback_Crowns or G.C.PAPERBACK_CROWNS_LC,
+  paperback_minor_arcana = G.C.PAPERBACK_MINOR_ARCANA,
 '''

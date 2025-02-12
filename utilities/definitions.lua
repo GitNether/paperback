@@ -57,7 +57,7 @@ PB_UTIL.requirement_map = {
   }
 }
 
--- Disable specific jokers by commenting them out
+-- Disable specific items by commenting them out
 PB_UTIL.ENABLED_JOKERS = {
   "calling_card",
   "quick_fix",
@@ -233,6 +233,10 @@ PB_UTIL.ENABLED_MINOR_ARCANA = {
   -- "knight_of_pentacles",
   -- "queen_of_pentacles",
   -- "king_of_pentacles",
+}
+
+PB_UTIL.ENABLED_MINOR_ARCANA_BOOSTERS = {
+  'minor_arcana_normal',
 }
 
 PB_UTIL.ENABLED_ENHANCEMENTS = {

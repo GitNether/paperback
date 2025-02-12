@@ -20,15 +20,19 @@ if PB_UTIL.config.minor_arcana_enabled then
   -- Register the consumable type to be used by Minor Arcana
   SMODS.ConsumableType {
     key = 'minor_arcana',
-    prefix_config = { key = true },      -- Add the prefix of the mod to the key
-    primary_colour = HEX("BDA0D9"),
-    secondary_colour = HEX("BDA0D9"),    -- Color of the collection button and badge
-    shop_rate = 0,                       -- These will not appear in the shop
-    default = 'c_paperback_two_of_cups', -- Card to spawn if pool is empty
+    prefix_config = { key = true },                -- Add the prefix of the mod to the key
+    primary_colour = G.C.PAPERBACK_MINOR_ARCANA,
+    secondary_colour = G.C.PAPERBACK_MINOR_ARCANA, -- Color of the collection button and badge
+    shop_rate = 0,                                 -- These will not appear in the shop
+    default = 'c_paperback_two_of_cups',           -- Card to spawn if pool is empty
     collection_rows = { 7, 7 }
   }
 
+  -- Register Minor Arcana cards
   PB_UTIL.register_items(PB_UTIL.ENABLED_MINOR_ARCANA, "content/minor_arcana")
+
+  -- Register Minor Arcana boosters
+  PB_UTIL.register_items(PB_UTIL.ENABLED_MINOR_ARCANA_BOOSTERS, "content/booster")
 end
 
 -- Only load enhancements if they are enabled in the config
