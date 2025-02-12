@@ -1,7 +1,41 @@
-PB_UTIL = NFS.load(SMODS.current_mod.path .. "/paperback-utils.lua")()
+PB_UTIL = {}
 
--- Load our mod's UI
-NFS.load(SMODS.current_mod.path .. "/ui.lua")()
+local function table_move(source, start, finish, destination, dest_index)
+  -- Default arguments: If destination is null, we apend to the end of the source table
+  destination = destination or source
+  dest_index = dest_index or (#destination + 1)
+
+  -- Ensure the source and destination indices are valid
+  if start > finish then
+    return
+  end
+
+  -- Loop through the source table and move the elements to the destination table
+  for i = start, finish do
+    destination[dest_index] = source[i]
+    dest_index = dest_index + 1
+  end
+
+  -- If moving elements within the same table, you might want to clear the moved elements
+  if source == destination then
+    for i = start, finish do
+      source[i] = nil
+    end
+  end
+end
+
+
+local tables = {}
+
+tables[#tables+1] = NFS.load(SMODS.current_mod.path .. "/utilities/misc_functions.lua")()
+tables[#tables+1] = NFS.load(SMODS.current_mod.path .. "/utilities/ui.lua")()
+tables[#tables+1] = NFS.load(SMODS.current_mod.path .. "/utilities/definitions.lua")()
+tables[#tables+1] = NFS.load(SMODS.current_mod.path .. "/utilities/hooks.lua")()
+tables[#tables+1] = NFS.load(SMODS.current_mod.path .. "/utilities/cross-mod.lua")()
+
+for i, t in ipairs(tables) do
+  table_move(t, 1, #t, PB_UTIL)
+end
 
 -- Registers the atlas for Jokers
 SMODS.Atlas {
@@ -246,7 +280,7 @@ local ENABLED_MINOR_ARCANA = {
 
 -- Only load jokers if they are enabled in the config
 if PB_UTIL.config.jokers_enabled then
-  PB_UTIL.register_items(ENABLED_JOKERS, "joker")
+  PB_UTIL.register_items(ENABLED_JOKERS, "content/joker")
 end
 
 -- Only load minor arcana if they are enabled in config
@@ -262,7 +296,7 @@ if PB_UTIL.config.minor_arcana_enabled then
     collection_rows = { 7, 7 }
   }
 
-  PB_UTIL.register_items(ENABLED_MINOR_ARCANA, "minor_arcana")
+  PB_UTIL.register_items(ENABLED_MINOR_ARCANA, "content/minor_arcana")
 end
 
 -- Load custom suit "Crowns" and "Stars" only if enabled

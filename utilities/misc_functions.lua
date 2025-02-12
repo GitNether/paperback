@@ -1,3 +1,5 @@
+local PB_UTIL = {}
+
 -- Load mod config
 PB_UTIL.config = SMODS.current_mod.config
 
@@ -24,6 +26,10 @@ if not SMODS.ObjectTypes.Food then
     end
   }
 end
+
+-- Define light and dark suits
+PB_UTIL.light_suits = { 'Diamonds', 'Hearts' }
+PB_UTIL.dark_suits = { 'Spades', 'Clubs' }
 
 -- Add Crowns and Stars if enabled
 if PB_UTIL.config.suits_enabled then
@@ -453,3 +459,5 @@ function PB_UTIL.has_suit_in_deck(suit, ignore_wild)
     end
   end
 end
+
+return PB_UTIL

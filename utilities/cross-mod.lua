@@ -1,3 +1,5 @@
+local PB_UTIL = {}
+
 -- Talisman compatibility
 to_big = to_big or function(n)
   return n
@@ -15,3 +17,5 @@ if (SMODS.Mods["Bunco"] or {}).can_load then
   table.insert(PB_UTIL.light_suits, prefix .. '_Fleurons')
   table.insert(PB_UTIL.dark_suits, prefix .. '_Halberds')
 end
+
+return PB_UTIL

@@ -1,3 +1,5 @@
+local PB_UTIL = {}
+
 PB_UTIL.base_poker_hands = {
   "Straight Flush",
   "Four of a Kind",
@@ -32,3 +34,5 @@ PB_UTIL.base_rarities = {
   "Rare",
   "Legendary"
 }
+
+return PB_UTIL

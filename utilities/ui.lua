@@ -1,58 +1,4 @@
--- Define light and dark suits
-PB_UTIL.light_suits = { 'Diamonds', 'Hearts' }
-PB_UTIL.dark_suits = { 'Spades', 'Clubs' }
-
-
--- Returns a table that can be inserted into info_queue to show all suits of the provided type
---- @param type 'light' | 'dark'
-function PB_UTIL.suit_tooltip(type)
-  local suits = type == 'light' and PB_UTIL.light_suits or PB_UTIL.dark_suits
-  local key = 'paperback_' .. type .. '_suits'
-  local colours = {}
-
-  -- If any modded suits were loaded, we need to dynamically
-  -- add them to the localization table
-  if #suits > 2 then
-    local text = {}
-    local line = ""
-    local text_parsed = {}
-
-    for i = 1, #suits do
-      local suit = suits[i]
-
-      colours[#colours + 1] = G.C.SUITS[suit] or G.C.IMPORTANT
-      line = line .. "{V:" .. i .. "}" .. localize(suit, 'suits_plural') .. "{}"
-
-      if i < #suits then
-        line = line .. ", "
-      end
-
-      if #line > 30 then
-        text[#text + 1] = line
-        line = ""
-      end
-    end
-
-    if #line > 0 then
-      text[#text + 1] = line
-    end
-
-    for _, v in ipairs(text) do
-      text_parsed[#text_parsed + 1] = loc_parse_string(v)
-    end
-
-    G.localization.descriptions.Other[key].text = text
-    G.localization.descriptions.Other[key].text_parsed = text_parsed
-  end
-
-  return {
-    set = 'Other',
-    key = key,
-    vars = {
-      colours = colours
-    }
-  }
-end
+local PB_UTIL = {}
 
 
 -- Create config UI
@@ -282,3 +228,58 @@ SMODS.current_mod.extra_tabs = function()
     }
   }
 end
+
+
+-- Returns a table that can be inserted into info_queue to show all suits of the provided type
+--- @param type 'light' | 'dark'
+function PB_UTIL.suit_tooltip(type)
+  local suits = type == 'light' and PB_UTIL.light_suits or PB_UTIL.dark_suits
+  local key = 'paperback_' .. type .. '_suits'
+  local colours = {}
+
+  -- If any modded suits were loaded, we need to dynamically
+  -- add them to the localization table
+  if #suits > 2 then
+    local text = {}
+    local line = ""
+    local text_parsed = {}
+
+    for i = 1, #suits do
+      local suit = suits[i]
+
+      colours[#colours + 1] = G.C.SUITS[suit] or G.C.IMPORTANT
+      line = line .. "{V:" .. i .. "}" .. localize(suit, 'suits_plural') .. "{}"
+
+      if i < #suits then
+        line = line .. ", "
+      end
+
+      if #line > 30 then
+        text[#text + 1] = line
+        line = ""
+      end
+    end
+
+    if #line > 0 then
+      text[#text + 1] = line
+    end
+
+    for _, v in ipairs(text) do
+      text_parsed[#text_parsed + 1] = loc_parse_string(v)
+    end
+
+    G.localization.descriptions.Other[key].text = text
+    G.localization.descriptions.Other[key].text_parsed = text_parsed
+  end
+
+  return {
+    set = 'Other',
+    key = key,
+    vars = {
+      colours = colours
+    }
+  }
+end
+
+
+return PB_UTIL
