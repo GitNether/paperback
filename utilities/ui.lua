@@ -226,7 +226,6 @@ SMODS.current_mod.extra_tabs = function()
   }
 end
 
-
 -- Returns a table that can be inserted into info_queue to show all suits of the provided type
 --- @param type 'light' | 'dark'
 function PB_UTIL.suit_tooltip(type)

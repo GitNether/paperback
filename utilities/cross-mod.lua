@@ -7,7 +7,6 @@ to_number = to_number or function(n)
   return n
 end
 
-
 -- Load modded suits
 if (SMODS.Mods["Bunco"] or {}).can_load then
   local prefix = SMODS.Mods["Bunco"].prefix

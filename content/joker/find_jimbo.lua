@@ -62,7 +62,6 @@ SMODS.Joker {
   end
 }
 
-
 function PB_UTIL.reset_find_jimbo(card)
   local valid_cards = {}
 

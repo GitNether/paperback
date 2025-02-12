@@ -98,7 +98,6 @@ SMODS.Joker {
   end
 }
 
-
 function PB_UTIL.reset_skydiver(card)
   local highest_rank = PB_UTIL.get_sorted_ranks()[1]
   card.ability.extra.lowest_rank = highest_rank.key

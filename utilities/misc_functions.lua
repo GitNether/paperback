@@ -21,6 +21,7 @@ if not SMODS.ObjectTypes.Food then
     end
   }
 end
+
 function PB_UTIL.is_food(card)
   -- Accepts a key, a center or a card
   local key = (type(card) == "string" and card) or (card.key and card.key) or card.config.center_key
@@ -61,9 +62,6 @@ function PB_UTIL.register_items(items, path)
     end
   end
 end
-
-
-
 
 function PB_UTIL.get_complete_suits(vanilla_ranks)
   if not G.playing_cards then return 0 end

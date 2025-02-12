@@ -45,4 +45,3 @@ if PB_UTIL.config.suits_enabled then
   table.insert(PB_UTIL.light_suits, 'paperback_Stars')
   table.insert(PB_UTIL.dark_suits, 'paperback_Crowns')
 end
-

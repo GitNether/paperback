@@ -45,7 +45,6 @@ SMODS.Joker {
   end
 }
 
-
 function PB_UTIL.update_solar_system(card)
   local hands = G.GAME.hands
 
