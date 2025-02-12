@@ -19,6 +19,14 @@ SMODS.Atlas {
   path = 'MinorArcana.png'
 }
 
+-- Registers the atlas for Enhancements
+SMODS.Atlas {
+  key = 'enhancements_atlas',
+  px = 71,
+  py = 95,
+  path = 'Enhancements.png'
+}
+
 --- Registers atlas for Crowns and Stars
 -- Low contrast
 SMODS.Atlas {
