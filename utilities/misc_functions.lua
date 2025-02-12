@@ -1,5 +1,3 @@
-local PB_UTIL = {}
-
 -- Load mod config
 PB_UTIL.config = SMODS.current_mod.config
 
@@ -459,5 +457,3 @@ function PB_UTIL.has_suit_in_deck(suit, ignore_wild)
     end
   end
 end
-
-return PB_UTIL

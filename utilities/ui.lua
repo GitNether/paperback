@@ -1,6 +1,3 @@
-local PB_UTIL = {}
-
-
 -- Create config UI
 SMODS.current_mod.config_tab = function()
   return {
@@ -280,6 +277,3 @@ function PB_UTIL.suit_tooltip(type)
     }
   }
 end
-
-
-return PB_UTIL
