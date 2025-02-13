@@ -742,6 +742,15 @@ return {
         }
       }
     },
+    Enhanced = {
+      m_paperback_porcelain = {
+        name = "Porcelain",
+        text = {
+          "Earns between {C:money}$#1#{} and {C:money}$#2#{} when scored",
+          "{C:green}#3# in #4# chance to break after scoring"
+        }
+      }
+    },
     Other = {
       paperback_energized = {
         name = "Energized",
@@ -796,6 +805,7 @@ return {
       paperback_ui_requires_restart = "Requires Restart",
       paperback_ui_enable_jokers = "Enable Jokers",
       paperback_ui_enable_minor_arcana = "Enable Minor Arcana",
+      paperback_ui_enable_enhancements = "Enable Enhancements",
       paperback_ui_custom_suits_enabled = "Enable Custom Suits",
       paperback_ui_developers = "Developers",
       paperback_ui_artists = "Artists",
