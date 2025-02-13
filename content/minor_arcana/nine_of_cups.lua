@@ -45,12 +45,11 @@ SMODS.Consumable {
         card:juice_up()
 
         PB_UTIL.destroy_joker(joker, function()
-          if #G.jokers.cards < G.jokers.config.card_limit then
-            SMODS.add_card {
-              set = 'Joker',
-              rarity = rarity
-            }
-          end
+          SMODS.add_card {
+            set = 'Joker',
+            rarity = rarity,
+            edition = joker.edition
+          }
         end)
 
         return true

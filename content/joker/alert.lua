@@ -55,7 +55,10 @@ SMODS.Joker {
               -- Remove Alert from the pool
               G.GAME.pool_flags.paperback_alert_can_spawn = false
 
-              SMODS.add_card({ key = 'j_paperback_legacy' })
+              SMODS.add_card {
+                key = 'j_paperback_legacy',
+                edition = card.edition
+              }
             end)
 
             -- Modify the message
