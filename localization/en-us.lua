@@ -668,6 +668,14 @@ return {
           "one removed"
         }
       },
+      c_paperback_five_of_cups = {
+        name = "Five of Cups",
+        text = {
+          "Enhances {C:attention}#1#{}",
+          "selected cards to",
+          "{C:attention}#2#s{}"
+        }
+      },
       c_paperback_six_of_cups = {
         name = "Six of Cups",
         text = {
@@ -717,6 +725,14 @@ return {
           "{C:inactive}(Drag to rearrange)"
         }
       },
+      c_paperback_queen_of_cups = {
+        name = "Queen of Cups",
+        text = {
+          "Enhances {C:attention}#1#{} selected",
+          "card into a",
+          "{C:attention}#2#{}"
+        }
+      },
       c_paperback_king_of_cups = {
         name = "King of Cups",
         text = {
@@ -744,10 +760,21 @@ return {
     },
     Enhanced = {
       m_paperback_porcelain = {
-        name = "Porcelain",
+        name = "Porcelain Card",
         text = {
-          "Earns between {C:money}$#1#{} and {C:money}$#2#{} when scored",
-          "{C:green}#3# in #4# chance to break after scoring"
+          "Earns between {C:money}$#1#{}",
+          "and {C:money}$#2#{} when scored",
+          "{C:green}#3# in #4#{} chance to",
+          "be {C:mult}destroyed{}"
+        }
+      },
+      m_paperback_soaked = {
+        name = "Soaked Card",
+        text = {
+          "Cards {C:attention}held in hand{}",
+          "score their {C:chips}chip value{}",
+          "{C:green}#1# in #2#{} chance to be",
+          "destroyed on {C:mult}discard",
         }
       }
     },

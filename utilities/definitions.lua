@@ -170,7 +170,7 @@ PB_UTIL.ENABLED_MINOR_ARCANA = {
   "two_of_cups",
   -- "three_of_cups",
   "four_of_cups",
-  -- "five_of_cups",
+  "five_of_cups",
   "six_of_cups",
   "seven_of_cups",
   "eight_of_cups",
@@ -225,6 +225,6 @@ PB_UTIL.ENABLED_MINOR_ARCANA = {
 }
 
 PB_UTIL.ENABLED_ENHANCEMENTS = {
-  -- "soaked",
+  "soaked",
   "porcelain",
 }

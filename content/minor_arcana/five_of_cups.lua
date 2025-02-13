@@ -1,12 +1,12 @@
 SMODS.Consumable {
-  key = 'queen_of_cups',
+  key = 'five_of_cups',
   set = 'paperback_minor_arcana',
   config = {
-    max_highlighted = 1,
-    mod_conv = 'm_paperback_porcelain'
+    max_highlighted = 2,
+    mod_conv = 'm_paperback_soaked'
   },
   atlas = 'minor_arcana_atlas',
-  pos = { x = 5, y = 1 },
+  pos = { x = 7, y = 0 },
   unlocked = true,
   discovered = true,
   paperback = {
@@ -30,8 +30,8 @@ SMODS.Consumable {
 
   use = function(self, card, area)
     PB_UTIL.use_consumable_animation(card, G.hand.highlighted, function()
-      for _, highlighted_card in ipairs(G.hand.highlighted) do
-        highlighted_card:set_ability(G.P_CENTERS[card.ability.mod_conv])
+      for _, highlight_card in ipairs(G.hand.highlighted) do
+        highlight_card:set_ability(G.P_CENTERS[card.ability.mod_conv])
       end
     end)
   end
