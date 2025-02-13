@@ -805,6 +805,14 @@ return {
           "disabled in {C:legendary}Paperback",
         }
       },
+      paperback_requires_enhancements = {
+        name = "Requires Enhancements",
+        text = {
+          "Removed from pool due",
+          "to {C:attention}Enhancements{} being",
+          "disabled in {C:legendary}Paperback",
+        }
+      }
     }
   },
   misc = {

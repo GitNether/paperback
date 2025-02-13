@@ -58,8 +58,16 @@ function Card.draw(self, layer)
 
   if not self.debuff and self.area and self.area.config and self.area.config.collection then
     local config = self.config and self.config.center and self.config.center.paperback or {}
+    local disabled = false
 
-    if config.requires_custom_suits and not PB_UTIL.config.suits_enabled then
+    for _, v in ipairs(config.requirements or {}) do
+      if not PB_UTIL.config[v.setting] then
+        disabled = true
+        break
+      end
+    end
+
+    if disabled then
       self.children.center:draw_shader('debuff', nil, self.ARGS.send_to_shader)
     end
   end

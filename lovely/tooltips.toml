@@ -23,11 +23,14 @@ end
 if card and card.config and card.config.center and card.config.center.paperback then
   local config = card.config.center.paperback
 
-  if config.requires_custom_suits and not PB_UTIL.config.suits_enabled then
-    info_queue[#info_queue + 1] = {
-      set = 'Other',
-      key = 'paperback_requires_custom_suits'
-    }
+  for _, v in ipairs(config.requirements or {}) do
+    if not PB_UTIL.config[v.setting] then
+      info_queue[#info_queue + 1] = {
+        set = v.set or 'Other',
+        key = v.tooltip,
+        vars = v.vars or {}
+      }
+    end
   end
 end
 '''

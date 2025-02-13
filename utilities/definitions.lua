@@ -46,6 +46,17 @@ if PB_UTIL.config.suits_enabled then
   table.insert(PB_UTIL.dark_suits, 'paperback_Crowns')
 end
 
+PB_UTIL.requirement_map = {
+  requires_custom_suits = {
+    setting = 'suits_enabled',
+    tooltip = 'paperback_requires_custom_suits'
+  },
+  requires_enhancements = {
+    setting = 'enhancements_enabled',
+    tooltip = 'paperback_requires_enhancements'
+  }
+}
+
 -- Disable specific jokers by commenting them out
 PB_UTIL.ENABLED_JOKERS = {
   "calling_card",

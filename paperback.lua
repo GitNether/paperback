@@ -91,13 +91,21 @@ for _, center in pairs(SMODS.Centers) do
       config.requires_custom_suits = true
     end
 
+    config.requirements = {}
+    for k, _ in pairs(config) do
+      local data = PB_UTIL.requirement_map[k]
+      if data then
+        table.insert(config.requirements, data)
+      end
+    end
+
     -- Hook the in_pool function, adding extra logic depending on the
     -- config provided by this center
     center.in_pool = function(self, args)
       local ret, dupes = func_ref(self, args)
 
-      if config.requires_custom_suits then
-        ret = ret and PB_UTIL.config.suits_enabled
+      for _, v in ipairs(config.requirements) do
+        ret = ret and PB_UTIL.config[v.setting]
       end
 
       if config.requires_crowns then
