@@ -320,9 +320,8 @@ return {
       j_paperback_great_wave = {
         name = "Great Wave",
         text = {
-          "Retrigger {C:attention}leftmost{} played",
-          "card used in scoring {C:attention}once{}",
-          "for every {C:chips}hand{} remaining",
+          "Retrigger {C:attention}rightmost{} scored card",
+          "{C:attention}once{} for every {C:attention}played card{}",
         },
       },
       j_paperback_caramel_apple = {
