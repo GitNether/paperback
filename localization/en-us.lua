@@ -667,6 +667,14 @@ return {
           "one removed"
         }
       },
+      c_paperback_five_of_cups = {
+        name = "Five of Cups",
+        text = {
+          "Enhances {C:attention}#1#{}",
+          "selected cards to",
+          "{C:attention}#2#s{}"
+        }
+      },
       c_paperback_six_of_cups = {
         name = "Six of Cups",
         text = {
@@ -716,6 +724,14 @@ return {
           "{C:inactive}(Drag to rearrange)"
         }
       },
+      c_paperback_queen_of_cups = {
+        name = "Queen of Cups",
+        text = {
+          "Enhances {C:attention}#1#{} selected",
+          "card into a",
+          "{C:attention}#2#{}"
+        }
+      },
       c_paperback_king_of_cups = {
         name = "King of Cups",
         text = {
@@ -738,6 +754,26 @@ return {
           "Converts up to",
           "{C:attention}#1#{} selected cards",
           "to {V:1}#2#{}",
+        }
+      }
+    },
+    Enhanced = {
+      m_paperback_porcelain = {
+        name = "Porcelain Card",
+        text = {
+          "Earns between {C:money}$#1#{}",
+          "and {C:money}$#2#{} when scored",
+          "{C:green}#3# in #4#{} chance to",
+          "be {C:mult}destroyed{}"
+        }
+      },
+      m_paperback_soaked = {
+        name = "Soaked Card",
+        text = {
+          "Cards {C:attention}held in hand{}",
+          "score their {C:chips}chip value{}",
+          "{C:green}#1# in #2#{} chance to be",
+          "destroyed on {C:mult}discard",
         }
       }
     },
@@ -795,6 +831,7 @@ return {
       paperback_ui_requires_restart = "Requires Restart",
       paperback_ui_enable_jokers = "Enable Jokers",
       paperback_ui_enable_minor_arcana = "Enable Minor Arcana",
+      paperback_ui_enable_enhancements = "Enable Enhancements",
       paperback_ui_custom_suits_enabled = "Enable Custom Suits",
       paperback_ui_developers = "Developers",
       paperback_ui_artists = "Artists",

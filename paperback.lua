@@ -31,6 +31,11 @@ if PB_UTIL.config.minor_arcana_enabled then
   PB_UTIL.register_items(PB_UTIL.ENABLED_MINOR_ARCANA, "content/minor_arcana")
 end
 
+-- Only load enhancements if they are enabled in the config
+if PB_UTIL.config.enhancements_enabled then
+  PB_UTIL.register_items(PB_UTIL.ENABLED_ENHANCEMENTS, "content/enhancement")
+end
+
 -- Load custom suit "Crowns" and "Stars" only if enabled
 if PB_UTIL.config.suits_enabled then
   SMODS.Suit {
