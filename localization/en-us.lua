@@ -704,7 +704,7 @@ return {
           "Destroy a selected {C:attention}Joker{} and",
           "create a new {C:attention}Joker{} of the same",
           "{C:attention}rarity{}, or higher if possible",
-          "{C:inactive}(Cannot make {C:legendary}Legendary{C:inactive})"
+          "{C:inactive}(Cannot upgrade into a {C:legendary}Legendary{C:inactive})"
         }
       },
       c_paperback_ten_of_cups = {
