@@ -85,6 +85,45 @@ if PB_UTIL.config.suits_enabled then
   }
 end
 
+PB_UTIL.Paperclip = SMODS.Sticker:extend {
+  prefix_config = { key = true },
+  should_apply = false,
+  rate = 0,
+  sets = {
+    Default = true
+  },
+
+  draw = function(self, card)
+    -- _shader, _shadow_height, _send, _no_tilt, other_obj, ms, mr, mx, my, custom_shader, tilt_shadow
+    local x_offset = (card.T.w / 71) * -4 * card.T.scale
+    G.shared_stickers[self.key].role.draw_major = card
+    G.shared_stickers[self.key]:draw_shader('dissolve', nil, nil, nil, card.children.center, nil, nil, x_offset)
+  end
+}
+
+PB_UTIL.Paperclip {
+  key = 'red_clip',
+  atlas = 'paperclips_atlas',
+  pos = { x = 3, y = 0 },
+  config = {
+    mult = 4
+  },
+
+  loc_vars = function(self, info_queue, card)
+    return {
+      vars = {
+        self.config.mult
+      }
+    }
+  end,
+
+  calculate = function(self, card, context)
+    if context.main_scoring then
+      return { mult = self.config.mult }
+    end
+  end
+}
+
 -- Apply paperback config to each loaded center
 for _, center in pairs(SMODS.Centers) do
   if type(center) == "table" and center.paperback then

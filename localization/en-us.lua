@@ -814,6 +814,14 @@ return {
         }
       },
 
+      -- Paperclips
+      paperback_red_clip = {
+        name = "Red Clip",
+        text = {
+          "{C:mult}+#1#{} Mult"
+        }
+      },
+
       -- Minor Arcana
       p_paperback_minor_arcana_normal = {
         name = "Minor Arcana Pack",
