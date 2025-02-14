@@ -359,9 +359,9 @@ return {
       j_paperback_autumn_leaves = {
         name = "Autumn Leaves",
         text = {
-          "{C:diamonds}Diamonds{} give {X:mult,C:white}X#1#{} Mult when scored.",
-          "Increases by {X:mult,C:white}X#2#{} Mult for each ",
-          "consecutively scored {C:diamonds}Diamond{}",
+          "{C:diamonds}#1#{} give {X:mult,C:white}X#2#{} Mult when scored.",
+          "Increases by {X:mult,C:white}X#3#{} Mult for each ",
+          "consecutively scored {C:diamonds}#4#{}",
           "{C:inactive}(Resets after each hand played)",
         },
       },
@@ -578,8 +578,8 @@ return {
       j_paperback_apple = {
         name = "Apple",
         text = {
-          "Scored {C:hearts}Hearts{} have a",
-          "{C:green}#1# in #2#{} chance to give",
+          "Scored {C:hearts}#1#{} have a",
+          "{C:green}#2# in #3#{} chance to give",
           "a {C:dark_edition}Negative {C:attention}Consumable",
           "{S:1.1,C:red,E:2}self destructs",
         }
