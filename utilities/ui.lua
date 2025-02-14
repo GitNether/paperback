@@ -31,6 +31,11 @@ SMODS.current_mod.config_tab = function()
         ref_table = PB_UTIL.config,
         ref_value = 'enhancements_enabled'
       },
+      create_toggle {
+        label = localize('paperback_ui_enable_paperclips'),
+        ref_table = PB_UTIL.config,
+        ref_value = 'paperclips_enabled'
+      }
     }
   }
 end
@@ -140,6 +145,83 @@ SMODS.current_mod.extra_tabs = function()
       end
     }
   }
+end
+
+-- Create collection entry for Paperclips
+if PB_UTIL.config.paperclips_enabled then
+  SMODS.current_mod.custom_collection_tabs = function()
+    return {
+      UIBox_button({
+        button = 'your_collection_paperback_paperclips',
+        id = 'your_collection_paperback_paperclips',
+        label = { localize('paperback_ui_paperclips') },
+        minw = 5,
+        minh = 1
+      })
+    }
+  end
+
+  local function paperclips_ui()
+    local paperclips = {}
+
+    for k, v in pairs(SMODS.Stickers) do
+      if PB_UTIL.is_paperclip(k) then
+        paperclips[k] = v
+      end
+    end
+
+    return SMODS.card_collection_UIBox(paperclips, { 5, 5 }, {
+      snap_back = true,
+      hide_single_page = true,
+      collapse_single_page = true,
+      center = 'c_base',
+      h_mod = 1.03,
+      back_func = 'your_collection_other_gameobjects',
+      modify_card = function(card, center)
+        card.ignore_pinned = true
+        center:apply(card, true)
+      end,
+    })
+  end
+
+  G.FUNCS.your_collection_paperback_paperclips = function()
+    G.SETTINGS.paused = true
+    G.FUNCS.overlay_menu {
+      definition = paperclips_ui()
+    }
+  end
+
+  local function wrap_without_paperclips(func)
+    -- Remove our paperclips from SMODS.Stickers just for this function call
+    local removed = {}
+    for k, v in pairs(SMODS.Stickers) do
+      if PB_UTIL.is_paperclip(k) then
+        removed[k] = v
+        SMODS.Stickers[k] = nil
+      end
+    end
+
+    local ret = func()
+
+    -- Add them back once the UI was created
+    for k, v in pairs(removed) do
+      SMODS.Stickers[k] = v
+    end
+
+    return ret
+  end
+
+  -- Override the creation of the 'Stickers' tab in the collection
+  local stickers_ui_ref = create_UIBox_your_collection_stickers
+  create_UIBox_your_collection_stickers = function()
+    return wrap_without_paperclips(stickers_ui_ref)
+  end
+
+  -- Override the creation of the 'Stickers' tab in our 'Additions' tab
+  local other_objects_ref = create_UIBox_Other_GameObjects
+  create_UIBox_Other_GameObjects = function()
+    return wrap_without_paperclips(other_objects_ref)
+  end
 end
 
 -- Returns a table that can be inserted into info_queue to show all suits of the provided type
