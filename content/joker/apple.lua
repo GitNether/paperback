@@ -2,6 +2,7 @@ SMODS.Joker {
   key = "apple",
   config = {
     extra = {
+      suit = "Hearts",
       odds = 10,
       card_generated = false,
     }
@@ -25,6 +26,7 @@ SMODS.Joker {
 
     return {
       vars = {
+        localize(card.ability.extra.suit, "suits_plural"),
         G.GAME.probabilities.normal,
         card.ability.extra.odds,
       }
@@ -33,7 +35,7 @@ SMODS.Joker {
 
   calculate = function(self, card, context)
     if context.individual and context.cardarea == G.play then
-      if context.other_card:is_suit("Hearts") then
+      if context.other_card:is_suit(card.ability.extra.suit) then
         if not card.ability.extra.card_generated then
           if pseudorandom("Apple") < G.GAME.probabilities.normal / card.ability.extra.odds then
             G.E_MANAGER:add_event(Event({
@@ -61,5 +63,31 @@ SMODS.Joker {
         end
       end
     end
+  end,
+
+  joker_display_def = function()
+    return {
+      reminder_text = {
+        { text = "(" },
+        {
+          ref_table = "card.joker_display_values",
+          ref_value = "localized_text",
+          colour = lighten(loc_colour(G.P_CENTERS.j_paperback_apple.config.extra.suit:lower()), 0.35)
+        },
+        { text = ")" },
+      },
+      extra = {
+        {
+          { text = "(" },
+          { ref_table = "card.joker_display_values", ref_value = "odds" },
+          { text = ")" },
+        }
+      },
+      extra_config = { colour = G.C.GREEN, scale = 0.3 },
+      calc_function = function(card)
+        card.joker_display_values.odds = localize { type = 'variable', key = 'jdis_odds', vars = { (G.GAME and G.GAME.probabilities.normal or 1), card.ability.extra.odds } }
+        card.joker_display_values.localized_text = localize(card.ability.extra.suit, 'suits_plural')
+      end
+    }
   end
 }
