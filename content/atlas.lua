@@ -61,6 +61,14 @@ SMODS.Atlas {
   py = 18
 }
 
+-- Register Paperclips atlas
+SMODS.Atlas {
+  key = 'paperclips_atlas',
+  path = 'paperclips.png',
+  px = 71,
+  py = 95
+}
+
 -- Registers the mod icon
 SMODS.Atlas { -- modicon
   key = 'modicon',
