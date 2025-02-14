@@ -22,6 +22,25 @@ if not SMODS.ObjectTypes.Food then
   }
 end
 
+-- Checks if a string is a paperclip
+function PB_UTIL.is_paperclip(str)
+  for _, v in ipairs(PB_UTIL.ENABLED_PAPERCLIPS) do
+    if 'paperback_' .. v == str then
+      return true
+    end
+  end
+end
+
+-- If found, the first value returned is the key, the second
+-- is the config table of this clip
+function PB_UTIL.has_paperclip(card)
+  for k, v in pairs(card and card.ability or {}) do
+    if PB_UTIL.is_paperclip(k) then
+      return k, v
+    end
+  end
+end
+
 function PB_UTIL.is_food(card)
   -- Accepts a key, a center or a card
   local key = (type(card) == "string" and card) or (card.key and card.key) or card.config.center_key
