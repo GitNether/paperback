@@ -813,6 +813,24 @@ return {
           "disabled in {C:legendary}Paperback",
         }
       },
+      paperback_requires_paperclips = {
+        name = "Requires Paperclips",
+        text = {
+          "Removed from pool due",
+          "to {C:attention}Paperclips{} being",
+          "disabled in {C:legendary}Paperback",
+        }
+      },
+
+      -- Paperclips
+      paperback_blue_clip = {
+        name = "Blue Clip",
+        text = {
+          "{X:chips,C:white}X#1#{} Chips",
+          "Increases by {X:chips,C:white}X#2#{} for",
+          "each {C:attention}Clip{} in {C:attention}held hand"
+        }
+      },
 
       -- Paperclips
       paperback_red_clip = {
@@ -860,10 +878,12 @@ return {
       paperback_ui_enable_jokers = "Enable Jokers",
       paperback_ui_enable_minor_arcana = "Enable Minor Arcana",
       paperback_ui_enable_enhancements = "Enable Enhancements",
+      paperback_ui_enable_paperclips = "Enable Paperclips",
       paperback_ui_custom_suits_enabled = "Enable Custom Suits",
       paperback_ui_developers = "Developers",
       paperback_ui_artists = "Artists",
       paperback_ui_localization = "Localization",
+      paperback_ui_paperclips = "Paperclips",
     },
     v_dictionary = {
       paperback_a_discards_ex = "+#1# Discards!",
@@ -879,6 +899,10 @@ return {
     suits_plural = {
       paperback_Crowns = "Crowns",
       paperback_Stars = 'Stars'
+    },
+    labels = {
+      paperback_red_clip = "Red Clip",
+      paperback_blue_clip = "Blue Clip",
     }
   }
 }

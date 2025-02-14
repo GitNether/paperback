@@ -54,6 +54,10 @@ PB_UTIL.requirement_map = {
   requires_enhancements = {
     setting = 'enhancements_enabled',
     tooltip = 'paperback_requires_enhancements'
+  },
+  requires_paperclips = {
+    setting = 'paperclips_enabled',
+    tooltip = 'paperback_requires_paperclips'
   }
 }
 
@@ -242,4 +246,31 @@ PB_UTIL.ENABLED_MINOR_ARCANA_BOOSTERS = {
 PB_UTIL.ENABLED_ENHANCEMENTS = {
   "soaked",
   "porcelain",
+}
+
+-- Define Paperclip object
+if PB_UTIL.config.paperclips_enabled then
+  PB_UTIL.Paperclip = SMODS.Sticker:extend {
+    prefix_config = { key = true },
+    should_apply = false,
+    config = {},
+    rate = 0,
+    sets = {
+      Default = true
+    },
+
+    draw = function(self, card)
+      local x_offset = (card.T.w / 71) * -4 * card.T.scale
+      G.shared_stickers[self.key].role.draw_major = card
+      G.shared_stickers[self.key]:draw_shader('dissolve', nil, nil, nil, card.children.center, nil, nil, x_offset)
+    end,
+
+    apply = function(self, card, val)
+      card.ability[self.key] = val and copy_table(self.config) or nil
+    end
+  }
+end
+
+PB_UTIL.ENABLED_PAPERCLIPS = {
+  "blue_clip"
 }
