@@ -648,6 +648,13 @@ return {
       }
     },
     paperback_minor_arcana = {
+      c_paperback_ace_of_cups = {
+        name = "Ace of Cups",
+        text = {
+          "Add a {C:chips}Blue Clip{} to up",
+          "to {C:attention}#1#{} selected cards"
+        }
+      },
       c_paperback_two_of_cups = {
         name = "Two of Cups",
         text = {

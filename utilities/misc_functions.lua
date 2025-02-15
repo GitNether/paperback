@@ -22,7 +22,7 @@ if not SMODS.ObjectTypes.Food then
   }
 end
 
--- Checks if a string is a paperclip
+-- Checks if a string is a valid paperclip key
 function PB_UTIL.is_paperclip(str)
   for _, v in ipairs(PB_UTIL.ENABLED_PAPERCLIPS) do
     if 'paperback_' .. v == str then
@@ -38,6 +38,23 @@ function PB_UTIL.has_paperclip(card)
     if PB_UTIL.is_paperclip(k) then
       return k, v
     end
+  end
+end
+
+-- A playing card can only have one paperclip
+--- @param type "blue"
+function PB_UTIL.set_paperclip(card, type)
+  local key = 'paperback_' .. type .. '_clip'
+
+  if card and PB_UTIL.is_paperclip(key) then
+    -- Remove all paperclips in this card before applying
+    for k, _ in pairs(card.ability) do
+      if PB_UTIL.is_paperclip(k) then
+        card.ability[k] = nil
+      end
+    end
+
+    SMODS.Stickers[key]:apply(card, true)
   end
 end
 

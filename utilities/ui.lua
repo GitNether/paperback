@@ -274,3 +274,25 @@ function PB_UTIL.suit_tooltip(type)
     }
   }
 end
+
+--- @param type "blue"
+function PB_UTIL.paperclip_tooltip(type)
+  local key = 'paperback_' .. type .. '_clip'
+  local paperclip = SMODS.Stickers[key]
+  local vars = {}
+
+  -- This may be the case if the paperclip was disabled by the user
+  if not paperclip then return end
+
+  if paperclip.loc_vars then
+    local dummy_card = { ability = {} }
+    paperclip:apply(dummy_card, true)
+    vars = paperclip:loc_vars({}, dummy_card).vars
+  end
+
+  return {
+    set = 'Other',
+    key = key,
+    vars = vars
+  }
+end
