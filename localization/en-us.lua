@@ -838,6 +838,15 @@ return {
           "each {C:attention}Clip{} in {C:attention}held hand"
         }
       },
+      paperback_black_clip = {
+        name = "Black Clip",
+        text = {
+          "Retriggers if another",
+          "{C:attention}Clip{} is in {C:attention}played hand",
+          "and again if a {C:attention}Clip{} is",
+          "{C:attention}held in hand"
+        }
+      },
 
       -- Minor Arcana
       p_paperback_minor_arcana_normal = {
@@ -902,6 +911,7 @@ return {
     labels = {
       paperback_red_clip = "Red Clip",
       paperback_blue_clip = "Blue Clip",
+      paperback_black_clip = "Black Clip",
     }
   }
 }

@@ -276,5 +276,6 @@ if PB_UTIL.config.paperclips_enabled then
 end
 
 PB_UTIL.ENABLED_PAPERCLIPS = {
-  "blue_clip"
+  "blue_clip",
+  "black_clip",
 }
