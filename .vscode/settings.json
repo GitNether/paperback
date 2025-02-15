@@ -1,5 +1,9 @@
 {
   "editor.tabSize": 2,
   "editor.detectIndentation": false,
+  "editor.formatOnSave": true,
+  "Lua.format.defaultConfig": {
+    "align_continuous_assign_statement": "false"
+  },
   "Lua.workspace.library": ["../lovely/dump", "../smods"]
 }
