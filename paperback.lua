@@ -90,6 +90,12 @@ if PB_UTIL.config.suits_enabled then
       return not (args and args.initial_deck) and PB_UTIL.has_suit_in_deck('paperback_Crowns', true)
     end
   }
+
+  -- Register Spectrum poker hand some other Spectrum mods are not installed
+  if not (next(SMODS.find_mod('Bunco') or next(SMODS.find_mod("SixSuits") or next(SMODS.find_mod("SpectrumFramework"))))) then
+    PB_UTIL.register_items(PB_UTIL.ENABLED_POKER_HANDS, "content/pokerhand")
+    NFS.load(SMODS.current_mod.path .. "/content/planet/quaoar.lua")()
+  end
 end
 
 -- Apply paperback config to each loaded center

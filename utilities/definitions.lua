@@ -257,6 +257,13 @@ PB_UTIL.ENABLED_ENHANCEMENTS = {
   "porcelain",
 }
 
+PB_UTIL.ENABLED_POKER_HANDS = {
+  'spectrum',
+  'straight_spectrum',
+  'spectrum_house',
+  'spectrum_five',
+}
+
 -- Define Paperclip object
 if PB_UTIL.config.paperclips_enabled then
   PB_UTIL.Paperclip = SMODS.Sticker:extend {

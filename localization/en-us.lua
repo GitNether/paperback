@@ -880,7 +880,7 @@ return {
           "to be used immediately"
         }
       }
-    }
+    },
   },
   misc = {
     dictionary = {
@@ -930,6 +930,30 @@ return {
     suits_plural = {
       paperback_Crowns = "Crowns",
       paperback_Stars = 'Stars'
+    },
+    poker_hands = {
+      ['paperback_Spectrum'] = 'Spectrum',
+      ['paperback_Straight Spectrum'] = 'Straight Spectrum',
+      ['paperback_Straight Spectrum (Royal)'] = 'Royal Spectrum',
+      ['paperback_Spectrum House'] = 'Spectrum House',
+      ['paperback_Spectrum Five'] = 'Spectrum Five',
+    },
+    poker_hand_descriptions = {
+      ['paperback_Spectrum'] = {
+          [1] = '5 cards with different suits'
+      },
+      ['paperback_Straight Spectrum'] = {
+          [1] = '5 cards in a row (consecutive ranks),',
+          [2] = 'each with a different suit'
+      },
+      ['paperback_Spectrum House'] = {
+          [1] = 'A Three of a Kind and a Pair with',
+          [2] = 'each card having a different suit'
+      },
+      ['paperback_Spectrum Five'] = {
+          [1] = '5 cards with the same rank,',
+          [2] = 'each with a different suit'
+      },
     },
     labels = {
       paperback_red_clip = "Red Clip",

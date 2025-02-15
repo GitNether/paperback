@@ -14,6 +14,13 @@ SMODS.Atlas {
   path = 'MinorArcana.png'
 }
 
+SMODS.Atlas {
+  key = 'planets_atlas',
+  px = 71,
+  py = 95,
+  path = 'Planets.png'
+}
+
 -- Registers the atlas for the Booster Packs
 SMODS.Atlas {
   key = 'boosters_atlas',
