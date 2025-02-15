@@ -665,6 +665,13 @@ return {
           "{C:inactive}(Drag to rearrange)"
         }
       },
+      c_paperback_three_of_cups = {
+        name = "Three of Cups",
+        text = {
+          "Add a {C:paperback_black}Black Clip{} to up",
+          "to {C:attention}#1#{} selected cards"
+        }
+      },
       c_paperback_four_of_cups = {
         name = "Four of Cups",
         text = {
