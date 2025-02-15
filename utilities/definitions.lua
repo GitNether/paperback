@@ -183,7 +183,7 @@ PB_UTIL.ENABLED_JOKERS = {
 PB_UTIL.ENABLED_MINOR_ARCANA = {
   "ace_of_cups",
   "two_of_cups",
-  -- "three_of_cups",
+  "three_of_cups",
   "four_of_cups",
   "five_of_cups",
   "six_of_cups",
