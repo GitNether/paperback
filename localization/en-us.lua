@@ -780,7 +780,16 @@ return {
     },
     Planet = {
       c_paperback_quaoar = {
-        name = "Quaoar"
+        name = "Quaoar",
+      },
+      c_paperback_haumea = {
+        name = "Haumea",
+      },
+      c_paperback_sedna = {
+        name = "Sedna",
+      },
+      c_paperback_makemake = {
+        name = "Makemake",
       },
     },
     Enhanced = {

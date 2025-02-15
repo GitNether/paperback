@@ -14,6 +14,7 @@ SMODS.Atlas {
   path = 'MinorArcana.png'
 }
 
+-- Registers the atlas for Planets
 SMODS.Atlas {
   key = 'planets_atlas',
   px = 71,
