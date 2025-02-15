@@ -82,6 +82,57 @@ function PB_UTIL.register_items(items, path)
   end
 end
 
+-- Registers a DeckSkin set
+function PB_UTIL.register_deckskin_set(suits, ranks, filename, descriptions)
+  local atlas_hc = SMODS.Atlas {
+    key = filename .. "_hc",
+    path = filename .. "_hc.png",
+    px = 71,
+    py = 95,
+  }
+
+  local atlas_lc = SMODS.Atlas {
+    key = filename .. "_lc",
+    path = filename .. "_lc.png",
+    px = 71,
+    py = 95,
+  }
+
+  for i, suit in ipairs(suits) do
+    SMODS.DeckSkin {
+      key = filename .. "_" .. suit .. "_skin",
+      suit = suit:gsub("^%l", string.upper),
+      loc_txt = {
+        ['en-us'] = descriptions[i]
+      },
+      palettes = {
+        {
+          key = 'lc',
+          ranks = ranks,
+          display_ranks = PB_UTIL.reverse_table(ranks),
+          atlas = atlas_lc.key,
+          pos_style = 'deck',
+        },
+        {
+          key = 'hc',
+          ranks = ranks,
+          display_ranks = PB_UTIL.reverse_table(ranks),
+          atlas = atlas_hc.key,
+          pos_style = 'deck',
+        }
+      },
+    }
+  end
+end
+
+function PB_UTIL.reverse_table(t)
+  local reversed = {}
+  for i = #t, 1, -1 do
+    table.insert(reversed, t[i])
+  end
+  return reversed
+end
+
 function PB_UTIL.get_complete_suits(vanilla_ranks)
   if not G.playing_cards then return 0 end
 
