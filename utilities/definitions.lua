@@ -239,6 +239,10 @@ PB_UTIL.ENABLED_MINOR_ARCANA = {
   -- "king_of_pentacles",
 }
 
+PB_UTIL.ENABLED_DECK_SKINS = {
+  "set1",
+}
+
 PB_UTIL.ENABLED_MINOR_ARCANA_BOOSTERS = {
   'minor_arcana_normal',
 }

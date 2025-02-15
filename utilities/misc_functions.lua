@@ -82,6 +82,23 @@ function PB_UTIL.register_items(items, path)
   end
 end
 
+-- Registers a DeckSkin set
+function PB_UTIL.register_deckskin_set(suits, ranks, atlas_key, atlas_path_hc, descriptions)
+  for i, suit in ipairs(suits) do
+    SMODS.DeckSkin {
+      key = suit .. "_skin",
+      suit = suit:gsub("^%l", string.upper),
+      ranks = ranks,
+      lc_atlas = atlas_key .. '_lc',
+      hc_atlas = (atlas_path_hc and atlas_key .. '_hc') or atlas_key .. '_lc',
+      loc_txt = {
+        ['en-us'] = descriptions[i]
+      },
+      posStyle = 'deck'
+    }
+  end
+end
+
 function PB_UTIL.get_complete_suits(vanilla_ranks)
   if not G.playing_cards then return 0 end
 

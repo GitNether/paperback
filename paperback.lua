@@ -44,6 +44,9 @@ if PB_UTIL.config.paperclips_enabled then
   PB_UTIL.register_items(PB_UTIL.ENABLED_PAPERCLIPS, "content/paperclip")
 end
 
+-- Register DeckSkins for Friends of Paperback
+PB_UTIL.register_items(PB_UTIL.ENABLED_DECK_SKINS, "content/friends_of_paperback")
+
 -- Load custom suit "Crowns" and "Stars" only if enabled
 if PB_UTIL.config.suits_enabled then
   SMODS.Suit {
