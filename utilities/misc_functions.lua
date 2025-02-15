@@ -100,7 +100,7 @@ function PB_UTIL.register_deckskin_set(suits, ranks, filename, descriptions)
 
   for i, suit in ipairs(suits) do
     SMODS.DeckSkin {
-      key = suit .. "_skin",
+      key = filename .. "_" .. suit .. "_skin",
       suit = suit:gsub("^%l", string.upper),
       loc_txt = {
         ['en-us'] = descriptions[i]
