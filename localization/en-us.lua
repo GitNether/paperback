@@ -728,6 +728,13 @@ return {
           "a selected card"
         }
       },
+      c_paperback_page_of_cups = {
+        name = "Page of Cups",
+        text = {
+          "Add a {C:inactive}White Clip{} to up",
+          "to {C:attention}#1#{} selected cards"
+        }
+      },
       c_paperback_knight_of_cups = {
         name = "Knight of Cups",
         text = {
