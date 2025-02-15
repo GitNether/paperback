@@ -854,6 +854,15 @@ return {
           "{C:attention}held in hand"
         }
       },
+      paperback_white_clip = {
+        name = "White Clip",
+        text = {
+          "If {C:attention}held in hand{} at {C:attention}end of",
+          "{C:attention}round{}, permanently gain {C:chips}+2",
+          "Chips for every {C:attention}Clip{} scored",
+          "this round"
+        }
+      },
 
       -- Minor Arcana
       p_paperback_minor_arcana_normal = {
@@ -919,6 +928,7 @@ return {
       paperback_red_clip = "Red Clip",
       paperback_blue_clip = "Blue Clip",
       paperback_black_clip = "Black Clip",
+      paperback_white_clip = "White Clip",
     }
   }
 }

@@ -1,6 +1,11 @@
 -- Load mod config
 PB_UTIL.config = SMODS.current_mod.config
 
+-- Load values that get reset at the start of each round
+SMODS.current_mod.reset_game_globals = function(run_start)
+  G.GAME.current_round.paperback_scored_clips = 0
+end
+
 PB_UTIL.base_poker_hands = {
   "Straight Flush",
   "Four of a Kind",
@@ -274,4 +279,5 @@ end
 PB_UTIL.ENABLED_PAPERCLIPS = {
   "blue_clip",
   "black_clip",
+  "white_clip",
 }

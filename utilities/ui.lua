@@ -275,7 +275,7 @@ function PB_UTIL.suit_tooltip(type)
   }
 end
 
---- @param type "blue" | "black"
+--- @param type "blue" | "black" | "white"
 function PB_UTIL.paperclip_tooltip(type)
   local key = 'paperback_' .. type .. '_clip'
   local paperclip = SMODS.Stickers[key]
