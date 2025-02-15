@@ -42,7 +42,7 @@ function PB_UTIL.has_paperclip(card)
 end
 
 -- A playing card can only have one paperclip
---- @param type "blue" | "black"
+--- @param type "blue" | "black" | "white"
 function PB_UTIL.set_paperclip(card, type)
   local key = 'paperback_' .. type .. '_clip'
 

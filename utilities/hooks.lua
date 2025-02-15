@@ -75,6 +75,18 @@ function Card.draw(self, layer)
   return ret
 end
 
+-- Count scored Clips each round
+local eval_card_ref = eval_card
+function eval_card(card, context)
+  local ret, ret2 = eval_card_ref(card, context)
+
+  if context.cardarea == G.play and context.main_scoring and ret and ret.playing_card and PB_UTIL.has_paperclip(card) then
+    G.GAME.current_round.paperback_scored_clips = G.GAME.current_round.paperback_scored_clips + 1
+  end
+
+  return ret, ret2
+end
+
 -- Add new context that happens before triggering tags
 local yep_ref = Tag.yep
 function Tag.yep(self, message, _colour, func)
