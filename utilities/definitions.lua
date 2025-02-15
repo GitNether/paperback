@@ -287,6 +287,23 @@ if PB_UTIL.config.paperclips_enabled then
   }
 end
 
+if PB_UTIL.config.suits_enabled then
+  PB_UTIL.Planet = SMODS.Consumable:extend {
+    set = "Planet",
+
+    -- Since the description of all planets is the same, we just copy it from a random one
+    -- The name of this planet still needs to be specified in the localization file
+    process_loc_text = function(self)
+      G.localization.descriptions[self.set][self.key] = {
+        text = G.localization.descriptions[self.set].c_mercury.text
+      }
+    end,
+
+    -- By making this not a function, the game will use the vanilla UI generation
+    generate_ui = 'Nope!'
+  }
+end
+
 PB_UTIL.ENABLED_PAPERCLIPS = {
   "blue_clip",
   "black_clip",
