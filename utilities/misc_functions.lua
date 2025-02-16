@@ -103,7 +103,7 @@ end
 function PB_UTIL.register_items(items, path)
   for i = 1, #items do
     local status, err = pcall(function()
-      return NFS.load(SMODS.current_mod.path .. "/" .. path .. "/" .. items[i] .. ".lua")()
+      return SMODS.load_file(path .. "/" .. items[i] .. ".lua")()
     end)
     sendDebugMessage("Loaded item " .. path .. ":" .. items[i], "Paperback")
 

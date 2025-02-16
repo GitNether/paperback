@@ -1,14 +1,14 @@
 PB_UTIL = {}
 
 -- Load utility functions into PB_UTIL
-NFS.load(SMODS.current_mod.path .. "/utilities/definitions.lua")()
-NFS.load(SMODS.current_mod.path .. "/utilities/misc_functions.lua")()
-NFS.load(SMODS.current_mod.path .. "/utilities/ui.lua")()
-NFS.load(SMODS.current_mod.path .. "/utilities/hooks.lua")()
-NFS.load(SMODS.current_mod.path .. "/utilities/cross-mod.lua")()
+SMODS.load_file("utilities/definitions.lua")()
+SMODS.load_file("utilities/misc_functions.lua")()
+SMODS.load_file("utilities/ui.lua")()
+SMODS.load_file("utilities/hooks.lua")()
+SMODS.load_file("utilities/cross-mod.lua")()
 
 -- Load the atlases
-NFS.load(SMODS.current_mod.path .. "/content/atlas.lua")()
+SMODS.load_file("content/atlas.lua")()
 
 -- Load Jokers if they are enabled
 if PB_UTIL.config.jokers_enabled then
