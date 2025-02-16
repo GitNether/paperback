@@ -236,7 +236,6 @@ function PB_UTIL.calculate_stick_xMult(card)
   return xMult
 end
 
--- Gets the number of unique suits in a scoring hand
 ---Gets the number of unique suits in a provided scoring hand
 ---@param scoring_hand table
 ---@return integer
