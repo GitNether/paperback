@@ -66,6 +66,7 @@ SMODS.Joker {
     end
 
     -- Reset the joker at the end of the ante
+    ---@diagnostic disable-next-line: undefined-field
     if context.end_of_round and context.main_eval and G.GAME.blind.boss and not context.blueprint then
       card.ability.extra.hands_played_this_ante = {}
 

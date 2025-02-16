@@ -23,16 +23,24 @@ if not SMODS.ObjectTypes.Food then
 end
 
 -- Checks if a string is a valid paperclip key
+---Checks if a string is a valid paperclip key
+---@param str string
+---@return boolean
 function PB_UTIL.is_paperclip(str)
   for _, v in ipairs(PB_UTIL.ENABLED_PAPERCLIPS) do
     if 'paperback_' .. v == str then
       return true
     end
   end
+  return false
 end
 
--- If found, the first value returned is the key, the second
--- is the config table of this clip
+---Checks if a card has a paperclip. If found, the first value returned is the key.
+---The second value returned is the config table of the supplied paperclip.
+---Returns nil if no paperclip is on the card.
+---@param card table
+---@return string | nil
+---@return table | nil
 function PB_UTIL.has_paperclip(card)
   for k, v in pairs(card and card.ability or {}) do
     if PB_UTIL.is_paperclip(k) then
@@ -41,8 +49,9 @@ function PB_UTIL.has_paperclip(card)
   end
 end
 
--- A playing card can only have one paperclip
---- @param type "blue" | "black" | "white"
+---Applies a paperclip with provided type to the provided card.
+---A playing card can only have a single paperclip.
+---@param type "blue" | "black" | "white"
 function PB_UTIL.set_paperclip(card, type)
   local key = 'paperback_' .. type .. '_clip'
 
@@ -58,6 +67,9 @@ function PB_UTIL.set_paperclip(card, type)
   end
 end
 
+---Checks if a provided card is classified as a "Food Joker"
+---@param card table
+---@return boolean
 function PB_UTIL.is_food(card)
   -- Accepts a key, a center or a card
   local key = (type(card) == "string" and card) or (card.key and card.key) or card.config.center_key
@@ -67,9 +79,11 @@ function PB_UTIL.is_food(card)
       if v.key == key then return true end
     end
   end
+  return false
 end
 
--- Gets all the food jokers in the G.jokers card area
+---Returns a table of all the Jokers classified as "Food Jokers" in the G.jokers cardarea
+---@return table
 function PB_UTIL.get_owned_food()
   local res = {}
 
@@ -84,7 +98,9 @@ function PB_UTIL.get_owned_food()
   return res
 end
 
--- Register a list of items in custom order
+---Registers a list of items in a custom order
+---@param items table
+---@param path string
 function PB_UTIL.register_items(items, path)
   for i = 1, #items do
     local status, err = pcall(function()
@@ -99,7 +115,11 @@ function PB_UTIL.register_items(items, path)
   end
 end
 
--- Registers a DeckSkin set
+---Registers a DeckSkin set
+---@param suits table
+---@param ranks table
+---@param filename string
+---@param descriptions table
 function PB_UTIL.register_deckskin_set(suits, ranks, filename, descriptions)
   local atlas_hc = SMODS.Atlas {
     key = filename .. "_hc",
@@ -142,6 +162,9 @@ function PB_UTIL.register_deckskin_set(suits, ranks, filename, descriptions)
   end
 end
 
+---Reverses a provided table
+---@param t table
+---@return table
 function PB_UTIL.reverse_table(t)
   local reversed = {}
   for i = #t, 1, -1 do
@@ -150,6 +173,9 @@ function PB_UTIL.reverse_table(t)
   return reversed
 end
 
+---comment
+---@param vanilla_ranks table
+---@return integer
 function PB_UTIL.get_complete_suits(vanilla_ranks)
   if not G.playing_cards then return 0 end
 
@@ -178,6 +204,9 @@ function PB_UTIL.get_complete_suits(vanilla_ranks)
   return amount
 end
 
+---Modifies the sell value of a provided card by the provided amount
+---@param card table
+---@param amount integer
 function PB_UTIL.modify_sell_value(card, amount)
   if not card.set_cost or amount == 0 then return end
 
@@ -190,6 +219,9 @@ function PB_UTIL.modify_sell_value(card, amount)
   card:set_cost()
 end
 
+---Calculates the xMult provided by the supplied Stick Joker (card)
+---@param card table
+---@return number
 function PB_UTIL.calculate_stick_xMult(card)
   local xMult = card.ability.extra.xMult
 
@@ -206,6 +238,9 @@ function PB_UTIL.calculate_stick_xMult(card)
 end
 
 -- Gets the number of unique suits in a scoring hand
+---Gets the number of unique suits in a provided scoring hand
+---@param scoring_hand table
+---@return integer
 function PB_UTIL.get_unique_suits(scoring_hand)
   -- Initialize the suits table
   local suits = {}
@@ -239,16 +274,10 @@ function PB_UTIL.get_unique_suits(scoring_hand)
   return unique_suits
 end
 
-function PB_UTIL.is_in_your_collection(card)
-  if not G.your_collection then return false end
-  for i = 1, 3 do
-    if (G.your_collection[i] and card.area == G.your_collection[i]) then return true end
-  end
-  return false
-end
-
--- Adds a booster pack with the specified key to the shop
--- Does nothing if the shop doesn't exist
+---Adds a booster pack with the specified key to the shop.
+---Does nothing if the shop does not exist
+---@param key string
+---@param price number?
 function PB_UTIL.add_booster_pack(key, price)
   if not G.shop then return end
 
@@ -274,7 +303,9 @@ function PB_UTIL.add_booster_pack(key, price)
   G.shop_booster:emplace(pack)
 end
 
--- Gets a pseudorandom tag from the Tag pool
+---Gets a pseudorandom tag from the Tag pool
+---@param seed string
+---@return table
 function PB_UTIL.poll_tag(seed)
   -- This part is basically a copy of how the base game does it
   -- Look at get_next_tag_key in common_events.lua
@@ -304,7 +335,10 @@ function PB_UTIL.poll_tag(seed)
   return tag
 end
 
--- Gets a psuedorandom consumable from the Consumables pool (Soul and Black Hole included)
+---Gets a pseudorandom consumable from the Consumables pool (Soul and Black Hole included)
+---@param seed string
+---@param soulable boolean
+---@return table
 function PB_UTIL.poll_consumable(seed, soulable)
   local types = {}
 
@@ -320,8 +354,10 @@ function PB_UTIL.poll_consumable(seed, soulable)
   }
 end
 
--- This is used for jokers that need to destroy cards outside
--- of the "destroy_card" context
+---This is used for Jokers that need to destroy cards outside of the "destroy_card" context
+---@param destroyed_cards table
+---@param card table?
+---@param effects table?
 function PB_UTIL.destroy_playing_cards(destroyed_cards, card, effects)
   G.E_MANAGER:add_event(Event({
     func = function()
@@ -366,6 +402,9 @@ function PB_UTIL.destroy_playing_cards(destroyed_cards, card, effects)
   end
 end
 
+---Destroys the provided Joker
+---@param card table
+---@param after function?
 function PB_UTIL.destroy_joker(card, after)
   G.E_MANAGER:add_event(Event({
     func = function()
@@ -394,8 +433,11 @@ function PB_UTIL.destroy_joker(card, after)
   }))
 end
 
--- This function is basically a copy of how the base game does the flipping
--- animation on playing cards when using a consumable that modifies them
+---This function is basically a copy of how the base game does the flipping animation
+---on playing cards when using a consumable that modifies them
+---@param card table
+---@param cards_to_flip table
+---@param action function?
 function PB_UTIL.use_consumable_animation(card, cards_to_flip, action)
   -- If it's not a list, make it one
   if cards_to_flip and not cards_to_flip[1] then
@@ -475,7 +517,8 @@ function PB_UTIL.use_consumable_animation(card, cards_to_flip, action)
   end
 end
 
--- Gets a sorted list of all ranks in descending order
+---Gets a sorted list of all ranks in descending order
+---@return table
 function PB_UTIL.get_sorted_ranks()
   local ranks = {}
 
@@ -490,24 +533,37 @@ function PB_UTIL.get_sorted_ranks()
   return ranks
 end
 
+---Gets a rank's string value from a supplied id
+---@param id string
+---@return table | nil
 function PB_UTIL.get_rank_from_id(id)
   for k, v in pairs(SMODS.Ranks) do
     if v.id == id then return v end
   end
+
+  return nil
 end
 
 ---Returns whether the first rank is higher than the second
----@param rank1 table
----@param rank2 table
+---@param rank1 table | string
+---@param rank2 table | string
 ---@param allow_equal? boolean
 ---@return boolean
 function PB_UTIL.compare_ranks(rank1, rank2, allow_equal)
   if type(rank1) ~= "table" then
-    rank1 = PB_UTIL.get_rank_from_id(rank1)
+    local result = PB_UTIL.get_rank_from_id(rank1)
+
+    if result then
+      rank1 = result
+    end
   end
 
   if type(rank2) ~= "table" then
-    rank2 = PB_UTIL.get_rank_from_id(rank2)
+    local result = PB_UTIL.get_rank_from_id(rank2)
+
+    if result then
+      rank2 = result
+    end
   end
 
   local comp = function(a, b)
@@ -530,7 +586,7 @@ end
 
 ---Checks if the provided suit is currently in the deck
 ---@param suit string
----@param ignore_wild boolean
+---@param ignore_wild? boolean
 ---@return boolean
 function PB_UTIL.has_suit_in_deck(suit, ignore_wild)
   for _, v in ipairs(G.playing_cards or {}) do
