@@ -496,7 +496,11 @@ function PB_UTIL.get_rank_from_id(id)
   end
 end
 
--- Returns whether the first rank is higher than the second
+---Returns whether the first rank is higher than the second
+---@param rank1 table
+---@param rank2 table
+---@param allow_equal? boolean
+---@return boolean
 function PB_UTIL.compare_ranks(rank1, rank2, allow_equal)
   if type(rank1) ~= "table" then
     rank1 = PB_UTIL.get_rank_from_id(rank1)
@@ -513,18 +517,44 @@ function PB_UTIL.compare_ranks(rank1, rank2, allow_equal)
   return comp(rank1.sort_nominal, rank2.sort_nominal)
 end
 
--- Used to check whether a card is a light or dark suit
---- @param type 'light' | 'dark'
+---Used to check whether a card is a light or dark suit
+---@param card table
+---@param type 'light' | 'dark'
+---@return boolean
 function PB_UTIL.is_suit(card, type)
   for _, v in ipairs(type == 'light' and PB_UTIL.light_suits or PB_UTIL.dark_suits) do
     if card:is_suit(v) then return true end
   end
+  return false
 end
 
+---Checks if the provided suit is currently in the deck
+---@param suit string
+---@param ignore_wild boolean
+---@return boolean
 function PB_UTIL.has_suit_in_deck(suit, ignore_wild)
   for _, v in ipairs(G.playing_cards or {}) do
     if not SMODS.has_no_suit(v) and (v.base.suit == suit or (not ignore_wild and v:is_suit(suit))) then
       return true
     end
   end
+  return false
+end
+
+-- Checks if a spectrum hand has been played
+--- @return boolean
+function PB_UTIL.spectrum_played()
+  local spectrum_played = false
+  if G and G.GAME and G.GAME.hands then
+    for k, v in pairs(G.GAME.hands) do
+      if string.find(k, "Spectrum", nil, true) then
+        if G.GAME.hands[k].played > 0 then
+          spectrum_played = true
+          break
+        end
+      end
+    end
+  end
+
+  return spectrum_played
 end

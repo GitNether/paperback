@@ -5,5 +5,14 @@
   "Lua.format.defaultConfig": {
     "align_continuous_assign_statement": "false"
   },
-  "Lua.workspace.library": ["../lovely/dump", "../smods"]
+  "Lua.workspace.library": [
+    "../lovely/dump",
+    "../smods"
+  ],
+  "Lua.runtime.version": "Lua 5.1",
+  "Lua.codeLens.enable": true,
+  "Lua.completion.callSnippet": "Disable",
+  "Lua.hint.enable": true,
+  "Lua.hint.setType": true,
+  "Lua.type.inferParamType": false
 }

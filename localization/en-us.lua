@@ -778,6 +778,20 @@ return {
         }
       }
     },
+    Planet = {
+      c_paperback_quaoar = {
+        name = "Quaoar",
+      },
+      c_paperback_haumea = {
+        name = "Haumea",
+      },
+      c_paperback_sedna = {
+        name = "Sedna",
+      },
+      c_paperback_makemake = {
+        name = "Makemake",
+      },
+    },
     Enhanced = {
       m_paperback_porcelain = {
         name = "Porcelain Card",
@@ -880,7 +894,7 @@ return {
           "to be used immediately"
         }
       }
-    }
+    },
   },
   misc = {
     dictionary = {
@@ -930,6 +944,30 @@ return {
     suits_plural = {
       paperback_Crowns = "Crowns",
       paperback_Stars = 'Stars'
+    },
+    poker_hands = {
+      ['paperback_Spectrum'] = "Spectrum",
+      ['paperback_Straight Spectrum'] = "Straight Spectrum",
+      ['paperback_Straight Spectrum (Royal)'] = "Royal Spectrum",
+      ['paperback_Spectrum House'] = "Spectrum House",
+      ['paperback_Spectrum Five'] = "Spectrum Five",
+    },
+    poker_hand_descriptions = {
+      ['paperback_Spectrum'] = {
+        "5 cards with different suits"
+      },
+      ['paperback_Straight Spectrum'] = {
+        "5 cards in a row (consecutive ranks),",
+        "each with a different suit"
+      },
+      ['paperback_Spectrum House'] = {
+        "A Three of a Kind and a Pair with",
+        "each card having a different suit"
+      },
+      ['paperback_Spectrum Five'] = {
+        "5 cards with the same rank,",
+        "each with a different suit"
+      },
     },
     labels = {
       paperback_red_clip = "Red Clip",

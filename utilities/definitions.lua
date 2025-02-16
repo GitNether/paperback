@@ -257,6 +257,25 @@ PB_UTIL.ENABLED_ENHANCEMENTS = {
   "porcelain",
 }
 
+PB_UTIL.ENABLED_SUITS = {
+  'crowns',
+  'stars',
+}
+
+PB_UTIL.ENABLED_POKER_HANDS = {
+  'spectrum',
+  'straight_spectrum',
+  'spectrum_house',
+  'spectrum_five',
+}
+
+PB_UTIL.ENABLED_PLANETS = {
+  'quaoar',
+  'haumea',
+  'sedna',
+  'makemake',
+}
+
 -- Define Paperclip object
 if PB_UTIL.config.paperclips_enabled then
   PB_UTIL.Paperclip = SMODS.Sticker:extend {
@@ -277,6 +296,23 @@ if PB_UTIL.config.paperclips_enabled then
     apply = function(self, card, val)
       card.ability[self.key] = val and copy_table(self.config) or nil
     end
+  }
+end
+
+if PB_UTIL.config.suits_enabled then
+  PB_UTIL.Planet = SMODS.Consumable:extend {
+    set = "Planet",
+
+    -- Since the description of all planets is the same, we just copy it from a random one
+    -- The name of this planet still needs to be specified in the localization file
+    process_loc_text = function(self)
+      G.localization.descriptions[self.set][self.key] = {
+        text = G.localization.descriptions[self.set].c_mercury.text
+      }
+    end,
+
+    -- By making this not a function, the game will use the vanilla UI generation
+    generate_ui = 'Nope!'
   }
 end
 

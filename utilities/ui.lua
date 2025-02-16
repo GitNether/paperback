@@ -65,6 +65,13 @@ SMODS.current_mod.extra_tabs = function()
                 { n = G.UIT.T, config = { text = 'PaperMoon', colour = G.C.MULT, scale = 0.4 } }
               }
             },
+            {
+              n = G.UIT.R,
+              config = { align = 'cm', minh = 0.25 },
+              nodes = {
+                { n = G.UIT.T, config = { text = '「S_C_R_U_B_Y」', colour = G.C.MULT, scale = 0.4 } }
+              }
+            },
           }
         },
         {
