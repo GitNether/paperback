@@ -434,7 +434,7 @@ end
 ---This function is basically a copy of how the base game does the flipping animation
 ---on playing cards when using a consumable that modifies them
 ---@param card table
----@param cards_to_flip table
+---@param cards_to_flip table?
 ---@param action function?
 function PB_UTIL.use_consumable_animation(card, cards_to_flip, action)
   -- If it's not a list, make it one
@@ -532,7 +532,7 @@ function PB_UTIL.get_sorted_ranks()
 end
 
 ---Gets a rank's string value from a supplied id
----@param id string
+---@param id integer
 ---@return table | nil
 function PB_UTIL.get_rank_from_id(id)
   for k, v in pairs(SMODS.Ranks) do
@@ -543,8 +543,8 @@ function PB_UTIL.get_rank_from_id(id)
 end
 
 ---Returns whether the first rank is higher than the second
----@param rank1 table | string
----@param rank2 table | string
+---@param rank1 table | integer
+---@param rank2 table | integer
 ---@param allow_equal? boolean
 ---@return boolean
 function PB_UTIL.compare_ranks(rank1, rank2, allow_equal)
