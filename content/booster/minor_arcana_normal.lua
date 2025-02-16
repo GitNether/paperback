@@ -7,7 +7,7 @@ SMODS.Booster {
     extra = 4,
     choose = 1
   },
-  weight = 0.75,
+  weight = 1,
   cost = 5,
   draw_hand = true,
   discovered = true,
