@@ -238,38 +238,49 @@ end
 
 ---Gets the number of unique suits in a provided scoring hand
 ---@param scoring_hand table
+---@param bypass_debuff boolean?
+---@param flush_calc boolean?
 ---@return integer
-function PB_UTIL.get_unique_suits(scoring_hand)
-  -- Initialize the suits table
+function PB_UTIL.get_unique_suits(scoring_hand, bypass_debuff, flush_calc)
+  -- Set each suit's count to 0
   local suits = {}
 
-  for k, v in pairs(SMODS.Suits) do
+  for k, _ in pairs(SMODS.Suits) do
     suits[k] = 0
   end
 
-  -- Check for unique suits in scoring_hand
-  for i = 1, #scoring_hand do
-    local scoring_card = scoring_hand[i]
-
-    for scoring_suit, _ in pairs(suits) do
-      if suits[scoring_suit] == 0 and scoring_card:is_suit(scoring_suit, true) then
-        suits[scoring_suit] = 1
-
-        -- Stop checking other suits if it's a Wild Card
-        if scoring_card.ability.name == 'Wild Card' then
+  -- First we cover all the non Wild Cards in the hand
+  for _, card in ipairs(scoring_hand) do
+    if not SMODS.has_any_suit(card) then
+      for suit, count in pairs(suits) do
+        if card:is_suit(suit, bypass_debuff, flush_calc) and count == 0 then
+          suits[suit] = count + 1
           break
         end
       end
     end
   end
 
-  local unique_suits = 0
-
-  for _, v in pairs(suits) do
-    unique_suits = unique_suits + v
+  -- Then we cover Wild Cards, filling the missing suits
+  for _, card in ipairs(scoring_hand) do
+    if SMODS.has_any_suit(card) then
+      for suit, count in pairs(suits) do
+        if card:is_suit(suit, bypass_debuff, flush_calc) and count == 0 then
+          suits[suit] = count + 1
+          break
+        end
+      end
+    end
   end
 
-  return unique_suits
+  -- Count the amount of suits that were found
+  local num_suits = 0
+
+  for _, v in pairs(suits) do
+    if v > 0 then num_suits = num_suits + 1 end
+  end
+
+  return num_suits
 end
 
 ---Adds a booster pack with the specified key to the shop.
@@ -613,6 +624,7 @@ function PB_UTIL.spectrum_played()
   return spectrum_played
 end
 
+--- @return boolean
 function PB_UTIL.has_modded_suit_in_deck()
   for k, v in ipairs(G.playing_cards or {}) do
     local is_modded = true
@@ -626,4 +638,5 @@ function PB_UTIL.has_modded_suit_in_deck()
       return true
     end
   end
+  return false
 end

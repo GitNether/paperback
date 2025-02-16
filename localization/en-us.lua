@@ -343,9 +343,10 @@ return {
       j_paperback_pride_flag_spectrums = {
         name = "Pride Flag",
         text = {
-          "Gains {C:chips}+#1#{} Chips if the",
-          "played hand contains a {C:attention}Spectrum{}",
-          "Resets if played hand contains a {C:attention}Straight{}",
+          "Gains {C:chips}+#1#{} Chips if the played",
+          "hand contains a {C:attention}Spectrum",
+          "Resets if the played hand",
+          "contains a {C:attention}Straight",
           "{C:inactive}(Currently {C:chips}+#2#{} {C:inactive}Chips)"
         },
       },
