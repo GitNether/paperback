@@ -41,6 +41,13 @@ PB_UTIL.base_rarities = {
   "Legendary"
 }
 
+PB_UTIL.base_suits = {
+  "Spades",
+  "Hearts",
+  "Clubs",
+  "Diamonds"
+}
+
 -- Define light and dark suits
 PB_UTIL.light_suits = { 'Diamonds', 'Hearts' }
 PB_UTIL.dark_suits = { 'Spades', 'Clubs' }

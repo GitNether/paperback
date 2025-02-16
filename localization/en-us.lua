@@ -345,7 +345,7 @@ return {
         text = {
           "Gains {C:chips}+#1#{} Chips if the",
           "played hand contains a {C:attention}Spectrum{}",
-          "Resets if a {C:attention}Straight{} is played",
+          "Resets if played hand contains a {C:attention}Straight{}",
           "{C:inactive}(Currently {C:chips}+#2#{} {C:inactive}Chips)"
         },
       },
