@@ -15,6 +15,6 @@
   "version": "0.6.0-pre1",
   "dependencies": [
     "Steamodded (>=1.0.0~ALPHA-1415c)",
-    "Lovely (>=0.7)"
+    "Lovely (>=0.7.1)"
   ]
 }
