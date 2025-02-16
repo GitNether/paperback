@@ -1,3 +1,4 @@
+---@diagnostic disable: duplicate-set-field, lowercase-global
 -- Creates the flags
 local BackApply_to_run_ref = Back.apply_to_run
 function Back.apply_to_run(arg_56_0)

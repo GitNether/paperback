@@ -248,6 +248,7 @@ end
 
 -- Returns a table that can be inserted into info_queue to show all suits of the provided type
 --- @param type 'light' | 'dark'
+--- @return table
 function PB_UTIL.suit_tooltip(type)
   local suits = type == 'light' and PB_UTIL.light_suits or PB_UTIL.dark_suits
   local key = 'paperback_' .. type .. '_suits'
@@ -298,6 +299,7 @@ function PB_UTIL.suit_tooltip(type)
 end
 
 --- @param type "blue" | "black" | "white"
+--- @return table | nil
 function PB_UTIL.paperclip_tooltip(type)
   local key = 'paperback_' .. type .. '_clip'
   local paperclip = SMODS.Stickers[key]
