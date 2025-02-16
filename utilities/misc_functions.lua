@@ -137,7 +137,7 @@ function PB_UTIL.register_deckskin_set(suits, ranks, filename, descriptions)
   for i, suit in ipairs(suits) do
     SMODS.DeckSkin {
       key = filename .. "_" .. suit .. "_skin",
-      suit = suit:gsub("^%l", string.upper),
+      suit = suit,
       loc_txt = {
         ['en-us'] = descriptions[i]
       },
@@ -155,6 +155,7 @@ function PB_UTIL.register_deckskin_set(suits, ranks, filename, descriptions)
           display_ranks = PB_UTIL.reverse_table(ranks),
           atlas = atlas_hc.key,
           pos_style = 'deck',
+          hc_default = true,
         }
       },
     }
