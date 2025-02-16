@@ -11,30 +11,45 @@ SMODS.current_mod.config_tab = function()
           { n = G.UIT.T, config = { text = localize('paperback_ui_requires_restart'), colour = G.C.RED, scale = 0.5 } }
         }
       },
-      create_toggle {
-        label = localize('paperback_ui_enable_jokers'),
-        ref_table = PB_UTIL.config,
-        ref_value = 'jokers_enabled'
-      },
-      create_toggle {
-        label = localize('paperback_ui_enable_minor_arcana'),
-        ref_table = PB_UTIL.config,
-        ref_value = 'minor_arcana_enabled'
-      },
-      create_toggle {
-        label = localize('paperback_ui_custom_suits_enabled'),
-        ref_table = PB_UTIL.config,
-        ref_value = 'suits_enabled'
-      },
-      create_toggle {
-        label = localize('paperback_ui_enable_enhancements'),
-        ref_table = PB_UTIL.config,
-        ref_value = 'enhancements_enabled'
-      },
-      create_toggle {
-        label = localize('paperback_ui_enable_paperclips'),
-        ref_table = PB_UTIL.config,
-        ref_value = 'paperclips_enabled'
+      {
+        n = G.UIT.R,
+        nodes = {
+          {
+            n = G.UIT.C,
+            nodes = {
+              create_toggle {
+                label = localize('paperback_ui_enable_jokers'),
+                ref_table = PB_UTIL.config,
+                ref_value = 'jokers_enabled',
+              },
+              create_toggle {
+                label = localize('paperback_ui_enable_minor_arcana'),
+                ref_table = PB_UTIL.config,
+                ref_value = 'minor_arcana_enabled',
+              },
+              create_toggle {
+                label = localize('paperback_ui_custom_suits_enabled'),
+                ref_table = PB_UTIL.config,
+                ref_value = 'suits_enabled',
+              }
+            }
+          },
+          {
+            n = G.UIT.C,
+            nodes = {
+              create_toggle {
+                label = localize('paperback_ui_enable_enhancements'),
+                ref_table = PB_UTIL.config,
+                ref_value = 'enhancements_enabled',
+              },
+              create_toggle {
+                label = localize('paperback_ui_enable_paperclips'),
+                ref_table = PB_UTIL.config,
+                ref_value = 'paperclips_enabled',
+              }
+            }
+          }
+        }
       }
     }
   }
