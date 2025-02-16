@@ -22,7 +22,6 @@ if not SMODS.ObjectTypes.Food then
   }
 end
 
--- Checks if a string is a valid paperclip key
 ---Checks if a string is a valid paperclip key
 ---@param str string
 ---@return boolean
