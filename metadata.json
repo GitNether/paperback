@@ -14,7 +14,7 @@
   "badge_colour": "8b61ad",
   "version": "0.6.0-pre1",
   "dependencies": [
-    "Steamodded (>=1.0.0~ALPHA-1409a)",
-    "Lovely (>=0.6)"
+    "Steamodded (>=1.0.0~ALPHA-1415c)",
+    "Lovely (>=0.7)"
   ]
 }
