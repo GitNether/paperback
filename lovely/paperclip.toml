@@ -24,13 +24,22 @@ end
 [patches.pattern]
 target = "functions/UI_definitions.lua"
 pattern = 'badges[#badges + 1] = create_badge(localize(v, "labels"), get_badge_colour(v))'
-position = "after"
+position = "before"
 match_indent = true
 payload = '''
 if PB_UTIL and card and card.ability then
   local key = PB_UTIL.has_paperclip(card)
   if key then
-    badges[#badges] = create_badge(localize(v, "labels"), get_badge_colour(v), SMODS.Stickers[key].badge_text_colour)
+    badges[#badges + 1] = create_badge(localize(v, "labels"), get_badge_colour(v), SMODS.Stickers[key].badge_text_colour)
   end
-end
+else
 '''
+
+# Close the if statement started above
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = 'badges[#badges + 1] = create_badge(localize(v, "labels"), get_badge_colour(v))'
+position = "after"
+match_indent = true
+payload = "end"
