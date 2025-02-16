@@ -3,7 +3,7 @@ if PB_UTIL.config.suits_enabled then
     key = 'pride_flag_spectrums',
     config = {
       extra = {
-        a_chips = 5,
+        a_chips = 12,
         chips = 0,
       }
     },
