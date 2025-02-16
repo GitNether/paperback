@@ -612,3 +612,18 @@ function PB_UTIL.spectrum_played()
 
   return spectrum_played
 end
+
+function PB_UTIL.has_modded_suit_in_deck()
+  for k, v in ipairs(G.playing_cards or {}) do
+    local is_modded = true
+    for _, suit in ipairs(PB_UTIL.base_suits) do
+      if v.base.suit == suit then
+        is_modded = false
+      end
+    end
+
+    if not SMODS.has_no_suit(v) and is_modded then
+      return true
+    end
+  end
+end

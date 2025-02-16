@@ -340,7 +340,16 @@ return {
           "per {C:attention}card{} discarded",
         },
       },
-      j_paperback_pride_flag = {
+      j_paperback_pride_flag_spectrums = {
+        name = "Pride Flag",
+        text = {
+          "Gains {C:chips}+#1#{} Chips if the",
+          "played hand contains a {C:attention}Spectrum{}",
+          "Resets if a {C:attention}Straight{} is played",
+          "{C:inactive}(Currently {C:chips}+#2#{} {C:inactive}Chips)"
+        },
+      },
+      j_paperback_pride_flag_no_spectrums = {
         name = "Pride Flag",
         text = {
           "Gains {C:mult}+#1#{} Mult if scored hand",
