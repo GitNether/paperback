@@ -27,11 +27,9 @@ pattern = 'badges[#badges + 1] = create_badge(localize(v, "labels"), get_badge_c
 position = "before"
 match_indent = true
 payload = '''
-if PB_UTIL and card and card.ability then
-  local key = PB_UTIL.has_paperclip(card)
-  if key then
-    badges[#badges + 1] = create_badge(localize(v, "labels"), get_badge_colour(v), SMODS.Stickers[key].badge_text_colour)
-  end
+local pb_key = PB_UTIL.has_paperclip(card)
+if pb_key then
+  badges[#badges + 1] = create_badge(localize(v, "labels"), get_badge_colour(v), SMODS.Stickers[pb_key].badge_text_colour)
 else
 '''
 
