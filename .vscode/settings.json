@@ -14,5 +14,20 @@
   "Lua.completion.callSnippet": "Disable",
   "Lua.hint.enable": true,
   "Lua.hint.setType": true,
-  "Lua.type.inferParamType": false
+  "Lua.type.inferParamType": false,
+  "editor.quickSuggestions": {
+    "other": "off"
+  },
+  "Lua.diagnostics.globals": [
+    "to_big",
+    "to_number",
+    "Event",
+    "create_UIBox_your_collection_stickers",
+    "create_UIBox_Other_GameObjects",
+    "hand_chips",
+    "mult",
+    "love",
+    "Back"
+  ],
+  "Lua.diagnostics.libraryFiles": "Disable"
 }

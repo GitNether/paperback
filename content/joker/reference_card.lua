@@ -17,7 +17,7 @@ SMODS.Joker {
   soul_pos = nil,
 
   set_ability = function(self, card, initial, delay_sprites)
-    calculate_highest_shared_played(card)
+    PB_UTIL.calculate_highest_shared_played(card)
   end,
 
   loc_vars = function(self, info_queue, card)
@@ -32,7 +32,7 @@ SMODS.Joker {
   calculate = function(self, card, context)
     -- Gives the xMult during play
     if context.joker_main then
-      calculate_highest_shared_played(card)
+      PB_UTIL.calculate_highest_shared_played(card)
 
       if card.ability.extra.x_mult ~= 1 then
         return {
@@ -46,7 +46,7 @@ SMODS.Joker {
 
 
 -- Helper function to find the mininum played hand in G.GAME.hands in all base poker hands
-function calculate_highest_shared_played(card)
+function PB_UTIL.calculate_highest_shared_played(card)
   local hands = G.GAME.hands
 
   local min_played = hands[PB_UTIL.base_poker_hands[1]].played
