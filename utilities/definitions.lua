@@ -257,11 +257,23 @@ PB_UTIL.ENABLED_ENHANCEMENTS = {
   "porcelain",
 }
 
+PB_UTIL.ENABLED_SUITS = {
+  'crowns',
+  'stars',
+}
+
 PB_UTIL.ENABLED_POKER_HANDS = {
   'spectrum',
   'straight_spectrum',
   'spectrum_house',
   'spectrum_five',
+}
+
+PB_UTIL.ENABLED_PLANETS = {
+  'quaoar',
+  'haumea',
+  'sedna',
+  'makemake',
 }
 
 -- Define Paperclip object

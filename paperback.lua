@@ -10,12 +10,12 @@ NFS.load(SMODS.current_mod.path .. "/utilities/cross-mod.lua")()
 -- Load the atlases
 NFS.load(SMODS.current_mod.path .. "/content/atlas.lua")()
 
--- Only load jokers if they are enabled in the config
+-- Load Jokers if they are enabled
 if PB_UTIL.config.jokers_enabled then
   PB_UTIL.register_items(PB_UTIL.ENABLED_JOKERS, "content/joker")
 end
 
--- Only load minor arcana if they are enabled in config
+-- Load Minor Arcana if they are enabled
 if PB_UTIL.config.minor_arcana_enabled then
   -- Register the consumable type to be used by Minor Arcana
   SMODS.ConsumableType {
@@ -35,11 +35,12 @@ if PB_UTIL.config.minor_arcana_enabled then
   PB_UTIL.register_items(PB_UTIL.ENABLED_MINOR_ARCANA_BOOSTERS, "content/booster")
 end
 
--- Only load enhancements if they are enabled in the config
+-- Load enhancements if they are enabled
 if PB_UTIL.config.enhancements_enabled then
   PB_UTIL.register_items(PB_UTIL.ENABLED_ENHANCEMENTS, "content/enhancement")
 end
 
+-- Load Paperclips if they are enabled
 if PB_UTIL.config.paperclips_enabled then
   PB_UTIL.register_items(PB_UTIL.ENABLED_PAPERCLIPS, "content/paperclip")
 end
@@ -47,54 +48,14 @@ end
 -- Register DeckSkins for Friends of Paperback
 PB_UTIL.register_items(PB_UTIL.ENABLED_DECK_SKINS, "content/friends_of_paperback")
 
--- Load custom suit "Crowns" and "Stars" only if enabled
+-- Load custom suits and spectrums if they are enabled
 if PB_UTIL.config.suits_enabled then
-  SMODS.Suit {
-    key = 'Stars',
-    card_key = 'STARS',
-
-    lc_atlas = 'suits_lc',
-    lc_ui_atlas = 'suits_ui_lc',
-    lc_colour = G.C.PAPERBACK_STARS_LC,
-
-    hc_atlas = 'suits_hc',
-    hc_ui_atlas = 'suits_ui_hc',
-    hc_colour = G.C.PAPERBACK_STARS_HC,
-
-    pos = { y = 0 },
-    ui_pos = { x = 0, y = 1 },
-
-    in_pool = function(self, args)
-      -- Only add this suit to pool when not creating a deck
-      return not (args and args.initial_deck) and PB_UTIL.has_suit_in_deck('paperback_Stars', true)
-    end
-  }
-
-  SMODS.Suit {
-    key = 'Crowns',
-    card_key = 'CROWNS',
-
-    lc_atlas = 'suits_lc',
-    lc_ui_atlas = 'suits_ui_lc',
-    lc_colour = G.C.PAPERBACK_CROWNS_LC,
-
-    hc_atlas = 'suits_hc',
-    hc_ui_atlas = 'suits_ui_hc',
-    hc_colour = G.C.PAPERBACK_CROWNS_HC,
-
-    pos = { y = 1 },
-    ui_pos = { x = 0, y = 0 },
-
-    in_pool = function(self, args)
-      -- Only add this suit to pool when not creating a deck
-      return not (args and args.initial_deck) and PB_UTIL.has_suit_in_deck('paperback_Crowns', true)
-    end
-  }
+  PB_UTIL.register_items(PB_UTIL.ENABLED_SUITS, "content/suit")
 
   -- Register Spectrum poker hand some other Spectrum mods are not installed
   if not (next(SMODS.find_mod('Bunco') or next(SMODS.find_mod("SixSuits") or next(SMODS.find_mod("SpectrumFramework"))))) then
     PB_UTIL.register_items(PB_UTIL.ENABLED_POKER_HANDS, "content/pokerhand")
-    NFS.load(SMODS.current_mod.path .. "/content/planet/quaoar.lua")()
+    PB_UTIL.register_items(PB_UTIL.ENABLED_PLANETS, "content/planet")
   end
 end
 
