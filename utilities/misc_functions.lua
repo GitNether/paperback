@@ -173,8 +173,8 @@ function PB_UTIL.reverse_table(t)
   return reversed
 end
 
----comment
----@param vanilla_ranks table
+---Gets the number of complete suits that the user has in their deck
+---@param vanilla_ranks boolean
 ---@return integer
 function PB_UTIL.get_complete_suits(vanilla_ranks)
   if not G.playing_cards then return 0 end
