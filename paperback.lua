@@ -48,21 +48,25 @@ end
 -- Register DeckSkins for Friends of Paperback
 local skins = {
   steven_universe = {
+    name = 'Steven Universe',
     'Spades'
   },
   atlyss = {
+    name = 'Atlyss',
     'Clubs'
   },
   flight_knight = {
+    name = 'Flight Knight',
     'Hearts'
   },
   hylics = {
+    name = 'Hylics',
     'Diamonds'
   }
 }
 
-for skin, suits in pairs(skins) do
-  for _, suit in ipairs(suits) do
+for skin, data in pairs(skins) do
+  for _, suit in ipairs(data) do
     local key = skin .. "_" .. suit:lower()
 
     local atlas_lc = SMODS.Atlas {
@@ -82,6 +86,9 @@ for skin, suits in pairs(skins) do
     SMODS.DeckSkin {
       key = key,
       suit = suit,
+      loc_txt = {
+        ['en-us'] = data.name
+      },
       palettes = {
         {
           key = 'lc',
