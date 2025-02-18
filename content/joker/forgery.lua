@@ -96,7 +96,7 @@ SMODS.Joker {
           -- Multiply the returned effects if they're mult, xmult or chips
           for k, v in pairs(other_joker_ret) do
             if PB_UTIL.is_valid_forgery_effect(k) and type(v) == "number" then
-              other_joker_ret[k] = v * card.ability.extra.multiplier
+              PB_UTIL.modify_forgery_effect(card, k, v, other_joker_ret)
             end
           end
 
@@ -127,6 +127,40 @@ PB_UTIL.forgery_valid_effects = {
   'mult', 'h_mult', 'mult_mod',
   'x_mult', 'Xmult', 'xmult', 'x_mult_mod', 'Xmult_mod'
 }
+
+PB_UTIL.forgery_mod_effects = {
+  chip_mod = 'chips',
+  Xchip_mod = 'x_chips',
+  mult_mod = 'mult',
+  x_mult_mod = 'x_mult',
+  Xmult_mod = 'x_mult',
+}
+
+function PB_UTIL.modify_forgery_effect(card, key, value, effects)
+  local eff_type = PB_UTIL.forgery_mod_effects[key]
+
+  -- If the effect is a 'mod' effect
+  if eff_type then
+    -- Create what the message would look like
+    local message = localize {
+      type = 'variable',
+      key = 'a_' .. eff_type .. (value < 0 and '_minus' or ''),
+      vars = { value }
+    }
+
+    -- If the message sent by the other joker is the same as the expected one
+    -- we remove it so the actual multiplied value will show instead of the
+    -- original one
+    if effects.message == message then
+      effects.message = nil
+    end
+
+    -- Remove the 'mod' effect
+    effects[key] = nil
+  end
+
+  effects[eff_type or key] = value * card.ability.extra.multiplier
+end
 
 function PB_UTIL.is_valid_forgery_effect(effect)
   for _, v in ipairs(PB_UTIL.forgery_valid_effects) do

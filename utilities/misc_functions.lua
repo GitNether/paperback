@@ -527,6 +527,51 @@ function PB_UTIL.use_consumable_animation(card, cards_to_flip, action)
   end
 end
 
+--- Shows the "Nope!" text that Wheel of Fortune does when failing on top of a card
+--- @param card table
+--- @param color table? the color of the square that pops up, defaults to Tarot
+function PB_UTIL.show_nope_text(card, color)
+  -- This is all a copy of how the base game does it
+  G.E_MANAGER:add_event(Event({
+    trigger = 'after',
+    delay = 0.4,
+    func = function()
+      local booster = G.STATE == G.STATES.TAROT_PACK
+          or G.STATE == G.STATES.SPECTRAL_PACK
+          or G.STATE == G.STATES.SMODS_BOOSTER_OPENED
+
+      attention_text({
+        text = localize('k_nope_ex'),
+        scale = 1.3,
+        hold = 1.4,
+        major = card,
+        backdrop_colour = color or G.C.SECONDARY_SET.Tarot,
+        align = booster and 'tm' or 'cm',
+        offset = {
+          x = 0,
+          y = booster and -0.2 or 0
+        },
+        silent = true
+      })
+
+      G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.06 * G.SETTINGS.GAMESPEED,
+        blockable = false,
+        blocking = false,
+        func = function()
+          play_sound('tarot2', 0.76, 0.4)
+          return true
+        end
+      }))
+
+      play_sound('tarot2', 1, 0.4)
+      card:juice_up(0.3, 0.5)
+      return true
+    end
+  }))
+end
+
 ---Gets a sorted list of all ranks in descending order
 ---@return table
 function PB_UTIL.get_sorted_ranks()

@@ -14,6 +14,7 @@ SMODS.Joker {
 local calculate_joker_ref = Card.calculate_joker
 function Card.calculate_joker(self, context)
   local joker = next(SMODS.find_card('j_paperback_the_world'))
+  local ignores = (self.config.center.paperback or {}).ignores_the_world
 
   local previous = {
     hands_played = G.GAME.current_round.hands_played,
@@ -21,15 +22,15 @@ function Card.calculate_joker(self, context)
     discards_used = G.GAME.current_round.discards_used,
   }
 
-  if joker then
-    G.GAME.current_round.hands_played = 0
-    G.GAME.current_round.discards_used = 0
-    G.GAME.current_round.hands_left = 0
+  if joker and not ignores then
+    for k, _ in pairs(previous) do
+      G.GAME.current_round[k] = 0
+    end
   end
 
   local ret = calculate_joker_ref(self, context)
 
-  if joker then
+  if joker and not ignores then
     for k, v in pairs(previous) do
       G.GAME.current_round[k] = v
     end

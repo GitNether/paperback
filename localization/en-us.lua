@@ -38,9 +38,9 @@ return {
         name = "Legacy",
         text = {
           "When a non {C:attention}Enhanced card{} is",
-          "destroyed, adds {C:attention}double{} its {C:chips}chip",
-          "{C:chips}value{} as {C:mult}mult{} to this card",
-          "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
+          "destroyed, adds its {C:chips}chip value",
+          "as {C:mult}mult{} to this card",
+          "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)"
         }
       },
       j_paperback_backpack = {
@@ -734,7 +734,8 @@ return {
       c_paperback_ten_of_cups = {
         name = "Ten of Cups",
         text = {
-          "Add {C:dark_edition}Polychrome{} to",
+          "{C:green}#1# in #2#{} chance to add",
+          "{C:dark_edition}Polychrome{} edition to",
           "a selected card"
         }
       },

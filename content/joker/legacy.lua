@@ -2,8 +2,7 @@ SMODS.Joker {
   key = "legacy",
   config = {
     extra = {
-      mult = 0,
-      chip_mult = 2
+      mult = 0
     }
   },
   rarity = 3,
@@ -21,7 +20,6 @@ SMODS.Joker {
   loc_vars = function(self, info_queue, card)
     return {
       vars = {
-        card.ability.extra.chip_mult,
         card.ability.extra.mult
       }
     }
@@ -33,7 +31,7 @@ SMODS.Joker {
 
       for _, v in ipairs(context.removed) do
         if v.ability.set ~= "Enhanced" then
-          mult_gained = mult_gained + v:get_chip_bonus() * card.ability.extra.chip_mult
+          mult_gained = mult_gained + v:get_chip_bonus()
         end
       end
 

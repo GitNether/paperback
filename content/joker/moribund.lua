@@ -2,7 +2,7 @@ SMODS.Joker {
   key = 'moribund',
   config = {
     extra = {
-      a_mult = 10,
+      a_mult = 7,
       mult = 0,
     }
   },
