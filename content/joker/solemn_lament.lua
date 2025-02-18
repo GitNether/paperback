@@ -9,6 +9,9 @@ SMODS.Joker {
   blueprint_compat = true,
   eternal_compat = true,
   soul_pos = nil,
+  paperback = {
+    ignores_the_world = true
+  },
 
   calculate = function(self, card, context)
     if context.repetition and context.cardarea == G.play then
