@@ -254,19 +254,31 @@ PB_UTIL.ENABLED_MINOR_ARCANA = {
 PB_UTIL.DECK_SKINS = {
   steven_universe = {
     name = 'Steven Universe',
-    'Spades'
+    'Spades',
+    'paperback_Stars'
   },
   atlyss = {
     name = 'Atlyss',
-    'Clubs'
+    'Clubs',
+    'bunc_Fleurons'
   },
   flight_knight = {
     name = 'Flight Knight',
-    'Hearts'
+    'Hearts',
+    'bunc_Halberds'
   },
   hylics = {
     name = 'Hylics',
-    'Diamonds'
+    'Diamonds',
+    'paperback_Crowns'
+  },
+  steel_ball = {
+    name = "Steel Ball Run",
+    'paperback_Stars'
+  },
+  cult_of_the_lamb = {
+    name = "Cult of the Lamb",
+    'paperback_Crowns'
   }
 }
 

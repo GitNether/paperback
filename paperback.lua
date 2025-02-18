@@ -45,6 +45,17 @@ if PB_UTIL.config.paperclips_enabled then
   PB_UTIL.register_items(PB_UTIL.ENABLED_PAPERCLIPS, "content/paperclip")
 end
 
+-- Load custom suits and spectrums if they are enabled
+if PB_UTIL.config.suits_enabled then
+  PB_UTIL.register_items(PB_UTIL.ENABLED_SUITS, "content/suit")
+
+  -- Register Spectrum poker hand some other Spectrum mods are not installed
+  if not (next(SMODS.find_mod('Bunco') or next(SMODS.find_mod("SixSuits") or next(SMODS.find_mod("SpectrumFramework"))))) then
+    PB_UTIL.register_items(PB_UTIL.ENABLED_POKER_HANDS, "content/pokerhand")
+    PB_UTIL.register_items(PB_UTIL.ENABLED_PLANETS, "content/planet")
+  end
+end
+
 -- Register DeckSkins for Friends of Paperback
 for skin, data in pairs(PB_UTIL.DECK_SKINS) do
   for _, suit in ipairs(data) do
@@ -92,17 +103,6 @@ for skin, data in pairs(PB_UTIL.DECK_SKINS) do
         }
       }
     }
-  end
-end
-
--- Load custom suits and spectrums if they are enabled
-if PB_UTIL.config.suits_enabled then
-  PB_UTIL.register_items(PB_UTIL.ENABLED_SUITS, "content/suit")
-
-  -- Register Spectrum poker hand some other Spectrum mods are not installed
-  if not (next(SMODS.find_mod('Bunco') or next(SMODS.find_mod("SixSuits") or next(SMODS.find_mod("SpectrumFramework"))))) then
-    PB_UTIL.register_items(PB_UTIL.ENABLED_POKER_HANDS, "content/pokerhand")
-    PB_UTIL.register_items(PB_UTIL.ENABLED_PLANETS, "content/planet")
   end
 end
 
