@@ -46,26 +46,7 @@ if PB_UTIL.config.paperclips_enabled then
 end
 
 -- Register DeckSkins for Friends of Paperback
-local skins = {
-  steven_universe = {
-    name = 'Steven Universe',
-    'Spades'
-  },
-  atlyss = {
-    name = 'Atlyss',
-    'Clubs'
-  },
-  flight_knight = {
-    name = 'Flight Knight',
-    'Hearts'
-  },
-  hylics = {
-    name = 'Hylics',
-    'Diamonds'
-  }
-}
-
-for skin, data in pairs(skins) do
+for skin, data in pairs(PB_UTIL.DECK_SKINS) do
   for _, suit in ipairs(data) do
     local key = skin .. "_" .. suit:lower()
 

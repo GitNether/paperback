@@ -251,8 +251,23 @@ PB_UTIL.ENABLED_MINOR_ARCANA = {
   -- "king_of_pentacles",
 }
 
-PB_UTIL.ENABLED_DECK_SKINS = {
-  "set1",
+PB_UTIL.DECK_SKINS = {
+  steven_universe = {
+    name = 'Steven Universe',
+    'Spades'
+  },
+  atlyss = {
+    name = 'Atlyss',
+    'Clubs'
+  },
+  flight_knight = {
+    name = 'Flight Knight',
+    'Hearts'
+  },
+  hylics = {
+    name = 'Hylics',
+    'Diamonds'
+  }
 }
 
 PB_UTIL.ENABLED_MINOR_ARCANA_BOOSTERS = {
