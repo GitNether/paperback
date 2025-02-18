@@ -45,9 +45,6 @@ if PB_UTIL.config.paperclips_enabled then
   PB_UTIL.register_items(PB_UTIL.ENABLED_PAPERCLIPS, "content/paperclip")
 end
 
--- Register DeckSkins for Friends of Paperback
-PB_UTIL.register_items(PB_UTIL.ENABLED_DECK_SKINS, "content/friends_of_paperback")
-
 -- Load custom suits and spectrums if they are enabled
 if PB_UTIL.config.suits_enabled then
   PB_UTIL.register_items(PB_UTIL.ENABLED_SUITS, "content/suit")
@@ -56,6 +53,56 @@ if PB_UTIL.config.suits_enabled then
   if not (next(SMODS.find_mod('Bunco') or next(SMODS.find_mod("SixSuits") or next(SMODS.find_mod("SpectrumFramework"))))) then
     PB_UTIL.register_items(PB_UTIL.ENABLED_POKER_HANDS, "content/pokerhand")
     PB_UTIL.register_items(PB_UTIL.ENABLED_PLANETS, "content/planet")
+  end
+end
+
+-- Register DeckSkins for Friends of Paperback
+for skin, data in pairs(PB_UTIL.DECK_SKINS) do
+  for _, suit in ipairs(data) do
+    local key = skin .. "_" .. suit:lower()
+
+    -- Common ranks used in both palettes
+    local ranks = { 'Jack', 'Queen', 'King', 'Ace' }
+    local display_ranks = PB_UTIL.reverse_table(ranks)
+
+    local atlas_lc = SMODS.Atlas {
+      key = key .. '_lc',
+      path = 'collabs/' .. key .. '_lc.png',
+      px = 71,
+      py = 95
+    }
+
+    local atlas_hc = SMODS.Atlas {
+      key = key .. '_hc',
+      path = 'collabs/' .. key .. '_hc.png',
+      px = 71,
+      py = 95
+    }
+
+    SMODS.DeckSkin {
+      key = key,
+      suit = suit,
+      loc_txt = {
+        ['en-us'] = data.name
+      },
+      palettes = {
+        {
+          key = 'lc',
+          ranks = ranks,
+          display_ranks = display_ranks,
+          pos_style = 'ranks',
+          atlas = atlas_lc.key
+        },
+        {
+          key = 'hc',
+          ranks = ranks,
+          display_ranks = display_ranks,
+          pos_style = 'ranks',
+          atlas = atlas_hc.key,
+          hc_default = true
+        }
+      }
+    }
   end
 end
 
