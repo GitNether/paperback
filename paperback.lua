@@ -50,6 +50,10 @@ for skin, data in pairs(PB_UTIL.DECK_SKINS) do
   for _, suit in ipairs(data) do
     local key = skin .. "_" .. suit:lower()
 
+    -- Common ranks used in both palettes
+    local ranks = { 'Jack', 'Queen', 'King', 'Ace' }
+    local display_ranks = PB_UTIL.reverse_table(ranks)
+
     local atlas_lc = SMODS.Atlas {
       key = key .. '_lc',
       path = 'collabs/' .. key .. '_lc.png',
@@ -73,15 +77,15 @@ for skin, data in pairs(PB_UTIL.DECK_SKINS) do
       palettes = {
         {
           key = 'lc',
-          ranks = { 'Jack', 'Queen', 'King', 'Ace' },
-          display_ranks = { 'Ace', 'King', 'Queen', 'Jack' },
+          ranks = ranks,
+          display_ranks = display_ranks,
           pos_style = 'ranks',
           atlas = atlas_lc.key
         },
         {
           key = 'hc',
-          ranks = { 'Jack', 'Queen', 'King', 'Ace' },
-          display_ranks = { 'Ace', 'King', 'Queen', 'Jack' },
+          ranks = ranks,
+          display_ranks = display_ranks,
           pos_style = 'ranks',
           atlas = atlas_hc.key,
           hc_default = true
