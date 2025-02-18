@@ -46,7 +46,62 @@ if PB_UTIL.config.paperclips_enabled then
 end
 
 -- Register DeckSkins for Friends of Paperback
-PB_UTIL.register_items(PB_UTIL.ENABLED_DECK_SKINS, "content/friends_of_paperback")
+local skins = {
+  steven_universe = {
+    'Spades'
+  },
+  atlyss = {
+    'Clubs'
+  },
+  flight_knight = {
+    'Hearts'
+  },
+  hylics = {
+    'Diamonds'
+  }
+}
+
+for skin, suits in pairs(skins) do
+  for _, suit in ipairs(suits) do
+    local key = skin .. "_" .. suit:lower()
+
+    local atlas_lc = SMODS.Atlas {
+      key = key .. '_lc',
+      path = 'collabs/' .. key .. '_lc.png',
+      px = 71,
+      py = 95
+    }
+
+    local atlas_hc = SMODS.Atlas {
+      key = key .. '_hc',
+      path = 'collabs/' .. key .. '_hc.png',
+      px = 71,
+      py = 95
+    }
+
+    SMODS.DeckSkin {
+      key = key,
+      suit = suit,
+      palettes = {
+        {
+          key = 'lc',
+          ranks = { 'Jack', 'Queen', 'King', 'Ace' },
+          display_ranks = { 'Ace', 'King', 'Queen', 'Jack' },
+          pos_style = 'ranks',
+          atlas = atlas_lc.key
+        },
+        {
+          key = 'hc',
+          ranks = { 'Jack', 'Queen', 'King', 'Ace' },
+          display_ranks = { 'Ace', 'King', 'Queen', 'Jack' },
+          pos_style = 'ranks',
+          atlas = atlas_hc.key,
+          hc_default = true
+        }
+      }
+    }
+  end
+end
 
 -- Load custom suits and spectrums if they are enabled
 if PB_UTIL.config.suits_enabled then
