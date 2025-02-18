@@ -28,7 +28,7 @@ position = "before"
 match_indent = true
 payload = '''
 local pb_key = PB_UTIL.has_paperclip(card)
-if pb_key then
+if pb_key and v == pb_key then
   badges[#badges + 1] = create_badge(localize(v, "labels"), get_badge_colour(v), SMODS.Stickers[pb_key].badge_text_colour)
 else
 '''
