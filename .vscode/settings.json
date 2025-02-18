@@ -27,7 +27,8 @@
     "hand_chips",
     "mult",
     "love",
-    "Back"
+    "Back",
+    "PB_UTIL"
   ],
   "Lua.diagnostics.libraryFiles": "Disable"
 }
