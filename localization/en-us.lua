@@ -734,7 +734,8 @@ return {
       c_paperback_ten_of_cups = {
         name = "Ten of Cups",
         text = {
-          "Add {C:dark_edition}Polychrome{} to",
+          "{C:green}#1# in #2#{} chance to add",
+          "{C:dark_edition}Polychrome{} edition to",
           "a selected card"
         }
       },
