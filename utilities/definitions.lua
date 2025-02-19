@@ -74,6 +74,10 @@ PB_UTIL.requirement_map = {
   requires_minor_arcana = {
     setting = 'minor_arcana_enabled',
     tooltip = 'paperback_requires_minor_arcana'
+  },
+  requires_tags = {
+    setting = 'tags_enabled',
+    tooltip = 'paperback_requires_tags'
   }
 }
 
@@ -292,6 +296,10 @@ PB_UTIL.ENABLED_MINOR_ARCANA_BOOSTERS = {
 
 PB_UTIL.ENABLED_VOUCHERS = {
   'celtic_cross'
+}
+
+PB_UTIL.ENABLED_TAGS = {
+  'angel_investment'
 }
 
 PB_UTIL.ENABLED_ENHANCEMENTS = {

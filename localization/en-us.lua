@@ -815,6 +815,15 @@ return {
         }
       }
     },
+    Tag = {
+      tag_paperback_angel_investment = {
+        name = "Angel Investment Tag",
+        text = {
+          "Earn {C:money}$#1#{} per {C:money}$#2#{} you have",
+          "{C:inactive}(Will give {C:money}$#3#{C:inactive})"
+        }
+      }
+    },
     Planet = {
       c_paperback_quaoar = {
         name = "Quaoar",
@@ -901,6 +910,14 @@ return {
           "disabled in {C:legendary}Paperback",
         }
       },
+      paperback_requires_tags = {
+        name = "Requires Tags",
+        text = {
+          "Removed from pool",
+          "due to {C:attention}Tags{} being",
+          "disabled in {C:legendary}Paperback",
+        }
+      },
 
       -- Paperclips
       paperback_blue_clip = {
@@ -971,6 +988,7 @@ return {
       paperback_ui_enable_paperclips = "Enable Paperclips",
       paperback_ui_custom_suits_enabled = "Enable Custom Suits",
       paperback_ui_enable_vouchers = "Enable Vouchers",
+      paperback_ui_enable_tags = "Enable Tags",
       paperback_ui_developers = "Developers",
       paperback_ui_artists = "Artists",
       paperback_ui_localization = "Localization",

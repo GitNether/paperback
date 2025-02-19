@@ -76,6 +76,11 @@ if PB_UTIL.config.vouchers_enabled then
   PB_UTIL.register_items(PB_UTIL.ENABLED_VOUCHERS, "content/voucher")
 end
 
+-- Load Tags if they're enabled
+if PB_UTIL.config.tags_enabled then
+  PB_UTIL.register_items(PB_UTIL.ENABLED_TAGS, "content/tag")
+end
+
 -- Load custom Decks
 PB_UTIL.register_items(PB_UTIL.ENABLED_DECKS, "content/deck")
 

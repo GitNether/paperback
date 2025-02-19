@@ -18,19 +18,24 @@ SMODS.current_mod.config_tab = function()
             n = G.UIT.C,
             nodes = {
               create_toggle {
+                label = localize('paperback_ui_enable_tags'),
+                ref_table = PB_UTIL.config,
+                ref_value = 'tags_enabled'
+              },
+              create_toggle {
                 label = localize('paperback_ui_enable_jokers'),
                 ref_table = PB_UTIL.config,
                 ref_value = 'jokers_enabled',
               },
               create_toggle {
-                label = localize('paperback_ui_enable_minor_arcana'),
+                label = localize('paperback_ui_enable_vouchers'),
                 ref_table = PB_UTIL.config,
-                ref_value = 'minor_arcana_enabled',
+                ref_value = 'vouchers_enabled'
               },
               create_toggle {
-                label = localize('paperback_ui_custom_suits_enabled'),
+                label = localize('paperback_ui_enable_paperclips'),
                 ref_table = PB_UTIL.config,
-                ref_value = 'suits_enabled',
+                ref_value = 'paperclips_enabled',
               }
             }
           },
@@ -43,14 +48,14 @@ SMODS.current_mod.config_tab = function()
                 ref_value = 'enhancements_enabled',
               },
               create_toggle {
-                label = localize('paperback_ui_enable_vouchers'),
+                label = localize('paperback_ui_enable_minor_arcana'),
                 ref_table = PB_UTIL.config,
-                ref_value = 'vouchers_enabled'
+                ref_value = 'minor_arcana_enabled',
               },
               create_toggle {
-                label = localize('paperback_ui_enable_paperclips'),
+                label = localize('paperback_ui_custom_suits_enabled'),
                 ref_table = PB_UTIL.config,
-                ref_value = 'paperclips_enabled',
+                ref_value = 'suits_enabled',
               }
             }
           }

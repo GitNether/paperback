@@ -38,6 +38,14 @@ SMODS.Atlas {
   path = 'Enhancements.png'
 }
 
+-- Registers the atlas for Tags
+SMODS.Atlas {
+  key = 'tags_atlas',
+  path = 'Tags.png',
+  px = 34,
+  py = 34
+}
+
 -- Registers the atlas for Vouchers
 SMODS.Atlas {
   key = 'vouchers_atlas',
