@@ -1,0 +1,23 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = "if next(find_joker('Smeared Joker')) and (self.base.suit == 'Hearts' or self.base.suit == 'Diamonds') == (suit == 'Hearts' or suit == 'Diamonds') then"
+position = "before"
+match_indent = true
+payload = '''
+-- We only do this if the suit of this card is different from the suit being checked
+if PB_UTIL.config.suits_enabled and next(SMODS.find_card('j_smeared')) and self.base.suit ~= suit then
+  local is_card_modded = self.base.suit == 'paperback_Stars' or self.base.suit == 'paperback_Crowns'
+  local is_suit_modded = suit == 'paperback_Stars' or suit == 'paperback_Crowns'
+
+  -- Smeared Joker shouldn't affect our modded suits
+  if is_card_modded or is_suit_modded then
+    return false
+  end
+end
+'''
