@@ -18,6 +18,13 @@ return {
       }
     },
     Joker = {
+      j_paperback_angel_investor = {
+        name = "Angel Investor",
+        text = {
+          "Skipping a {C:attention}blind{} gives",
+          "an {C:attention}Angel Investment Tag"
+        }
+      },
       j_paperback_ice_cube = {
         name = "Ice Cube",
         text = {
@@ -980,6 +987,7 @@ return {
       paperback_inactive = "Inactive",
       paperback_supplies_ex = "Supplies!",
       paperback_melted_ex = "Melted!",
+      paperback_investment_ex = "Investment!",
 
       paperback_ui_requires_restart = "Requires Restart",
       paperback_ui_enable_jokers = "Enable Jokers",

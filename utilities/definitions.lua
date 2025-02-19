@@ -148,7 +148,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "joker_cookie",
   "the_world",
   "meeple",
-  -- "angel_investor",
+  "angel_investor",
   "basic_energy",
   "coffee",
   "cream_liqueur",
