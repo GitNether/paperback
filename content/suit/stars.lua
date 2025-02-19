@@ -16,8 +16,8 @@ SMODS.Suit {
   in_pool = function(self, args)
     if args and args.initial_deck then
       -- When creating a deck
-      local back = G.GAME.selected_back_key
-      local config = SMODS.Centers[back.key].paperback
+      local back = G.GAME.selected_back
+      local config = back and back.effect.center.paperback
 
       return config and config.create_stars
     else
