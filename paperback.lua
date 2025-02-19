@@ -71,6 +71,9 @@ if PB_UTIL.config.suits_enabled then
   end
 end
 
+-- Load custom Decks
+PB_UTIL.register_items(PB_UTIL.ENABLED_DECKS, "content/deck")
+
 -- Register DeckSkins for Friends of Paperback
 for skin, data in pairs(PB_UTIL.DECK_SKINS) do
   for _, suit in ipairs(data) do

@@ -77,6 +77,14 @@ SMODS.Atlas {
   py = 95
 }
 
+-- Register Decks atlas
+SMODS.Atlas {
+  key = 'decks_atlas',
+  path = 'Decks.png',
+  px = 71,
+  py = 95
+}
+
 -- Registers the mod icon
 SMODS.Atlas { -- modicon
   key = 'modicon',
