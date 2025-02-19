@@ -33,6 +33,21 @@ if PB_UTIL.config.minor_arcana_enabled then
 
   -- Register Minor Arcana boosters
   PB_UTIL.register_items(PB_UTIL.ENABLED_MINOR_ARCANA_BOOSTERS, "content/booster")
+
+  -- Register music for Minor Arcana boosters
+  SMODS.Sound {
+    key = 'music_minor_arcana',
+    path = 'music_minor_arcana.ogg',
+    select_music_track = function(self)
+      -- We only check the booster once there are cards in the pack_cards area
+      local booster = G.pack_cards and G.pack_cards.cards and SMODS.OPENED_BOOSTER
+
+      -- If it's a minor arcana pack, we return the priority of this music
+      if booster and booster.config.center_key:find('p_paperback_minor_arcana_') then
+        return 1e10
+      end
+    end
+  }
 end
 
 -- Load enhancements if they are enabled

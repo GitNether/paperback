@@ -161,6 +161,25 @@ SMODS.current_mod.extra_tabs = function()
               }
             }
           }
+        },
+        {
+          n = G.UIT.C,
+          config = { padding = 0.5 },
+          nodes = {
+            {
+              n = G.UIT.R,
+              nodes = {
+                { n = G.UIT.T, config = { text = localize('b_music'), colour = G.C.CHIPS, scale = 0.75 } }
+              }
+            },
+            {
+              n = G.UIT.R,
+              config = { align = 'cm', minh = 0.25 },
+              nodes = {
+                { n = G.UIT.T, config = { text = "Larantula", colour = G.C.PURPLE, scale = 0.4 } }
+              }
+            }
+          }
         }
       }
     } }
