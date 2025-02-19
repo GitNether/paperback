@@ -4,4 +4,5 @@ return {
   suits_enabled = true,
   enhancements_enabled = true,
   paperclips_enabled = true,
+  vouchers_enabled = true,
 }

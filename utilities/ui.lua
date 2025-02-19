@@ -43,6 +43,11 @@ SMODS.current_mod.config_tab = function()
                 ref_value = 'enhancements_enabled',
               },
               create_toggle {
+                label = localize('paperback_ui_enable_vouchers'),
+                ref_table = PB_UTIL.config,
+                ref_value = 'vouchers_enabled'
+              },
+              create_toggle {
                 label = localize('paperback_ui_enable_paperclips'),
                 ref_table = PB_UTIL.config,
                 ref_value = 'paperclips_enabled',

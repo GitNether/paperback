@@ -806,6 +806,15 @@ return {
         }
       }
     },
+    Voucher = {
+      v_paperback_celtic_cross = {
+        name = "Celtic Cross",
+        text = {
+          "{C:paperback_minor_arcana}Minor Arcana{} cards may",
+          "appear in the {C:money}Shop"
+        }
+      }
+    },
     Planet = {
       c_paperback_quaoar = {
         name = "Quaoar",
@@ -884,6 +893,14 @@ return {
           "disabled in {C:legendary}Paperback",
         }
       },
+      paperback_requires_minor_arcana = {
+        name = "Requires Minor Arcana",
+        text = {
+          "Removed from pool due",
+          "to {C:paperback_minor_arcana}Minor Arcana{} being",
+          "disabled in {C:legendary}Paperback",
+        }
+      },
 
       -- Paperclips
       paperback_blue_clip = {
@@ -953,6 +970,7 @@ return {
       paperback_ui_enable_enhancements = "Enable Enhancements",
       paperback_ui_enable_paperclips = "Enable Paperclips",
       paperback_ui_custom_suits_enabled = "Enable Custom Suits",
+      paperback_ui_enable_vouchers = "Enable Vouchers",
       paperback_ui_developers = "Developers",
       paperback_ui_artists = "Artists",
       paperback_ui_localization = "Localization",

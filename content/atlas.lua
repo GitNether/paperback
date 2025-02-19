@@ -38,6 +38,14 @@ SMODS.Atlas {
   path = 'Enhancements.png'
 }
 
+-- Registers the atlas for Vouchers
+SMODS.Atlas {
+  key = 'vouchers_atlas',
+  path = 'Vouchers.png',
+  px = 71,
+  py = 95
+}
+
 --- Registers atlas for Crowns and Stars
 -- Low contrast
 SMODS.Atlas {

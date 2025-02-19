@@ -71,6 +71,11 @@ if PB_UTIL.config.suits_enabled then
   end
 end
 
+-- Load Vouchers if they're enabled
+if PB_UTIL.config.vouchers_enabled then
+  PB_UTIL.register_items(PB_UTIL.ENABLED_VOUCHERS, "content/voucher")
+end
+
 -- Load custom Decks
 PB_UTIL.register_items(PB_UTIL.ENABLED_DECKS, "content/deck")
 

@@ -70,6 +70,10 @@ PB_UTIL.requirement_map = {
   requires_paperclips = {
     setting = 'paperclips_enabled',
     tooltip = 'paperback_requires_paperclips'
+  },
+  requires_minor_arcana = {
+    setting = 'minor_arcana_enabled',
+    tooltip = 'paperback_requires_minor_arcana'
   }
 }
 
@@ -284,6 +288,10 @@ PB_UTIL.DECK_SKINS = {
 
 PB_UTIL.ENABLED_MINOR_ARCANA_BOOSTERS = {
   'minor_arcana_normal',
+}
+
+PB_UTIL.ENABLED_VOUCHERS = {
+  'celtic_cross'
 }
 
 PB_UTIL.ENABLED_ENHANCEMENTS = {
