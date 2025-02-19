@@ -14,8 +14,15 @@ SMODS.Suit {
   ui_pos = { x = 0, y = 0 },
 
   in_pool = function(self, args)
-    -- Only add this suit to pool when not creating a deck
-    return not (args and args.initial_deck) and
-        (PB_UTIL.has_suit_in_deck('paperback_Crowns', true) or PB_UTIL.spectrum_played())
+    if args and args.initial_deck then
+      -- When creating a deck
+      local back = G.GAME.selected_back_key
+      local config = SMODS.Centers[back.key].paperback
+
+      return config and config.create_crowns
+    else
+      -- If not creating a deck
+      return PB_UTIL.has_suit_in_deck('paperback_Crowns', true) or PB_UTIL.spectrum_played()
+    end
   end
 }

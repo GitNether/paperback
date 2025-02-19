@@ -311,7 +311,8 @@ PB_UTIL.ENABLED_PLANETS = {
 }
 
 PB_UTIL.ENABLED_DECKS = {
-  'paper'
+  'paper',
+  'proud'
 }
 
 -- Define Paperclip object

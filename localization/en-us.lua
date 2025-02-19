@@ -7,6 +7,14 @@ return {
           "{C:legendary}Paperback{C:attention} Jokers{} are {C:attention}3x",
           "more likely to appear"
         }
+      },
+      b_paperback_proud = {
+        name = "Proud Deck",
+        text = {
+          "Start with a full set of",
+          "{C:hearts}Hearts{}, {C:diamonds}Diamonds{}, {C:spades}Spades",
+          "{C:clubs}Clubs{}, {C:paperback_crowns}Crowns{} and {C:paperback_stars}Stars"
+        }
       }
     },
     Joker = {
