@@ -310,6 +310,10 @@ PB_UTIL.ENABLED_PLANETS = {
   'makemake',
 }
 
+PB_UTIL.ENABLED_DECKS = {
+  'paper'
+}
+
 -- Define Paperclip object
 if PB_UTIL.config.paperclips_enabled then
   PB_UTIL.Paperclip = SMODS.Sticker:extend {

@@ -1,5 +1,14 @@
 return {
   descriptions = {
+    Back = {
+      b_paperback_paper = {
+        name = "Paper Deck",
+        text = {
+          "{C:legendary}Paperback{C:attention} Jokers{} are {C:attention}3x",
+          "more likely to appear"
+        }
+      }
+    },
     Joker = {
       j_paperback_ice_cube = {
         name = "Ice Cube",

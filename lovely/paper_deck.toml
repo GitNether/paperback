@@ -1,0 +1,21 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = "if add and not G.GAME.banned_keys[v.key] then "
+position = "after"
+match_indent = true
+payload = '''
+    -- If the selected deck is the Paper deck and this key is a Paperback Joker, add copies of it
+    -- to the pool, so that it is more common to get
+    if (G.GAME.selected_back_key or {}).key == 'b_paperback_paper' and v.key:find('j_paperback_') then
+      for i = 1, 2 do
+        _pool[#_pool + 1] = v.key
+        _pool_size = _pool_size + 1
+      end
+    end
+'''
