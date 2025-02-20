@@ -26,6 +26,16 @@ return {
       }
     },
     Joker = {
+      j_paperback_b_soda = {
+        name = "B-Soda",
+        text = {
+          "When {C:attention}Blind{} is selected,",
+          "gain {C:chips}+#1#{} Hand",
+          "Consumed if {C:attention}Blind{} is",
+          "cleared with {C:chips}0{} hands",
+          "remaining",
+        }
+      },
       j_paperback_angel_investor = {
         name = "Angel Investor",
         text = {

@@ -160,7 +160,7 @@ PB_UTIL.ENABLED_JOKERS = {
   -- "peanuts",
   -- "aurora_borealis",
   -- "blue_marble",
-  -- "b_soda",
+  "b_soda",
   -- "jestrogen",
   -- "jestosterone",
   -- "power_surge",
