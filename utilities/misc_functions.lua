@@ -315,6 +315,26 @@ function PB_UTIL.poll_tag(seed)
   return tag
 end
 
+--- Adds a tag the same way vanilla does it
+--- @param tag string | table a tag key or a tag table
+--- @param event boolean? whether to send this in an event or not
+function PB_UTIL.add_tag(tag, event)
+  local func = function()
+    add_tag(type(tag) == 'string' and Tag(tag) or tag)
+    play_sound('generic1', 0.9 + math.random() * 0.1, 0.8)
+    play_sound('holo1', 1.2 + math.random() * 0.1, 0.4)
+    return true
+  end
+
+  if event then
+    G.E_MANAGER:add_event(Event {
+      func = func
+    })
+  else
+    func()
+  end
+end
+
 ---Gets a pseudorandom consumable from the Consumables pool (Soul and Black Hole included)
 ---@param seed string
 ---@param soulable boolean

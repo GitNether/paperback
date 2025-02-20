@@ -13,7 +13,7 @@ SMODS.Voucher {
 
   calculate = function(self, card, context)
     if context.end_of_round and context.main_eval and G.GAME.blind.boss then
-      add_tag(Tag('tag_paperback_divination'))
+      PB_UTIL.add_tag('tag_paperback_divination', true)
     end
   end
 }

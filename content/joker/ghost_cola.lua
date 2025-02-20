@@ -29,12 +29,7 @@ SMODS.Joker {
   calculate = function(self, card, context)
     if context.selling_self then
       -- Adds the negative tag
-      G.E_MANAGER:add_event(Event({
-        func = (function()
-          add_tag(Tag('tag_negative'))
-          return true
-        end)
-      }))
+      PB_UTIL.add_tag('tag_negative', true)
 
       -- Creates the negative spectral card
       G.E_MANAGER:add_event(Event({

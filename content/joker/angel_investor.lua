@@ -18,7 +18,7 @@ SMODS.Joker {
 
   calculate = function(self, card, context)
     if context.skip_blind then
-      add_tag(Tag('tag_paperback_angel_investment'))
+      PB_UTIL.add_tag('tag_paperback_angel_investment')
 
       return {
         message = localize('paperback_investment_ex'),
