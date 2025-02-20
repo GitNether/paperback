@@ -292,6 +292,7 @@ PB_UTIL.DECK_SKINS = {
 
 PB_UTIL.ENABLED_MINOR_ARCANA_BOOSTERS = {
   'minor_arcana_normal',
+  'minor_arcana_mega',
 }
 
 PB_UTIL.ENABLED_VOUCHERS = {
@@ -330,6 +331,27 @@ PB_UTIL.ENABLED_DECKS = {
   'paper',
   'proud'
 }
+
+-- Define a Booster object with certain shared properties for Minor Arcana packs
+if PB_UTIL.config.minor_arcana_enabled then
+  PB_UTIL.MinorArcanaBooster = SMODS.Booster:extend {
+    group_key = 'paperback_minor_arcana_pack',
+    draw_hand = true,
+
+    create_card = function(self, card, i)
+      return {
+        set = 'paperback_minor_arcana',
+        area = G.pack_cards,
+        skip_materialize = true
+      }
+    end,
+
+    ease_background_colour = function(self)
+      ease_colour(G.C.DYN_UI.MAIN, G.C.PAPERBACK_MINOR_ARCANA)
+      ease_background_colour { new_colour = G.C.PAPERBACK_MINOR_ARCANA, special_colour = G.C.BLACK, contrast = 2 }
+    end,
+  }
+end
 
 -- Define Paperclip object
 if PB_UTIL.config.paperclips_enabled then

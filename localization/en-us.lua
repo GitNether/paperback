@@ -962,7 +962,15 @@ return {
           "{C:paperback_minor_arcana}Minor Arcana{} cards",
           "to be used immediately"
         }
-      }
+      },
+      p_paperback_minor_arcana_mega = {
+        name = "Mega Minor Arcana Pack",
+        text = {
+          "Choose {C:attention}#1#{} of up to {C:attention}#2#",
+          "{C:paperback_minor_arcana}Minor Arcana{} cards",
+          "to be used immediately"
+        }
+      },
     },
   },
   misc = {
