@@ -829,6 +829,13 @@ return {
           "Earn {C:money}$#1#{} per {C:money}$#2#{} you have",
           "{C:inactive}(Will give {C:money}$#3#{C:inactive})"
         }
+      },
+      tag_paperback_divination = {
+        name = "Divination Tag",
+        text = {
+          "Gives a free",
+          "{C:paperback_minor_arcana}Mega Minor Arcana Pack"
+        }
       }
     },
     Planet = {

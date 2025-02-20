@@ -236,6 +236,24 @@ function PB_UTIL.get_unique_suits(scoring_hand, bypass_debuff, flush_calc)
   return num_suits
 end
 
+--- Creates and opens the specified booster pack, the same way a Tag would do it
+--- @param key string
+function PB_UTIL.open_booster_pack(key)
+  local pack = Card(
+    G.play.T.x + G.play.T.w / 2 - G.CARD_W * 1.27 / 2,
+    G.play.T.y + G.play.T.h / 2 - G.CARD_H * 1.27 / 2,
+    G.CARD_W * 1.27, G.CARD_H * 1.27, G.P_CARDS.empty,
+    G.P_CENTERS[key],
+    { bypass_discovery_center = true, bypass_discovery_ui = true }
+  )
+
+  pack.cost = 0
+  pack.from_tag = true
+
+  G.FUNCS.use_card { config = { ref_table = pack } }
+  pack:start_materialize()
+end
+
 ---Adds a booster pack with the specified key to the shop.
 ---Does nothing if the shop does not exist
 ---@param key string
