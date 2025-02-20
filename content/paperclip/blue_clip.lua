@@ -9,10 +9,18 @@ PB_UTIL.Paperclip {
   },
 
   loc_vars = function(self, info_queue, card)
+    local xchips = card.ability[self.key].x_chips_base
+
+    for _, v in ipairs(G.hand and G.hand.cards or {}) do
+      if not v.debuff and PB_UTIL.has_paperclip(v) and not v.highlighted then
+        xchips = xchips + card.ability[self.key].x_chips_mod
+      end
+    end
+
     return {
       vars = {
-        card.ability[self.key].x_chips_base,
-        card.ability[self.key].x_chips_mod
+        card.ability[self.key].x_chips_mod,
+        xchips
       }
     }
   end,
