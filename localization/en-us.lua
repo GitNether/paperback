@@ -446,7 +446,15 @@ return {
         text = {
           "If played hand contains a {C:attention}Three of a Kind{},",
           "{C:green}#1# in #2#{} chance to create a random {C:planet}Planet{} card and",
-          "{C:green}#3# in #4#{} chance to create a random {C:purple}Tarot{} card",
+          "{C:green}#1# in #3#{} chance to create a random {C:purple}Tarot{} card",
+        },
+      },
+      j_paperback_triple_moon_goddess_minor_arcana = {
+        name = "Triple Moon Goddess",
+        text = {
+          "If played hand contains a {C:attention}Three of a Kind{},",
+          "{C:green}#1# in #2#{} chance to create a random {C:tarot}Tarot{} card, and",
+          "{C:green}#1# in #3#{} chance to create a random {C:paperback_minor_arcana}Minor Arcana{} card"
         },
       },
       j_paperback_derecho = {
@@ -1018,6 +1026,7 @@ return {
       paperback_supplies_ex = "Supplies!",
       paperback_melted_ex = "Melted!",
       paperback_investment_ex = "Investment!",
+      paperback_plus_minor_arcana = "+1 M. Arcana",
 
       paperback_ui_requires_restart = "Requires Restart",
       paperback_ui_enable_jokers = "Enable Jokers",

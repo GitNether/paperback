@@ -354,6 +354,32 @@ function PB_UTIL.poll_consumable(seed, soulable)
   }
 end
 
+--- Tries to spawn a card into either the Jokers or Consumeable card areas, ensuring
+--- that there is space available.
+--- DOES NOT TAKE INTO ACCOUNT ANY OTHER AREAS
+--- @param args table same arguments passed to SMODS.create_card
+--- @param after function?
+function PB_UTIL.try_spawn_card(args, after)
+  local area = args.area or (args.set == 'Joker' and G.jokers) or G.consumeables
+  local buffer = area == G.jokers and 'joker_buffer' or 'consumeable_buffer'
+
+  if #area.cards + G.GAME[buffer] < area.config.card_limit then
+    G.GAME[buffer] = G.GAME[buffer] + 1
+
+    G.E_MANAGER:add_event(Event {
+      func = function()
+        SMODS.add_card(args)
+        G.GAME[buffer] = 0
+        return true
+      end
+    })
+
+    if after and type(after) == "function" then
+      after()
+    end
+  end
+end
+
 ---This is used for Jokers that need to destroy cards outside of the "destroy_card" context
 ---@param destroyed_cards table
 ---@param card table?
