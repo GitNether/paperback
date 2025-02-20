@@ -1,4 +1,4 @@
-if PB_UTIL.config.minor_arcana_enabled then
+if PB_UTIL.config.minor_arcana_enabled and PB_UTIL.config.vouchers_enabled then
   SMODS.Back {
     key = 'silver',
     atlas = 'decks_atlas',
