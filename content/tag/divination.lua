@@ -3,6 +3,9 @@ SMODS.Tag {
   atlas = 'tags_atlas',
   pos = { x = 2, y = 0 },
   discovered = true,
+  paperback = {
+    requires_minor_arcana = true
+  },
 
   loc_vars = function(self, info_queue)
     info_queue[#info_queue + 1] = G.P_CENTERS.p_paperback_minor_arcana_mega

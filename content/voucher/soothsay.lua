@@ -4,7 +4,8 @@ SMODS.Voucher {
   pos = { x = 0, y = 1 },
   discovered = true,
   paperback = {
-    requires_minor_arcana = true
+    requires_minor_arcana = true,
+    requires_tags = true
   },
 
   loc_vars = function(self, info_queue)

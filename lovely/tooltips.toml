@@ -20,11 +20,11 @@ if card and card.ability and card.ability.paperback_energized then
 end
 
 -- Add tooltips for items removed from the pool by the paperback config
-if card and card.config and card.config.center and card.config.center.paperback then
-  local config = card.config.center.paperback
+if (card and card.config and card.config.center and card.config.center.paperback) or (_c and _c.paperback) then
+  local config = (_c and _c.paperback) or card.config.center.paperback
 
   for _, v in ipairs(config.requirements or {}) do
-    if not PB_UTIL.config[v.setting] then
+    if not PB_UTIL.config[v.setting] and first_pass then
       info_queue[#info_queue + 1] = {
         set = v.set or 'Other',
         key = v.tooltip,

@@ -134,11 +134,23 @@ for skin, data in pairs(PB_UTIL.DECK_SKINS) do
   end
 end
 
--- Apply paperback config to each loaded center
-for _, center in pairs(SMODS.Centers) do
-  if type(center) == "table" and center.paperback then
-    local func_ref = center.in_pool or function() return true end
-    local config = center.paperback
+-- Collect valid objects to apply Paperback config to
+local objects = {}
+
+for _, v in pairs(SMODS.Centers) do
+  objects[#objects + 1] = { obj = v, center = true }
+end
+
+for _, v in pairs(SMODS.Tags) do
+  objects[#objects + 1] = { obj = v, tag = true }
+end
+
+-- Apply said config to each valid object
+for _, v in ipairs(objects) do
+  local obj = v.obj
+  if obj and type(obj) == "table" and obj.paperback then
+    local func_ref = obj.in_pool or function() return true end
+    local config = obj.paperback
 
     if config.requires_crowns or config.requires_stars then
       config.requires_custom_suits = true
@@ -154,11 +166,11 @@ for _, center in pairs(SMODS.Centers) do
 
     -- Hook the in_pool function, adding extra logic depending on the
     -- config provided by this center
-    center.in_pool = function(self, args)
+    obj.in_pool = function(self, args)
       local ret, dupes = func_ref(self, args)
 
-      for _, v in ipairs(config.requirements) do
-        ret = ret and PB_UTIL.config[v.setting]
+      for _, req in ipairs(config.requirements) do
+        ret = ret and PB_UTIL.config[req.setting]
       end
 
       if config.requires_crowns then
