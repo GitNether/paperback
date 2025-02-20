@@ -3,7 +3,7 @@ SMODS.Consumable {
   set = 'paperback_minor_arcana',
   config = {
     max_highlighted = 1,
-    mod_conv = 'm_paperback_porcelain'
+    mod_conv = 'm_paperback_ceramic'
   },
   atlas = 'minor_arcana_atlas',
   pos = { x = 5, y = 1 },
@@ -14,7 +14,7 @@ SMODS.Consumable {
   },
 
   loc_vars = function(self, info_queue, card)
-    info_queue[#info_queue+1] = G.P_CENTERS[card.ability.mod_conv]
+    info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.mod_conv]
 
     return {
       vars = {

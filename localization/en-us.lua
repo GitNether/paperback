@@ -876,8 +876,8 @@ return {
       },
     },
     Enhanced = {
-      m_paperback_porcelain = {
-        name = "Porcelain Card",
+      m_paperback_ceramic = {
+        name = "Ceramic Card",
         text = {
           "Earns between {C:money}$#1#{}",
           "and {C:money}$#2#{} when scored",

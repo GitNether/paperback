@@ -307,7 +307,7 @@ PB_UTIL.ENABLED_TAGS = {
 
 PB_UTIL.ENABLED_ENHANCEMENTS = {
   "soaked",
-  "porcelain",
+  "ceramic",
 }
 
 PB_UTIL.ENABLED_SUITS = {
