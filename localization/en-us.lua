@@ -820,7 +820,14 @@ return {
           "{C:paperback_minor_arcana}Minor Arcana{} cards may",
           "appear in the {C:money}Shop"
         }
-      }
+      },
+      v_paperback_soothsay = {
+        name = "Soothsay",
+        text = {
+          "Gain a {C:paperback_minor_arcana}Divination Tag{} when",
+          "clearing a {C:attention}Boss Blind"
+        }
+      },
     },
     Tag = {
       tag_paperback_angel_investment = {

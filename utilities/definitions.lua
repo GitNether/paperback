@@ -296,7 +296,8 @@ PB_UTIL.ENABLED_MINOR_ARCANA_BOOSTERS = {
 }
 
 PB_UTIL.ENABLED_VOUCHERS = {
-  'celtic_cross'
+  'celtic_cross',
+  'soothsay',
 }
 
 PB_UTIL.ENABLED_TAGS = {
