@@ -102,15 +102,7 @@ end
 ---@param path string
 function PB_UTIL.register_items(items, path)
   for i = 1, #items do
-    local status, err = pcall(function()
-      return SMODS.load_file(path .. "/" .. items[i] .. ".lua")()
-    end)
-    sendDebugMessage("Loaded item " .. path .. ":" .. items[i], "Paperback")
-
-    -- If a file didn't load correctly, display the file in question and return
-    if not status then
-      error(items[i] .. ": " .. err)
-    end
+    SMODS.load_file(path .. "/" .. items[i] .. ".lua")()
   end
 end
 
