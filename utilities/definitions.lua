@@ -331,7 +331,8 @@ PB_UTIL.ENABLED_PLANETS = {
 
 PB_UTIL.ENABLED_DECKS = {
   'paper',
-  'proud'
+  'proud',
+  'silver',
 }
 
 -- Define a Booster object with certain shared properties for Minor Arcana packs
