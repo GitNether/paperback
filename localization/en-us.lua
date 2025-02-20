@@ -960,9 +960,9 @@ return {
       paperback_blue_clip = {
         name = "Blue Clip",
         text = {
-          "{X:chips,C:white}X#1#{} Chips",
-          "Increases by {X:chips,C:white}X#2#{} for",
-          "each {C:attention}Clip{} in {C:attention}held hand"
+          "{X:chips,C:white}X#1#{} Chips for each",
+          "{C:attention}Clip{} in {C:attention}held hand",
+          "{C:inactive}(Currently {X:chips,C:white}X#2#{C:inactive})"
         }
       },
       paperback_black_clip = {

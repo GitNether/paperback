@@ -160,14 +160,21 @@ SMODS.current_mod.extra_tabs = function()
               n = G.UIT.R,
               config = { align = 'cm', minh = 0.25 },
               nodes = {
-                { n = G.UIT.T, config = { text = 'pinkmaggit-hub', colour = G.C.FILTER, scale = 0.4 } }
+                { n = G.UIT.T, config = { text = 'pinkmaggit-hub (pt-BR)', colour = G.C.FILTER, scale = 0.4 } }
               }
             },
             {
               n = G.UIT.R,
               config = { align = 'cm', minh = 0.25 },
               nodes = {
-                { n = G.UIT.T, config = { text = 'mathieulievre', colour = G.C.FILTER, scale = 0.4 } }
+                { n = G.UIT.T, config = { text = 'mathieulievre (FR)', colour = G.C.FILTER, scale = 0.4 } }
+              }
+            },
+            {
+              n = G.UIT.R,
+              config = { align = 'cm', minh = 0.25 },
+              nodes = {
+                { n = G.UIT.T, config = { text = 'BurAndBY (RU)', colour = G.C.FILTER, scale = 0.4 } }
               }
             }
           }
