@@ -3,11 +3,21 @@ SMODS.Shader {
   path = 'dichrome.fs'
 }
 
+SMODS.Sound {
+  key = 'dichrome',
+  path = 'dichrome.ogg'
+}
+
 SMODS.Edition {
   key = 'dichrome',
   shader = 'dichrome',
   config = {
     amount = 1
+  },
+  sound = {
+    sound = 'paperback_dichrome',
+    per = 1,
+    vol = 0.4
   },
   discovered = true,
   weight = 3,     -- As rare as polychrome
