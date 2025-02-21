@@ -19,10 +19,10 @@ SMODS.Tag {
           context.card.temp_edition = nil
           return true
         end)
-      end
 
-      tag.triggered = true
-      return true
+        tag.triggered = true
+        return true
+      end
     end
   end
 }
