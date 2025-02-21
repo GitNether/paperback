@@ -6,7 +6,7 @@ SMODS.Consumable {
     mod_conv = 'm_paperback_soaked'
   },
   atlas = 'minor_arcana_atlas',
-  pos = { x = 7, y = 0 },
+  pos = { x = 4, y = 0 },
   unlocked = true,
   discovered = true,
   paperback = {
@@ -14,7 +14,7 @@ SMODS.Consumable {
   },
 
   loc_vars = function(self, info_queue, card)
-    info_queue[#info_queue+1] = G.P_CENTERS[card.ability.mod_conv]
+    info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.mod_conv]
 
     return {
       vars = {

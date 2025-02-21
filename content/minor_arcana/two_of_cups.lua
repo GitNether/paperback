@@ -7,7 +7,7 @@ SMODS.Consumable {
     }
   },
   atlas = 'minor_arcana_atlas',
-  pos = { x = 4, y = 0 },
+  pos = { x = 1, y = 0 },
   unlocked = true,
   discovered = true,
 

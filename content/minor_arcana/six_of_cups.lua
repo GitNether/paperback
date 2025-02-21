@@ -5,7 +5,7 @@ SMODS.Consumable {
     max_highlighted = 1
   },
   atlas = 'minor_arcana_atlas',
-  pos = { x = 8, y = 0 },
+  pos = { x = 5, y = 0 },
   unlocked = true,
   discovered = true,
 

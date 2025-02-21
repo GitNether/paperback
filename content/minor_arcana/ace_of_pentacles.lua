@@ -6,7 +6,7 @@ SMODS.Consumable {
     suit_conv = 'paperback_Stars'
   },
   atlas = 'minor_arcana_atlas',
-  pos = { x = 2, y = 0 },
+  pos = { x = 0, y = 6 },
   unlocked = true,
   discovered = true,
   paperback = {
