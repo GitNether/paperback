@@ -20,11 +20,13 @@ PB_UTIL.MinorArcana {
     local suits = {}
 
     for k, _ in pairs(SMODS.Suits) do
-      suits[k] = k
+      if PB_UTIL.has_suit_in_deck(k, true) then
+        suits[k] = k
+      end
     end
 
     for _, v in ipairs(G.hand.highlighted) do
-      if SMODS.has_enhancement(v, 'm_wild') then
+      if SMODS.has_any_suit(v) then
         suits = {}
         break
       end
