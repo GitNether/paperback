@@ -820,6 +820,27 @@ return {
           "{C:inactive}(Currently {C:money}$#2#{C:inactive})"
         }
       },
+      c_paperback_ace_of_wands = {
+        name = "Ace of Wands",
+        text = {
+          "Add a {C:mult}Red Clip{} to up",
+          "to {C:attention}#1#{} selected cards"
+        }
+      },
+      c_paperback_four_of_wands = {
+        name = "Four of Wands",
+        text = {
+          "Add a {C:paperback_pink}Pink Clip{} to up",
+          "to {C:attention}#1#{} selected cards"
+        }
+      },
+      c_paperback_page_of_wands = {
+        name = "Page of Wands",
+        text = {
+          "Add an {C:attention}Orange Clip{} to up",
+          "to {C:attention}#1#{} selected cards"
+        }
+      },
       c_paperback_ace_of_swords = {
         name = "Ace of Swords",
         text = {

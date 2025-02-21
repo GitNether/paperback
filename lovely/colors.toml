@@ -34,4 +34,5 @@ payload = '''
   paperback_crowns = G.C.SUITS.paperback_Crowns or G.C.PAPERBACK_CROWNS_LC,
   paperback_minor_arcana = G.C.PAPERBACK_MINOR_ARCANA,
   paperback_black = G.C.PAPERBACK_BLACK,
+  paperback_pink = G.C.PAPERBACK_PINK,
 '''
