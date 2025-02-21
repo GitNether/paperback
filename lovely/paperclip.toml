@@ -41,3 +41,18 @@ pattern = 'badges[#badges + 1] = create_badge(localize(v, "labels"), get_badge_c
 position = "after"
 match_indent = true
 payload = "end"
+
+# 
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = 'new_card:set_base(other.config.card)'
+position = "after"
+match_indent = true
+payload = '''
+-- If the card to copy from has a Paperclip, remove
+-- the existing Paperclips, if any, on the new card
+if PB_UTIL.has_paperclip(other) then
+  PB_UTIL.remove_paperclip(new_card)
+end
+'''

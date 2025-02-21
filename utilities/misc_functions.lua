@@ -66,20 +66,25 @@ function PB_UTIL.count_paperclips(args)
   return clips
 end
 
+--- Removes all paperclip keys from this card
+---@param card table
+function PB_UTIL.remove_paperclip(card)
+  for k, _ in pairs(card and card.ability or {}) do
+    if PB_UTIL.is_paperclip(k) then
+      card.ability[k] = nil
+    end
+  end
+end
+
 ---Applies a paperclip with provided type to the provided card.
 ---A playing card can only have a single paperclip.
+---@param card table
 ---@param type Paperclip
 function PB_UTIL.set_paperclip(card, type)
   local key = 'paperback_' .. type .. '_clip'
 
   if card and PB_UTIL.is_paperclip(key) then
-    -- Remove all paperclips in this card before applying
-    for k, _ in pairs(card.ability) do
-      if PB_UTIL.is_paperclip(k) then
-        card.ability[k] = nil
-      end
-    end
-
+    PB_UTIL.remove_paperclip(card)
     SMODS.Stickers[key]:apply(card, true)
   end
 end
