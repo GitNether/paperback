@@ -388,6 +388,70 @@ if PB_UTIL.config.paperclips_enabled then
   }
 end
 
+-- Define custom MinorArcana object with shared properties for handling common behavior
+if PB_UTIL.config.minor_arcana_enabled then
+  PB_UTIL.MinorArcana = SMODS.Consumable:extend {
+    set = 'paperback_minor_arcana',
+    unlocked = true,
+    discovered = true,
+
+    loc_vars = function(self, info_queue, card)
+      if not self.config then return end
+
+      if card.ability.paperclip then
+        info_queue[#info_queue + 1] = PB_UTIL.paperclip_tooltip(card.ability.paperclip)
+
+        return {
+          vars = {
+            card.ability.max_highlighted
+          }
+        }
+      elseif card.ability.mod_conv then
+        info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.mod_conv]
+
+        return {
+          vars = {
+            card.ability.max_highlighted,
+            localize {
+              type = 'name_text',
+              set = 'Enhanced',
+              key = card.ability.mod_conv
+            }
+          }
+        }
+      elseif card.ability.suit_conv then
+        return {
+          vars = {
+            card.ability.max_highlighted,
+            localize(card.ability.suit_conv, 'suits_plural'),
+            colours = {
+              G.C.SUITS[card.ability.suit_conv]
+            }
+          }
+        }
+      end
+    end,
+
+    use = function(self, card, area)
+      if not self.config then return end
+
+      if card.ability.paperclip or card.ability.mod_conv or card.ability.suit_conv then
+        PB_UTIL.use_consumable_animation(card, G.hand.highlighted, function()
+          for _, v in ipairs(G.hand.highlighted) do
+            if card.ability.paperclip then
+              PB_UTIL.set_paperclip(v, card.ability.paperclip)
+            elseif card.ability.mod_conv then
+              v:set_ability(G.P_CENTERS[card.ability.mod_conv])
+            else
+              SMODS.change_base(v, card.ability.suit_conv)
+            end
+          end
+        end)
+      end
+    end
+  }
+end
+
 if PB_UTIL.config.suits_enabled then
   PB_UTIL.Planet = SMODS.Consumable:extend {
     set = "Planet",

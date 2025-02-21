@@ -1,6 +1,5 @@
-SMODS.Consumable {
+PB_UTIL.MinorArcana {
   key = 'eight_of_cups',
-  set = 'paperback_minor_arcana',
   config = {
     max_highlighted = 4
   },

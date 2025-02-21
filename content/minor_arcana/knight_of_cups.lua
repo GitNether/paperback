@@ -1,14 +1,11 @@
-SMODS.Consumable {
+PB_UTIL.MinorArcana {
   key = 'knight_of_cups',
-  set = 'paperback_minor_arcana',
   config = {
     min_highlighted = 2,
     max_highlighted = 2
   },
   atlas = 'minor_arcana_atlas',
   pos = { x = 4, y = 1 },
-  unlocked = true,
-  discovered = true,
 
   loc_vars = function(self, info_queue, card)
     return {

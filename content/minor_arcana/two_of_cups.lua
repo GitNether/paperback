@@ -1,10 +1,7 @@
-SMODS.Consumable {
+PB_UTIL.MinorArcana {
   key = 'two_of_cups',
-  set = 'paperback_minor_arcana',
   atlas = 'minor_arcana_atlas',
   pos = { x = 1, y = 0 },
-  unlocked = true,
-  discovered = true,
 
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = G.P_TAGS.tag_polychrome

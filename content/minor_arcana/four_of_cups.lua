@@ -1,6 +1,5 @@
-SMODS.Consumable {
+PB_UTIL.MinorArcana {
   key = 'four_of_cups',
-  set = 'paperback_minor_arcana',
   config = {
     max_highlighted = 3,
     extra = {
@@ -9,8 +8,6 @@ SMODS.Consumable {
   },
   atlas = 'minor_arcana_atlas',
   pos = { x = 3, y = 0 },
-  unlocked = true,
-  discovered = true,
 
   loc_vars = function(self, info_queue, card)
     return {

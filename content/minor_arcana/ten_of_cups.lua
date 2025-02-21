@@ -1,10 +1,7 @@
-SMODS.Consumable {
+PB_UTIL.MinorArcana {
   key = 'ten_of_cups',
-  set = 'paperback_minor_arcana',
   atlas = 'minor_arcana_atlas',
   pos = { x = 2, y = 1 },
-  unlocked = true,
-  discovered = true,
   config = {
     extra = {
       odds = 3

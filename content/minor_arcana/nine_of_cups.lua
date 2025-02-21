@@ -1,6 +1,5 @@
-SMODS.Consumable {
+PB_UTIL.MinorArcana {
   key = 'nine_of_cups',
-  set = 'paperback_minor_arcana',
   config = {
     extra = {
       max_jokers = 1
@@ -8,8 +7,6 @@ SMODS.Consumable {
   },
   atlas = 'minor_arcana_atlas',
   pos = { x = 1, y = 1 },
-  unlocked = true,
-  discovered = true,
 
   can_use = function(self, card)
     -- Prevent changing eternal jokers
