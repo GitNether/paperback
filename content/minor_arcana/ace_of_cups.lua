@@ -2,7 +2,7 @@ SMODS.Consumable {
   key = 'ace_of_cups',
   set = 'paperback_minor_arcana',
   config = {
-    max_highlighted = 3
+    max_highlighted = 2
   },
   atlas = 'minor_arcana_atlas',
   pos = { x = 0, y = 0 },
