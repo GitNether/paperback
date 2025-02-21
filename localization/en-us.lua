@@ -1030,9 +1030,9 @@ return {
         name = "White Clip",
         text = {
           "If {C:attention}held in hand{} at {C:attention}end of",
-          "{C:attention}round{}, permanently gain {C:chips}+2",
-          "Chips for every {C:attention}Clip{} scored",
-          "this round"
+          "{C:attention}round{}, gain {C:chips}+#1#{} Chips for",
+          "each {C:attention}Clip{} scored this round",
+          "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)"
         }
       },
       paperback_pink_clip = {
