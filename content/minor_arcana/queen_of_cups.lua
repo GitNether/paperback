@@ -2,7 +2,7 @@ SMODS.Consumable {
   key = 'queen_of_cups',
   set = 'paperback_minor_arcana',
   config = {
-    max_highlighted = 1,
+    max_highlighted = 2,
     mod_conv = 'm_paperback_ceramic'
   },
   atlas = 'minor_arcana_atlas',

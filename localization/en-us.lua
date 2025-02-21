@@ -807,9 +807,9 @@ return {
       c_paperback_queen_of_cups = {
         name = "Queen of Cups",
         text = {
-          "Enhances {C:attention}#1#{} selected",
-          "card into a",
-          "{C:attention}#2#{}"
+          "Enhances {C:attention}#1#{}",
+          "selected cards to",
+          "{C:attention}#2#s{}"
         }
       },
       c_paperback_king_of_cups = {
