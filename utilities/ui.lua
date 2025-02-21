@@ -245,7 +245,7 @@ if PB_UTIL.config.paperclips_enabled then
       hide_single_page = true,
       collapse_single_page = true,
       center = 'c_base',
-      h_mod = 1.03,
+      h_mod = 1.18,
       back_func = 'your_collection_other_gameobjects',
       modify_card = function(card, center)
         card.ignore_pinned = true
