@@ -28,7 +28,8 @@
     "mult",
     "love",
     "Back",
-    "PB_UTIL"
+    "PB_UTIL",
+    "G"
   ],
   "Lua.diagnostics.libraryFiles": "Disable"
 }

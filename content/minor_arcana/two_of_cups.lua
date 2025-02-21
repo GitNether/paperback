@@ -1,51 +1,34 @@
 SMODS.Consumable {
   key = 'two_of_cups',
   set = 'paperback_minor_arcana',
-  config = {
-    extra = {
-      max = 3
-    }
-  },
   atlas = 'minor_arcana_atlas',
   pos = { x = 1, y = 0 },
   unlocked = true,
   discovered = true,
 
   loc_vars = function(self, info_queue, card)
-    return {
-      vars = {
-        card.ability.extra.max
-      }
-    }
+    info_queue[#info_queue + 1] = G.P_TAGS.tag_polychrome
+    info_queue[#info_queue + 1] = G.P_TAGS.tag_holo
+    info_queue[#info_queue + 1] = G.P_TAGS.tag_foil
+    info_queue[#info_queue + 1] = G.P_TAGS.tag_rare
+    info_queue[#info_queue + 1] = G.P_TAGS.tag_uncommon
   end,
 
   can_use = function(self, card)
-    return #G.hand.highlighted == card.ability.extra.max
+    return true
   end,
 
   use = function(self, card, area)
-    local cards = {}
+    local tag = PB_UTIL.poll_tag("two_of_cups", {
+      'tag_uncommon',
+      'tag_rare',
+      'tag_foil',
+      'tag_holo',
+      'tag_polychrome'
+    })
 
-    for i = 1, card.ability.extra.max do
-      cards[i] = G.hand.highlighted[i]
-    end
-
-    -- The order of highlighted cards depends on the time they were clicked,
-    -- this makes it so it's position based
-    table.sort(cards, function(a, b)
-      return a.T.x < b.T.x
-    end)
-
-    local left = cards[1]
-    local middle = cards[math.ceil(#cards / 2)]
-    local right = cards[#cards]
-
-    local suit = left.base.suit
-    local rank = right.base.value
-
-    PB_UTIL.use_consumable_animation(card, middle, function()
-      PB_UTIL.destroy_playing_cards { left, right }
-      assert(SMODS.change_base(middle, suit, rank))
+    PB_UTIL.use_consumable_animation(card, nil, function()
+      PB_UTIL.add_tag(tag)
     end)
   end
 }

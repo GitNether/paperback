@@ -295,11 +295,12 @@ end
 
 ---Gets a pseudorandom tag from the Tag pool
 ---@param seed string
+---@param options table? a list of tags to choose from, defaults to normal pool
 ---@return table
-function PB_UTIL.poll_tag(seed)
+function PB_UTIL.poll_tag(seed, options)
   -- This part is basically a copy of how the base game does it
   -- Look at get_next_tag_key in common_events.lua
-  local pool = get_current_pool('Tag')
+  local pool = options or get_current_pool('Tag')
   local tag_key = pseudorandom_element(pool, pseudoseed(seed))
 
   while tag_key == 'UNAVAILABLE' do

@@ -718,11 +718,9 @@ return {
       c_paperback_two_of_cups = {
         name = "Two of Cups",
         text = {
-          "Select {C:attention}#1#{} cards, the {C:attention}middle{} card",
-          "inherits the {C:chips}suit{} of the {C:chips}left{} card",
-          "and {C:mult}rank{} of the {C:mult}right{} card, both",
-          "{C:chips}left{} and {C:mult}right{} cards are destroyed",
-          "{C:inactive}(Drag to rearrange)"
+          "Gives a {C:dark_edition}Polychrome{},",
+          "{C:dark_edition}Holographic{}, {C:dark_edition}Foil{},",
+          "{C:mult}Rare{} or {C:green}Uncommon{C:attention} Tag"
         }
       },
       c_paperback_three_of_cups = {
