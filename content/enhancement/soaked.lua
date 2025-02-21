@@ -4,7 +4,7 @@ SMODS.Enhancement {
   pos = { x = 0, y = 0 },
   config = {
     extra = {
-      odds = 4
+      odds = 2
     }
   },
 
@@ -27,7 +27,7 @@ SMODS.Enhancement {
         }, held_card)
       end
     end
-    
+
     if context.discard then
       if context.other_card == card then
         if pseudorandom("Soaked Destroy Chance") < G.GAME.probabilities.normal / card.ability.extra.odds then
