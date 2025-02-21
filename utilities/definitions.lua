@@ -78,6 +78,10 @@ PB_UTIL.requirement_map = {
   requires_tags = {
     setting = 'tags_enabled',
     tooltip = 'paperback_requires_tags'
+  },
+  requires_editions = {
+    setting = 'editions_enabled',
+    tooltip = 'paperback_requires_editions'
   }
 }
 

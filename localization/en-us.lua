@@ -975,6 +975,14 @@ return {
           "disabled in {C:legendary}Paperback",
         }
       },
+      paperback_requires_editions = {
+        name = "Requires Editions",
+        text = {
+          "Removed from pool",
+          "due to {C:dark_edition}Editions{} being",
+          "disabled in {C:legendary}Paperback",
+        }
+      },
 
       -- Paperclips
       paperback_blue_clip = {
