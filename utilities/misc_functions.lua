@@ -50,7 +50,7 @@ end
 
 ---Applies a paperclip with provided type to the provided card.
 ---A playing card can only have a single paperclip.
----@param type "blue" | "black" | "white"
+---@param type Paperclip
 function PB_UTIL.set_paperclip(card, type)
   local key = 'paperback_' .. type .. '_clip'
 

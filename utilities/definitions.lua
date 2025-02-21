@@ -405,8 +405,10 @@ if PB_UTIL.config.suits_enabled then
   }
 end
 
+--- @alias Paperclip "blue" | "black" | "white" | "red"
 PB_UTIL.ENABLED_PAPERCLIPS = {
   "blue_clip",
+  "red_clip",
   "black_clip",
   "white_clip",
 }

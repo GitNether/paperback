@@ -1001,6 +1001,14 @@ return {
           "{C:inactive}(Currently {X:chips,C:white}X#2#{C:inactive})"
         }
       },
+      paperback_red_clip = {
+        name = "Red Clip",
+        text = {
+          "{C:mult}+#1#{} Mult for each",
+          "{C:attention}Clip{} in {C:attention}held hand",
+          "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
+        }
+      },
       paperback_black_clip = {
         name = "Black Clip",
         text = {
