@@ -516,7 +516,8 @@ return {
       paperback_consumed_ex = "Consumido!",
     },
     v_dictionary = {
-      paperback_a_discards_ex = "+#1# Descartes!",
+      paperback_a_discards = "+#1# Descartes",
+      paperback_a_discards_minus = "-#1# Descartes",
       paperback_prince_of_darkness = "+#1# Multi, +#2# Fichas"
     }
   }

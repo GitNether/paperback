@@ -580,6 +580,23 @@ function PB_UTIL.show_nope_text(card, color)
   }))
 end
 
+--- Returns hands or discards, whichever is lower
+--- @return { hands: boolean?, discards: boolean?, amt: integer }
+function PB_UTIL.get_lowest_hand_discard()
+  if not G.GAME then return { amt = 0 } end
+
+  local hands = G.GAME.current_round.hands_left
+  local discards = G.GAME.current_round.discards_left
+
+  if hands == discards then
+    return { amt = hands, discards = true, hands = true }
+  elseif hands < discards then
+    return { amt = hands, hands = true }
+  else
+    return { amt = discards, discards = true }
+  end
+end
+
 ---Gets a sorted list of all ranks in descending order
 ---@return table
 function PB_UTIL.get_sorted_ranks()

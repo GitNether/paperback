@@ -905,6 +905,16 @@ return {
         }
       }
     },
+    Edition = {
+      e_paperback_dichrome = {
+        name = "Dichrome",
+        text = {
+          "When {C:attention}Blind{} is selected",
+          "gain {C:attention}+#1#{C:chips} Hand{} or {C:mult}Discard",
+          "{C:inactive}(Whichever is lower)"
+        }
+      }
+    },
     Other = {
       paperback_energized = {
         name = "Energized",
@@ -962,6 +972,14 @@ return {
         text = {
           "Removed from pool",
           "due to {C:attention}Tags{} being",
+          "disabled in {C:legendary}Paperback",
+        }
+      },
+      paperback_requires_editions = {
+        name = "Requires Editions",
+        text = {
+          "Removed from pool",
+          "due to {C:dark_edition}Editions{} being",
           "disabled in {C:legendary}Paperback",
         }
       },
@@ -1042,6 +1060,7 @@ return {
       paperback_ui_enable_jokers = "Enable Jokers",
       paperback_ui_enable_minor_arcana = "Enable Minor Arcana",
       paperback_ui_enable_enhancements = "Enable Enhancements",
+      paperback_ui_enable_editions = "Enable Editions",
       paperback_ui_enable_paperclips = "Enable Paperclips",
       paperback_ui_custom_suits_enabled = "Enable Custom Suits",
       paperback_ui_enable_vouchers = "Enable Vouchers",
@@ -1052,7 +1071,8 @@ return {
       paperback_ui_paperclips = "Paperclips",
     },
     v_dictionary = {
-      paperback_a_discards_ex = "+#1# Discards!",
+      paperback_a_discards = "+#1# Discards",
+      paperback_a_discards_minus = "-#1# Discards",
       paperback_a_hands_minus = "-#1# Hands",
       paperback_prince_of_darkness = "+#1# Mult, +#2# Chips",
       paperback_a_completion = "#1#/#2#",
@@ -1095,6 +1115,7 @@ return {
       paperback_blue_clip = "Blue Clip",
       paperback_black_clip = "Black Clip",
       paperback_white_clip = "White Clip",
+      paperback_dichrome = "Dichrome",
     }
   }
 }

@@ -10,7 +10,7 @@
 // Values of this variable:
 // self.ARGS.send_to_shader[1] = math.min(self.VT.r*3, 1) + (math.sin(G.TIMERS.REAL/28) + 1) + (self.juice and self.juice.r*20 or 0) + self.tilt_var.amt
 // self.ARGS.send_to_shader[2] = G.TIMERS.REAL
-extern PRECISION vec2 balatrochrome;
+extern PRECISION vec2 dichrome;
 
 extern PRECISION number dissolve;
 extern PRECISION number time;
@@ -25,8 +25,6 @@ extern bool shadow;
 extern PRECISION vec4 burn_colour_1;
 extern PRECISION vec4 burn_colour_2;
 
-// NEW
-
 // [Required] 
 // Apply dissolve effect (when card is being "burnt", e.g. when consumable is used)
 vec4 dissolve_mask(vec4 tex, vec2 texture_coords, vec2 uv);
@@ -37,7 +35,24 @@ vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords
     // Take pixel color (rgba) from `texture` at `texture_coords`, equivalent of texture2D in GLSL
     vec4 tex = Texel(texture, texture_coords);
     // Position of a pixel within the sprite
-	vec2 uv = (((texture_coords)*(image_details)) - texture_details.xy*texture_details.ba)/texture_details.ba;
+	  vec2 uv = (((texture_coords)*(image_details)) - texture_details.xy*texture_details.ba)/texture_details.ba;
+
+    // generic shimmer copied straight from negative_shine.fs
+    number low = min(tex.r, min(tex.g, tex.b));
+    number high = max(tex.r, max(tex.g, tex.b));
+    number delta = high-low -0.1;
+
+    number fac = 0.8 + 0.9*sin(11.*uv.x+4.32*uv.y + dichrome.r*12. + cos(dichrome.r*5.3 + uv.y*4.2 - uv.x*4.));
+    number fac2 = 0.5 + 0.5*sin(8.*uv.x+2.32*uv.y + dichrome.r*5. - cos(dichrome.r*2.3 + uv.x*8.2));
+    number fac3 = 0.5 + 0.5*sin(10.*uv.x+5.32*uv.y + dichrome.r*6.111 + sin(dichrome.r*5.3 + uv.y*3.2));
+    number fac4 = 0.5 + 0.5*sin(3.*uv.x+2.32*uv.y + dichrome.r*8.111 + sin(dichrome.r*1.3 + uv.y*11.2));
+    number fac5 = sin(0.9*16.*uv.x+5.32*uv.y + dichrome.r*12. + cos(dichrome.r*5.3 + uv.y*4.2 - uv.x*4.));
+
+    number maxfac = 0.7*max(max(fac, max(fac2, max(fac3,0.0))) + (fac+fac2+fac3*fac4), 0.);
+
+    // normally this would have both a tex.b and tex.r for this segement but
+    // it made the card look rainbow
+    tex.g = tex.g-delta + delta*maxfac*(0.7 - fac5*0.27) - 0.1;
 
     const vec3 BALATRO_RED = vec3(0.992, 0.373, 0.333);
     const vec3 BALATRO_BLUE = vec3(0., 0.612, 0.992);
@@ -78,7 +93,7 @@ vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords
 
     // Does not do anything. Required for shader to not crash.
     if (uv.x > 2. * uv.x) {
-        uv = balatrochrome;
+        uv = dichrome;
     }
 
     // required

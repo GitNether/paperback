@@ -574,7 +574,8 @@ return {
       paperback_inactive = "Inactive",
     },
     v_dictionary = {
-      paperback_a_discards_ex = "+#1# défausse(s) !",
+      paperback_a_discards = "+#1# défausse(s)",
+      paperback_a_discards_minus = "-#1# défausse(s)",
       paperback_a_hands_minus = "-#1# Main(s)",
       paperback_prince_of_darkness = "+#1# Multi, +#2# Jetons"
     }
