@@ -869,6 +869,14 @@ return {
           "Gives a free",
           "{C:paperback_minor_arcana}Mega Minor Arcana Pack"
         }
+      },
+      tag_paperback_dichrome = {
+        name = "Dichrome Tag",
+        text = {
+          "Next base edition shop",
+          "Joker is free and",
+          "becomes {C:dark_edition}Dichrome"
+        }
       }
     },
     Planet = {

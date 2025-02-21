@@ -307,6 +307,7 @@ PB_UTIL.ENABLED_VOUCHERS = {
 PB_UTIL.ENABLED_TAGS = {
   'angel_investment',
   'divination',
+  'dichrome',
 }
 
 PB_UTIL.ENABLED_ENHANCEMENTS = {

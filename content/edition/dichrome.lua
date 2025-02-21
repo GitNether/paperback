@@ -27,7 +27,7 @@ SMODS.Edition {
   loc_vars = function(self, info_queue, card)
     return {
       vars = {
-        card.edition.amount
+        (card.edition or {}).amount or self.config.amount
       }
     }
   end,
