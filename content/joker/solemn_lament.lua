@@ -18,17 +18,10 @@ SMODS.Joker {
       if context.other_card == context.scoring_hand[1] then
         return {
           message = localize('k_again_ex'),
-          repetitions = PB_UTIL.sl_get_repetitions(),
+          repetitions = PB_UTIL.get_lowest_hand_discard().amt,
           card = card
         }
       end
     end
   end
 }
-
--- Returns the number of repetitions for the joker
-function PB_UTIL.sl_get_repetitions()
-  return (G.GAME.current_round.hands_left < G.GAME.current_round.discards_left)
-      and G.GAME.current_round.hands_left
-      or G.GAME.current_round.discards_left
-end

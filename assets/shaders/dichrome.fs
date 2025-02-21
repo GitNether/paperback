@@ -10,7 +10,7 @@
 // Values of this variable:
 // self.ARGS.send_to_shader[1] = math.min(self.VT.r*3, 1) + (math.sin(G.TIMERS.REAL/28) + 1) + (self.juice and self.juice.r*20 or 0) + self.tilt_var.amt
 // self.ARGS.send_to_shader[2] = G.TIMERS.REAL
-extern PRECISION vec2 balatrochrome;
+extern PRECISION vec2 dichrome;
 
 extern PRECISION number dissolve;
 extern PRECISION number time;
@@ -24,8 +24,6 @@ extern PRECISION vec2 image_details;
 extern bool shadow;
 extern PRECISION vec4 burn_colour_1;
 extern PRECISION vec4 burn_colour_2;
-
-// NEW
 
 // [Required] 
 // Apply dissolve effect (when card is being "burnt", e.g. when consumable is used)
@@ -78,7 +76,7 @@ vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords
 
     // Does not do anything. Required for shader to not crash.
     if (uv.x > 2. * uv.x) {
-        uv = balatrochrome;
+        uv = dichrome;
     }
 
     // required

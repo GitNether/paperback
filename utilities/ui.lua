@@ -43,6 +43,11 @@ SMODS.current_mod.config_tab = function()
             n = G.UIT.C,
             nodes = {
               create_toggle {
+                label = localize('paperback_ui_enable_editions'),
+                ref_table = PB_UTIL.config,
+                ref_value = 'editions_enabled'
+              },
+              create_toggle {
                 label = localize('paperback_ui_enable_enhancements'),
                 ref_table = PB_UTIL.config,
                 ref_value = 'enhancements_enabled',

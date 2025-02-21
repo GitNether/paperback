@@ -35,7 +35,7 @@ SMODS.Joker {
           return {
             message = localize {
               type = 'variable',
-              key = 'paperback_a_discards_ex',
+              key = 'paperback_a_discards',
               vars = { card.ability.extra.discards_given }
             },
             colour = G.C.MULT,

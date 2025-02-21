@@ -310,6 +310,10 @@ PB_UTIL.ENABLED_ENHANCEMENTS = {
   "ceramic",
 }
 
+PB_UTIL.ENABLED_EDITIONS = {
+  'dichrome'
+}
+
 PB_UTIL.ENABLED_SUITS = {
   'crowns',
   'stars',

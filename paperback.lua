@@ -55,6 +55,10 @@ if PB_UTIL.config.enhancements_enabled then
   PB_UTIL.register_items(PB_UTIL.ENABLED_ENHANCEMENTS, "content/enhancement")
 end
 
+if PB_UTIL.config.editions_enabled then
+  PB_UTIL.register_items(PB_UTIL.ENABLED_EDITIONS, "content/edition")
+end
+
 -- Load Paperclips if they are enabled
 if PB_UTIL.config.paperclips_enabled then
   PB_UTIL.register_items(PB_UTIL.ENABLED_PAPERCLIPS, "content/paperclip")
