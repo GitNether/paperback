@@ -1035,6 +1035,15 @@ return {
           "this round"
         }
       },
+      paperback_pink_clip = {
+        name = "Pink Clip",
+        text = {
+          "{X:mult,C:white}X#1#{} Mult when {C:attention}held in",
+          "{C:attention}hand{}, increases by {X:mult,C:white}X#2#",
+          "for each scored {C:attention}Clip",
+          "{C:inactive}(Resets after played hand)"
+        }
+      },
 
       -- Minor Arcana
       p_paperback_minor_arcana_normal = {
@@ -1138,6 +1147,7 @@ return {
       paperback_blue_clip = "Blue Clip",
       paperback_red_clip = "Red Clip",
       paperback_orange_clip = "Orange Clip",
+      paperback_pink_clip = "Pink Clip",
       paperback_black_clip = "Black Clip",
       paperback_white_clip = "White Clip",
       paperback_dichrome = "Dichrome",

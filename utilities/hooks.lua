@@ -83,6 +83,21 @@ function eval_card(card, context)
 
   if context.cardarea == G.play and context.main_scoring and ret and ret.playing_card and PB_UTIL.has_paperclip(card) then
     G.GAME.current_round.paperback_scored_clips = G.GAME.current_round.paperback_scored_clips + 1
+
+    -- Add a new context for our Paperclips when held in hand
+    for _, v in ipairs(G.hand.cards) do
+      local key = PB_UTIL.has_paperclip(v)
+      local clip = SMODS.Stickers[key]
+
+      if clip and clip.calculate and type(clip.calculate) == "function" then
+        clip:calculate(v, {
+          paperback = {
+            clip_scored = true,
+            other_card = v
+          }
+        })
+      end
+    end
   end
 
   return ret, ret2
