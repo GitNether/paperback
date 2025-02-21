@@ -6,7 +6,7 @@ SMODS.Enhancement {
     extra = {
       a_money_low = 1,
       a_money_high = 5,
-      odds = 4,
+      odds = 3,
     }
   },
 
