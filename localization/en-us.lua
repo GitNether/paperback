@@ -1009,6 +1009,14 @@ return {
           "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
         }
       },
+      paperback_orange_clip = {
+        name = "Orange Clip",
+        text = {
+          "Earn {C:money}$#1#{} for every {C:attention}#2#",
+          "{C:attention}Clips{} in {C:attention}held hand",
+          "{C:inactive}(Currently {C:money}$#3#{C:inactive})"
+        }
+      },
       paperback_black_clip = {
         name = "Black Clip",
         text = {
@@ -1127,8 +1135,9 @@ return {
       },
     },
     labels = {
-      paperback_red_clip = "Red Clip",
       paperback_blue_clip = "Blue Clip",
+      paperback_red_clip = "Red Clip",
+      paperback_orange_clip = "Orange Clip",
       paperback_black_clip = "Black Clip",
       paperback_white_clip = "White Clip",
       paperback_dichrome = "Dichrome",

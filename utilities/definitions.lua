@@ -409,6 +409,7 @@ end
 PB_UTIL.ENABLED_PAPERCLIPS = {
   "blue_clip",
   "red_clip",
+  "orange_clip",
   "black_clip",
   "white_clip",
 }

@@ -48,6 +48,24 @@ function PB_UTIL.has_paperclip(card)
   end
 end
 
+--- Counts all the paperclips in the specified area and returns the count
+--- @param args { area: table, allow_debuff: boolean?, exclude_highlighted: boolean? }
+--- @return integer
+function PB_UTIL.count_paperclips(args)
+  local clips = 0
+
+  for _, v in ipairs(args.area and args.area.cards or {}) do
+    local debuff_check = args.allow_debuff or not v.debuff
+    local highlighted_check = not args.exclude_highlighted or not v.highlighted
+
+    if PB_UTIL.has_paperclip(v) and debuff_check and highlighted_check then
+      clips = clips + 1
+    end
+  end
+
+  return clips
+end
+
 ---Applies a paperclip with provided type to the provided card.
 ---A playing card can only have a single paperclip.
 ---@param type Paperclip
