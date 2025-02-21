@@ -3,6 +3,9 @@ SMODS.Voucher {
   atlas = 'vouchers_atlas',
   pos = { x = 0, y = 1 },
   discovered = true,
+  requires = {
+    'v_paperback_celtic_cross'
+  },
   paperback = {
     requires_minor_arcana = true,
     requires_tags = true
