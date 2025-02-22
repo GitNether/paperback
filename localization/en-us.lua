@@ -882,6 +882,14 @@ return {
           "to {C:attention}#1#{} selected cards"
         }
       },
+      c_paperback_knight_of_wands = {
+        name = "Knight of Wands",
+        text = {
+          "{C:attention}Double{} the {C:attention}Boss Blind",
+          "score requirement and",
+          "gain {C:attention}#1# {C:money}Investment Tags"
+        }
+      },
       c_paperback_ace_of_swords = {
         name = "Ace of Swords",
         text = {

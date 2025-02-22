@@ -3,6 +3,10 @@ PB_UTIL.config = SMODS.current_mod.config
 
 -- Load values that get reset at the start of each round
 SMODS.current_mod.reset_game_globals = function(run_start)
+  if run_start then
+    G.GAME.round_resets.paperback_extra_boss_scaling = 1
+  end
+
   G.GAME.current_round.paperback_scored_clips = 0
 end
 
@@ -230,7 +234,7 @@ PB_UTIL.ENABLED_MINOR_ARCANA = {
   -- "nine_of_wands",
   "ten_of_wands",
   "page_of_wands",
-  -- "knight_of_wands",
+  "knight_of_wands",
   -- "queen_of_wands",
   -- "king_of_wands",
   "ace_of_swords",

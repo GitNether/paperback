@@ -157,3 +157,15 @@ function level_up_hand(card, hand, instant, amount)
 
   return ret
 end
+
+-- Handle reseting our extra boss scaling
+local defeat_ref = Blind.defeat
+function Blind.defeat(self, silent)
+  local ret = defeat_ref(self, silent)
+
+  if self.config.blind.boss then
+    PB_UTIL.reset_extra_boss_scaling()
+  end
+
+  return ret
+end

@@ -771,3 +771,18 @@ function PB_UTIL.has_modded_suit_in_deck()
   end
   return false
 end
+
+--- Modifies the extra boss scaling added by this mod, this value is temporary and resets once a
+--- Boss Blind is defeated
+--- @param mult number? multiply the value
+--- @param flat number? add a flat amount to it
+function PB_UTIL.modify_extra_boss_scaling(mult, flat)
+  local amt = G.GAME.round_resets.paperback_extra_boss_scaling
+  amt = flat and (amt + flat) or (amt * mult)
+  G.GAME.round_resets.paperback_extra_boss_scaling = amt
+end
+
+--- Resets the extra boss scaling added by this mod to 1
+function PB_UTIL.reset_extra_boss_scaling()
+  G.GAME.round_resets.paperback_extra_boss_scaling = 1
+end
