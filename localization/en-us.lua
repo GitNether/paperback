@@ -859,6 +859,13 @@ return {
           "sets money to {C:money}$0"
         }
       },
+      c_paperback_eight_of_wands = {
+        name = "Eight of Wands",
+        text = {
+          "Create a {C:dark_edition}Negative",
+          "{C:attention}Tag{} and lose {C:money}$#1#"
+        }
+      },
       c_paperback_page_of_wands = {
         name = "Page of Wands",
         text = {

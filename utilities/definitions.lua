@@ -226,7 +226,7 @@ PB_UTIL.ENABLED_MINOR_ARCANA = {
   "five_of_wands",
   -- "six_of_wands",
   -- "seven_of_wands",
-  -- "eight_of_wands",
+  "eight_of_wands",
   -- "nine_of_wands",
   -- "ten_of_wands",
   "page_of_wands",
