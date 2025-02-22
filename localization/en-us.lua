@@ -827,6 +827,15 @@ return {
           "to {C:attention}#1#{} selected cards"
         }
       },
+      c_paperback_two_of_wands = {
+        name = "Two of Wands",
+        text = {
+          "Create the {C:planet}Planet{} card",
+          "for your {C:attention}most{} and {C:attention}least",
+          "played {C:attention}poker hands",
+          "{C:inactive}(Must have room)"
+        }
+      },
       c_paperback_four_of_wands = {
         name = "Four of Wands",
         text = {

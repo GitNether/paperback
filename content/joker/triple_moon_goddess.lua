@@ -34,25 +34,25 @@ if PB_UTIL.config.minor_arcana_enabled then
         -- Tarot spawn
         local roll = pseudorandom('triple_moon_goddess_tarot')
         if roll < G.GAME.probabilities.normal / card.ability.extra.tarot_odds then
-          PB_UTIL.try_spawn_card({ set = 'Tarot' }, function()
+          PB_UTIL.try_spawn_card { set = 'Tarot', func = function()
             SMODS.calculate_effect {
               message = localize('k_plus_tarot'),
               colour = G.C.SECONDARY_SET.Tarot,
               card = eff_card
             }
-          end)
+          end }
         end
 
         -- Minor Arcana spawn
         roll = pseudorandom('triple_moon_goddess_minor_arcana')
         if roll < G.GAME.probabilities.normal / card.ability.extra.minor_arcana_odds then
-          PB_UTIL.try_spawn_card({ set = 'paperback_minor_arcana' }, function()
+          PB_UTIL.try_spawn_card { set = 'paperback_minor_arcana', func = function()
             SMODS.calculate_effect {
               message = localize('paperback_plus_minor_arcana'),
               colour = G.C.PAPERBACK_MINOR_ARCANA,
               card = eff_card
             }
-          end)
+          end }
         end
       end
     end
@@ -94,25 +94,25 @@ else
         -- Check if planet card is generated and there is enough space in the consumeables area
         local roll = pseudorandom("Triple Moon Goddess (Planet)")
         if roll < G.GAME.probabilities.normal / card.ability.extra.planet_odds then
-          PB_UTIL.try_spawn_card({ set = 'Planet' }, function()
+          PB_UTIL.try_spawn_card { set = 'Planet', func = function()
             SMODS.calculate_effect {
               message = localize('k_plus_planet'),
               colour = G.C.SECONDARY_SET.Planet,
               card = eff_card
             }
-          end)
+          end }
         end
 
         -- Check if a tarot card is generated and there is enough space in the consumeables area
         roll = pseudorandom("Triple Moon Goddess (Tarot)")
         if roll < G.GAME.probabilities.normal / card.ability.extra.tarot_odds then
-          PB_UTIL.try_spawn_card({ set = 'Tarot' }, function()
+          PB_UTIL.try_spawn_card { set = 'Tarot', func = function()
             SMODS.calculate_effect {
               message = localize('k_plus_tarot'),
               colour = G.C.SECONDARY_SET.Tarot,
               card = eff_card
             }
-          end)
+          end }
         end
       end
     end

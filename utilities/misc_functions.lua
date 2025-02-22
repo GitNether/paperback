@@ -373,25 +373,29 @@ end
 --- Tries to spawn a card into either the Jokers or Consumeable card areas, ensuring
 --- that there is space available.
 --- DOES NOT TAKE INTO ACCOUNT ANY OTHER AREAS
---- @param args table same arguments passed to SMODS.create_card
---- @param after function?
-function PB_UTIL.try_spawn_card(args, after)
-  local area = args.area or (args.set == 'Joker' and G.jokers) or G.consumeables
+--- @param args table same arguments passed to SMODS.create_card, with the addition of 'instant' and 'func'
+function PB_UTIL.try_spawn_card(args)
+  local is_joker = (args.set == 'Joker' or args.key and args.key:sub(1, 1) == 'j')
+  local area = args.area or (is_joker and G.jokers) or G.consumeables
   local buffer = area == G.jokers and 'joker_buffer' or 'consumeable_buffer'
 
   if #area.cards + G.GAME[buffer] < area.config.card_limit then
-    G.GAME[buffer] = G.GAME[buffer] + 1
+    if args.instant then
+      SMODS.add_card(args)
+    else
+      G.GAME[buffer] = G.GAME[buffer] + 1
 
-    G.E_MANAGER:add_event(Event {
-      func = function()
-        SMODS.add_card(args)
-        G.GAME[buffer] = 0
-        return true
-      end
-    })
+      G.E_MANAGER:add_event(Event {
+        func = function()
+          SMODS.add_card(args)
+          G.GAME[buffer] = 0
+          return true
+        end
+      })
+    end
 
-    if after and type(after) == "function" then
-      after()
+    if args.func and type(args.func) == "function" then
+      args.func()
     end
   end
 end
@@ -480,7 +484,8 @@ end
 ---@param card table
 ---@param cards_to_flip table?
 ---@param action function?
-function PB_UTIL.use_consumable_animation(card, cards_to_flip, action)
+---@param sound string?
+function PB_UTIL.use_consumable_animation(card, cards_to_flip, action, sound)
   -- If it's not a list, make it one
   if cards_to_flip and not cards_to_flip[1] then
     cards_to_flip = { cards_to_flip }
@@ -490,7 +495,7 @@ function PB_UTIL.use_consumable_animation(card, cards_to_flip, action)
     trigger = 'after',
     delay = 0.4,
     func = function()
-      play_sound('tarot1')
+      play_sound(sound or 'tarot1')
       card:juice_up(0.3, 0.5)
       return true
     end
@@ -619,6 +624,37 @@ function PB_UTIL.get_lowest_hand_discard()
   else
     return { amt = discards, discards = true }
   end
+end
+
+--- Returns a list of visible hands, ordered by most played to least
+--- @return {key: string, hand: table, planet_key: string}[]
+function PB_UTIL.get_most_played_hands()
+  local hands = {}
+
+  for _, v in ipairs(G.P_CENTER_POOLS.Planet) do
+    if v.config and v.config.hand_type then
+      local hand = G.GAME.hands[v.config.hand_type]
+
+      if hand and hand.visible then
+        hands[#hands + 1] = {
+          key = v.config.hand_type,
+          hand = hand,
+          planet_key = v.key
+        }
+      end
+    end
+  end
+
+  table.sort(hands, function(a, b)
+    if a.hand.played ~= b.hand.played then
+      return a.hand.played > b.hand.played
+    end
+
+    -- Sort by base values if the played amount is equal
+    return (a.hand.s_mult * a.hand.s_chips) > (b.hand.s_mult * b.hand.s_chips)
+  end)
+
+  return hands
 end
 
 ---Gets a sorted list of all ranks in descending order
