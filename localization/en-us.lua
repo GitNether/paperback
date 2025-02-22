@@ -866,6 +866,15 @@ return {
           "{C:attention}Tag{} and lose {C:money}$#1#"
         }
       },
+      c_paperback_ten_of_wands = {
+        name = "Ten of Wands",
+        text = {
+          "Select {C:attention}#1#{} cards, destroy the",
+          "{C:attention}rightmost two{} and give their",
+          "{C:chips}chip value{} to the {C:attention}leftmost",
+          "{C:inactive}(Drag to rearrange)"
+        }
+      },
       c_paperback_page_of_wands = {
         name = "Page of Wands",
         text = {
