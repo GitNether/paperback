@@ -887,7 +887,7 @@ return {
         text = {
           "{C:attention}Double{} the {C:attention}Boss Blind",
           "score requirement and",
-          "gain {C:attention}#1# {C:money}Investment Tags"
+          "gain an {C:attention}Investment Tag"
         }
       },
       c_paperback_ace_of_swords = {

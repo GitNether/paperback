@@ -2,18 +2,10 @@ PB_UTIL.MinorArcana {
   key = 'knight_of_wands',
   atlas = 'minor_arcana_atlas',
   pos = { x = 4, y = 3 },
-  config = {
-    tags = 2,
-  },
+
 
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = G.P_TAGS.tag_investment
-
-    return {
-      vars = {
-        card.ability.tags
-      }
-    }
   end,
 
   can_use = function(self, card)
@@ -23,17 +15,15 @@ PB_UTIL.MinorArcana {
   end,
 
   use = function(self, card)
-    for _ = 1, card.ability.tags do
-      G.E_MANAGER:add_event(Event {
-        trigger = 'after',
-        delay = 0.6,
-        func = function()
-          PB_UTIL.add_tag('tag_investment')
-          card:juice_up()
-          return true
-        end
-      })
-    end
+    G.E_MANAGER:add_event(Event {
+      trigger = 'after',
+      delay = 0.6,
+      func = function()
+        PB_UTIL.add_tag('tag_investment')
+        card:juice_up()
+        return true
+      end
+    })
 
     G.E_MANAGER:add_event(Event {
       trigger = 'after',
