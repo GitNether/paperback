@@ -16,7 +16,7 @@ SMODS.Joker {
   discovered = true,
   blueprint_compat = true,
   eternal_compat = true,
-  soul_pos = nil,
+  enhancement_gate = 'm_wild',
 
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = G.P_CENTERS.m_wild
@@ -37,7 +37,8 @@ SMODS.Joker {
     if context.individual and context.cardarea == G.play then
       if context.other_card.ability.name == "Wild Card" then
         if pseudorandom("Wild Prize Money") < G.GAME.probabilities.normal / card.ability.extra.money_odds then
-          local dollars = pseudorandom("Wild Prize Money Amount", card.ability.extra.a_money_low, card.ability.extra.a_money_high)
+          local dollars = pseudorandom("Wild Prize Money Amount", card.ability.extra.a_money_low,
+            card.ability.extra.a_money_high)
           G.GAME.dollar_buffer = (G.GAME.dollar_buffer or 0) + dollars
           G.E_MANAGER:add_event(Event({
             func = (function()
