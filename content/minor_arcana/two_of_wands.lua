@@ -1,7 +1,7 @@
 PB_UTIL.MinorArcana {
   key = 'two_of_wands',
   atlas = 'minor_arcana_atlas',
-  pos = { x = 1, y = 3 },
+  pos = { x = 1, y = 2 },
 
   can_use = function(self, card)
     return true
