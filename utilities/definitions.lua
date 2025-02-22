@@ -52,6 +52,18 @@ PB_UTIL.base_suits = {
   "Diamonds"
 }
 
+PB_UTIL.vanilla_food = {
+  j_gros_michel = true,
+  j_egg = true,
+  j_ice_cream = true,
+  j_cavendish = true,
+  j_turtle_bean = true,
+  j_diet_cola = true,
+  j_popcorn = true,
+  j_ramen = true,
+  j_selzer = true,
+}
+
 -- Define light and dark suits
 PB_UTIL.light_suits = { 'Diamonds', 'Hearts' }
 PB_UTIL.dark_suits = { 'Spades', 'Clubs' }

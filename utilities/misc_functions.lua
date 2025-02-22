@@ -9,15 +9,9 @@ if not SMODS.ObjectTypes.Food then
     inject = function(self)
       SMODS.ObjectType.inject(self)
       -- Insert base game food jokers
-      self:inject_card(G.P_CENTERS.j_gros_michel)
-      self:inject_card(G.P_CENTERS.j_egg)
-      self:inject_card(G.P_CENTERS.j_ice_cream)
-      self:inject_card(G.P_CENTERS.j_cavendish)
-      self:inject_card(G.P_CENTERS.j_turtle_bean)
-      self:inject_card(G.P_CENTERS.j_diet_cola)
-      self:inject_card(G.P_CENTERS.j_popcorn)
-      self:inject_card(G.P_CENTERS.j_ramen)
-      self:inject_card(G.P_CENTERS.j_selzer)
+      for k, _ in pairs(PB_UTIL.vanilla_food) do
+        self:inject_card(G.P_CENTERS[k])
+      end
     end
   }
 end
@@ -93,15 +87,21 @@ end
 ---@param card table | string a center key or a card
 ---@return boolean
 function PB_UTIL.is_food(card)
-  local center
+  local center = type(card) == "string"
+      and G.P_CENTERS[card]
+      or (card.config and card.config.center)
 
-  if type(card) == "string" then
-    center = G.P_CENTERS[card]
-  else
-    center = card.config and card.config.center
+  if not center then
+    return false
   end
 
-  return center and center.pools and center.pools.Food
+  -- If the center has the Food pool in its definition
+  if center.pools and center.pools.Food then
+    return true
+  end
+
+  -- If it doesn't, we check if this is a vanilla food joker
+  return PB_UTIL.vanilla_food[center.key]
 end
 
 ---Returns a table of all the Jokers classified as "Food Jokers" in the G.jokers cardarea
