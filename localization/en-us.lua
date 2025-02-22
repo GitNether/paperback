@@ -750,9 +750,10 @@ return {
       c_paperback_six_of_cups = {
         name = "Six of Cups",
         text = {
-          "Select a card and earn",
-          "{C:attention}half{} its {C:chips}chip value",
-          "as {C:money}money{}"
+          "Earn {C:attention}half{} the {C:chips}chip",
+          "{C:chips}value{} of {C:attention}#1#{} selected",
+          "card as {C:money}money",
+          "{C:inactive}(Max of {C:money}$#2#{C:inactive})"
         }
       },
       c_paperback_seven_of_cups = {
