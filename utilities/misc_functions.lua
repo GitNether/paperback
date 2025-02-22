@@ -90,18 +90,18 @@ function PB_UTIL.set_paperclip(card, type)
 end
 
 ---Checks if a provided card is classified as a "Food Joker"
----@param card table
+---@param card table | string a center key or a card
 ---@return boolean
 function PB_UTIL.is_food(card)
-  -- Accepts a key, a center or a card
-  local key = (type(card) == "string" and card) or (card.key and card.key) or card.config.center_key
+  local center
 
-  if key then
-    for _, v in ipairs(G.P_CENTER_POOLS.Food) do
-      if v.key == key then return true end
-    end
+  if type(card) == "string" then
+    center = G.P_CENTERS[card]
+  else
+    center = card.config and card.config.center
   end
-  return false
+
+  return center and center.pools and center.pools.Food
 end
 
 ---Returns a table of all the Jokers classified as "Food Jokers" in the G.jokers cardarea
