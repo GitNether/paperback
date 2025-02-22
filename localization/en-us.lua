@@ -946,7 +946,15 @@ return {
           "Joker is free and",
           "becomes {C:dark_edition}Dichrome"
         }
-      }
+      },
+      tag_paperback_high_risk = {
+        name = "High Risk",
+        text = {
+          "When selecting {C:attention}Boss",
+          "{C:attention}Blind{}, {C:attention}double{} its",
+          "score and gain {C:money}$#1#"
+        }
+      },
     },
     Planet = {
       c_paperback_quaoar = {
