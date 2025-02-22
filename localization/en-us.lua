@@ -836,6 +836,14 @@ return {
           "{C:inactive}(Must have room)"
         }
       },
+      c_paperback_three_of_wands = {
+        name = "Three of Wands",
+        text = {
+          "Create a copy of {C:attention}#1#",
+          "selected card in",
+          "your hand"
+        }
+      },
       c_paperback_four_of_wands = {
         name = "Four of Wands",
         text = {
