@@ -15,9 +15,10 @@ SMODS.Joker {
   blueprint_compat = true,
   eternal_compat = true,
   perishable_compat = false,
-  soul_pos = nil,
 
   loc_vars = function(self, info_queue, card)
+    info_queue[#info_queue + 1] = PB_UTIL.suit_tooltip('dark')
+
     return {
       vars = {
         card.ability.extra.x_mult_mod,
@@ -27,33 +28,29 @@ SMODS.Joker {
   end,
 
   calculate = function(self, card, context)
-    if not card.debuff then
-      -- Upgrade the Joker when hand is played
-      if context.before and context.main_eval and not context.blueprint then
-        for i = 1, #context.scoring_hand do
-          if context.scoring_hand[i].ability.name ~= "Wild Card" then
-            if context.scoring_hand[i]:is_suit("Hearts") or context.scoring_hand[i]:is_suit("Diamonds") then
-              return
-            end
-          end
+    -- Upgrade the Joker when hand is played
+    if context.before and context.main_eval and not context.blueprint then
+      for _, v in ipairs(context.scoring_hand) do
+        if not SMODS.has_any_suit(v) and PB_UTIL.is_suit(v, 'light') then
+          return
         end
-
-        card.ability.extra.x_mult = card.ability.extra.x_mult + card.ability.extra.x_mult_mod
-
-        return {
-          message = localize('k_upgrade_ex'),
-          colour = G.C.MULT,
-          card = card
-        }
       end
 
-      -- Give the xMult during play
-      if context.joker_main and not card.debuff then
-        return {
-          x_mult = card.ability.extra.x_mult,
-          card = card,
-        }
-      end
+      card.ability.extra.x_mult = card.ability.extra.x_mult + card.ability.extra.x_mult_mod
+
+      return {
+        message = localize('k_upgrade_ex'),
+        colour = G.C.MULT,
+        card = card
+      }
+    end
+
+    -- Give the xMult during play
+    if context.joker_main and card.ability.extra.x_mult ~= 1 then
+      return {
+        x_mult = card.ability.extra.x_mult,
+        card = card,
+      }
     end
   end
 

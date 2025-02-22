@@ -471,7 +471,7 @@ return {
         name = "Derecho",
         text = {
           "Gains {X:mult,C:white}X#1#{} Mult if {C:attention}scored hand",
-          "contains only {C:spades}dark suits",
+          "contains only {C:paperback_dark_suit}dark suits",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
       },
