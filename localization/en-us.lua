@@ -851,6 +851,14 @@ return {
           "to {C:attention}#1#{} selected cards"
         }
       },
+      c_paperback_five_of_wands = {
+        name = "Five of Wands",
+        text = {
+          "Destroys all cards",
+          "{C:attention}held in hand{}, and",
+          "sets money to {C:money}$0"
+        }
+      },
       c_paperback_page_of_wands = {
         name = "Page of Wands",
         text = {
