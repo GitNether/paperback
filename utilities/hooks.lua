@@ -157,3 +157,31 @@ function level_up_hand(card, hand, instant, amount)
 
   return ret
 end
+
+local calculate_repetitions_ref = SMODS.calculate_repetitions
+SMODS.calculate_repetitions = function(card, context, reps)
+  local ret = calculate_repetitions_ref(card, context, reps)
+
+  for k, v in ipairs(card.area and card.area.cards or {}) do
+    local c = v.config and v.config.center
+    if v ~= card and c and c.calculate and type(c.calculate) == "function" then
+      local eval = c:calculate(v, {
+        paperback = {
+          other_card = card,
+          cardarea = card.area,
+          repetition_from_playing_card = true,
+        }
+      })
+
+      if eval and eval.repetitions then
+        for _ = 1, eval.repetitions do
+          eval.card = eval.card or card
+          eval.message = eval.message or (not eval.remove_default_message and localize('k_again_ex'))
+          ret[#ret + 1] = { key = eval }
+        end
+      end
+    end
+  end
+
+  return ret
+end
