@@ -889,6 +889,14 @@ return {
           "Gives a {C:mult}High Risk{C:attention} Tag"
         }
       },
+      c_paperback_queen_of_wands = {
+        name = "Queen of Wands",
+        text = {
+          "{C:green}#1# in #2#{} chance to",
+          "add {C:dark_edition}Dichrome{} edition",
+          "to a random {C:attention}Joker"
+        }
+      },
       c_paperback_ace_of_swords = {
         name = "Ace of Swords",
         text = {
