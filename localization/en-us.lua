@@ -860,6 +860,14 @@ return {
           "sets money to {C:money}$0"
         }
       },
+      c_paperback_six_of_wands = {
+        name = "Six of Wands",
+        text = {
+          "Enhances {C:attention}#1#{}",
+          "selected cards to",
+          "{C:attention}#2#s{}"
+        }
+      },
       c_paperback_eight_of_wands = {
         name = "Eight of Wands",
         text = {
