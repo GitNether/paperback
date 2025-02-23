@@ -48,6 +48,8 @@ SMODS.Joker {
 
       -- Make Ghost Cola extinct
       G.GAME.pool_flags.ghost_cola_can_spawn = false
+
+      return nil, true
     end
   end,
 }
@@ -56,7 +58,7 @@ SMODS.Joker {
 -- Allows Ghost Cola to spawn on Diet Cola sold
 local calculate_joker_ref = Card.calculate_joker
 function Card:calculate_joker(context)
-  local ret = calculate_joker_ref(self, context)
+  local ret, ret2 = calculate_joker_ref(self, context)
 
   if self.ability.set == "Joker" and not self.debuff then
     if context.selling_self then
@@ -66,7 +68,7 @@ function Card:calculate_joker(context)
     end
   end
 
-  return ret
+  return ret, ret2
 end
 
 --------------------------------------------------

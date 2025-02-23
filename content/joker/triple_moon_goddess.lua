@@ -30,6 +30,7 @@ if PB_UTIL.config.minor_arcana_enabled then
     calculate = function(self, card, context)
       if context.before and context.main_eval and next(context.poker_hands["Three of a Kind"]) then
         local eff_card = context.blueprint_card or card
+        local triggered
 
         -- Tarot spawn
         local roll = pseudorandom('triple_moon_goddess_tarot')
@@ -40,6 +41,8 @@ if PB_UTIL.config.minor_arcana_enabled then
               colour = G.C.SECONDARY_SET.Tarot,
               card = eff_card
             }
+
+            triggered = true
           end }
         end
 
@@ -52,8 +55,12 @@ if PB_UTIL.config.minor_arcana_enabled then
               colour = G.C.PAPERBACK_MINOR_ARCANA,
               card = eff_card
             }
+
+            triggered = true
           end }
         end
+
+        return nil, triggered
       end
     end
   }
@@ -90,6 +97,7 @@ else
     calculate = function(self, card, context)
       if context.before and context.main_eval and next(context.poker_hands["Three of a Kind"]) then
         local eff_card = context.blueprint_card or card
+        local triggered
 
         -- Check if planet card is generated and there is enough space in the consumeables area
         local roll = pseudorandom("Triple Moon Goddess (Planet)")
@@ -100,6 +108,8 @@ else
               colour = G.C.SECONDARY_SET.Planet,
               card = eff_card
             }
+
+            triggered = true
           end }
         end
 
@@ -112,8 +122,12 @@ else
               colour = G.C.SECONDARY_SET.Tarot,
               card = eff_card
             }
+
+            triggered = true
           end }
         end
+
+        return nil, triggered
       end
     end
   }

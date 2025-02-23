@@ -26,22 +26,18 @@ SMODS.Joker {
 
   calculate = function(self, card, context)
     if context.first_hand_drawn then
-      local eff_card = context.blueprint_card or card
+      local hands = evaluate_poker_hand(G.hand.cards)
+      local amount = #hands[card.ability.extra.hand]
 
-      G.E_MANAGER:add_event(Event {
-        func = function()
-          local _, _, hands = G.FUNCS.get_poker_hand_info(G.hand.cards)
-          local amount = #hands[card.ability.extra.hand]
-
-          if amount > 0 then
-            SMODS.calculate_effect({
-              dollars = card.ability.extra.money * amount
-            }, eff_card)
-          end
-
-          return true
+      if amount > 0 then
+        for _ = 1, amount do
+          SMODS.calculate_effect({
+            dollars = card.ability.extra.money,
+          }, context.blueprint_card or card)
         end
-      })
+
+        return nil, true
+      end
     end
   end
 }

@@ -42,8 +42,7 @@ SMODS.Joker {
     if context.joker_main then
       return {
         mult = card.ability.extra.mult,
-        chips = card.ability.extra.chips,
-        card = card
+        chips = card.ability.extra.chips
       }
     end
 
@@ -56,21 +55,14 @@ SMODS.Joker {
 
         return {
           message = localize('k_eaten_ex'),
-          colour = G.C.MULT,
-          card = card
+          colour = G.C.MULT
         }
       else
         card.ability.extra.chance_multiplier = card.ability.extra.chance_multiplier + 1
 
-        SMODS.calculate_effect({
+        return {
           message = localize('k_safe_ex'),
           colour = G.C.CHIPS,
-        }, card)
-
-        return {
-          message = localize('k_val_up'),
-          colour = G.C.MULT,
-          card = card
         }
       end
     end

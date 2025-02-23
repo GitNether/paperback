@@ -42,8 +42,11 @@ SMODS.Joker {
             end
           })
           )
-          card_eval_status_text(card, 'extra', nil, nil, nil,
-            { message = localize('k_plus_planet'), colour = G.C.SECONDARY_SET.Planet })
+
+          return {
+            message = localize('k_plus_planet'),
+            colour = G.C.SECONDARY_SET.Planet
+          }
         end
       end
     end
