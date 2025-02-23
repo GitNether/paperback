@@ -326,6 +326,7 @@ PB_UTIL.ENABLED_TAGS = {
 PB_UTIL.ENABLED_ENHANCEMENTS = {
   "soaked",
   "ceramic",
+  "wrapped",
 }
 
 PB_UTIL.ENABLED_EDITIONS = {

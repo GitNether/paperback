@@ -1002,6 +1002,13 @@ return {
           "{C:green}#1# in #2#{} chance to be",
           "destroyed on {C:mult}discard",
         }
+      },
+      m_paperback_wrapped = {
+        name = "Wrapped Card",
+        text = {
+          "Earn {C:money}$#1#{} when scored",
+          "no rank or suit"
+        }
       }
     },
     Edition = {
