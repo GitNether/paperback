@@ -2,6 +2,9 @@ PB_UTIL.MinorArcana {
   key = 'knight_of_wands',
   atlas = 'minor_arcana_atlas',
   pos = { x = 4, y = 3 },
+  paperback = {
+    requires_tags = true
+  },
 
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = G.P_TAGS.tag_paperback_high_risk

@@ -5,6 +5,9 @@ PB_UTIL.MinorArcana {
   config = {
     odds = 3
   },
+  paperback = {
+    requires_editions = true
+  },
 
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = G.P_CENTERS.e_paperback_dichrome
