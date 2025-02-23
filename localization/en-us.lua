@@ -897,6 +897,14 @@ return {
           "to a random {C:attention}Joker"
         }
       },
+      c_paperback_king_of_wands = {
+        name = "King of Wands",
+        text = {
+          "Creates a random",
+          "non {C:chips}Common{C:attention} Joker",
+          "{C:inactive}(Except {C:legendary}Legendary{C:inactive})"
+        }
+      },
       c_paperback_ace_of_swords = {
         name = "Ace of Swords",
         text = {

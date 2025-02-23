@@ -373,7 +373,7 @@ end
 --- Tries to spawn a card into either the Jokers or Consumeable card areas, ensuring
 --- that there is space available.
 --- DOES NOT TAKE INTO ACCOUNT ANY OTHER AREAS
---- @param args table same arguments passed to SMODS.create_card, with the addition of 'instant' and 'func'
+--- @param args CreateCard | { instant: boolean?, func: function? } same arguments passed to SMODS.create_card, with the addition of 'instant' and 'func'
 function PB_UTIL.try_spawn_card(args)
   local is_joker = (args.set == 'Joker' or args.key and args.key:sub(1, 1) == 'j')
   local area = args.area or (is_joker and G.jokers) or G.consumeables

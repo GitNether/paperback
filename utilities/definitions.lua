@@ -244,7 +244,7 @@ PB_UTIL.ENABLED_MINOR_ARCANA = {
   "page_of_wands",
   "knight_of_wands",
   "queen_of_wands",
-  -- "king_of_wands",
+  "king_of_wands",
   "ace_of_swords",
   -- "two_of_swords",
   -- "three_of_swords",
@@ -403,6 +403,7 @@ end
 
 -- Define custom MinorArcana object with shared properties for handling common behavior
 if PB_UTIL.config.minor_arcana_enabled then
+  --- @type SMODS.Consumable
   PB_UTIL.MinorArcana = SMODS.Consumable:extend {
     set = 'paperback_minor_arcana',
     unlocked = true,
