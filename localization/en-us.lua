@@ -875,6 +875,14 @@ return {
           "{C:attention}Tag{} and lose {C:money}$#1#"
         }
       },
+      c_paperback_nine_of_wands = {
+        name = "Nine of Wands",
+        text = {
+          "Enhances {C:attention}#1#{}",
+          "selected cards to",
+          "{C:attention}#2#s{}"
+        }
+      },
       c_paperback_ten_of_wands = {
         name = "Ten of Wands",
         text = {
