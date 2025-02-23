@@ -1017,6 +1017,14 @@ return {
           "Earn {C:money}$#1#{} when scored",
           "no rank or suit"
         }
+      },
+      m_paperback_bandaged = {
+        name = "Bandaged Card",
+        text = {
+          "Retrigger {C:attention}adjacent{} cards",
+          "{C:green}#1# in #2#{} chance to break",
+          "when scored"
+        }
       }
     },
     Edition = {
