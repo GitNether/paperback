@@ -886,9 +886,7 @@ return {
       c_paperback_knight_of_wands = {
         name = "Knight of Wands",
         text = {
-          "{C:attention}Double{} the {C:attention}Boss Blind",
-          "score requirement and",
-          "gain an {C:attention}Investment Tag"
+          "Gives a {C:mult}High Risk{C:attention} Tag"
         }
       },
       c_paperback_ace_of_swords = {
