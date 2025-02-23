@@ -43,7 +43,7 @@ SMODS.Enhancement {
       end
     end
 
-    if context.destroy_card then
+    if context.destroy_card and context.cardarea == G.play then
       if pseudorandom('bandaged_break') < G.GAME.probabilities.normal / card.ability.extra.odds then
         return {
           remove = true
