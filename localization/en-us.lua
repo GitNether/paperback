@@ -339,6 +339,10 @@ return {
           "card is destroyed",
           "at end of round",
         },
+        unlock = {
+          "Have a hand size",
+          "of {C:attention}10{} or more cards"
+        }
       },
       j_paperback_skydiver = {
         name = "Skydiver",

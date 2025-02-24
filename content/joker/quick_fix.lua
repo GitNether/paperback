@@ -10,12 +10,16 @@ SMODS.Joker {
   pos = { x = 6, y = 0 },
   atlas = 'jokers_atlas',
   cost = 6,
-  unlocked = true,
-  discovered = true,
   blueprint_compat = true,
   eternal_compat = false,
-  soul_pos = nil,
   yes_pool_flag = "quick_fix_can_spawn",
+  unlocked = false,
+
+  check_for_unlock = function(self, args)
+    if args.type == 'min_hand_size' and G.hand.config.card_limit >= 10 then
+      return true
+    end
+  end,
 
   set_ability = function(self, card, initial, delay_sprites)
     card.ability.h_size = card.ability.extra.h_size or 0
