@@ -10,12 +10,10 @@ SMODS.Joker {
   pos = { x = 0, y = 0 },
   atlas = 'jokers_atlas',
   cost = 6,
-  unlocked = true,
-  discovered = true,
   blueprint_compat = true,
   eternal_compat = true,
   perishable_compat = false,
-  soul_pos = nil,
+  unlocked = false,
 
   loc_vars = function(self, info_queue, card)
     return {
@@ -24,6 +22,12 @@ SMODS.Joker {
         card.ability.extra.x_mult
       }
     }
+  end,
+
+  check_for_unlock = function(self, args)
+    if args.blind_disabled == 'bl_final_heart' then
+      return true
+    end
   end,
 
   calculate = function(self, card, context)
