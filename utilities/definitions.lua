@@ -213,7 +213,9 @@ PB_UTIL.ENABLED_JOKERS = {
   "pyrite",
   -- "bismuth",
   -- "kintsugi_joker",
-  -- "watercolor_joker"
+  -- "watercolor_joker",
+  "wheat_field",
+  "birches",
 }
 
 PB_UTIL.ENABLED_MINOR_ARCANA = {

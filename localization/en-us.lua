@@ -705,7 +705,25 @@ return {
           "Scored {C:paperback_crowns}Crowns{} earn",
           "between {C:money}$#1#{} and {C:money}$#2#"
         }
-      }
+      },
+      j_paperback_wheat_field = {
+        name = "Wheat Field",
+        text = {
+          "{C:paperback_crowns}Crowns{} give {X:mult,C:white}X#1#{} Mult when scored.",
+          "Increases by {X:mult,C:white}X#2#{} Mult for each ",
+          "consecutively scored {C:paperback_crowns}Crown{}",
+          "{C:inactive}(Resets after each hand played)",
+        },
+      },
+      j_paperback_birches = {
+        name = "Birches",
+        text = {
+          "{C:paperback_stars}Stars{} give {X:mult,C:white}X#1#{} Mult when scored.",
+          "Increases by {X:mult,C:white}X#2#{} Mult for each ",
+          "consecutively scored {C:paperback_stars}Stars{}",
+          "{C:inactive}(Resets after each hand played)",
+        },
+      },
     },
     paperback_minor_arcana = {
       c_paperback_ace_of_cups = {
