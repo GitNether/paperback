@@ -988,7 +988,8 @@ return {
         text = {
           "When selecting {C:attention}Boss",
           "{C:attention}Blind{}, {C:attention}double{} its",
-          "score and gain {C:money}$#1#"
+          "score requirement",
+          "and gain {C:money}$#1#"
         }
       },
       tag_paperback_breaking = {
