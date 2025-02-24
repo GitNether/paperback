@@ -2,7 +2,7 @@ SMODS.Joker {
   key = "big_misser",
   config = {
     extra = {
-      Xmult_mod = 1.5,
+      Xmult_mod = 1,
       Xmult = 0
     }
   },
@@ -14,7 +14,6 @@ SMODS.Joker {
   discovered = true,
   blueprint_compat = true,
   eternal_compat = true,
-  soul_pos = nil,
 
   loc_vars = function(self, info_queue, card)
     return {
@@ -33,7 +32,21 @@ SMODS.Joker {
   end,
 
   calculate = function(self, card, context)
-    if context.joker_main and context.cardarea == G.jokers then
+    if context.joker_main then
+      -- Show a message if mult is 0
+      if card.ability.extra.Xmult == 0 then
+        return {
+          x_mult_mod = 0,
+          message = localize {
+            type = 'variable',
+            key = 'a_xmult',
+            vars = { 0 }
+          },
+          sound = 'multhit1',
+          colour = G.C.MULT
+        }
+      end
+
       return {
         x_mult = card.ability.extra.Xmult,
       }
