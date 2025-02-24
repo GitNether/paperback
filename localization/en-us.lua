@@ -868,6 +868,12 @@ return {
           "{C:attention}#2#s{}"
         }
       },
+      c_paperback_seven_of_wands = {
+        name = "Seven of Wands",
+        text = {
+          "Gives a {C:attention}Breaking Tag"
+        }
+      },
       c_paperback_eight_of_wands = {
         name = "Eight of Wands",
         text = {
