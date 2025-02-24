@@ -978,13 +978,20 @@ return {
         }
       },
       tag_paperback_high_risk = {
-        name = "High Risk",
+        name = "High Risk Tag",
         text = {
           "When selecting {C:attention}Boss",
           "{C:attention}Blind{}, {C:attention}double{} its",
           "score and gain {C:money}$#1#"
         }
       },
+      tag_paperback_breaking = {
+        name = "Breaking Tag",
+        text = {
+          "Disables the",
+          "{C:attention}Boss Blind"
+        }
+      }
     },
     Planet = {
       c_paperback_quaoar = {

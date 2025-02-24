@@ -320,7 +320,8 @@ PB_UTIL.ENABLED_TAGS = {
   'angel_investment',
   'divination',
   'dichrome',
-  'high_risk'
+  'high_risk',
+  'breaking',
 }
 
 PB_UTIL.ENABLED_ENHANCEMENTS = {
