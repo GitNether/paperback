@@ -470,8 +470,10 @@ if PB_UTIL.config.minor_arcana_enabled then
 end
 
 if PB_UTIL.config.suits_enabled then
+  --- @type SMODS.Consumable
   PB_UTIL.Planet = SMODS.Consumable:extend {
     set = "Planet",
+    is_dwarf = false,
 
     -- Since the description of all planets is the same, we just copy it from a random one
     -- The name of this planet still needs to be specified in the localization file
@@ -479,6 +481,15 @@ if PB_UTIL.config.suits_enabled then
       G.localization.descriptions[self.set][self.key] = {
         text = G.localization.descriptions[self.set].c_mercury.text
       }
+    end,
+
+    set_card_type_badge = function(self, card, badges)
+      badges[#badges + 1] = create_badge(
+        not self.is_dwarf and localize('k_planet_q') or localize('k_dwarf_planet'),
+        get_type_colour(self, card),
+        nil,
+        1.2
+      )
     end,
 
     -- By making this not a function, the game will use the vanilla UI generation
