@@ -93,7 +93,7 @@ function eval_card(card, context)
         clip:calculate(v, {
           paperback = {
             clip_scored = true,
-            other_card = v
+            other_card = card
           }
         })
       end
