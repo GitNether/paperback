@@ -121,6 +121,10 @@ local remove_ref = Card.remove
 function Card.remove(self)
   -- Check that the card being removed is a joker that's in the player's deck and that it's not being sold
   if self.added_to_deck and self.ability.set == 'Joker' and not G.CONTROLLER.locks.selling_card then
+    -- Check unlocks and increase destroyed counter
+    G.GAME.round_resets.paperback_destroyed_cards = G.GAME.round_resets.paperback_destroyed_cards + 1
+    check_for_unlock { destroy_card = true, card = self }
+
     SMODS.calculate_context({
       paperback = {
         destroying_joker = true,
@@ -186,4 +190,42 @@ SMODS.calculate_repetitions = function(card, context, reps)
   end
 
   return ret
+end
+
+-- Check unlocks for blinds disabled
+local disable_ref = Blind.disable
+function Blind.disable(self)
+  check_for_unlock { blind_disabled = self.config.blind.key }
+  return disable_ref(self)
+end
+
+-- Check unlocks for setting a card's cost
+local set_cost_ref = Card.set_cost
+function Card.set_cost(self)
+  local ret = set_cost_ref(self)
+  check_for_unlock { set_card_cost = true, card = self }
+  return ret
+end
+
+-- Check unlocks for destroyed playing cards
+local shatter_ref = Card.shatter
+function Card.shatter(self)
+  if self.ability.set == 'Default' then
+    -- Check unlocks and increase destroyed counter
+    G.GAME.round_resets.paperback_destroyed_cards = G.GAME.round_resets.paperback_destroyed_cards + 1
+    check_for_unlock { destroy_card = true, card = self }
+  end
+
+  return shatter_ref(self)
+end
+
+local start_dissolve_ref = Card.start_dissolve
+function Card.start_dissolve(self, dissolve_colours, silent, dissolve_time_fac, no_juice)
+  if self.ability.set == 'Default' then
+    -- Check unlocks and increase destroyed counter
+    G.GAME.round_resets.paperback_destroyed_cards = G.GAME.round_resets.paperback_destroyed_cards + 1
+    check_for_unlock { destroy_card = true, card = self }
+  end
+
+  return start_dissolve_ref(self, dissolve_colours, silent, dissolve_time_fac, no_juice)
 end

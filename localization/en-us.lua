@@ -416,6 +416,10 @@ return {
           "each card or Joker {C:attention}destroyed",
           "{C:inactive}(Currently {C:mult}+#2# {C:inactive}Mult)",
         },
+        unlock = {
+          "Destroy {C:attention}#1#{} cards",
+          "in one run"
+        }
       },
       j_paperback_autumn_leaves = {
         name = "Autumn Leaves",

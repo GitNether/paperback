@@ -4,6 +4,10 @@ PB_UTIL.config = SMODS.current_mod.config
 -- Load values that get reset at the start of each round
 SMODS.current_mod.reset_game_globals = function(run_start)
   G.GAME.current_round.paperback_scored_clips = 0
+
+  if run_start then
+    G.GAME.round_resets.paperback_destroyed_cards = 0
+  end
 end
 
 PB_UTIL.base_poker_hands = {

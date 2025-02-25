@@ -5,7 +5,6 @@ SMODS.load_file("utilities/definitions.lua")()
 SMODS.load_file("utilities/misc_functions.lua")()
 SMODS.load_file("utilities/ui.lua")()
 SMODS.load_file("utilities/hooks.lua")()
-SMODS.load_file("utilities/unlocks.lua")()
 SMODS.load_file("utilities/cross-mod.lua")()
 
 -- Load the atlases

@@ -15,6 +15,18 @@ SMODS.Joker {
   perishable_compat = false,
   unlocked = false,
 
+  check_for_unlock = function(self, args)
+    if args.destroy_card and G.GAME.round_resets.paperback_destroyed_cards >= 20 then
+      return true
+    end
+  end,
+
+  locked_loc_vars = function(self, info_queue, card)
+    return {
+      vars = { 20 }
+    }
+  end,
+
   loc_vars = function(self, info_queue, card)
     return {
       vars = {
