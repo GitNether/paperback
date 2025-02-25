@@ -160,8 +160,6 @@ end
 
 local calculate_repetitions_ref = SMODS.calculate_repetitions
 SMODS.calculate_repetitions = function(card, context, reps)
-  local ret = calculate_repetitions_ref(card, context, reps)
-
   for _, area in ipairs(SMODS.get_card_areas('playing_cards')) do
     for k, v in ipairs(area.cards or {}) do
       if v ~= card then
@@ -178,12 +176,12 @@ SMODS.calculate_repetitions = function(card, context, reps)
           for _ = 1, eval.repetitions do
             eval.card = eval.card or card
             eval.message = eval.message or (not eval.remove_default_message and localize('k_again_ex'))
-            ret[#ret + 1] = { key = eval }
+            reps[#reps + 1] = { key = eval }
           end
         end
       end
     end
   end
 
-  return ret
+  return calculate_repetitions_ref(card, context, reps)
 end
