@@ -1,3 +1,6 @@
+
+![paperbackteaser](https://github.com/user-attachments/assets/2d7b8951-debf-4ce1-8d15-ceb0a685444b)
+
 # Paperback :: Jokers & Consumables :: Steamodded v1.0.0+
 
 A vanilla centered mod built upon expanding the base game (original idea and art by PaperMoon)
