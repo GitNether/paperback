@@ -20,6 +20,12 @@ SMODS.Joker {
     end
   end,
 
+  locked_loc_vars = function(self, info_queue, card)
+    return {
+      vars = { 50 }
+    }
+  end,
+
   loc_vars = function(self, info_queue, card)
     return {
       vars = {

@@ -344,8 +344,9 @@ return {
           "at end of round",
         },
         unlock = {
-          "Have a hand size",
-          "of {C:attention}10{} or more cards"
+          "Have a hand",
+          "size of {C:attention}#1#",
+          "or more cards"
         }
       },
       j_paperback_skydiver = {
@@ -444,7 +445,7 @@ return {
         },
         unlock = {
           "Have a card",
-          "with {C:money}$50{} sell",
+          "with {C:money}$#1#{} sell",
           "value or more"
         }
       },

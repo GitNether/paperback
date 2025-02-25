@@ -21,6 +21,12 @@ SMODS.Joker {
     end
   end,
 
+  locked_loc_vars = function(self, info_queue, card)
+    return {
+      vars = { 10 }
+    }
+  end,
+
   set_ability = function(self, card, initial, delay_sprites)
     card.ability.h_size = card.ability.extra.h_size or 0
     card.ability.extra.odds = card.ability.extra.odds or 1
