@@ -15,6 +15,29 @@ SMODS.Joker {
   perishable_compat = false,
   unlocked = false,
 
+  check_for_unlock = function(self, args)
+    if args.game_over then
+      for _, v in ipairs(SMODS.find_card('j_paperback_sacrificial_lamb')) do
+        if v.ability.extra.mult >= 15 then
+          return true
+        end
+      end
+    end
+  end,
+
+  locked_loc_vars = function(self, info_queue, card)
+    return {
+      vars = {
+        localize {
+          type = 'name_text',
+          set = 'Joker',
+          key = 'j_paperback_sacrificial_lamb'
+        },
+        15
+      }
+    }
+  end,
+
   loc_vars = function(self, info_queue, card)
     return {
       vars = {

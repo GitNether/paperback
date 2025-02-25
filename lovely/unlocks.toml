@@ -1,0 +1,13 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+# When losing a run
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+pattern = "if game_over then"
+position = "after"
+match_indent = true
+payload = 'check_for_unlock { game_over = true }'

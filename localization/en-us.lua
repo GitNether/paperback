@@ -582,6 +582,12 @@ return {
           "when a card or joker is {C:attention}destroyed{}",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
+        unlock = {
+          "Lose a run with",
+          "{C:attention}#1#",
+          "with at least",
+          "{C:mult}+#2#{} Mult"
+        }
       },
       j_paperback_summoning_circle = {
         name = "Summoning Circle",
