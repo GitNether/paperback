@@ -163,7 +163,7 @@ SMODS.calculate_repetitions = function(card, context, reps)
   local ret = calculate_repetitions_ref(card, context, reps)
 
   for _, area in ipairs(SMODS.get_card_areas('playing_cards')) do
-    for k, v in ipairs(area.cards) do
+    for k, v in ipairs(area.cards or {}) do
       if v ~= card then
         local eval = v:calculate_enhancement {
           paperback = {
