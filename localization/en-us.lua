@@ -442,6 +442,11 @@ return {
           "end of round",
           "{C:inactive}(Currently {C:mult}+#3# {C:inactive}Mult){}",
         },
+        unlock = {
+          "Have a card",
+          "with {C:money}$50{} sell",
+          "value or more"
+        }
       },
       j_paperback_calling_card = {
         name = "Calling Card",

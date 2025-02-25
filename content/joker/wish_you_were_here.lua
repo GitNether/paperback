@@ -10,11 +10,15 @@ SMODS.Joker {
   pos = { x = 4, y = 0 },
   atlas = "jokers_atlas",
   cost = 6,
-  unlocked = true,
-  discovered = true,
   blueprint_compat = true,
   eternal_compat = true,
-  soul_pos = nil,
+  unlocked = false,
+
+  check_for_unlock = function(self, args)
+    if args.set_card_cost and args.card.sell_cost >= 50 then
+      return true
+    end
+  end,
 
   loc_vars = function(self, info_queue, card)
     return {
