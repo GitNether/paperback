@@ -50,6 +50,10 @@ return {
           "{C:attention}Food Joker{} you have",
           "Melts in {C:attention}#2#{} rounds",
           "{C:inactive}(Currently {X:mult,C:white}X#3#{C:inactive} Mult)"
+        },
+        unlock = {
+          "Have {C:attention}#1#{} food",
+          "{C:attention}Jokers{} at once"
         }
       },
       j_paperback_champagne = {

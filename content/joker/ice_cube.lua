@@ -17,6 +17,18 @@ SMODS.Joker {
   },
   unlocked = false,
 
+  check_for_unlock = function(self, args)
+    if args.type == 'modify_jokers' and #PB_UTIL.get_owned_food() >= 5 then
+      return true
+    end
+  end,
+
+  locked_loc_vars = function(self, info_queue, card)
+    return {
+      vars = { 5 }
+    }
+  end,
+
   loc_vars = function(self, info_queue, card)
     return {
       vars = {
