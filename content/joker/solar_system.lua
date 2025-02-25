@@ -14,6 +14,24 @@ SMODS.Joker {
   eternal_compat = true,
   unlocked = false,
 
+  check_for_unlock = function(self, args)
+    if args.type == 'upgrade_hand' then
+      local hands_leveled = 0
+
+      for k, v in pairs(G.GAME.hands) do
+        if v.visible and v.level > 1 then hands_leveled = hands_leveled + 1 end
+      end
+
+      return hands_leveled >= 9
+    end
+  end,
+
+  locked_loc_vars = function(self, info_queue, card)
+    return {
+      vars = { 9 }
+    }
+  end,
+
   set_ability = function(self, card, initial, delay_sprites)
     PB_UTIL.update_solar_system(card)
   end,

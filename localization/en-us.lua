@@ -528,6 +528,10 @@ return {
           "{C:planet}Planets{} share",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)",
         },
+        unlock = {
+          "Level {C:attention}#1#{} different",
+          "hands in one run"
+        }
       },
       j_paperback_reference_card = {
         name = "Reference Card",
