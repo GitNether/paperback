@@ -276,6 +276,10 @@ return {
           "any card with a {C:attention}seal{} is scored",
           "{C:inactive}(Currently {C:chips}+#4#{C:inactive} Chips)",
         },
+        unlock = {
+          "Play a hand with",
+          "{C:attention}#1#{} scored seals",
+        }
       },
       j_paperback_sticky_stick = {
         name = "Sticky Stick",

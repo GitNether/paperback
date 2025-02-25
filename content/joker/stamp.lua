@@ -17,6 +17,24 @@ SMODS.Joker {
   unlocked = false,
   pixel_size = { w = 35, h = 45 },
 
+  check_for_unlock = function(self, args)
+    if args.type == "hand" then
+      local seals = 0
+
+      for k, v in ipairs(args.scoring_hand or {}) do
+        if v:get_seal() then seals = seals + 1 end
+      end
+
+      return seals >= 5
+    end
+  end,
+
+  locked_loc_vars = function(self, info_queue, card)
+    return {
+      vars = { 5 }
+    }
+  end,
+
   loc_vars = function(self, info_queue, card)
     return {
       vars = {
