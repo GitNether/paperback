@@ -207,25 +207,15 @@ function Card.set_cost(self)
   return ret
 end
 
--- Check unlocks for destroyed playing cards
-local shatter_ref = Card.shatter
-function Card.shatter(self)
-  if self.ability.set == 'Default' then
-    -- Check unlocks and increase destroyed counter
-    G.GAME.round_resets.paperback_destroyed_cards = G.GAME.round_resets.paperback_destroyed_cards + 1
-    check_for_unlock { destroy_card = true, card = self }
+local calculate_context_ref = SMODS.calculate_context
+function SMODS.calculate_context(context, return_table)
+  -- Check unlocks and increase destroyed counter
+  if context.remove_playing_cards then
+    for k, v in ipairs(context.removed or {}) do
+      G.GAME.round_resets.paperback_destroyed_cards = G.GAME.round_resets.paperback_destroyed_cards + 1
+      check_for_unlock { destroy_card = true, card = v }
+    end
   end
 
-  return shatter_ref(self)
-end
-
-local start_dissolve_ref = Card.start_dissolve
-function Card.start_dissolve(self, dissolve_colours, silent, dissolve_time_fac, no_juice)
-  if self.ability.set == 'Default' then
-    -- Check unlocks and increase destroyed counter
-    G.GAME.round_resets.paperback_destroyed_cards = G.GAME.round_resets.paperback_destroyed_cards + 1
-    check_for_unlock { destroy_card = true, card = self }
-  end
-
-  return start_dissolve_ref(self, dissolve_colours, silent, dissolve_time_fac, no_juice)
+  return calculate_context_ref(context, return_table)
 end
