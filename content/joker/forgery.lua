@@ -11,11 +11,22 @@ SMODS.Joker {
   pos = { x = 2, y = 1 },
   atlas = 'jokers_atlas',
   cost = 2,
-  unlocked = true,
-  discovered = true,
   blueprint_compat = true,
   eternal_compat = true,
   perishable_compat = true,
+  unlocked = false,
+
+  check_for_unlock = function(self, args)
+    if args.type == 'modify_jokers' and G.jokers then
+      local keys = {}
+
+      for _, v in ipairs(G.jokers.cards) do
+        if keys[v.config.center_key] then return true end
+
+        keys[v.config.center_key] = true
+      end
+    end
+  end,
 
   loc_vars = function(self, info_queue, card)
     local copying = card.ability.extra.copying

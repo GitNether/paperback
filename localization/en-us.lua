@@ -109,6 +109,10 @@ return {
           "{C:mult}Mult{} or {C:chips}Chips{}, multiply its values",
           "between {X:attention,C:white}X#1#{} and {X:attention,C:white}X#2#",
           "{C:inactive}(Currently {C:attention}#3#{C:inactive} at {X:attention,C:white}X#4#{C:inactive})"
+        },
+        unlock = {
+          "Have {C:attention}2{} of the",
+          "same {C:attention}Joker"
         }
       },
       j_paperback_the_world = {
