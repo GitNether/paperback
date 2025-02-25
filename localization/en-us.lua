@@ -217,6 +217,12 @@ return {
           "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)",
           "{C:inactive}(Ranks played:{C:attention}#3#{C:inactive})",
         },
+        unlock = {
+          "Defeat the",
+          "{C:attention}Cerulean Bell",
+          "Boss Blind in",
+          "one hand"
+        }
       },
       j_paperback_soft_taco = {
         name = "Soft Taco",

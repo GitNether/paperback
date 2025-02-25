@@ -15,6 +15,12 @@ SMODS.Joker {
   eternal_compat = true,
   unlocked = false,
 
+  check_for_unlock = function(self, args)
+    if args.type == 'round_win' and G.GAME.blind.boss and G.GAME.current_round.hands_played == 1 then
+      return true
+    end
+  end,
+
   loc_vars = function(self, info_queue, card)
     local ranks_played = ""
 
