@@ -4,11 +4,9 @@ SMODS.Joker {
   pos = { x = 0, y = 6 },
   atlas = 'jokers_atlas',
   cost = 9,
-  unlocked = true,
-  discovered = true,
   blueprint_compat = false,
   eternal_compat = true,
-  soul_pos = nil,
+  unlocked = false,
 }
 
 local function wrap_the_world(ignores, func)

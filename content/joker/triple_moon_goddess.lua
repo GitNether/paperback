@@ -11,11 +11,10 @@ if PB_UTIL.config.minor_arcana_enabled then
     pos = { x = 5, y = 4 },
     atlas = 'jokers_atlas',
     cost = 6,
-    unlocked = true,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
+    unlocked = false,
 
     loc_vars = function(self, info_queue, card)
       return {

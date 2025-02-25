@@ -4,12 +4,10 @@ SMODS.Joker {
   pos = { x = 6, y = 3 },
   atlas = 'jokers_atlas',
   cost = 8,
-  unlocked = true,
-  discovered = true,
   blueprint_compat = false,
   eternal_compat = true,
   perishable_compat = true,
-  soul_pos = nil,
+  unlocked = false,
 
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = PB_UTIL.suit_tooltip('light')

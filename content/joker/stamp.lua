@@ -11,12 +11,10 @@ SMODS.Joker {
   pos = { x = 8, y = 0 },
   atlas = "jokers_atlas",
   cost = 8,
-  unlocked = true,
-  discovered = true,
   blueprint_compat = true,
   eternal_compat = true,
   perishable_compat = false,
-  soul_pos = nil,
+  unlocked = false,
 
   -- Sets the sprite and hitbox
   set_ability = function(self, card, initial, delay_sprites)

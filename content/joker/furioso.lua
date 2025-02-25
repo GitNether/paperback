@@ -11,11 +11,9 @@ SMODS.Joker {
   pos = { x = 2, y = 0 },
   atlas = "jokers_atlas",
   cost = 6,
-  unlocked = true,
-  discovered = true,
   blueprint_compat = true,
   eternal_compat = true,
-  soul_pos = nil,
+  unlocked = false,
 
   loc_vars = function(self, info_queue, card)
     local ranks_played = ""

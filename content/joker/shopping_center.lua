@@ -4,11 +4,9 @@ SMODS.Joker {
   pos = { x = 7, y = 1 },
   atlas = 'jokers_atlas',
   cost = 6,
-  unlocked = true,
-  discovered = true,
   blueprint_compat = false,
   eternal_compat = true,
-  soul_pos = nil,
+  unlocked = false,
 
   -- On Joker spawn, add additional slot in shop
   add_to_deck = function(self, card, from_debuff)

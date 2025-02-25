@@ -4,13 +4,12 @@ SMODS.Joker {
   pos = { x = 7, y = 7 },
   atlas = 'jokers_atlas',
   cost = 4,
-  unlocked = true,
-  discovered = true,
   blueprint_compat = true,
   eternal_compat = true,
   paperback = {
     requires_tags = true,
   },
+  unlocked = false,
 
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = G.P_TAGS.tag_paperback_angel_investment

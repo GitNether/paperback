@@ -11,11 +11,9 @@ SMODS.Joker {
   pos = { x = 2, y = 6 },
   atlas = 'jokers_atlas',
   cost = 7,
-  unlocked = true,
-  discovered = true,
   blueprint_compat = true,
   eternal_compat = true,
-  soul_pos = nil,
+  unlocked = false,
 
   set_ability = function(self, card, initial, delay_sprites)
     if G.STAGE == G.STAGES.RUN then

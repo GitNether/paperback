@@ -11,14 +11,12 @@ SMODS.Joker {
   pos = { x = 3, y = 6 },
   atlas = 'jokers_atlas',
   cost = 6,
-  unlocked = true,
-  discovered = true,
   blueprint_compat = false,
   eternal_compat = false,
-  soul_pos = nil,
   pools = {
     Food = true
   },
+  unlocked = false,
 
   loc_vars = function(self, info_queue, card)
     return {

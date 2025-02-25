@@ -9,13 +9,10 @@ SMODS.Joker {
   pos = { x = 2, y = 2 },
   atlas = "jokers_atlas",
   cost = 6,
-  unlocked = true,
-  discovered = true,
   blueprint_compat = true,
   eternal_compat = true,
-  soul_pos = nil,
-
   enhancement_gate = "m_wild",
+  unlocked = false,
 
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = G.P_CENTERS.m_wild

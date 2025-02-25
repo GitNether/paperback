@@ -10,11 +10,9 @@ SMODS.Joker {
   pos = { x = 3, y = 2 },
   atlas = "jokers_atlas",
   cost = 6,
-  unlocked = true,
-  discovered = true,
   blueprint_compat = true,
   eternal_compat = true,
-  soul_pos = nil,
+  unlocked = false,
 
   set_ability = function(self, card, initial, delay_sprites)
     PB_UTIL.calculate_highest_shared_played(card)

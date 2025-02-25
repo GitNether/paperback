@@ -9,11 +9,9 @@ SMODS.Joker {
   pos = { x = 7, y = 3 },
   atlas = 'jokers_atlas',
   cost = 8,
-  unlocked = true,
-  discovered = true,
   blueprint_compat = false,
   eternal_compat = true,
-  soul_pos = nil,
+  unlocked = false,
 
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = G.P_CENTERS.e_polychrome

@@ -5,16 +5,13 @@ SMODS.Joker {
   pos = { x = 5, y = 1 },
   atlas = 'jokers_atlas',
   cost = 6,
-  unlocked = true,
-  discovered = true,
   blueprint_compat = false,
   eternal_compat = false,
-  soul_pos = nil,
-
   yes_pool_flag = "ghost_cola_can_spawn",
   pools = {
     Food = true
   },
+  unlocked = false,
 
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = G.P_TAGS.tag_negative

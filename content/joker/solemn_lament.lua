@@ -4,14 +4,12 @@ SMODS.Joker {
   pos = { x = 3, y = 1 },
   atlas = "jokers_atlas",
   cost = 6,
-  unlocked = true,
-  discovered = true,
   blueprint_compat = true,
   eternal_compat = true,
-  soul_pos = nil,
   paperback = {
     ignores_the_world = true
   },
+  unlocked = false,
 
   calculate = function(self, card, context)
     if context.repetition and context.cardarea == G.play then

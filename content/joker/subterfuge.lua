@@ -4,12 +4,10 @@ SMODS.Joker {
   pos = { x = 3, y = 5 },
   atlas = 'jokers_atlas',
   cost = 8,
-  unlocked = true,
-  discovered = true,
   blueprint_compat = true,
   eternal_compat = true,
   perishable_compat = true,
-  soul_pos = nil,
+  unlocked = false,
 
   calculate = function(self, card, context)
     if not context.blueprint and context.after and context.main_eval then

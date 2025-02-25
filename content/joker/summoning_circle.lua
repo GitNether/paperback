@@ -4,11 +4,9 @@ SMODS.Joker {
   pos = { x = 1, y = 0 },
   atlas = "jokers_atlas",
   cost = 8,
-  unlocked = true,
-  discovered = true,
   blueprint_compat = true,
   eternal_compat = true,
-  soul_pos = nil,
+  unlocked = false,
 
   calculate = function(self, card, context)
     if not card.debuff then
