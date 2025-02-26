@@ -167,7 +167,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "river",
   "evergreens",
   "backpack",
-  -- "resurrections",
+  "resurrections",
   "summoning_circle",
   "union_card",
   "book_of_vengeance",

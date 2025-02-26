@@ -26,6 +26,16 @@ return {
       }
     },
     Joker = {
+      j_paperback_resurrections = {
+        name = "Resurrections",
+        text = {
+          "Sold {C:attention}Jokers{} have a {C:green}#1# in #2#",
+          "chance to make a {C:dark_edition}Negative",
+          "copy of themselves with",
+          "{C:money}-$#3#{} sell value",
+          "{C:inactive}(Chance capped at {C:green}#4# in #2#{C:inactive})"
+        }
+      },
       j_paperback_book_of_vengeance = {
         name = "Book of Vengeance",
         text = {
