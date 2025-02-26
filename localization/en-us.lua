@@ -26,6 +26,15 @@ return {
       }
     },
     Joker = {
+      j_paperback_book_of_vengeance = {
+        name = "Book of Vengeance",
+        text = {
+          "If {C:attention}first hand{} of round",
+          "defeated the {C:attention}Boss Blind{},",
+          "destroys itself and makes a",
+          "copy of {C:attention}Joker{} to the right"
+        }
+      },
       j_paperback_b_soda = {
         name = "B-Soda",
         text = {

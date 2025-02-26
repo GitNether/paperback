@@ -170,7 +170,7 @@ PB_UTIL.ENABLED_JOKERS = {
   -- "resurrections",
   "summoning_circle",
   "union_card",
-  -- "book_of_vengeance",
+  "book_of_vengeance",
   "moribund",
   "subterfuge",
   "the_world",
