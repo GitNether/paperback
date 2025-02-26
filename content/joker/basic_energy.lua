@@ -2,7 +2,7 @@ SMODS.Joker {
   key = "basic_energy",
   config = {
     extra = {
-      odds = 7
+      odds = 5
     }
   },
   rarity = 2,
