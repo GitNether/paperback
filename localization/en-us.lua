@@ -672,6 +672,10 @@ return {
           "Scored {C:spades}Spades{} and {C:clubs}Clubs",
           "have a {C:green}#1# in #2#{} chance to",
           "be made {C:dark_edition}Polychrome"
+        },
+        unlock = {
+          "Have a {C:dark_edition}Polychrome",
+          "{C:attention}King{} or {C:attention}Jack{}"
         }
       },
       j_paperback_meeple = {

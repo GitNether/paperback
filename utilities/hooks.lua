@@ -207,6 +207,14 @@ function Card.set_cost(self)
   return ret
 end
 
+-- Do modify_deck check when setting edition
+local set_edition_ref = Card.set_edition
+function Card.set_edition(self, edition, immediate, silent)
+  local ret = set_edition_ref(self, edition, immediate, silent)
+  check_for_unlock { type = 'modify_deck' }
+  return ret
+end
+
 local calculate_context_ref = SMODS.calculate_context
 function SMODS.calculate_context(context, return_table)
   -- Check unlocks and increase destroyed counter

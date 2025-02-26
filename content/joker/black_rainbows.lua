@@ -13,6 +13,18 @@ SMODS.Joker {
   eternal_compat = true,
   unlocked = false,
 
+  check_for_unlock = function(self, args)
+    if args.type == 'modify_deck' then
+      for _, v in ipairs(G.playing_cards or {}) do
+        -- If it's a Jack or King with Polychrome
+        if not SMODS.has_no_rank(v) and (v:get_id() == 11 or v:get_id() == 13)
+            and v.edition and v.edition.polychrome then
+          return true
+        end
+      end
+    end
+  end,
+
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = G.P_CENTERS.e_polychrome
 
