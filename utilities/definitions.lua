@@ -116,7 +116,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "basic_energy",
   "reference_card",
   "skydiver",
-  -- "surfer",
+  "surfer",
   "apple",
   "joker_cookie",
   "nachos",

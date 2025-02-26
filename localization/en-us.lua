@@ -350,6 +350,15 @@ return {
           "{C:inactive}(Currently: {C:attention}#2#{C:inactive})",
         },
       },
+      j_paperback_surfer = {
+        name = "Surfer",
+        text = {
+          "This Joker gains {C:chips}+#1#{} chips",
+          "for every {C:attention}#2#{} held",
+          "in hand at end of round",
+          "{C:inactive}(Currently {C:chips}+#3#{C:inactive} chips)"
+        }
+      },
       j_paperback_blue_bonnets = {
         name = "Blue Bonnets",
         text = {
