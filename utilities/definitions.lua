@@ -139,7 +139,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "charred_marshmallow",
   "sticky_stick",
   "sake_cup",
-  -- "full_moon",
+  "full_moon",
   "black_rainbows",
   "emergency_broadcast",
   "triple_moon_goddess",
