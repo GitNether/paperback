@@ -374,6 +374,7 @@ end
 --- that there is space available.
 --- DOES NOT TAKE INTO ACCOUNT ANY OTHER AREAS
 --- @param args CreateCard | { instant: boolean?, func: function? } same arguments passed to SMODS.create_card, with the addition of 'instant' and 'func'
+--- @return boolean? spawned whether the card was able to spawn
 function PB_UTIL.try_spawn_card(args)
   local is_joker = (args.set == 'Joker' or args.key and args.key:sub(1, 1) == 'j')
   local area = args.area or (is_joker and G.jokers) or G.consumeables
@@ -397,6 +398,8 @@ function PB_UTIL.try_spawn_card(args)
     if args.func and type(args.func) == "function" then
       args.func()
     end
+
+    return true
   end
 end
 
@@ -623,6 +626,17 @@ function PB_UTIL.get_lowest_hand_discard()
     return { amt = hands, hands = true }
   else
     return { amt = discards, discards = true }
+  end
+end
+
+--- Returns the key of the Planet card for the specified poker hand
+--- @param hand_name string the name of the poker hand, like "Four of a Kind"
+--- @return string?
+function PB_UTIL.get_planet_for_hand(hand_name)
+  for _, v in ipairs(G.P_CENTER_POOLS.Planet) do
+    if v.config and v.config.hand_type == hand_name then
+      return v.key
+    end
   end
 end
 

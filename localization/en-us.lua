@@ -26,6 +26,15 @@ return {
       }
     },
     Joker = {
+      j_paperback_sake_cup = {
+        name = "Sake Cup",
+        text = {
+          "After a hand is played, {C:attention}#1#s",
+          "{C:attention}held in hand{} have a {C:green}#2# in #3#",
+          "chance to make the {C:planet}Planet",
+          "card for played {C:attention}poker hand"
+        }
+      },
       j_paperback_resurrections = {
         name = "Resurrections",
         text = {
