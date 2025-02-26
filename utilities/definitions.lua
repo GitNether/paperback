@@ -187,7 +187,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "jimbo_adventure",
   -- "ddakji",
   "pocket_pair",
-  -- "the_quiet",
+  "the_quiet",
   "big_misser",
   "heretical_joker",
   "quartz",

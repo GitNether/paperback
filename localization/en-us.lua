@@ -87,6 +87,15 @@ return {
           "at the start of round"
         }
       },
+      j_paperback_the_quiet = {
+        name = "The Quiet",
+        text = {
+          "{X:mult,C:white}X#1#{} Mult for each",
+          "card below {C:attention}#2#{}",
+          "in your full deck",
+          "{C:inactive}(Currently {X:mult,C:white}X#3#{C:inactive} Mult)"
+        }
+      },
       j_paperback_alert = {
         name = "Alert",
         text = {
