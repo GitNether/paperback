@@ -37,6 +37,16 @@ return {
           "{s:0.75}poker hand changes at end of round"
         }
       },
+      j_paperback_power_surge = {
+        name = "Power Surge",
+        text = {
+          "Played {C:attention}#1#s{} give {X:mult,C:white}X#2#{}",
+          "Mult when scored and",
+          "have a {C:green}#3# in #4#{}",
+          "chance to {C:red}destroy{} a",
+          "card {C:attention}held in hand{}",
+        }
+      },
       j_paperback_bismuth = {
         name = "Bismut",
         text = {

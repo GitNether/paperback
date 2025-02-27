@@ -182,7 +182,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "alert",
   "legacy",
   "weather_radio",
-  -- "power_surge",
+  "power_surge",
   "find_jimbo",
   -- "jimbocards",
   -- "banana_man",
