@@ -26,6 +26,17 @@ return {
       }
     },
     Joker = {
+      j_paperback_weather_radio = {
+        name = "Weather Radio",
+        text = {
+          "Gain {X:mult,C:white}X#1#{} Mult if {C:attention}poker hand",
+          "contains a {C:attention}#2#{},",
+          "if {X:mult,C:white}X#3#{} Mult or higher, disable",
+          "{C:attention}Boss Blind{} and lose {X:mult,C:white}X#4#{} Mult",
+          "{C:inactive}(Currently {X:mult,C:white}X#5#{C:inactive} Mult)",
+          "{s:0.75}poker hand changes at end of round"
+        }
+      },
       j_paperback_bismuth = {
         name = "Bismut",
         text = {

@@ -4,6 +4,8 @@ PB_UTIL.config = SMODS.current_mod.config
 -- Load values that get reset at the start of each round
 SMODS.current_mod.reset_game_globals = function(run_start)
   G.GAME.current_round.paperback_scored_clips = 0
+
+  PB_UTIL.reset_weather_radio()
 end
 
 PB_UTIL.base_poker_hands = {
@@ -179,7 +181,7 @@ PB_UTIL.ENABLED_JOKERS = {
   -- "you_are_a_fool",
   "alert",
   "legacy",
-  -- "weather_radio",
+  "weather_radio",
   -- "power_surge",
   "find_jimbo",
   -- "jimbocards",
