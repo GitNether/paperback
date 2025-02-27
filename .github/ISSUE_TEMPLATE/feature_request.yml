@@ -3,11 +3,11 @@ description: Suggest an idea for this project
 assignees: ["OppositeWolf770"]
 type: Feature
 body:
-  - type: markdown
+  - type: textarea
     attributes:
-      value: |
-        **Is your feature request related to a problem? Please describe.**
-        A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+      label: "Is your feature request related to a problem? Please describe."
+      description: "A clear and concise description of what the problem is. "
+      placeholder: "Ex. I'm always frustrated when [...]"
 
   - type: textarea
     id: feature-solution
