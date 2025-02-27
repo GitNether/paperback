@@ -37,7 +37,8 @@ SMODS.Enhancement {
         if (left == ctx.other_card or right == ctx.other_card) then
           return {
             repetitions = 1,
-            card = ctx.other_card
+            message_card = ctx.other_card,
+            juice_card = card,
           }
         end
       end
