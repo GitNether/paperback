@@ -158,7 +158,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "deadringer",
   "bicycle",
   "pride_flag",
-  -- "bismuth",
+  "bismuth",
   "cherry_blossoms",
   "hole_in_one",
   "blue_bonnets",

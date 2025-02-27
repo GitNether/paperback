@@ -26,6 +26,15 @@ return {
       }
     },
     Joker = {
+      j_paperback_bismuth = {
+        name = "Bismut",
+        text = {
+          "Played {C:attention}Wild Cards{} have",
+          "a {C:green}#1# in #2#{} chance to",
+          "gain {C:dark_edition}Foil{}, {C:dark_edition}Holographic",
+          "or {C:dark_edition}Polychrome{} edition"
+        }
+      },
       j_paperback_deadringer = {
         name = "Deadringer",
         text = {
@@ -1304,6 +1313,7 @@ return {
       paperback_melted_ex = "Melted!",
       paperback_investment_ex = "Investment!",
       paperback_plus_minor_arcana = "+1 M. Arcana",
+      paperback_edition_ex = "Edition!",
 
       paperback_ui_requires_restart = "Requires Restart",
       paperback_ui_enable_jokers = "Enable Jokers",
