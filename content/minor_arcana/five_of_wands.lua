@@ -8,8 +8,14 @@ PB_UTIL.MinorArcana {
   end,
 
   use = function(self, card, area)
+    local cards = {}
+
+    for _, v in ipairs(G.hand.cards) do
+      cards[#cards + 1] = v
+    end
+
     PB_UTIL.use_consumable_animation(card, nil, function()
-      PB_UTIL.destroy_playing_cards(G.hand.cards)
+      PB_UTIL.destroy_playing_cards(cards)
 
       if G.GAME.dollars ~= 0 then
         ease_dollars(-G.GAME.dollars, true)
