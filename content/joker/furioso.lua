@@ -41,7 +41,7 @@ SMODS.Joker {
     -- Calculate the added x_mult depending on rank flags
     if context.individual and not context.blueprint and not context.repetition then
       if context.cardarea == G.play and not context.other_card.debuff then
-        local rank = SMODS.has_no_rank(context.other_card) and nil or context.other_card:get_id()
+        local rank = not SMODS.has_no_rank(context.other_card) and context.other_card:get_id()
 
         if rank and not card.ability.extra.ranks[rank] then
           card.ability.extra.x_mult = card.ability.extra.x_mult + card.ability.extra.x_mult_mod
