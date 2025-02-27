@@ -155,7 +155,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "prince_of_darkness",
   "jester_of_nihil",
   "wild_prize",
-  -- "deadringer",
+  "deadringer",
   "bicycle",
   "pride_flag",
   -- "bismuth",

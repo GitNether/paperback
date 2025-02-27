@@ -26,6 +26,13 @@ return {
       }
     },
     Joker = {
+      j_paperback_deadringer = {
+        name = "Deadringer",
+        text = {
+          "Retrigger {C:attention}#1#s{} and {C:attention}#2#s",
+          "once, and {C:attention}#3#s{} twice"
+        }
+      },
       j_paperback_full_moon = {
         name = "Full Moon",
         text = {
