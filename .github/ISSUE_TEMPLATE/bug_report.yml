@@ -1,0 +1,107 @@
+name: Bug Report
+description: Create a report to help us improve
+type: Bug
+assignees:
+  - OppositeWolf770
+body:
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: "Describe the bug"
+      description: "A clear and concise description of what the bug is."
+      placeholder: "The application crashes when I try to..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: "To Reproduce"
+      description: "Steps to reproduce the behavior:"
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: "Expected behavior"
+      description: "A clear and concise description of what you expected to happen."
+      placeholder: "I expected the application to..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: "Screenshots"
+      description: "If applicable, add screenshots to help explain your problem."
+      placeholder: "Drag and drop images here or attach files."
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: "---"
+
+  - type: input
+    id: os
+    attributes:
+      label: "OS"
+      description: "What operating system are you using?"
+      placeholder: "e.g. Windows 11"
+    validations:
+      required: true
+
+  - type: input
+    id: lovely-version
+    attributes:
+      label: "Lovely Version"
+      description: "What version of Lovely are you using?"
+      placeholder: "e.g. 0.7.1"
+    validations:
+      required: true
+
+  - type: input
+    id: steamodded-version
+    attributes:
+      label: "Steamodded Version"
+      description: "What version of Steamodded are you using?"
+      placeholder: "e.g. 1.0.0~ALPHA-1420a"
+    validations:
+      required: true
+      
+  - type: input
+    id: paperback-version
+    attributes:
+      label: "Paperback Version"
+      description: "What version of Paperback are you using?"
+      placeholder: "e.g. 0.6.0-pre2"
+    validations:
+      required: true
+      
+  - type: markdown
+    attributes:
+      value: "---"
+      
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: "Additional Context"
+      description: "Add any other context about the problem here."
+      placeholder: "Any additional details..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: crash-log
+    attributes:
+      label: "Crash Log"
+      description: "If applicable, attach the crash log here."
+      placeholder: "Paste the crash log here..."
+    validations:
+      required: false

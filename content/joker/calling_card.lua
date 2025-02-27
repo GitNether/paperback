@@ -42,7 +42,7 @@ SMODS.Joker {
 
     if context.joker_main then
       -- Upgrade joker if boss blind triggered
-      if G.GAME.blind.triggered and not context.blueprint then
+      if G.GAME.blind.triggered and G.GAME.blind.boss and not context.blueprint then
         card.ability.extra.x_mult = card.ability.extra.x_mult + card.ability.extra.Xmult_mod
 
         SMODS.calculate_effect({

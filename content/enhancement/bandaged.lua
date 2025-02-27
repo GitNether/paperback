@@ -21,6 +21,7 @@ SMODS.Enhancement {
     local ctx = context.paperback or {}
 
     if ctx.repetition_from_playing_card and ctx.cardarea == card.area then
+      local scoring = true
       local index
 
       for k, v in ipairs(ctx.cardarea.cards) do
@@ -30,14 +31,26 @@ SMODS.Enhancement {
         end
       end
 
-      if index then
+      if ctx.cardarea == G.play then
+        scoring = false
+
+        for k, v in ipairs(ctx.scoring_hand or {}) do
+          if v == card then
+            scoring = true
+            break
+          end
+        end
+      end
+
+      if index and scoring then
         local left = ctx.cardarea.cards[index - 1]
         local right = ctx.cardarea.cards[index + 1]
 
         if (left == ctx.other_card or right == ctx.other_card) then
           return {
             repetitions = 1,
-            card = ctx.other_card
+            message_card = ctx.other_card,
+            juice_card = card,
           }
         end
       end
