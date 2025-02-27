@@ -4,8 +4,8 @@ SMODS.PokerHand { -- Spectrum Five (Referenced from SixSuits)
   visible = false,
   chips = 180,
   mult = 18,
-  l_chips = 25,
-  l_mult = 2,
+  l_chips = 55,
+  l_mult = 3,
   example = {
     { 'S_7',                true },
     { 'D_7',                true },

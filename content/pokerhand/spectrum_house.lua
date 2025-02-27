@@ -4,8 +4,8 @@ SMODS.PokerHand { -- Spectrum House (Referenced from SixSuits)
   visible = false,
   chips = 150,
   mult = 15,
-  l_chips = 35,
-  l_mult = 3,
+  l_chips = 40,
+  l_mult = 4,
   example = {
     { 'S_Q',                true },
     { 'paperback_CROWNS_Q', true },

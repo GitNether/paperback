@@ -3,8 +3,8 @@ SMODS.PokerHand { -- Straight Spectrum (Referenced from SixSuits)
   visible = false,
   chips = 120,
   mult = 10,
-  l_chips = 30,
-  l_mult = 3,
+  l_chips = 45,
+  l_mult = 4,
   example = {
     { 'S_Q',                true },
     { 'paperback_CROWNS_J', true },
