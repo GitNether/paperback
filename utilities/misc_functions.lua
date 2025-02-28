@@ -351,23 +351,17 @@ function PB_UTIL.add_tag(tag, event)
   end
 end
 
----Gets a pseudorandom consumable from the Consumables pool (Soul and Black Hole included)
----@param seed string
----@param soulable boolean
----@return table
-function PB_UTIL.poll_consumable(seed, soulable)
+--- Gets a random consumable type
+--- @param seed string
+--- @return SMODS.ConsumableType
+function PB_UTIL.poll_consumable_type(seed)
   local types = {}
 
-  for k, v in pairs(SMODS.ConsumableTypes) do
-    types[#types + 1] = k
+  for _, v in pairs(SMODS.ConsumableTypes) do
+    types[#types + 1] = v
   end
 
-  return SMODS.create_card {
-    set = pseudorandom_element(types, pseudoseed(seed)),
-    area = G.consumables,
-    soulable = soulable,
-    key_append = seed,
-  }
+  return pseudorandom_element(types, pseudoseed(seed))
 end
 
 --- Tries to spawn a card into either the Jokers or Consumeable card areas, ensuring

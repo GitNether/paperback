@@ -26,6 +26,16 @@ return {
       }
     },
     Joker = {
+      j_paperback_ddakji = {
+        name = "Ddakji",
+        text = {
+          "{C:green}#1# in #2#{} cards get drawn",
+          "face down, if scored hand",
+          "contains a {C:attention}face up{} and",
+          "{C:attention}face down{} card, create",
+          "a random consumable"
+        }
+      },
       j_paperback_weather_radio = {
         name = "Weather Radio",
         text = {
@@ -1334,6 +1344,7 @@ return {
       paperback_melted_ex = "Melted!",
       paperback_investment_ex = "Investment!",
       paperback_plus_minor_arcana = "+1 M. Arcana",
+      paperback_plus_consumable = "+1 Consumable",
       paperback_edition_ex = "Edition!",
 
       paperback_ui_requires_restart = "Requires Restart",

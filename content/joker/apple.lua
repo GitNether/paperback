@@ -40,10 +40,13 @@ SMODS.Joker {
               trigger = 'before',
               func = function()
                 -- Give the negative consumable
-                local _card = PB_UTIL.poll_consumable('apple', true)
-                _card:set_edition({ negative = true })
-                _card:add_to_deck()
-                G.consumeables:emplace(_card)
+                SMODS.add_card {
+                  set = PB_UTIL.poll_consumable_type('apple').key,
+                  area = G.consumables,
+                  edition = 'e_negative',
+                  soulable = true,
+                  key_append = 'apple',
+                }
 
                 return true
               end
