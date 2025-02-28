@@ -2,6 +2,7 @@ SMODS.Enhancement {
   key = "ceramic",
   atlas = 'enhancements_atlas',
   pos = { x = 1, y = 0 },
+  shatters = true,
   config = {
     extra = {
       a_money_low = 1,
