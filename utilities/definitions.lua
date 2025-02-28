@@ -202,7 +202,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "sweet_stick",
   "wheat_field",
   -- "kintsugi_joker",
-  -- "watercolor_joker",
+  "watercolor_joker",
   -- "winter_melon",
   -- "freezer",
   -- "perke_os",

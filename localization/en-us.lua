@@ -817,6 +817,13 @@ return {
           "{C:inactive}(Resets after each hand played)",
         },
       },
+      j_paperback_watercolor_joker = {
+        name = "Watercolor Joker",
+        text = {
+          "{C:attention}#1#s give",
+          "{X:chips,C:white}X#2#{} Chips when scored",
+        }
+      },
       j_paperback_birches = {
         name = "Birches",
         text = {
