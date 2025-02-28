@@ -1,0 +1,44 @@
+{
+  "Card's ability table value": {
+    "prefix": "cae",
+    "body": [
+      "card.ability.extra.$0",
+    ],
+    "description": "Shortcut for a variable in a Card's ability table"
+  },
+  "Joker creation table": {
+    "prefix": "jkr",
+    "body": [
+      "SMODS.Joker {",
+      "\tkey = \"$1\",",
+      "\tconfig = {",
+      "\t\textra = {",
+      "\t\t\t$2",
+      "\t\t}",
+      "\t},",
+      "\trarity = ${3|1,2,3,4|},",
+      "\tpos = { x = $4, y = $5 },",
+      "\tatlas = \"jokers_atlas\",",
+      "\tcost = $7,",
+      "\tunlocked = ${8|true,false|},",
+      "\tdiscovered = ${9|true,false|},",
+      "\tblueprint_compat = ${10|true,false|},",
+      "\teternal_compat = ${11|true,false|},",
+      "\tperishable_compat = ${12|true,false|},",
+      "\tsoul_pos = ${13:nil},",
+      "",
+      "\tloc_vars = function(self, info_queue, card)",
+      "\t\treturn {",
+      "\t\t\tvars = {",
+      "\t\t\t\t$14",
+      "\t\t\t}",
+      "\t\t}",
+      "\tend,",
+      "",
+      "\tcalculate = function(self, card, context)",
+      "\t\t$15",
+      "\tend",
+      "}",
+    ]
+  }
+}
