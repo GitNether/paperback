@@ -39,5 +39,11 @@
       "\tend",
       "}",
     ]
+  },
+  "PB_UTIL shortcut": {
+    "prefix": "pu",
+    "body": [
+      "PB_UTIL.$1",
+    ]
   }
 }
