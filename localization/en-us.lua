@@ -26,6 +26,15 @@ return {
       }
     },
     Joker = {
+      j_paperback_kintsugi_joker = {
+        name = "Kintsugi Joker",
+        text = {
+          "Increases the maximum payout",
+          "of {C:attention}#2#s{} by {C:money}$#1#{} when",
+          "a {C:attention}#2#{} is destroyed",
+          "{C:inactive}(Currently increased by {C:money}$#3#{C:inactive})"
+        }
+      },
       j_paperback_ddakji = {
         name = "Ddakji",
         text = {

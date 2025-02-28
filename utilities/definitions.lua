@@ -6,6 +6,10 @@ SMODS.current_mod.reset_game_globals = function(run_start)
   G.GAME.current_round.paperback_scored_clips = 0
 
   PB_UTIL.reset_weather_radio()
+
+  if run_start then
+    G.GAME.round_resets.paperback_ceramic_inc = 0
+  end
 end
 
 PB_UTIL.base_poker_hands = {
@@ -201,7 +205,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "tanghulu",
   "sweet_stick",
   "wheat_field",
-  -- "kintsugi_joker",
+  "kintsugi_joker",
   "watercolor_joker",
   -- "winter_melon",
   -- "freezer",
