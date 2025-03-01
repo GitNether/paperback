@@ -2,7 +2,7 @@ SMODS.Joker {
   key = 'meeple',
   config = {
     extra = {
-      odds = 10,
+      odds = 5,
       discards_given = 1,
     }
   },
